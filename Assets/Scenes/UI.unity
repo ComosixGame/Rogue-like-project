@@ -13240,7 +13240,7 @@ Transform:
   - {fileID: 312177599}
   - {fileID: 700610513}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1001119831
 MonoBehaviour:
@@ -27482,7 +27482,7 @@ Transform:
   m_Children:
   - {fileID: 308289373}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2067411447
 MonoBehaviour:
