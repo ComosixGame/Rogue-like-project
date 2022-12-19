@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamageble : MonoBehaviour, IDamageble
@@ -8,10 +6,16 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     [SerializeField] private float maxHealth;
     private float health;
     private bool destroyed;
+    private MeshRenderer meshRenderer;
+    private MaterialPropertyBlock  materialPropertyBlock;
     private GameManager gameManager;
     
     private void Awake() {
         gameManager = GameManager.Instance;
+        meshRenderer = GetComponent<MeshRenderer>();
+        materialPropertyBlock = new MaterialPropertyBlock();
+        materialPropertyBlock.SetFloat("_alpha_threshold", 1);
+        meshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
 
     private void Start() {
@@ -19,17 +23,26 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         gameManager.enemies.Add(transform);
     }
 
+    private void Update() {
+        float alphaThreshold = materialPropertyBlock.GetFloat("_alpha_threshold");
+        if(alphaThreshold > 0) {
+            float newAlphaThreshold = Mathf.MoveTowards(alphaThreshold, 0, 1f * Time.deltaTime);
+            materialPropertyBlock.SetFloat("_alpha_threshold", newAlphaThreshold);
+            meshRenderer.SetPropertyBlock(materialPropertyBlock);
+        }
+    }
+
     public void TakeDamge(float damage)
     {
        health -= damage;
        if(health <= 0 && !destroyed) {
             destroyed = true;
-            Instantiate(destroyEffect, transform.position, Quaternion.identity);
             Destroy();
        } 
     }
 
     public void Destroy() {
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
         gameManager.enemies.Remove(transform);
         Destroy(gameObject);
     }
