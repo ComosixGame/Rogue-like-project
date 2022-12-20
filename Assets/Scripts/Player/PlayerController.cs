@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float dodgeTime;
     public LayerMask layeDodgeable;
-    [SerializeField] public Rig rigAim;
+    [SerializeField] public Rig rigHand, rigAim;
     [SerializeField] private Transform targetAim;
     private bool readyAttack;
     private float delayAttack = 0.2f, timerAttack;
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
             controller.Move(motionMove + motionFall);
         } else {
         // thực hiện lăn
+            rigHand.weight = 0;
             controller.Move(transform.forward.normalized * speed * Time.deltaTime);
             if(!startDodge) {
                 startDodge = true;
@@ -158,6 +159,7 @@ public class PlayerController : MonoBehaviour
     private void ResetDodge() {
         dodging = false;
         startDodge = false;
+        rigHand.weight = 1;
     }
 
     private void HandleDodgeObtacle (Collider other, bool isTrigger) {
