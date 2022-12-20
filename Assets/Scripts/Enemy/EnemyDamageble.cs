@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyDamageble : MonoBehaviour, IDamageble
 {
+    [SerializeField] private string key;
     public ParticleSystem destroyEffect;
     [SerializeField] private float maxHealth;
     private float health;
@@ -9,9 +10,11 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private MeshRenderer meshRenderer;
     private MaterialPropertyBlock  materialPropertyBlock;
     private GameManager gameManager;
+    private ObjectPooler objectPooler;
     
     private void Awake() {
         gameManager = GameManager.Instance;
+        objectPooler = ObjectPooler.Instance;
         meshRenderer = GetComponent<MeshRenderer>();
         materialPropertyBlock = new MaterialPropertyBlock();
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
@@ -44,6 +47,6 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     public void Destroy() {
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
         gameManager.enemies.Remove(transform);
-        Destroy(gameObject);
+        objectPooler.InactiveObject(key, gameObject);
     }
 }

@@ -218,7 +218,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 919132148653637975}
   m_Follow: {fileID: 919132148653637975}
   m_Lens:
-    FieldOfView: 70
+    FieldOfView: 80
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 60
@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144378318}
-  m_LocalRotation: {x: 0.43326366, y: 2.791812e-15, z: -1.1846779e-16, w: 0.9012673}
+  m_LocalRotation: {x: 0.46144652, y: 9.672604e-16, z: -6.725479e-16, w: 0.88716805}
   m_LocalPosition: {x: 0, y: 21, z: -25.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -296,7 +296,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 30, y: 5, z: 40}
+  m_Size: {x: 35, y: 5, z: 40}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &211622446
 Transform:
@@ -306,7 +306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211622444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.1, z: -14.9}
+  m_LocalPosition: {x: 0, y: 30, z: -8.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -366,7 +366,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 60
-  field of view: 70
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -391,8 +391,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.43326366, y: 2.791812e-15, z: -1.1846779e-16, w: 0.9012673}
-  m_LocalPosition: {x: 0, y: 21, z: -25.6}
+  m_LocalRotation: {x: 0.46144652, y: 9.672604e-16, z: -6.725479e-16, w: 0.88716805}
+  m_LocalPosition: {x: 0, y: 27.5, z: -25.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -554,7 +554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 14.7, y: 38.1, z: -25.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -705,23 +705,19 @@ MonoBehaviour:
   minObstacle: 10
   maxObstacle: 20
   obstacles:
-  - gameObject: {fileID: 4411282911175504819, guid: 51fd8a0a51f418b40ac633676d8348a6,
-      type: 3}
+  - keyObject: obstacle_1
     chanceToSpawn: 85
-  - gameObject: {fileID: 7041216380034293524, guid: 36e1dcbcca98b9d468ed9ba4b827d166,
-      type: 3}
+  - keyObject: obstacle_2
     chanceToSpawn: 15
   minEnemy: 5
   maxEnemy: 8
   delaySpawnEnemy: 1.5
-  spawnEffect: {fileID: 5291275307717659108, guid: a7f11946d53434a4bab27f937bea71f8,
+  spawnEffect: {fileID: 2152171318703573046, guid: bb33d9e1a8a8e194a8874dd07becbccc,
     type: 3}
   enemies:
-  - gameObject: {fileID: 7407995875355185235, guid: 5f6636215e009b946a6b80c31e298251,
-      type: 3}
+  - keyObject: enemy_1
     chanceToSpawn: 80
-  - gameObject: {fileID: 7407995875355185235, guid: 81e47eedad6983d44a226751dc5cb411,
-      type: 3}
+  - keyObject: enemy_2
     chanceToSpawn: 20
 --- !u!4 &545995854 stripped
 Transform:
@@ -1336,6 +1332,53 @@ MonoBehaviour:
       x: 1
       y: 1
       z: 1
+--- !u!1 &2045464287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045464289}
+  - component: {fileID: 2045464288}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2045464288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045464287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cb5ad6573c11249b0d0b0a8cbb3c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
+    type: 2}
+  objectPrefabs: []
+--- !u!4 &2045464289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045464287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046249686
 GameObject:
   m_ObjectHideFlags: 3
