@@ -15,7 +15,6 @@ public class MapGeneration : MonoBehaviour
         public GameObject GetObject() {
             return gameObject;
         }
-
     }
     [SerializeField] private Transform startPosition;
     [SerializeField] private int row, collumn;
