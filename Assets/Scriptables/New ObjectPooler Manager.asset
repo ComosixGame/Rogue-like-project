@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9cf554918c82f4bb888398d9e0a6b8, type: 3}
+  m_Name: New ObjectPooler Manager
+  m_EditorClassIdentifier: 
+  prefabs:
+  - key: enemy_1
+    size: 10
+    prefab: {fileID: 7407995875355185235, guid: 5f6636215e009b946a6b80c31e298251,
+      type: 3}
+  - key: enemy_2
+    size: 10
+    prefab: {fileID: 7407995875355185235, guid: 81e47eedad6983d44a226751dc5cb411,
+      type: 3}
+  - key: obstacle_1
+    size: 30
+    prefab: {fileID: 4411282911175504819, guid: 51fd8a0a51f418b40ac633676d8348a6,
+      type: 3}
+  - key: obstacle_2
+    size: 30
+    prefab: {fileID: 7041216380034293524, guid: 36e1dcbcca98b9d468ed9ba4b827d166,
+      type: 3}

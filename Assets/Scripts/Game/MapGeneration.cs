@@ -6,14 +6,14 @@ public class MapGeneration : MonoBehaviour
 {
     [System.Serializable]
     public class ObjectSpawn {
-        [SerializeField] private GameObject gameObject;
+        [SerializeField] private string keyObject;
         [SerializeField] private int chanceToSpawn;
 
         public int GetChanceToSpawn() {
             return chanceToSpawn;
         }
-        public GameObject GetObject() {
-            return gameObject;
+        public string GetKey() {
+            return keyObject;
         }
     }
     [SerializeField] private Transform startPosition;
@@ -28,8 +28,10 @@ public class MapGeneration : MonoBehaviour
     private List<int> listIndexEnemy;
     private List<int> listIndexObstacle;
     private int quantityObstacle, quantityEnemy;
+    private ObjectPooler objectPooler;
 
     private void Awake() {
+        objectPooler = ObjectPooler.Instance;
         gridPositions = new List<Vector3>();
         listIndexEnemy = new List<int>();
         listIndexObstacle = new List<int>();
@@ -58,7 +60,7 @@ public class MapGeneration : MonoBehaviour
         //random vật cản
         RandomSpawnoObstacle();
         //random enemy
-        RandomSpawnEnemy();
+        Invoke("RandomSpawnEnemy", 1f);
     }
 
     private void CreateGridBoard() {
@@ -79,7 +81,7 @@ public class MapGeneration : MonoBehaviour
         for(int i = 0 ; i < quantityObstacle ; i ++) {
             int randomIndexObstacle  = listIndexObstacle[Random.Range(0, listIndexObstacle.Count)];
             int randomIndexPos = Random.Range(0,gridPositions.Count);
-            Instantiate(obstacles[randomIndexObstacle].GetObject(), gridPositions[randomIndexPos], Quaternion.identity);
+            objectPooler.SpawnObject(obstacles[randomIndexObstacle].GetKey(), gridPositions[randomIndexPos], Quaternion.identity);
             gridPositions.RemoveAt(randomIndexPos);
         }
     }
@@ -98,7 +100,7 @@ public class MapGeneration : MonoBehaviour
     IEnumerator SpawnEnemy(Vector3 position, ParticleSystem spawnEffect) {
         yield return new WaitForSeconds(delaySpawnEnemy);
         int randomIndexEnemy = listIndexEnemy[Random.Range(0, listIndexEnemy.Count)];
-        Instantiate(enemies[randomIndexEnemy].GetObject(), position, Quaternion.identity);
+        objectPooler.SpawnObject(enemies[randomIndexEnemy].GetKey(),  position, Quaternion.identity);
         spawnEffect.Stop();
         Destroy(spawnEffect.gameObject, 0.5f);
     }
