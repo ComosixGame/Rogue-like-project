@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3524074213214776614}
   - component: {fileID: 3166427048461621520}
   - component: {fileID: 3931644168276374691}
-  - component: {fileID: 8760771856754633712}
-  m_Layer: 0
-  m_Name: Sphere
+  - component: {fileID: 2345163967831956848}
+  m_Layer: 8
+  m_Name: BulletEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 1
---- !u!114 &8760771856754633712
+--- !u!114 &2345163967831956848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,9 +233,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7155788659206797011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c80e112befe6a4ea38ab781c3389d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 87638a81b98c036498ac740c0d3c0e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3931644168276374691}
-  impactEffect: {fileID: 5880797563141009103, guid: 6a1781d1579f2374297c02b1e938a264,
-    type: 3}
+  _rb: {fileID: 3931644168276374691}
+  fired: 1
+  dir: {x: 0, y: 0, z: 0}

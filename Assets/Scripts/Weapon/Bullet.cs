@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate() {
         if(fired) {
-            rb.velocity = transform.forward.normalized * 100f;
+            rb.velocity = transform.forward.normalized * 50.0f;
         }
     }
 
