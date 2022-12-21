@@ -11,15 +11,9 @@ public class Bullet : MonoBehaviour
         Invoke("AutoDestroy", 5f);
     }
 
-    // Update is called once per frame
-    void FixUpdate()
-    {
-
-    }
-
     private void FixedUpdate() {
         if(fired) {
-            rb.velocity = transform.forward.normalized * 50.0f;
+            rb.velocity = transform.forward.normalized * 30f;
         }
     }
 
