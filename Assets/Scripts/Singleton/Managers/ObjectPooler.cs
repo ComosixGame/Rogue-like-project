@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MyCustomAttribute;
@@ -23,6 +24,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
     [SerializeField] private ObjectPoolerScriptable objectPoolerScriptable;
     [ReadOnly, SerializeField] private List<ObjectPrefab> objectPrefabs;
     private Dictionary<string, ObjectPrefab> dictionary;
+    public event Action OnCreatedObject;
 
     protected override void Awake()
     {
@@ -30,7 +32,9 @@ public class ObjectPooler : Singleton<ObjectPooler>
         // tạo list các object để dễ quan sát
         objectPrefabs = new List<ObjectPrefab>();
         dictionary = new Dictionary<string, ObjectPrefab>();
+    }
 
+    private void Start() {
         // khởi tạo object pooler
         foreach(ObjectPoolerScriptable.ScripblePrefab prefab in objectPoolerScriptable.prefabs) {
             ObjectPrefab objectPrefab = new ObjectPrefab(prefab.key, prefab.size, prefab.prefab);
@@ -48,6 +52,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
                 objectPrefab.objectPool.Enqueue(gameObj);
             }
         }
+        OnCreatedObject?.Invoke();
     }
 
     public GameObject SpawnObject(string key, Vector3 position, Quaternion rotation) {

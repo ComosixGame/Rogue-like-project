@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask layeDodgeable;
     [SerializeField] public Rig rigHand, rigAim;
     [SerializeField] private Transform targetAim;
+    public float fireRateTime = 0.5f;
+    private float timerAttack;
     private bool readyAttack;
-    private float delayAttack = 0.2f, timerAttack;
     private Vector3 dirMove;
     private bool startDodge, dodging;
     private InputAssets inputs;
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
             timerAttack += Time.deltaTime;
             animator.SetBool(aimHash, true);
             rigAim.weight = 1;
-            if(timerAttack >= delayAttack) {
+            if(timerAttack >= fireRateTime) {
                 timerAttack = 0;
                 attackEffect.Play();
                 animator.SetTrigger(attackHash);

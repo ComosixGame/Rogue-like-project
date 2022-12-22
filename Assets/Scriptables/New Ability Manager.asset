@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f28b2aa1fdbb0f4f8414bd982208c19, type: 3}
+  m_Name: New Ability Manager
+  m_EditorClassIdentifier: 
+  abilityModules:
+  - {fileID: 520972750518464565, guid: 339441f91e861f64f9381db0f0264393, type: 3}
+  - {fileID: -5291662440539973141, guid: 04e81567c0d430a438e4fb1936f7323a, type: 3}
+  - {fileID: 8885359795978356064, guid: 3d55079dc57132147a7f6a85879e36e5, type: 3}
+  - {fileID: 8125591063201625005, guid: d1a126460619bf54285ee886781cee58, type: 3}
