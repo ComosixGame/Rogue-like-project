@@ -20,7 +20,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
-
+ 
     private void Start() {
         health = maxHealth;
         gameManager.enemies.Add(transform);

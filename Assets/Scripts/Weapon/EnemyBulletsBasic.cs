@@ -1,33 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBulletsBasic : AbsBullet
 {
-    public override void AutoDestroy()
-    {
-        Destroy(gameObject);
-    }
 
-    public override void Fire(Vector3 direction)
+    private float speedBullet = 10.0f;
+    public override void Start()
     {
-        fired = true;
+        Invoke("AutoDestroy", 5f);
     }
 
     public override void FixedUpdate()
     {
         if(fired) {
-            _rb.velocity = transform.forward.normalized * 50.0f;
+            _rb.velocity = transform.forward.normalized * speedBullet;
         }
     }
 
     public override void OnCollisionEnter(Collision other)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+    }
+    public override void AutoDestroy()
+    {
+        Destroy(gameObject);
     }
 
-    public override void Start()
+
+    public override void Fire(Vector3 direction)
     {
-        Invoke("AutoDestroy", 5f);
+        fired = true;
+        dir = direction;
     }
 }
