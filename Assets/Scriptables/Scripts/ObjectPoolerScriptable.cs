@@ -4,7 +4,7 @@ using UnityEngine;
 using MyCustomAttribute;
 
 
-[CreateAssetMenu(fileName = "New ObjectPooler Manager", menuName = "ObjectPooler Manager")]
+[CreateAssetMenu(fileName = "New ObjectPooler Manager", menuName = "Scriptable Manager/ObjectPooler Manager")]
 public class ObjectPoolerScriptable : ScriptableObject
 {
     [System.Serializable]
