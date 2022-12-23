@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using MyCustomAttribute;
 
 public abstract class AbsBullet : MonoBehaviour
 {
-    public Rigidbody _rb;
+    [SerializeField] protected Rigidbody _rb;
     //public ParticleSystem impactEffect;
-    public bool fired;
+    [SerializeField, ReadOnly] protected bool fired;
+    protected Vector3 dir;
 
     public abstract void Start();
 

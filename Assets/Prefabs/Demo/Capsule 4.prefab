@@ -145,9 +145,9 @@ GameObject:
   - component: {fileID: 7407995875355185237}
   - component: {fileID: 7407995875355185236}
   - component: {fileID: 7407995875355185227}
-  - component: {fileID: 5903251921383155484}
+  - component: {fileID: 5190694723900107276}
   m_Layer: 7
-  m_Name: Capsule
+  m_Name: Capsule 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   _player: {fileID: 2694546641388824592, guid: 717ddf357a839a148a363692f586e37e, type: 3}
   delayAttack: 3
   timerAttack: 0
-  _absAttach: {fileID: 7991186218002894356, guid: b8fbfaa7aba21e24ba18ed9a091cc02f,
+  _absAttach: {fileID: 6575222288703455151, guid: 9dda88f0cc8de094f82504d0ec0752ac,
     type: 3}
 --- !u!54 &7407995875355185236
 Rigidbody:
@@ -301,11 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224713816ebe5348acaac3878200411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: enemy_1
+  key: enemy_5
   destroyEffect: {fileID: 725748389856807712, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 100
---- !u!114 &5903251921383155484
+--- !u!114 &5190694723900107276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,7 +314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7407995875355185235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
+  m_Script: {fileID: 11500000, guid: f1e79f269c2d6ff4d8255ea97d4226e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7155788659206797011, guid: fd26c7cda045d154e9893d2274fc596f, type: 3}
+  numberOfBullet: 3
+  _delayAttack: 0.5
+  _timerAttack: 0
+  fire: 0
