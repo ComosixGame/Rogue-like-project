@@ -102,7 +102,7 @@ public class MapGeneration : MonoBehaviour
     IEnumerator SpawnEnemy(Vector3 position, ParticleSystem spawnEffect) {
         yield return new WaitForSeconds(delaySpawnEnemy);
         int randomIndexEnemy = listIndexEnemy[Random.Range(0, listIndexEnemy.Count)];
-        objectPooler.SpawnObject(enemies[randomIndexEnemy].GetKey(),  position, Quaternion.identity);
+        objectPooler.SpawnObject(enemies[randomIndexEnemy].GetKey(), position, Quaternion.identity);
         spawnEffect.Stop();
         Destroy(spawnEffect.gameObject, 0.5f);
     }
