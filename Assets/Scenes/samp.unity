@@ -777,6 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9cb8ba550774b44ab761ff8b320c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levels: 10
+  waves: 3
   startPosition: {fileID: 190321703}
   row: 8
   collumn: 8
@@ -786,8 +788,9 @@ MonoBehaviour:
   - gameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
       type: 3}
     chanceToSpawn: 100
-  minEnemy: 5
-  maxEnemy: 8
+  minEnemy: 1
+  maxEnemy: 1
+  increasesEnemy: 2
   delaySpawnEnemy: 1.5
   enemies:
   - gameObjectPool: {fileID: 7591746090547872497, guid: 5f6636215e009b946a6b80c31e298251,
@@ -795,6 +798,8 @@ MonoBehaviour:
     chanceToSpawn: 100
   teleEffect: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
     type: 3}
+  CurrentLevel: 1
+  CurrentWave: 1
 --- !u!4 &545995854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915972507320496386, guid: 717ddf357a839a148a363692f586e37e,
@@ -1161,6 +1166,51 @@ MonoBehaviour:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
+--- !u!1 &1738909850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738909852}
+  - component: {fileID: 1738909851}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1738909851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738909850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edbd68ea518425408187bd8f1e2bd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+--- !u!4 &1738909852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738909850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.00761, y: -4.949785, z: -4.344163}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1765340771
 GameObject:
   m_ObjectHideFlags: 0

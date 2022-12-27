@@ -9,6 +9,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private bool destroyed;
     private MeshRenderer meshRenderer;
     private MaterialPropertyBlock  materialPropertyBlock;
+    public bool instantiated;
     private GameObjectPool gameObjectPool;
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
@@ -22,10 +23,10 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
     }
- 
+
     private void Start() {
         health = maxHealth;
-        gameManager.enemies.Add(transform);
+        gameManager.AddEnemy(transform);
     }
 
     private void Update() {
@@ -48,7 +49,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
 
     public void Destroy() {
         ObjectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
-        gameManager.enemies.Remove(transform);
+        gameManager.RemoveEnemy(transform);
         ObjectPoolerManager.DeactiveObject(gameObjectPool);
     }
 }

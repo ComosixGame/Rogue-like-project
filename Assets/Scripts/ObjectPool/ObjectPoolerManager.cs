@@ -91,6 +91,17 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     }
 
     public void ResetObjectPoolerManager() {
-
+        //ẩn tất cả object
+        for(int i = 0; i < transform.childCount; i ++) {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        //reset chỉ số
+        foreach(ObjectPoolerScriptable.ScripblePrefab scripblePrefab in ObjectPoolerScriptable.prefabs) {
+            ObjectPrefab objectPrefab = dictionary[scripblePrefab.GameObjectPool.key];
+            for(int i = 0; i < objectPrefab.size; i++) {
+                objectPrefab.inactive ++;
+                objectPrefab.active --;
+            }
+        }
     }
 }

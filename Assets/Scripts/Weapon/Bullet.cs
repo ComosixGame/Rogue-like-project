@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
         gameObjectPool = GetComponent<GameObjectPool>();
     }
 
-    private void OnEnable() {
+    private void Start() {
         Invoke("Destroy", 5f);
     }
 

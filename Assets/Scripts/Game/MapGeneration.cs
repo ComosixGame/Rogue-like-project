@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyCustomAttribute;
 
 public class MapGeneration : MonoBehaviour
 {
@@ -17,27 +18,32 @@ public class MapGeneration : MonoBehaviour
             return(gameObjectPool);
         }
     }
+    [SerializeField] private int levels, waves;
     [SerializeField] private Transform startPosition;
     [SerializeField] private int row, collumn;
     [SerializeField] private int minObstacle, maxObstacle;
     [SerializeField] private ObjectSpawn[] obstacles;
     [SerializeField] private int minEnemy, maxEnemy;
+    [SerializeField] private int increasesEnemy;
     public float delaySpawnEnemy;
     [SerializeField] private ObjectSpawn[] enemies;
     public EffectObjectPool teleEffect;
-    private List<Vector3> gridPositions;
+    private List<Vector3> gridPositions, enemyPosSpawned, obstaclePosSpawned;
     private List<int> listIndexEnemy;
     private List<int> listIndexObstacle;
     private int quantityObstacle, quantityEnemy;
-    private List<Vector3> enemyPosSpawn;
+    [SerializeField, ReadOnly] private int CurrentLevel = 1, CurrentWave = 1;
     private ObjectPoolerManager ObjectPoolerManager;
+    private GameManager gameManager;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
+        gameManager = GameManager.Instance;
         gridPositions = new List<Vector3>();
+        enemyPosSpawned = new List<Vector3>();
+        obstaclePosSpawned = new List<Vector3>();
         listIndexEnemy = new List<int>();
         listIndexObstacle = new List<int>();
-        enemyPosSpawn = new List<Vector3>();
         quantityObstacle = Random.Range(minObstacle, maxObstacle + 1);
         quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
 
@@ -54,13 +60,17 @@ public class MapGeneration : MonoBehaviour
                 listIndexEnemy.Add(i);
             }
         }
+    }
+
+    private void OnEnable() {
         //chờ object pool tạo xong các object
         ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
+        gameManager.OnEnemiesDestroyed += OnEnemiesDestroyed;
     }
-    
 
     private void OnDisable() {
-        ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
+        ObjectPoolerManager.OnCreatedObject -= SpawnGameObject;
+        gameManager.OnEnemiesDestroyed -= OnEnemiesDestroyed;
     }
 
     private void CreateGridBoard() {
@@ -81,19 +91,30 @@ public class MapGeneration : MonoBehaviour
         for(int i = 0 ; i < quantityObstacle ; i ++) {
             int randomIndexObstacle  = listIndexObstacle[Random.Range(0, listIndexObstacle.Count)];
             int randomIndexPos = Random.Range(0,gridPositions.Count);
-            ObjectPoolerManager.SpawnObject(obstacles[randomIndexObstacle].GetGameObjectPool(), gridPositions[randomIndexPos], Quaternion.identity);
-            gridPositions.RemoveAt(randomIndexPos);
+            Vector3 spawnPos = gridPositions[randomIndexPos];
+            while(obstaclePosSpawned.IndexOf(spawnPos) != -1) {
+                randomIndexPos = Random.Range(0,gridPositions.Count);
+                spawnPos = gridPositions[randomIndexPos];
+            }
+            obstaclePosSpawned.Add(spawnPos);
+            ObjectPoolerManager.SpawnObject(obstacles[randomIndexObstacle].GetGameObjectPool(), spawnPos, Quaternion.identity);
         }
     }
 
     private void RandomSpawnEnemy() {
+        //clear danh sách enemy
+        ClearEnemies();
         // random spawn enemy
         for(int i = 0 ; i < quantityEnemy ; i ++) {
             int randomIndexPos = Random.Range(0,gridPositions.Count);
             Vector3 spawnPos = gridPositions[randomIndexPos];
+            while(obstaclePosSpawned.IndexOf(spawnPos) != -1 || enemyPosSpawned.IndexOf(spawnPos) != -1) {
+                randomIndexPos = Random.Range(0,gridPositions.Count);
+                spawnPos = gridPositions[randomIndexPos];
+            }
+            enemyPosSpawned.Add(spawnPos);
             //hiệu ứng tele
             GameObjectPool effect = ObjectPoolerManager.SpawnObject(teleEffect, spawnPos + Vector3.up * 0.001f, Quaternion.LookRotation(Vector3.up));
-            gridPositions.RemoveAt(randomIndexPos);
             StartCoroutine(SpawnEnemy(spawnPos, effect.gameObject));
         }
     }
@@ -112,6 +133,41 @@ public class MapGeneration : MonoBehaviour
         RandomSpawnObstacle();
         //random enemy
         Invoke("RandomSpawnEnemy", 1f);
+    }
+
+    private void OnEnemiesDestroyed() {
+        if(CurrentWave < waves) {
+            NextWave();
+        } else {
+            NextLevel();
+        }
+    }
+
+    private void NextWave() {
+        enemyPosSpawned.Clear();
+        quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
+        Invoke("RandomSpawnEnemy", 1f);
+        CurrentWave++;
+    }
+
+    private void NextLevel() {
+        ObjectPoolerManager.ResetObjectPoolerManager();
+        enemyPosSpawned.Clear();
+        obstaclePosSpawned.Clear();
+        minEnemy += increasesEnemy;
+        maxEnemy += increasesEnemy;
+        quantityObstacle = Random.Range(minObstacle, maxObstacle + 1);
+        quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
+        //random vật cản
+        RandomSpawnObstacle();
+        //random enemy
+        Invoke("RandomSpawnEnemy", 1f);
+        CurrentWave = 1;
+        CurrentLevel++;
+    }
+
+    private void ClearEnemies() {
+        gameManager.ClearEnemies();
     }
 
 }

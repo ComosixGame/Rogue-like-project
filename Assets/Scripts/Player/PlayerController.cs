@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
     private void HandleRotation() {
         Vector3 dirLook = dirMove;
         if(readyAttack) {
-            List<Transform> enemies = gameManager.enemies;
+            List<Transform> enemies = gameManager.GetEnemies();
             if(enemies.Count > 0) {
                 //chọn kẻ thù gần nhất
                 Transform nearestEnemy = enemies.OrderBy(enemy => Vector3.Distance(enemy.position, transform.position)).First();
@@ -134,6 +134,6 @@ public class PlayerController : MonoBehaviour
             v = v> 0.01f ? Mathf.Lerp(v, 0, 20f * Time.deltaTime): 0;
             animator.SetFloat(velocityHash, v);
         }
-        readyAttack = velocity == 0 && gameManager.enemies.Count > 0;;
+        readyAttack = velocity == 0 && gameManager.enemiesCount > 0;;
     }
 }
