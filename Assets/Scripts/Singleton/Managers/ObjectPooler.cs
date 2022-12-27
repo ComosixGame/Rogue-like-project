@@ -56,6 +56,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
     }
 
     public GameObject SpawnObject(string key, Vector3 position, Quaternion rotation) {
+        Debug.Log(key);
         ObjectPrefab objectPrefab = dictionary[key];
         GameObject gameObj;
         // kiểm tra nếu object có sẵn ko có đủ thì tạo cái mới

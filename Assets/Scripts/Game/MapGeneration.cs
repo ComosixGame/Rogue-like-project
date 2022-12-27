@@ -54,12 +54,7 @@ public class MapGeneration : MonoBehaviour
         //chờ object pool tạo xong các object
         objectPooler.OnCreatedObject += SpawnGameObject;
     }
-
-    void Start()
-    {
-        //tạo hệ thống grid vị trí có thể spawn
-        CreateGridBoard();
-    }
+    
 
     private void OnDisable() {
         objectPooler.OnCreatedObject += SpawnGameObject;
@@ -83,6 +78,7 @@ public class MapGeneration : MonoBehaviour
         for(int i = 0 ; i < quantityObstacle ; i ++) {
             int randomIndexObstacle  = listIndexObstacle[Random.Range(0, listIndexObstacle.Count)];
             int randomIndexPos = Random.Range(0,gridPositions.Count);
+            Debug.Log(gridPositions[randomIndexPos]);
             objectPooler.SpawnObject(obstacles[randomIndexObstacle].GetKey(), gridPositions[randomIndexPos], Quaternion.identity);
             gridPositions.RemoveAt(randomIndexPos);
         }
@@ -108,6 +104,8 @@ public class MapGeneration : MonoBehaviour
     }
 
     private void SpawnGameObject() {
+        //tạo hệ thống grid vị trí có thể spawn
+        CreateGridBoard();
         //random vật cản
         RandomSpawnObstacle();
         //random enemy
