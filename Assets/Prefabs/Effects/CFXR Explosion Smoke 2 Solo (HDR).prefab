@@ -4894,6 +4894,7 @@ GameObject:
   - component: {fileID: 725748389856807712}
   - component: {fileID: 725748389856807713}
   - component: {fileID: 725748389856807726}
+  - component: {fileID: -7699458031320576649}
   m_Layer: 0
   m_Name: CFXR Explosion Smoke 2 Solo (HDR)
   m_TagString: Untagged
@@ -9609,7 +9610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 0
   cameraShake:
     enabled: 1
     useMainCamera: 1
@@ -9645,6 +9646,19 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
+--- !u!114 &-7699458031320576649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725748389856807714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5993ce0b25385941b4fac53942ddded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: explosion_effect
 --- !u!1 &725748390055121426
 GameObject:
   m_ObjectHideFlags: 0

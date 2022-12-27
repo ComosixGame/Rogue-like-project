@@ -6,14 +6,15 @@ public class MapGeneration : MonoBehaviour
 {
     [System.Serializable]
     public class ObjectSpawn {
-        [SerializeField] private string keyObject;
+        [SerializeField] private GameObjectPool gameObjectPool;
         [SerializeField] private int chanceToSpawn;
 
         public int GetChanceToSpawn() {
             return chanceToSpawn;
         }
-        public string GetKey() {
-            return keyObject;
+
+        public GameObjectPool GetGameObjectPool() {
+            return(gameObjectPool);
         }
     }
     [SerializeField] private Transform startPosition;
@@ -22,19 +23,21 @@ public class MapGeneration : MonoBehaviour
     [SerializeField] private ObjectSpawn[] obstacles;
     [SerializeField] private int minEnemy, maxEnemy;
     public float delaySpawnEnemy;
-    public ParticleSystem spawnEffect;
     [SerializeField] private ObjectSpawn[] enemies;
+    public EffectObjectPool teleEffect;
     private List<Vector3> gridPositions;
     private List<int> listIndexEnemy;
     private List<int> listIndexObstacle;
     private int quantityObstacle, quantityEnemy;
-    private ObjectPooler objectPooler;
+    private List<Vector3> enemyPosSpawn;
+    private ObjectPoolerManager ObjectPoolerManager;
 
     private void Awake() {
-        objectPooler = ObjectPooler.Instance;
+        ObjectPoolerManager = ObjectPoolerManager.Instance;
         gridPositions = new List<Vector3>();
         listIndexEnemy = new List<int>();
         listIndexObstacle = new List<int>();
+        enemyPosSpawn = new List<Vector3>();
         quantityObstacle = Random.Range(minObstacle, maxObstacle + 1);
         quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
 
@@ -52,12 +55,12 @@ public class MapGeneration : MonoBehaviour
             }
         }
         //chờ object pool tạo xong các object
-        objectPooler.OnCreatedObject += SpawnGameObject;
+        ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
     }
     
 
     private void OnDisable() {
-        objectPooler.OnCreatedObject += SpawnGameObject;
+        ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
     }
 
     private void CreateGridBoard() {
@@ -78,8 +81,7 @@ public class MapGeneration : MonoBehaviour
         for(int i = 0 ; i < quantityObstacle ; i ++) {
             int randomIndexObstacle  = listIndexObstacle[Random.Range(0, listIndexObstacle.Count)];
             int randomIndexPos = Random.Range(0,gridPositions.Count);
-            Debug.Log(gridPositions[randomIndexPos]);
-            objectPooler.SpawnObject(obstacles[randomIndexObstacle].GetKey(), gridPositions[randomIndexPos], Quaternion.identity);
+            ObjectPoolerManager.SpawnObject(obstacles[randomIndexObstacle].GetGameObjectPool(), gridPositions[randomIndexPos], Quaternion.identity);
             gridPositions.RemoveAt(randomIndexPos);
         }
     }
@@ -89,18 +91,18 @@ public class MapGeneration : MonoBehaviour
         for(int i = 0 ; i < quantityEnemy ; i ++) {
             int randomIndexPos = Random.Range(0,gridPositions.Count);
             Vector3 spawnPos = gridPositions[randomIndexPos];
-            ParticleSystem effect = Instantiate(spawnEffect, spawnPos + Vector3.up * 0.001f, Quaternion.LookRotation(Vector3.up));
+            //hiệu ứng tele
+            GameObjectPool effect = ObjectPoolerManager.SpawnObject(teleEffect, spawnPos + Vector3.up * 0.001f, Quaternion.LookRotation(Vector3.up));
             gridPositions.RemoveAt(randomIndexPos);
-            StartCoroutine(SpawnEnemy(spawnPos, effect));
+            StartCoroutine(SpawnEnemy(spawnPos, effect.gameObject));
         }
     }
 
-    IEnumerator SpawnEnemy(Vector3 position, ParticleSystem spawnEffect) {
+    IEnumerator SpawnEnemy(Vector3 position, GameObject spawnEffect) {
         yield return new WaitForSeconds(delaySpawnEnemy);
         int randomIndexEnemy = listIndexEnemy[Random.Range(0, listIndexEnemy.Count)];
-        objectPooler.SpawnObject(enemies[randomIndexEnemy].GetKey(), position, Quaternion.identity);
-        spawnEffect.Stop();
-        Destroy(spawnEffect.gameObject, 0.5f);
+        ObjectPoolerManager.SpawnObject(enemies[randomIndexEnemy].GetGameObjectPool(), position, Quaternion.identity);
+        spawnEffect.GetComponent<ParticleSystem>().Stop();
     }
 
     private void SpawnGameObject() {

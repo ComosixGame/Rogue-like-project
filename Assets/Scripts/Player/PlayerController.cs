@@ -8,19 +8,15 @@ using UnityEngine.Animations.Rigging;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public AnimationClip animationClip;
+    public GameObjectPool bullet;
     public ParticleSystem attackEffect;
-    public GameObject bullet;
     public float speed;
-    public float dodgeTime;
-    public LayerMask layeDodgeable;
-    [SerializeField] public Rig rigHand, rigAim;
+    [SerializeField] public Rig rigAim;
     [SerializeField] private Transform targetAim;
     public float fireRateTime = 0.5f;
     private float timerAttack;
     private bool readyAttack;
     private Vector3 dirMove;
-    private bool startDodge, dodging;
     private InputAssets inputs;
     private CharacterController controller;
     private Animator animator;
@@ -30,9 +26,11 @@ public class PlayerController : MonoBehaviour
     private int attackHash;
     private int aimHash;
     private GameManager gameManager;
+    private ObjectPoolerManager ObjectPoolerManager;
 
     private void Awake() {
         gameManager = GameManager.Instance;
+        ObjectPoolerManager = ObjectPoolerManager.Instance;
 
         inputs = new InputAssets();
         controller = GetComponent<CharacterController>();
@@ -73,18 +71,8 @@ public class PlayerController : MonoBehaviour
         if(!controller.isGrounded) {
             motionFall  = Vector3.up * -9.8f * Time.deltaTime;
         }
-        if(!dodging) {
-        //di chuyển
-            controller.Move(motionMove + motionFall);
-        } else {
-        // thực hiện lăn
-            rigHand.weight = 0;
-            controller.Move(transform.forward.normalized * speed * Time.deltaTime);
-            if(!startDodge) {
-                startDodge = true;
-                Invoke("ResetDodge", dodgeTime);
-            }
-        }
+
+        controller.Move(motionMove + motionFall);
     }
 
     private void HandleAttack() {
@@ -96,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 timerAttack = 0;
                 attackEffect.Play();
                 animator.SetTrigger(attackHash);
-                GameObject newBullet = Instantiate(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
+                GameObjectPool newBullet = ObjectPoolerManager.SpawnObject(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
                 newBullet.GetComponent<Bullet>().Fire();
 
             }
@@ -107,7 +95,6 @@ public class PlayerController : MonoBehaviour
     }    
 
     private void HandleRotation() {
-        if(dodging) return;
         Vector3 dirLook = dirMove;
         if(readyAttack) {
             List<Transform> enemies = gameManager.enemies;
@@ -129,12 +116,6 @@ public class PlayerController : MonoBehaviour
             Quaternion rotLook = Quaternion.LookRotation(dirLook);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotLook, 20f * Time.deltaTime);
         }
-    }
-
-    private void ResetDodge() {
-        dodging = false;
-        startDodge = false;
-        rigHand.weight = 1;
     }
 
     private void GetDirection(InputAction.CallbackContext ctx) {

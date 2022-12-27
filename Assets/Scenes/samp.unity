@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144378318}
-  m_LocalRotation: {x: 0.36933416, y: -0.000000015989832, z: 0.0000000063549037, w: 0.9292967}
+  m_LocalRotation: {x: 0.3693342, y: 0.000000015989832, z: -0.0000000063549037, w: 0.9292967}
   m_LocalPosition: {x: 0, y: 28.570004, z: -11.610001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -422,7 +422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.36933416, y: -0.000000015989832, z: 0.0000000063549037, w: 0.9292967}
+  m_LocalRotation: {x: 0.3693342, y: 0.000000015989832, z: -0.0000000063549037, w: 0.9292967}
   m_LocalPosition: {x: 0, y: 22.6, z: -23.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506254660}
-  - component: {fileID: 506254659}
+  - component: {fileID: 506254661}
   m_Layer: 0
   m_Name: ObjectPooler
   m_TagString: Untagged
@@ -635,21 +635,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &506254659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506254658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cb5ad6573c11249b0d0b0a8cbb3c9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
-    type: 2}
-  objectPrefabs: []
 --- !u!4 &506254660
 Transform:
   m_ObjectHideFlags: 0
@@ -665,6 +650,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &506254661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506254658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cb5ad6573c11249b0d0b0a8cbb3c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
+    type: 2}
+  objectPrefabs: []
 --- !u!1 &542117033
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,16 +783,18 @@ MonoBehaviour:
   minObstacle: 10
   maxObstacle: 20
   obstacles:
-  - keyObject: obstacle_1
+  - gameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
+      type: 3}
     chanceToSpawn: 100
-  minEnemy: 1
-  maxEnemy: 1
+  minEnemy: 5
+  maxEnemy: 8
   delaySpawnEnemy: 1.5
-  spawnEffect: {fileID: 2152171318703573046, guid: bb33d9e1a8a8e194a8874dd07becbccc,
-    type: 3}
   enemies:
-  - keyObject: enemy_1
+  - gameObjectPool: {fileID: 7591746090547872497, guid: 5f6636215e009b946a6b80c31e298251,
+      type: 3}
     chanceToSpawn: 100
+  teleEffect: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
+    type: 3}
 --- !u!4 &545995854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915972507320496386, guid: 717ddf357a839a148a363692f586e37e,
@@ -1504,19 +1506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ca1bbb341ac1344840c8cf888266d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationClip: {fileID: -203655887218126122, guid: 7c28048132e97b941b714e377bd02d96,
-    type: 3}
+  bullet: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   attackEffect: {fileID: 1601775036}
-  bullet: {fileID: 7155788659206797011, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   speed: 10
-  dodgeTime: 1
-  layeDodgeable:
-    serializedVersion: 2
-    m_Bits: 192
-  rigHand: {fileID: 0}
   rigAim: {fileID: 1712179443}
   targetAim: {fileID: 1216842461}
-  fireRateTime: 0.5
+  fireRateTime: 0.2
 --- !u!4 &919132148653637975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694546641388824592, guid: 717ddf357a839a148a363692f586e37e,

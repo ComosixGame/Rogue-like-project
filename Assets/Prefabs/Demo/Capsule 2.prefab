@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 7407995875355185236}
   - component: {fileID: 7407995875355185227}
   - component: {fileID: 6471638244481518236}
+  - component: {fileID: 7591746090547872497}
   m_Layer: 7
   m_Name: Capsule 2
   m_TagString: Untagged
@@ -267,10 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f1349a32066ef41ab16dd8981215f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 5394021812279374869, guid: ca2af2d1b2da15b4e9957baf93b10c29, type: 3}
   shootPosition: {fileID: 4594189195364134168}
   _player: {fileID: 2694546641388824592, guid: 717ddf357a839a148a363692f586e37e, type: 3}
-  angel: 0
   delayAttack: 3
   timerAttack: 0
   _absAttach: {fileID: 6575222288703455151, guid: 10a5ebdb4e5942e428ddc8b275719b7e,
@@ -303,8 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224713816ebe5348acaac3878200411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: enemy_3
-  destroyEffect: {fileID: 725748389856807712, guid: 1f4d9ccc3c033c646bdb292493cba94d,
+  destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 100
 --- !u!114 &6471638244481518236
@@ -320,3 +318,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1949209710017698203, guid: 32f01752693f8fd40bfeebda5c187d62, type: 3}
+--- !u!114 &7591746090547872497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407995875355185235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430ecce8d6a7bd54da5e398feac5bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: enemy_3

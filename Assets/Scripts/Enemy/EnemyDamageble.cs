@@ -1,20 +1,22 @@
 using UnityEngine;
 
+[RequireComponent(typeof(GameObjectPool))]
 public class EnemyDamageble : MonoBehaviour, IDamageble
 {
-    [SerializeField] private string key;
-    public ParticleSystem destroyEffect;
+    [SerializeField] private GameObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
     private float health;
     private bool destroyed;
     private MeshRenderer meshRenderer;
     private MaterialPropertyBlock  materialPropertyBlock;
+    private GameObjectPool gameObjectPool;
     private GameManager gameManager;
-    private ObjectPooler objectPooler;
+    private ObjectPoolerManager ObjectPoolerManager;
     
     private void Awake() {
         gameManager = GameManager.Instance;
-        objectPooler = ObjectPooler.Instance;
+        ObjectPoolerManager = ObjectPoolerManager.Instance;
+        gameObjectPool = GetComponent<GameObjectPool>();
         meshRenderer = GetComponent<MeshRenderer>();
         materialPropertyBlock = new MaterialPropertyBlock();
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
@@ -45,8 +47,8 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     }
 
     public void Destroy() {
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        ObjectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
         gameManager.enemies.Remove(transform);
-        objectPooler.InactiveObject(key, gameObject);
+        ObjectPoolerManager.DeactiveObject(gameObjectPool);
     }
 }
