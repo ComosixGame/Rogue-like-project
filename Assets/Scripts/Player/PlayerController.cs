@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
         inputs.PlayerController.Enable();
         inputs.PlayerController.Move.performed += GetDirection;
         inputs.PlayerController.Move.canceled += GetDirection;
-        inputs.PlayerController.Dodge.performed += HandleInputDodge;
     }
 
     private void Update() {
@@ -59,26 +58,11 @@ public class PlayerController : MonoBehaviour
         HandleAttack();
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if(!dodging) return;
-        HandleDodgeObtacle(other, true);
-    }
-
-    private void OnTriggerStay(Collider other) {
-        if(!dodging) return;
-        HandleDodgeObtacle(other, true);
-
-    }
-
-    private void OnTriggerExit(Collider other) {
-        HandleDodgeObtacle(other, false);
-    }
 
     private void OnDisable() {
         inputs.PlayerController.Disable();
         inputs.PlayerController.Move.performed -= GetDirection;
         inputs.PlayerController.Move.canceled -= GetDirection;
-        inputs.PlayerController.Dodge.performed -= HandleInputDodge;
     }
 
     private void Move() {
@@ -145,32 +129,12 @@ public class PlayerController : MonoBehaviour
             Quaternion rotLook = Quaternion.LookRotation(dirLook);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotLook, 20f * Time.deltaTime);
         }
-
-    }
-
-    private void HandleInputDodge(InputAction.CallbackContext ctx) {
-        if(dodging) return;
-        dodging = ctx.ReadValueAsButton();
-        animator.SetTrigger(dodgeHash);
-        float speed = animationClip.length / dodgeTime;
-        animator.SetFloat(speedDodgeHash, speed);
-
     }
 
     private void ResetDodge() {
         dodging = false;
         startDodge = false;
         rigHand.weight = 1;
-    }
-
-    private void HandleDodgeObtacle (Collider other, bool isTrigger) {
-        // thực hiên lăn qua vật cản có thể lăn được
-        GameObject gameObject = other.gameObject;
-        if((layeDodgeable & (1<< gameObject.layer)) != 0) {
-            if(gameObject.TryGetComponent(out Collider collider)) {
-                collider.isTrigger = isTrigger;
-            }
-        }
     }
 
     private void GetDirection(InputAction.CallbackContext ctx) {
