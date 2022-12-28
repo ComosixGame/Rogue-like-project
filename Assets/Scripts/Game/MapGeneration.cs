@@ -139,23 +139,29 @@ public class MapGeneration : MonoBehaviour
         if(CurrentWave < waves) {
             NextWave();
         } else {
-            NextLevel();
+            Invoke("NextLevel", 3f);
         }
     }
 
     private void NextWave() {
+        //clear vị trí spawn cũ
         enemyPosSpawned.Clear();
+        //tính lại random số enemy
         quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
+        //spawn enemy
         Invoke("RandomSpawnEnemy", 1f);
         CurrentWave++;
     }
 
     private void NextLevel() {
+        //clear vị trí spawn cũ
         ObjectPoolerManager.ResetObjectPoolerManager();
         enemyPosSpawned.Clear();
         obstaclePosSpawned.Clear();
+        //tăng số lượng enemy
         minEnemy += increasesEnemy;
         maxEnemy += increasesEnemy;
+        //tính lại random số lượng vật cản và enemy
         quantityObstacle = Random.Range(minObstacle, maxObstacle + 1);
         quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
         //random vật cản

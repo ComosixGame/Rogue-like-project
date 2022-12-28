@@ -71,6 +71,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         } else {
             //nếu còn object thì dequeue từ queue để sử dụng
             gameObj = objectPrefab.objectPool.Dequeue();
+            gameObj.SetActive(false);
             Transform gameObjTransform = gameObj.transform;
             gameObjTransform.position = position;
             gameObjTransform.rotation = rotation;
@@ -98,10 +99,8 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         //reset chỉ số
         foreach(ObjectPoolerScriptable.ScripblePrefab scripblePrefab in ObjectPoolerScriptable.prefabs) {
             ObjectPrefab objectPrefab = dictionary[scripblePrefab.GameObjectPool.key];
-            for(int i = 0; i < objectPrefab.size; i++) {
-                objectPrefab.inactive ++;
-                objectPrefab.active --;
-            }
+            objectPrefab.inactive = objectPrefab.size;
+            objectPrefab.active = 0;
         }
     }
 }

@@ -12,10 +12,6 @@ public class Bullet : MonoBehaviour
         gameObjectPool = GetComponent<GameObjectPool>();
     }
 
-    private void Start() {
-        Invoke("Destroy", 5f);
-    }
-
     private void FixedUpdate() {
         if(fired) {
             rb.velocity = transform.forward.normalized * 30f;
@@ -31,7 +27,12 @@ public class Bullet : MonoBehaviour
         Destroy();
     }
 
+    private void OnDisable() {
+        CancelInvoke("Destroy");
+    }
+
     public void Fire() {
+        Invoke("Destroy", 5f);
         fired = true;
     }
 
