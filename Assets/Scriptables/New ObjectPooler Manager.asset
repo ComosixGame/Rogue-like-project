@@ -13,19 +13,33 @@ MonoBehaviour:
   m_Name: New ObjectPooler Manager
   m_EditorClassIdentifier: 
   prefabs:
-  - key: enemy_1
-    size: 10
-    prefab: {fileID: 7407995875355185235, guid: 5f6636215e009b946a6b80c31e298251,
+  - size: 30
+    GameObjectPool: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
       type: 3}
-  - key: enemy_2
-    size: 10
-    prefab: {fileID: 7407995875355185235, guid: 81e47eedad6983d44a226751dc5cb411,
+  - size: 30
+    GameObjectPool: {fileID: 8488679975446205442, guid: 6a1781d1579f2374297c02b1e938a264,
       type: 3}
-  - key: obstacle_1
-    size: 30
-    prefab: {fileID: 4411282911175504819, guid: 51fd8a0a51f418b40ac633676d8348a6,
+  - size: 30
+    GameObjectPool: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
       type: 3}
-  - key: obstacle_2
-    size: 30
-    prefab: {fileID: 7041216380034293524, guid: 36e1dcbcca98b9d468ed9ba4b827d166,
+  - size: 30
+    GameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 7591746090547872497, guid: 5f6636215e009b946a6b80c31e298251,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 7591746090547872497, guid: bdb610f64de52be4ab0e76af855f09a9,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 7591746090547872497, guid: 26ee7ae64ac0799459ae1580f17425d7,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 7591746090547872497, guid: 5573ffd93e1ab8a45afc5f8807ac9b99,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 7591746090547872497, guid: 81e47eedad6983d44a226751dc5cb411,
+      type: 3}
+  - size: 30
+    GameObjectPool: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81,
       type: 3}

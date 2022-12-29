@@ -35,15 +35,6 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Dodge"",
-                    ""type"": ""Value"",
-                    ""id"": ""fa481896-4f9a-4f83-afd4-2e30efc0cb98"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,28 +103,6 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8357a9c4-d046-4bd0-8abf-6b7fc0a833db"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dodge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e218d41b-fd40-438c-ba6a-aaff152a0575"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dodge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,7 +112,6 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
         // PlayerController
         m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
         m_PlayerController_Move = m_PlayerController.FindAction("Move", throwIfNotFound: true);
-        m_PlayerController_Dodge = m_PlayerController.FindAction("Dodge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,13 +172,11 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerController;
     private IPlayerControllerActions m_PlayerControllerActionsCallbackInterface;
     private readonly InputAction m_PlayerController_Move;
-    private readonly InputAction m_PlayerController_Dodge;
     public struct PlayerControllerActions
     {
         private @InputAssets m_Wrapper;
         public PlayerControllerActions(@InputAssets wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerController_Move;
-        public InputAction @Dodge => m_Wrapper.m_PlayerController_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_PlayerController; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -223,9 +189,6 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnMove;
-                @Dodge.started -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDodge;
-                @Dodge.performed -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDodge;
-                @Dodge.canceled -= m_Wrapper.m_PlayerControllerActionsCallbackInterface.OnDodge;
             }
             m_Wrapper.m_PlayerControllerActionsCallbackInterface = instance;
             if (instance != null)
@@ -233,9 +196,6 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Dodge.started += instance.OnDodge;
-                @Dodge.performed += instance.OnDodge;
-                @Dodge.canceled += instance.OnDodge;
             }
         }
     }
@@ -243,6 +203,5 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
     public interface IPlayerControllerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnDodge(InputAction.CallbackContext context);
     }
 }

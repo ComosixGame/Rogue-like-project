@@ -1,14 +1,15 @@
 using UnityEngine;
-
 public class Bullet : MonoBehaviour
 {
+    public GameObjectPool impactEffect;
     [SerializeField] private Rigidbody rb;
-    public ParticleSystem impactEffect;
     private bool fired;
+    private GameObjectPool gameObjectPool;
+    private ObjectPoolerManager ObjectPoolerManager;
 
-    void Start()
-    {
-        Invoke("AutoDestroy", 5f);
+    private void Awake() {
+        ObjectPoolerManager = ObjectPoolerManager.Instance;
+        gameObjectPool = GetComponent<GameObjectPool>();
     }
 
     private void FixedUpdate() {
@@ -19,18 +20,25 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         ContactPoint contact = other.GetContact(0);
-        Instantiate(impactEffect, contact.point, Quaternion.LookRotation(contact.normal));
-        AutoDestroy();
+        GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , contact.point, Quaternion.LookRotation(contact.normal));
         if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
-            damageble.TakeDamge(1);
+            damageble.TakeDamge(10);
         }
+        Destroy();
+    }
+
+    private void OnDisable() {
+        CancelInvoke("Destroy");
     }
 
     public void Fire() {
+        Invoke("Destroy", 5f);
         fired = true;
     }
 
-    private void AutoDestroy() {
-        Destroy(gameObject);
+    private void Destroy() {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        ObjectPoolerManager.DeactiveObject(gameObjectPool);
     }
 }

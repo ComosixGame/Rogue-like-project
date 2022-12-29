@@ -4832,6 +4832,7 @@ GameObject:
   - component: {fileID: 2152171318703573047}
   - component: {fileID: 2152171318703573046}
   - component: {fileID: 2152171318703573045}
+  - component: {fileID: 6162715273609421441}
   m_Layer: 0
   m_Name: TeleEffect
   m_TagString: Untagged
@@ -9644,6 +9645,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &6162715273609421441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2152171318703573044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5993ce0b25385941b4fac53942ddded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: tele_effect
 --- !u!1 &2152171318718138176
 GameObject:
   m_ObjectHideFlags: 0

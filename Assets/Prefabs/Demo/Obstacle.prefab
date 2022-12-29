@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6307671445438816979}
   - component: {fileID: 1815853168078430493}
   - component: {fileID: 7392206546290414853}
+  - component: {fileID: 1638568060393253675}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -114,3 +115,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1638568060393253675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411282911175504819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430ecce8d6a7bd54da5e398feac5bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: obtacle_1
