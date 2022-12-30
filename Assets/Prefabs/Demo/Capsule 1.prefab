@@ -305,6 +305,8 @@ MonoBehaviour:
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 100
+  chanceDropItem: 100
+  item: {fileID: 1201592111422298756, guid: 968733c3b672191479a0a64c881fb23c, type: 3}
 --- !u!114 &252261210405299845
 MonoBehaviour:
   m_ObjectHideFlags: 0

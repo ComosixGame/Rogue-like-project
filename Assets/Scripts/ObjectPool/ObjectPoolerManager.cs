@@ -1,8 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MyCustomAttribute;
+using Random = UnityEngine.Random;
 
 public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
 {
@@ -23,7 +23,10 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     }
 
     [SerializeField] private ObjectPoolerScriptable ObjectPoolerScriptable;
+    [SerializeField] private ItemManagerScriptableObject itemManagerScriptableObject;
+    [SerializeField, Label("chance Spawn Item(%)")] private float chanceToSpawnItem;
     [ReadOnly, SerializeField] private List<ObjectPrefab> objectPrefabs;
+    private List<int> listIndexRandomItem;
     private Dictionary<string, ObjectPrefab> dictionary;
     public event Action OnCreatedObject;
 
@@ -33,6 +36,11 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         // tạo list các object để dễ quan sát
         objectPrefabs = new List<ObjectPrefab>();
         dictionary = new Dictionary<string, ObjectPrefab>();
+        listIndexRandomItem = new List<int>();
+    }
+
+    private void OnEnable() {
+        EnemyDamageble.OnEnemiesDestroy += SpawnItem;
     }
 
     private void Start() {
@@ -53,7 +61,20 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
                 objectPrefab.objectPool.Enqueue(gameObj);
             }
         }
+
+        //tạo danh sách random item
+        for(int i = 0; i < itemManagerScriptableObject.itemPrefabs.Length; i++) {
+            for(int j = 0; j < itemManagerScriptableObject.itemPrefabs[i].chanceToSpawn; j++) {
+                listIndexRandomItem.Add(i);
+            }
+        }
+
         OnCreatedObject?.Invoke();
+        
+    }
+
+    private void OnDisable() {
+        EnemyDamageble.OnEnemiesDestroy -= SpawnItem;
     }
 
     public GameObjectPool SpawnObject(GameObjectPool gameObjectPool, Vector3 position, Quaternion rotation) {
@@ -96,11 +117,19 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         for(int i = 0; i < transform.childCount; i ++) {
             transform.GetChild(i).gameObject.SetActive(false);
         }
-        //reset chỉ số
+        //reset Object pool
         foreach(ObjectPoolerScriptable.ScripblePrefab scripblePrefab in ObjectPoolerScriptable.prefabs) {
             ObjectPrefab objectPrefab = dictionary[scripblePrefab.GameObjectPool.key];
             objectPrefab.inactive = objectPrefab.size;
             objectPrefab.active = 0;
+        }
+    }
+
+    private void SpawnItem(Vector3 position) {
+        float chanceToSpawn = Random.Range(0,100);
+        if(chanceToSpawn <= chanceToSpawnItem) {
+            int indexRandom = listIndexRandomItem[Random.Range(0, listIndexRandomItem.Count)];
+            SpawnObject(itemManagerScriptableObject.itemPrefabs[indexRandom].itemObjectPool, position, Quaternion.identity);
         }
     }
 }
