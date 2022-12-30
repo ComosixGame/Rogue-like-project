@@ -43,3 +43,6 @@ MonoBehaviour:
   - size: 30
     GameObjectPool: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81,
       type: 3}
+  - size: 5
+    GameObjectPool: {fileID: 6074679171099917309, guid: 968733c3b672191479a0a64c881fb23c,
+      type: 3}

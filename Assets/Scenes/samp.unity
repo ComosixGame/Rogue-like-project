@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144378318}
-  m_LocalRotation: {x: 0.36933416, y: -0.000000015989832, z: 0.0000000063549037, w: 0.9292967}
+  m_LocalRotation: {x: 0.3693342, y: 0.000000015989832, z: -0.0000000063549037, w: 0.9292967}
   m_LocalPosition: {x: 0, y: 28.570004, z: -11.610001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -422,7 +422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.36933416, y: -0.000000015989832, z: 0.0000000063549037, w: 0.9292967}
+  m_LocalRotation: {x: 0.3693342, y: 0.000000015989832, z: -0.0000000063549037, w: 0.9292967}
   m_LocalPosition: {x: 0, y: 22.6, z: -23.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -664,6 +664,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
     type: 2}
+  itemManagerScriptableObject: {fileID: 11400000, guid: fb0e9b617553c844d9e52ce3bcb1188a,
+    type: 2}
+  chanceToSpawnItem: 100
   objectPrefabs: []
 --- !u!1 &542117033
 GameObject:
