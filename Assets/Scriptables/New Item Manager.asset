@@ -15,4 +15,4 @@ MonoBehaviour:
   itemPrefabs:
   - itemObjectPool: {fileID: 6074679171099917309, guid: 968733c3b672191479a0a64c881fb23c,
       type: 3}
-    chanceToSpawn: 100
+    chanceToSpawn: 10
