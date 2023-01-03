@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MyCustomAttribute;
+using Random = UnityEngine.Random;
 
 public class MapGeneration : MonoBehaviour
 {
@@ -35,6 +37,9 @@ public class MapGeneration : MonoBehaviour
     [SerializeField, ReadOnly] private int CurrentLevel = 1, CurrentWave = 1;
     private ObjectPoolerManager ObjectPoolerManager;
     private GameManager gameManager;
+    public event Action OnLevelCleared;
+    public static event Action<int> OnWaveChange;
+    public static event Action<int> OnLevelChange;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
@@ -139,11 +144,11 @@ public class MapGeneration : MonoBehaviour
         if(CurrentWave < waves) {
             NextWave();
         } else {
-            Invoke("NextLevel", 3f);
+            OnLevelCleared?.Invoke();
         }
     }
 
-    private void NextWave() {
+    public void NextWave() {
         //clear vị trí spawn cũ
         enemyPosSpawned.Clear();
         //tính lại random số enemy
@@ -151,9 +156,10 @@ public class MapGeneration : MonoBehaviour
         //spawn enemy
         Invoke("RandomSpawnEnemy", 1f);
         CurrentWave++;
+        OnWaveChange?.Invoke(CurrentWave);
     }
 
-    private void NextLevel() {
+    public void NextLevel() {
         //clear vị trí spawn cũ
         ObjectPoolerManager.ResetObjectPoolerManager();
         enemyPosSpawned.Clear();
@@ -170,6 +176,8 @@ public class MapGeneration : MonoBehaviour
         Invoke("RandomSpawnEnemy", 1f);
         CurrentWave = 1;
         CurrentLevel++;
+        OnLevelChange?.Invoke(CurrentLevel);
+        OnWaveChange?.Invoke(CurrentWave);
     }
 
     private void ClearEnemies() {
