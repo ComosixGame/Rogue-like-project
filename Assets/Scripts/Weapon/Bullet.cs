@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
     public GameObjectPool impactEffect;
     [SerializeField] private Rigidbody rb;
     private bool fired;
+    private float damage;
     private GameObjectPool gameObjectPool;
     private ObjectPoolerManager ObjectPoolerManager;
 
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
         ContactPoint contact = other.GetContact(0);
         GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , contact.point, Quaternion.LookRotation(contact.normal));
         if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
-            damageble.TakeDamge(10);
+            damageble.TakeDamge(damage, other.transform.position - transform.position);
         }
         Destroy();
     }
@@ -31,9 +32,10 @@ public class Bullet : MonoBehaviour
         CancelInvoke("Destroy");
     }
 
-    public void Fire() {
+    public void Fire(float damage) {
         Invoke("Destroy", 5f);
         fired = true;
+        this.damage = damage; 
     }
 
     private void Destroy() {
