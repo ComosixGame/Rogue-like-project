@@ -8,8 +8,7 @@ using UnityEngine.Animations.Rigging;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    public GameObjectPool bullet;
-    public ParticleSystem attackEffect;
+    [SerializeField] private AbsPlayerAttack playerAttack;
     public float speed;
     [SerializeField] public Rig rigAim;
     [SerializeField] private Transform targetAim;
@@ -82,11 +81,8 @@ public class PlayerController : MonoBehaviour
             rigAim.weight = 1;
             if(timerAttack >= fireRateTime) {
                 timerAttack = 0;
-                attackEffect.Play();
                 animator.SetTrigger(attackHash);
-                GameObjectPool newBullet = ObjectPoolerManager.SpawnObject(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
-                newBullet.GetComponent<Bullet>().Fire();
-
+                playerAttack.Attack();
             }
         } else {
             animator.SetBool(aimHash, false);
@@ -135,5 +131,9 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat(velocityHash, v);
         }
         readyAttack = velocity == 0 && gameManager.enemiesCount > 0;;
+    }
+
+    public AbsPlayerAttack GetPlayerAttackComp(){
+        return playerAttack;
     }
 }

@@ -18,7 +18,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
         
     }
 
-    public void TakeDamge(float damage){
+    public void TakeDamge(float damage, Vector3 force){
         health -= damage;
         if(health <= 0 && !destroyed){
             destroyed = true;

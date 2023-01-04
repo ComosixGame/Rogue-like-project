@@ -11,7 +11,7 @@ public class BulletObs : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         AutoDestroy();
         if(other.gameObject.TryGetComponent(out IDamageble damageble)){
-            damageble.TakeDamge(_TakeDame);
+            damageble.TakeDamge(_TakeDame, Vector3.zero);
         }
     }
 

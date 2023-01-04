@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletBasicObs : MonoBehaviour
@@ -14,7 +12,7 @@ public class BulletBasicObs : MonoBehaviour
     {
         AutoDestroy();
         if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
-            damageble.TakeDamge(_TakeDame);
+            damageble.TakeDamge(_TakeDame, Vector3.zero);
         }
     }
 
