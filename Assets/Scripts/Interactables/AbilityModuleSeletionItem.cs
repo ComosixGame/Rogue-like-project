@@ -1,17 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-public class AbilityModuleSeletionItem : MonoBehaviour
+public class AbilityModuleSeletionItem : AbsItemObjectPool
 {
     private AbilityModuleManager abilityModuleManager;
 
-    private void Awake() {
+    protected override void Awake()
+    {
+        base.Awake();
         abilityModuleManager = AbilityModuleManager.Instance;
     }
 
-    private void OnTriggerEnter(Collider other) {
+    public override void ActiveItem(Collider other)
+    {
         abilityModuleManager.ShowAbilityModuleSeletion();
-        Destroy(gameObject);        
     }
-    
 }

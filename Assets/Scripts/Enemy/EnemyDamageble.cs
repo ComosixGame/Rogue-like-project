@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+
 
 [RequireComponent(typeof(GameObjectPool))]
 public class EnemyDamageble : MonoBehaviour, IDamageble
@@ -9,10 +11,10 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private bool destroyed;
     private MeshRenderer meshRenderer;
     private MaterialPropertyBlock  materialPropertyBlock;
-    public bool instantiated;
     private GameObjectPool gameObjectPool;
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
+    public static event Action<Vector3> OnEnemiesDestroy;
     
     private void Awake() {
         gameManager = GameManager.Instance;
@@ -51,5 +53,6 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         ObjectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
         gameManager.RemoveEnemy(transform);
         ObjectPoolerManager.DeactiveObject(gameObjectPool);
+        OnEnemiesDestroy?.Invoke(transform.position);
     }
 }

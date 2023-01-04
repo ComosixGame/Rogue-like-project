@@ -4,7 +4,9 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - objectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
+  - ObjectPoolerScriptable: {fileID: 11400000, guid: e97f192751b414740a1c0c59779cadc5,
+      type: 2}
+  - itemManagerScriptableObject: {fileID: 11400000, guid: fb0e9b617553c844d9e52ce3bcb1188a,
       type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
