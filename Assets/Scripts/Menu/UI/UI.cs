@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -14,11 +15,6 @@ public class UI : MonoBehaviour
         _chapter.SetActive(true);
         _level.SetActive(false);
     }
-    public void BtnPlay(){
-        _chapter.SetActive(false);
-        _level.SetActive(true);
-    }
-
     public void BtnSetting(){
         _gameSettings.SetActive(true);
     }
@@ -33,5 +29,8 @@ public class UI : MonoBehaviour
         _resume.SetActive(false);
     }
 
-
+    // public void BtnPlayGame(){
+    //     SceneManager.LoadScene("Scenes/Enemy");
+    //     SceneManager.LoadScene("Scenes/Level", LoadSceneMode.Additive);
+    // }
 }

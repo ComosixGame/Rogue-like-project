@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461395914941412380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.563, z: 0.87}
+  m_LocalPosition: {x: 0, y: 0.36, z: 0.87}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -122,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7196658857641497974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.59}
+  m_LocalPosition: {x: 0, y: -0.16, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,7 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 100
+  maxHealth: 1000
+  instantiated: 0
 --- !u!114 &252261210405299845
 MonoBehaviour:
   m_ObjectHideFlags: 0

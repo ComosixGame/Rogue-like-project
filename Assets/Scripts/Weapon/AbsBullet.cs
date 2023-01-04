@@ -1,6 +1,7 @@
 using UnityEngine;
 using MyCustomAttribute;
 
+[RequireComponent(typeof(Rigidbody))]
 public abstract class AbsBullet : MonoBehaviour
 {
     [SerializeField] protected Rigidbody _rb;
@@ -12,7 +13,6 @@ public abstract class AbsBullet : MonoBehaviour
 
     public abstract void FixedUpdate();
 
-    public abstract void OnCollisionEnter(Collision other);
     public abstract void Fire(Vector3 direction);
 
     public abstract void AutoDestroy();

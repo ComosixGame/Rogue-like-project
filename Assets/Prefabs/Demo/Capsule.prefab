@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7689441221117670352}
   - component: {fileID: 4565015447322400952}
   - component: {fileID: 4228071687136689210}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4371986747891363945}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7407995875355185227}
   - component: {fileID: 5903251921383155484}
   - component: {fileID: 7591746090547872497}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 100
+  maxHealth: 1000
+  instantiated: 0
 --- !u!114 &5903251921383155484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7155788659206797011, guid: fd26c7cda045d154e9893d2274fc596f, type: 3}
+  bullet: {fileID: 1305997383178436, guid: 5b54c2e1bf70dd248902db6814a270fb, type: 3}
 --- !u!114 &7591746090547872497
 MonoBehaviour:
   m_ObjectHideFlags: 0
