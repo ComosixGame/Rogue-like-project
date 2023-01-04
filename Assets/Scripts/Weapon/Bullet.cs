@@ -23,7 +23,9 @@ public class Bullet : MonoBehaviour
         ContactPoint contact = other.GetContact(0);
         GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , contact.point, Quaternion.LookRotation(contact.normal));
         if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
-            damageble.TakeDamge(damage, other.transform.position - transform.position);
+            Vector3 dir = other.transform.position - transform.position;
+            dir.y = 0;
+            damageble.TakeDamge(damage, dir);
         }
         Destroy();
     }
