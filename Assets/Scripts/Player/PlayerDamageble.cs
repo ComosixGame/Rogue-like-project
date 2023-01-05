@@ -3,19 +3,14 @@ using UnityEngine;
 public class PlayerDamageble : MonoBehaviour, IDamageble
 {
     [SerializeField] private float maxHealth;
-    private float health;
+    [SerializeField] private float health;
     // public ParticleSystem destroyEffect;
-
     private ObjectPoolerManager  objectPooler;
-
     private bool destroyed;
+
     void Start()
     {
         health = maxHealth;
-    }
-    void Update()
-    {
-        
     }
 
     public void TakeDamge(float damage, Vector3 force){
@@ -28,6 +23,12 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
         Debug.Log(health);
     }
 
+    public void Heal(float healthRestore) {
+        if(!destroyed) {
+            float h = health + healthRestore;
+            health = h <= maxHealth ? h : maxHealth; 
+        }
+    }
 
     public void Destroy(){
         Destroy(gameObject);
