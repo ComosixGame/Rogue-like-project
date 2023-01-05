@@ -44,7 +44,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         }
 
         if(knockBack) {
-            agent.Move(dirKnockBack * 5f * Time.deltaTime);
+            agent.Move(dirKnockBack * 3f * Time.deltaTime);
         }
     }
 
@@ -54,7 +54,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         CancelInvoke("CancelKnockBack");
         health -= damage;
         knockBack = true;
-        Invoke("CancelKnockBack", 0.2f);
+        Invoke("CancelKnockBack", 0.1f);
         if(health <= 0 && !destroyed) {
                 destroyed = true;
                 Destroy();
