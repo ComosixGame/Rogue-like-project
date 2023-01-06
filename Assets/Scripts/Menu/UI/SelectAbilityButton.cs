@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MyCustomAttribute;
 
+[RequireComponent(typeof(Button))]
 public class SelectAbilityButton : MonoBehaviour
 {
     [SerializeField] private Text text;
@@ -27,7 +28,7 @@ public class SelectAbilityButton : MonoBehaviour
         button.onClick.RemoveListener(SelectAbility);
     }
 
-    private void SelectAbility() {
+    public void SelectAbility() {
         abilityModuleManager.AddAbility(abilityModule);
     }
 }

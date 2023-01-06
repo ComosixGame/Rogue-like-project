@@ -51,6 +51,9 @@ public class MapGeneration : MonoBehaviour
         listIndexObstacle = new List<int>();
         quantityObstacle = Random.Range(minObstacle, maxObstacle + 1);
         quantityEnemy = Random.Range(minEnemy, maxEnemy + 1);
+        //cập nhật số màn và số wave
+        gameManager.levels = levels;
+        gameManager.waves = waves;
 
         // tạo hệ thống spawn obstacle theo tỉ lệ
         for(int i = 0; i < obstacles.Length; i ++) {
@@ -65,12 +68,18 @@ public class MapGeneration : MonoBehaviour
                 listIndexEnemy.Add(i);
             }
         }
+
     }
 
     private void OnEnable() {
         //chờ object pool tạo xong các object
         ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
         gameManager.OnEnemiesDestroyed += OnEnemiesDestroyed;
+    }
+
+    private void Start() {
+        OnLevelChange?.Invoke(CurrentLevel);
+        OnWaveChange?.Invoke(CurrentWave);
     }
 
     private void OnDisable() {

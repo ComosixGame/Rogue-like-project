@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public abstract class AbsAbilityModule : MonoBehaviour {
+    public Sprite image;
     public string abilityName;
     public string description;
     public abstract AbsAbilityModule AddAbility(GameObject parent);
