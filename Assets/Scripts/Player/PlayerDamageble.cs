@@ -1,9 +1,10 @@
 using UnityEngine;
+using MyCustomAttribute;
 
 public class PlayerDamageble : MonoBehaviour, IDamageble
 {
     [SerializeField] private float maxHealth;
-    [SerializeField] private float health;
+    [ReadOnly, SerializeField] private float health;
     // public ParticleSystem destroyEffect;
     private ObjectPoolerManager  objectPooler;
     private bool destroyed;
