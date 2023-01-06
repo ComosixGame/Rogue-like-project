@@ -11,8 +11,10 @@ public class GameManager : Singleton<GameManager>
             return enemies.Count;
         }
     }
-
+    [ReadOnly] public int levels, waves;
     public event Action OnEnemiesDestroyed;
+    public event Action OnPause;
+    public event Action OnResume;
 
     public List<Transform> GetEnemies() {
         return enemies;
@@ -35,10 +37,12 @@ public class GameManager : Singleton<GameManager>
     
     public void PauseGame() {
         Time.timeScale = 0;
+        OnPause?.Invoke();
     }
 
     public void ResumeGame() {
         Time.timeScale = 1;
+        OnResume?.Invoke();
     }
     
 }

@@ -11,10 +11,12 @@ public class UI : MonoBehaviour
     public GameObject _gameSettings;
     public GameObject _lobby;
     public GameObject _resume;
+
     private void Awake() {
         _chapter.SetActive(true);
         _level.SetActive(false);
     }
+
     public void BtnSetting(){
         _gameSettings.SetActive(true);
     }
@@ -29,8 +31,10 @@ public class UI : MonoBehaviour
         _resume.SetActive(false);
     }
 
-    // public void BtnPlayGame(){
-    //     SceneManager.LoadScene("Scenes/Enemy");
-    //     SceneManager.LoadScene("Scenes/Level", LoadSceneMode.Additive);
-    // }
+
+
+    public void BtnPlayGame(){
+        SceneManager.LoadScene("Scenes/Enemy");
+        //SceneManager.LoadScene("Scenes/Level", LoadSceneMode.Additive);
+    }
 }

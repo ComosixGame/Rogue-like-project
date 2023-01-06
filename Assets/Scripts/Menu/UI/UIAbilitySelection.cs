@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIAbilitySelection : MonoBehaviour
@@ -23,7 +24,7 @@ public class UIAbilitySelection : MonoBehaviour
         menu.SetActive(true);
     }
 
-    private void HideUI() {
+    private void HideUI(AbsAbilityModule newAbility ) {
         menu.SetActive(false);
     }
 }

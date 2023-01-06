@@ -358,7 +358,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 127430689}
   m_HandleRect: {fileID: 127430688}
   m_Direction: 2
-  m_Value: 0.9999949
+  m_Value: 0.9999966
   m_Size: 0.9401026
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2092,8 +2092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b86faab4ff92d042844e8c2fde95f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelText: {fileID: 0}
+  waveText: {fileID: 0}
   _PopupPause: {fileID: 1259712857}
-  _PopupReward: {fileID: 786778921}
+  _PopupModuleSelector: {fileID: 786778921}
   _PopupSettings: {fileID: 197142339}
   _PopupLobby: {fileID: 1149938398}
   _FooterLevel: {fileID: 76425924}
@@ -4279,7 +4281,7 @@ GameObject:
   - component: {fileID: 786778924}
   - component: {fileID: 786778923}
   m_Layer: 5
-  m_Name: PopupReward
+  m_Name: PopupModuleSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6651,7 +6653,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 344734888}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: HandleReturnLobby
+        m_MethodName: HandleOpenLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10752,7 +10754,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 344734888}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: HandleClosePopupLobby
+        m_MethodName: HandleReturnLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11711,7 +11713,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 907225493}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.23662873
+  m_Size: 0.23662874
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

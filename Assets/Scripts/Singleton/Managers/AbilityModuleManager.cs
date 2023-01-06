@@ -12,7 +12,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     [SerializeField] private List<AbsAbilityModule> ListAbilityShowed;
     private GameManager gameManager;
     public event Action OnShowAbilityModuleSeletion;
-    public event Action OnAddAbility;
+    public event Action<AbsAbilityModule> OnAddAbility;
 
     
     protected override void Awake()
@@ -21,6 +21,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         gameManager = GameManager.Instance;
         abilityModulesActived = new List<AbsAbilityModule>();
         ListAbilityShowed = new List<AbsAbilityModule>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public AbsAbilityModule GetRandomAbility() {
@@ -47,7 +48,8 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         abilityModulesActived.Add(abilityModule);
         ListAbilityShowed.Clear();
         gameManager.ResumeGame();
-        OnAddAbility?.Invoke();
+        Debug.Log(abilityModulesActived[0].abilityName);
+        OnAddAbility?.Invoke(abilityModule);
     }
 
     public void ResetAbility() {

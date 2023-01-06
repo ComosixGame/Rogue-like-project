@@ -304,8 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 1000
-  instantiated: 0
+  maxHealth: 100
 --- !u!114 &5903251921383155484
 MonoBehaviour:
   m_ObjectHideFlags: 0
