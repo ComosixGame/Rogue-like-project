@@ -19,8 +19,6 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
             destroyed = true;
             Destroy();
         }
-
-        Debug.Log(health);
     }
 
     public void Heal(float healthRestore) {

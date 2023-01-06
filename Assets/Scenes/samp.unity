@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144378318}
-  m_LocalRotation: {x: 0.58601475, y: -0.000000048798164, z: 0.00000003529116, w: 0.81030047}
+  m_LocalRotation: {x: 0.58601475, y: 0.000000048798164, z: -0.00000003529116, w: 0.81030047}
   m_LocalPosition: {x: 0, y: 28.570002, z: -27.630001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -505,7 +505,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.58601475, y: -0.000000048798164, z: 0.00000003529116, w: 0.81030047}
+  m_LocalRotation: {x: 0.58601475, y: 0.000000048798164, z: -0.00000003529116, w: 0.81030047}
   m_LocalPosition: {x: 0, y: 22.6, z: -25.835001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1350,6 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edbd68ea518425408187bd8f1e2bd2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountCoins: 0
   enemies: []
 --- !u!4 &1738909852
 Transform:

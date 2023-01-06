@@ -6,6 +6,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(GameObjectPool))]
 public class EnemyDamageble : MonoBehaviour, IDamageble
 {
+    [SerializeField] private int amountCoins;
+    [SerializeField] private AbsItemObjectPool coin;
     [SerializeField] private GameObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
     private float health;
@@ -15,13 +17,13 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private MaterialPropertyBlock  materialPropertyBlock;
     private GameObjectPool gameObjectPool;
     private GameManager gameManager;
-    private ObjectPoolerManager ObjectPoolerManager;
+    private ObjectPoolerManager objectPoolerManager;
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
     
     private void Awake() {
         gameManager = GameManager.Instance;
-        ObjectPoolerManager = ObjectPoolerManager.Instance;
+        objectPoolerManager = ObjectPoolerManager.Instance;
         gameObjectPool = GetComponent<GameObjectPool>();
         meshRenderer = GetComponent<MeshRenderer>();
         materialPropertyBlock = new MaterialPropertyBlock();
@@ -66,9 +68,13 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     }
 
     public void Destroy() {
-        ObjectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
+        objectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
         gameManager.RemoveEnemy(transform);
-        ObjectPoolerManager.DeactiveObject(gameObjectPool);
+        objectPoolerManager.DeactiveObject(gameObjectPool);
+        //spawn coin
+        for(int i = 0; i < amountCoins; i++) {
+            objectPoolerManager.SpawnObject(coin, transform.position, Quaternion.identity);
+        }
         OnEnemiesDestroy?.Invoke(transform.position);
     }
 }
