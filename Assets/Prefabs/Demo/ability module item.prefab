@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6074679171099917309}
   - component: {fileID: 7676825124844662109}
   - component: {fileID: -6695285580303168806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ability module item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

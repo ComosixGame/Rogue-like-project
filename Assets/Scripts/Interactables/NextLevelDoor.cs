@@ -1,15 +1,12 @@
 using System.Collections;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 [RequireComponent(typeof(Collider))]
 public class NextLevelDoor : MonoBehaviour
 {
     [SerializeField] private LayerMask layer;
     [SerializeField] private MapGeneration mapGeneration;
-    public GameObject door;
+    [SerializeField] private GameObject door;
     public Vector3 playerStartPosition;
     private bool levelCleared;
 
@@ -43,26 +40,4 @@ public class NextLevelDoor : MonoBehaviour
         player.position = playerStartPosition;
         controller.enabled = true;
     }
-
-#if UNITY_EDITOR
-
-[CustomEditor(typeof(NextLevelDoor))]
-public class NextLevelDoorEditor : Editor {
-    public override void OnInspectorGUI() {
-        base.OnInspectorGUI();
-        
-    }
-    private void OnSceneGUI(){
-        NextLevelDoor nextLevel = target as NextLevelDoor;
-        Handles.Label(nextLevel.playerStartPosition, $"playerStartPosition", "TextField");
-        EditorGUI.BeginChangeCheck();
-        Vector3 pos = Handles.PositionHandle(nextLevel.playerStartPosition, Quaternion.identity);
-        if(EditorGUI.EndChangeCheck()) {
-            UnityEditor.Undo.RecordObject(nextLevel, "Update playerStartPosition");
-            nextLevel.playerStartPosition = pos;
-        }
-    }
-}
-#endif
-
 }
