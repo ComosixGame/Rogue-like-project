@@ -5,6 +5,7 @@ using MyCustomAttribute;
 
 public class GameManager : Singleton<GameManager>
 {
+    [ReadOnly, SerializeField] private int amountCoins;
     [ReadOnly, SerializeField] private List<Transform> enemies = new List<Transform>();
     public int enemiesCount {
         get {
@@ -13,8 +14,10 @@ public class GameManager : Singleton<GameManager>
     }
     [ReadOnly] public int levels, waves;
     public event Action OnEnemiesDestroyed;
+
     public event Action OnPause;
     public event Action OnResume;
+    public event Action<int> OnUpdateCoin;
 
     public List<Transform> GetEnemies() {
         return enemies;
@@ -43,6 +46,11 @@ public class GameManager : Singleton<GameManager>
     public void ResumeGame() {
         Time.timeScale = 1;
         OnResume?.Invoke();
+    }
+
+    public void UpdateCoin(int amount) {
+        amountCoins += amount;
+        OnUpdateCoin?.Invoke(amountCoins);
     }
     
 }

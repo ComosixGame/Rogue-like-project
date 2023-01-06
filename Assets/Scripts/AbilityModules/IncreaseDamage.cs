@@ -4,10 +4,14 @@ using MyCustomAttribute;
 public class IncreaseDamage : AbsAbilityModule
 {
     [SerializeField, Label("Value(%)")] float value;
+    private AbsPlayerAttack playerAttack;
+    private float preDamage;
 
     public override void AbilityActive()
     {
-        Debug.Log($"tăng {value}% damage");
+        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        preDamage = playerAttack.damage;
+        playerAttack.damage -= preDamage * (value/100); 
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)

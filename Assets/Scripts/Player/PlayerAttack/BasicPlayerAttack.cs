@@ -1,0 +1,11 @@
+using UnityEngine;
+
+public class BasicPlayerAttack : AbsPlayerAttack
+{
+    public override void Attack()
+    {
+        attackEffect.Play();
+        GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
+        newBullet.GetComponent<Bullet>().Fire(damage);
+    }
+}
