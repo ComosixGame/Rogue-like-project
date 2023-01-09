@@ -11,26 +11,29 @@ public class EnemyBehaviour : MonoBehaviour
     private float idleTimer;
     public Transform shootPosition;
     private bool readyAttack, fired;
-    public GameObject _player;
+    private Transform _player;
     public float delayAttack = 3.0f;
     [ReadOnly, SerializeField] private float timerAttack;
     public AbsAttach _absAttach;
-
     private bool isRotation;
+    private GameManager gameManager;
 
     //fix player
     private void Awake() {
+        gameManager = GameManager.Instance;
         agent = GetComponent<NavMeshAgent>();
         _absAttach = GetComponent<AbsAttach>();
         _absAttach.Init();
 
-        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnEnable() {
         _absAttach.OnAttacked += ResetAttack;
     }
-   
+
+    private void Start() {
+        _player = gameManager.player;
+    }
 
     private void Update() {
         Move();

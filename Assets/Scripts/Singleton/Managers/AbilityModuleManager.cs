@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class AbilityModuleManager : Singleton<AbilityModuleManager>
 {
-    [SerializeField] private GameObject player;
+    private Transform player;
     [SerializeField] private AbilityScripable abilityScripable;
     [SerializeField, ReadOnly] private List<AbsAbilityModule> abilityModulesActived;
     [SerializeField] private List<AbsAbilityModule> listAbilityShowed;
@@ -32,10 +32,10 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         absAbilityModulesCommon = new List<AbsAbilityModule>();
         absAbilityModulesRare = new List<AbsAbilityModule>();
         absAbilityModulesLegendary = new List<AbsAbilityModule>();
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start() {
+        player = gameManager.player;
         listAbilityAvailable = abilityScripable.abilityModules.ToList<AbsAbilityModule>();
         AddAbiltyTier();
     }
@@ -109,7 +109,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     }
 
     public void AddAbility(AbsAbilityModule abilityModule) {
-        abilityModule.AddAbility(player);
+        abilityModule.AddAbility(player.gameObject);
         abilityModulesActived.Add(abilityModule);
         listAbilityShowed.Clear();
         gameManager.ResumeGame();

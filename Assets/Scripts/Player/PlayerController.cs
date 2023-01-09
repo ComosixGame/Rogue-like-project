@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
         gameManager = GameManager.Instance;
         ObjectPoolerManager = ObjectPoolerManager.Instance;
 
+        gameManager.SelectPlayer(transform);
+
         inputs = new InputAssets();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
