@@ -105,6 +105,10 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         return gameObj.GetComponent<GameObjectPool>();
     }
 
+    public GameObjectPool SpawnObject(GameObjectPool gameObjectPool) {
+        return SpawnObject(gameObjectPool, Vector3.zero, Quaternion.identity);
+    }
+
     public void DeactiveObject(GameObjectPool gameObjectPool) {
         ObjectPrefab objectPrefab = dictionary[gameObjectPool.key];
         gameObjectPool.gameObject.SetActive(false);

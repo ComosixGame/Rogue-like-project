@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1b542622fa97a4fb9f0e6cd66a3722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier: 70
+  tier: 20
   image: {fileID: 0}
   abilityName: Increase Fire Rate
   description: "T\u0103ng t\u1ED1c \u0111\u1ED9 b\u1EAFn"

@@ -20,10 +20,11 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _Stage;
     [SerializeField] private GameObject _LabUI;
     [SerializeField] private GameObject _optionModule1;
-
     [SerializeField] private GameObject _postionValueModule;
-
     [SerializeField] private Button _btnGetMore;
+    [SerializeField] private SelectAbilityButton abilityBtn;
+    [SerializeField] private Transform abilitySelectorContainer;
+    [SerializeField] private Text abilityEmptyMessage;
     private GameManager gameManager;
 
     private AbilityModuleManager abilityModuleManager;
@@ -100,13 +101,18 @@ public class UIHUD : MonoBehaviour
         waveText.text = $"WARE {currentWave}/{gameManager.waves}";
     }
 
-    private void showAbilityModuleSeletion(){
+    private void showAbilityModuleSeletion(int numberAbilityAvaiable){
+        if(numberAbilityAvaiable == 0) {
+            abilityEmptyMessage.gameObject.SetActive(true);
+        }
+        abilityModuleManager.RenderAbilitySelector(abilitySelectorContainer, abilityBtn, 3);
         _PopupModuleSelector.SetActive(true);
         _postionValueModule.GetComponent<Scrollbar>().value = 0;
         _btnGetMore.interactable = true;
     }
 
     public void HandleAddAbility(AbsAbilityModule newAbility){
+        abilityEmptyMessage.gameObject.SetActive(false);
         _PopupModuleSelector.SetActive(false);
         gameManager.ResumeGame();
         var itemUIClone = Instantiate(uiModuleDisplay, Vector3.zero, Quaternion.identity);

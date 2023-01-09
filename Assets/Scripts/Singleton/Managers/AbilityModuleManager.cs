@@ -10,12 +10,14 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     [SerializeField] private GameObject player;
     [SerializeField] private AbilityScripable abilityScripable;
     [SerializeField, ReadOnly] private List<AbsAbilityModule> abilityModulesActived;
-    [SerializeField] private List<AbsAbilityModule> ListAbilityShowed;
+    [SerializeField] private List<AbsAbilityModule> listAbilityShowed;
+    [SerializeField, ReadOnly] private List<AbsAbilityModule> listAbilityAvailable;
     [SerializeField, ReadOnly] private List<AbsAbilityModule> absAbilityModulesCommon;
     [SerializeField, ReadOnly] private List<AbsAbilityModule> absAbilityModulesRare;
     [SerializeField, ReadOnly] private List<AbsAbilityModule> absAbilityModulesLegendary;
     private GameManager gameManager;
-    public event Action OnShowAbilityModuleSeletion;
+    private ObjectPoolerManager ObjectPoolerManager;
+    public event Action<int> OnShowAbilityModuleSeletion;
     public event Action<AbsAbilityModule> OnAddAbility;
 
     
@@ -23,8 +25,10 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     {
         base.Awake();
         gameManager = GameManager.Instance;
+        ObjectPoolerManager = ObjectPoolerManager.Instance;
         abilityModulesActived = new List<AbsAbilityModule>();
-        ListAbilityShowed = new List<AbsAbilityModule>();
+        listAbilityShowed = new List<AbsAbilityModule>();
+        listAbilityAvailable = new List<AbsAbilityModule>();
         absAbilityModulesCommon = new List<AbsAbilityModule>();
         absAbilityModulesRare = new List<AbsAbilityModule>();
         absAbilityModulesLegendary = new List<AbsAbilityModule>();
@@ -32,7 +36,12 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     }
 
     private void Start() {
-        foreach(AbsAbilityModule abilityModule in abilityScripable.abilityModules) {
+        listAbilityAvailable = abilityScripable.abilityModules.ToList<AbsAbilityModule>();
+        AddAbiltyTier();
+    }
+
+    private void AddAbiltyTier() {
+        foreach(AbsAbilityModule abilityModule in listAbilityAvailable) {
             switch(abilityModule.tier) {
                 case AbsAbilityModule.Tier.Common:
                     absAbilityModulesCommon.Add(abilityModule);
@@ -49,47 +58,69 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         }
     }
 
-    public AbsAbilityModule GetRandomAbility() {
+    private AbsAbilityModule GetRandomAbility() {
+        AbsAbilityModule[] abilityModules = RandomDropRateAbility();
+        int randomIndex = Random.Range(0, abilityModules.Length);
+        AbsAbilityModule ability = abilityModules[randomIndex];
+        //random ko trùng lặp các ability đã show
+        while(listAbilityShowed.IndexOf(ability) != -1) {
+            abilityModules = RandomDropRateAbility();
+            randomIndex = Random.Range(0, abilityModules.Length);
+            ability = abilityModules[randomIndex];
+        }
+        listAbilityShowed.Add(ability);
+        return ability;
+    }
+
+    private AbsAbilityModule[] RandomDropRateAbility() {
         AbsAbilityModule[] abilityModules;
-        int randomIndex;
         int dropRateCommon = (int)AbsAbilityModule.Tier.Common;
         int dropRateRare = (int)AbsAbilityModule.Tier.Rare;
         // int dropRateLegendary = (int)AbsAbilityModule.Tier.Legendary;
         int dropChange = Random.Range(0, 100);
         if(dropChange < dropRateCommon) {
-            randomIndex = Random.Range(0, absAbilityModulesCommon.Count);
             abilityModules = absAbilityModulesCommon.ToArray<AbsAbilityModule>();
         } else if (dropChange < dropRateCommon + dropRateRare) {
-            randomIndex = Random.Range(0, absAbilityModulesRare.Count);
             abilityModules = absAbilityModulesRare.ToArray<AbsAbilityModule>();
         } else {
-            randomIndex = Random.Range(0, absAbilityModulesLegendary.Count);
             abilityModules = absAbilityModulesLegendary.ToArray<AbsAbilityModule>();
         }
-        
-        AbsAbilityModule ability = abilityModules[randomIndex];
-        //random ko trùng lặp các ability đã show
-        while(ListAbilityShowed.IndexOf(ability) != -1) {
-            randomIndex = Random.Range(0, abilityModules.Length);
-            ability = abilityModules[randomIndex];
+
+        if(abilityModules.Length == 0) {
+            abilityModules = RandomDropRateAbility();
         }
-        ListAbilityShowed.Add(ability);
-        return ability;
+
+        return abilityModules;
+    }
+
+    public void RenderAbilitySelector(Transform container, SelectAbilityButton button, int size) {
+        int s = size <= listAbilityAvailable.Count ? size : listAbilityAvailable.Count;
+        for(int i = 0; i < s; i++) {
+            SelectAbilityButton btn = ObjectPoolerManager.SpawnObject(button).GetComponent<SelectAbilityButton>();
+            btn.transform.SetParent(container, false);
+            btn.SetAbilityModule(GetRandomAbility());
+        }
     }
 
 
     public void ShowAbilityModuleSeletion() {
         gameManager.PauseGame();
-        OnShowAbilityModuleSeletion?.Invoke();
+        OnShowAbilityModuleSeletion?.Invoke(listAbilityAvailable.Count);
     }
 
     public void AddAbility(AbsAbilityModule abilityModule) {
         abilityModule.AddAbility(player);
         abilityModulesActived.Add(abilityModule);
-        ListAbilityShowed.Clear();
+        listAbilityShowed.Clear();
         gameManager.ResumeGame();
         Debug.Log(abilityModulesActived[0].abilityName);
         OnAddAbility?.Invoke(abilityModule);
+        //cập nhật lai danh sách ability mới sau
+        absAbilityModulesCommon.Clear();
+        absAbilityModulesRare.Clear();
+        absAbilityModulesLegendary.Clear();
+        listAbilityAvailable.Remove(abilityModule);
+        AddAbiltyTier();
     }
 
     public void ResetAbility() {
