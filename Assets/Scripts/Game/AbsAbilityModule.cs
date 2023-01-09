@@ -1,6 +1,13 @@
 using UnityEngine;
 
+
 public abstract class AbsAbilityModule : MonoBehaviour {
+    public enum Tier {
+        Common = 70,
+        Rare = 20,
+        Legendary = 10
+    }
+    public Tier tier;
     public Sprite image;
     public string abilityName;
     public string description;

@@ -11,8 +11,10 @@ public class MagnetPickUp : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(offset, radius, layer);
         foreach (Collider hitCollider in hitColliders)
         {
-            Transform item = hitCollider.transform;
-            item.position = Vector3.MoveTowards(item.position, offset, 10f * Time.deltaTime);
+            if(hitCollider.GetComponent<AbsItemObjectPool>().readlyPickup) {
+                Transform item = hitCollider.transform;
+                item.position = Vector3.MoveTowards(item.position, offset, 10f * Time.deltaTime);
+            }
         }
     }
 #if UNITY_EDITOR

@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f39894935136df4fac489acfd20eb0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tier: 70
+  image: {fileID: 0}
   abilityName: Increase Max Speed
   description: "t\u0103ng t\u1ED1c \u0111\u1ED9 t\u1ED1i \u0111a"
   value: 100
