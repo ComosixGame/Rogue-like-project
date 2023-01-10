@@ -1,21 +1,28 @@
 using UnityEngine;
 using MyCustomAttribute;
+using UnityEngine.UI;
 
 public class PlayerDamageble : MonoBehaviour, IDamageble
 {
     [SerializeField] private float maxHealth;
     [ReadOnly, SerializeField] private float health;
     // public ParticleSystem destroyEffect;
-    private ObjectPoolerManager  objectPooler;
-    private bool destroyed;
+    private ObjectPoolerManager objectPooler;
+    private GameManager gameManager;
 
+    public Slider healthPlayer;
+    private bool destroyed;
     void Start()
     {
         health = maxHealth;
+        healthPlayer.maxValue = maxHealth;
+        healthPlayer.value   = maxHealth;
     }
+
 
     public void TakeDamge(float damage, Vector3 force){
         health -= damage;
+        healthPlayer.value = health;
         if(health <= 0 && !destroyed){
             destroyed = true;
             Destroy();

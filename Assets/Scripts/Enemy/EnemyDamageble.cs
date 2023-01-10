@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(GameObjectPool))]
@@ -10,6 +11,9 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     [SerializeField] private AbsItemObjectPool coin;
     [SerializeField] private GameObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
+    
+    public Slider healthEnemy;
+
     private float health;
     private bool destroyed, knockBack;
     private Vector3 dirKnockBack;
@@ -34,6 +38,8 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
 
     private void Start() {
         health = maxHealth;
+        healthEnemy.maxValue = maxHealth;
+        healthEnemy.value = maxHealth;
         gameManager.AddEnemy(transform);
     }
 
@@ -57,6 +63,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         health -= damage;
         knockBack = true;
         Invoke("CancelKnockBack", 0.1f);
+        healthEnemy.value = health;
         if(health <= 0 && !destroyed) {
             destroyed = true;
             Destroy();
