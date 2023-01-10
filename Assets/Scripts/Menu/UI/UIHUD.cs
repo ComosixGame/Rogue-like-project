@@ -7,6 +7,7 @@ public class UIHUD : MonoBehaviour
 {
     [SerializeField] private Text levelText;
     [SerializeField] private Text waveText;
+    [SerializeField] private Text gold;
 
     [SerializeField] private Transform NameModule;
     [SerializeField] private UIModuleDisplay uiModuleDisplay;
@@ -38,6 +39,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange += ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion += showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility += HandleAddAbility;
+        gameManager.OnUpdateCoin += ChangeUpdateCoins;
     }
 
     private void OnDisable() {
@@ -45,6 +47,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange -= ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion -= showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
+        gameManager.OnUpdateCoin -= ChangeUpdateCoins;
     }
 
     public void InitScene(){
@@ -100,6 +103,10 @@ public class UIHUD : MonoBehaviour
         waveText.text = $"WARE {currentWave}/{gameManager.waves}";
     }
 
+    private void ChangeUpdateCoins(int currentCoin){
+        gold.text = $"{currentCoin}";
+    }
+
     private void showAbilityModuleSeletion(){
         _PopupModuleSelector.SetActive(true);
         _postionValueModule.GetComponent<Scrollbar>().value = 0;
@@ -113,6 +120,11 @@ public class UIHUD : MonoBehaviour
         itemUIClone.transform.SetParent(NameModule, false);
         itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
+
+    public void HandleAddModule(AbsAbilityModule newAbility){
+        
+    }
+
 
     public void HandleGetMoreOptions(){
         _optionModule1.SetActive(true);
