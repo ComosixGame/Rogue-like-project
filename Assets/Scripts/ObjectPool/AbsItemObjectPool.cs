@@ -12,7 +12,7 @@ public abstract class AbsItemObjectPool : GameObjectPool
         rb = GetComponent<Rigidbody>();
     }
 
-    protected virtual void Start() {
+    protected virtual void OnEnable() {
         Vector3 dir = Random.insideUnitSphere.normalized;
         rb.AddForce(dir * 8f, ForceMode.Impulse);
         Invoke("ActivePickup", 0.5f);

@@ -58,8 +58,8 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         knockBack = true;
         Invoke("CancelKnockBack", 0.1f);
         if(health <= 0 && !destroyed) {
-                destroyed = true;
-                Destroy();
+            destroyed = true;
+            Destroy();
         } 
     }
 

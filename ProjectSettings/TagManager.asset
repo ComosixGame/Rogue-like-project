@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - BulletPlayer
   - item
-  - 
-  - 
+  - SplitBullet
+  - SplitBulletTarget
   - 
   - 
   - 
