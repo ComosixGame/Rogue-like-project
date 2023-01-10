@@ -96,7 +96,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7155788659206797011}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -224,7 +224,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 4
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8760771856754633712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   impactEffect: {fileID: 8488679975446205442, guid: 6a1781d1579f2374297c02b1e938a264,
     type: 3}
   rb: {fileID: 3931644168276374691}
+  splitBullet: 0
 --- !u!114 &2048969231135658805
 MonoBehaviour:
   m_ObjectHideFlags: 0

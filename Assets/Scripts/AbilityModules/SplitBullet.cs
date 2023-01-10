@@ -29,7 +29,7 @@ public class SplitBullet : AbsAbilityModule
     {
         Bullet.OnHitEnemy -= ActiveSplitBullet;
     }
-    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, float damage) {
+    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, Transform splitTarget, float damage) {
         for(int i = 0; i < 4; i++) {
             Vector3 dir;
             switch(i) {
@@ -51,7 +51,7 @@ public class SplitBullet : AbsAbilityModule
             GameObjectPool obj = objectPoolerManager.SpawnObject(bullet, hitPoint, Quaternion.LookRotation(dir));
             Bullet newBullet = obj.GetComponent<Bullet>();
             newBullet.splitBullet = true;
-            newBullet.DeactiveCollision();
+            newBullet.excludeTarget = splitTarget;
             newBullet.Fire(damage);
         }
     }

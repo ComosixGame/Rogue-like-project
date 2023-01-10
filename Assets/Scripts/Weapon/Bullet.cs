@@ -7,16 +7,15 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     private bool fired, hit;
     [ReadOnly] public bool splitBullet;
+    [HideInInspector] public Transform excludeTarget;
     private float damage;
-    private Collider colliderBullet;
     private GameObjectPool gameObjectPool;
     private ObjectPoolerManager ObjectPoolerManager;
-    public static event Action<GameObjectPool, Vector3, float> OnHitEnemy;
+    public static event Action<GameObjectPool, Vector3, Transform, float> OnHitEnemy;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
         gameObjectPool = GetComponent<GameObjectPool>();
-        colliderBullet = GetComponent<Collider>();
     }
 
     private void FixedUpdate() {
@@ -25,18 +24,18 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(!hit) {
+    private void OnTriggerEnter(Collider other) {
+        if(other.transform != excludeTarget && !hit) {
             hit = true;
             Destroy();
-            ContactPoint contact = other.GetContact(0);
-            GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , contact.point, Quaternion.LookRotation(contact.normal));
+            Vector3 hitPoint = other.ClosestPoint(transform.position);
+            GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , hitPoint, Quaternion.LookRotation(hitPoint - transform.position));
             if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
                 Vector3 dir = other.transform.position - transform.position;
                 dir.y = 0;
                 damageble.TakeDamge(damage, dir);
                 if(!splitBullet) {
-                    OnHitEnemy?.Invoke(gameObjectPool, contact.point, damage);
+                    OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, damage);
                 }
             }
         }
@@ -53,15 +52,7 @@ public class Bullet : MonoBehaviour
         fired = false;
         hit = false;
         splitBullet = false;
+        excludeTarget = null;
         ObjectPoolerManager.DeactiveObject(gameObjectPool);
-    }
-
-    public void DeactiveCollision() {
-        colliderBullet.isTrigger = true;
-        Invoke("ActiveCollision", 0.2f);
-    }
-    
-    public void ActiveCollision() {
-        colliderBullet.isTrigger = false;
     }
 }
