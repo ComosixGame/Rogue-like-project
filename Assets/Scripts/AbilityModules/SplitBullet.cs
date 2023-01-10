@@ -19,6 +19,7 @@ public class SplitBullet : AbsAbilityModule
     public override AbsAbilityModule AddAbility(GameObject parent)
     {
         SplitBullet splitBullet = parent.AddComponent<SplitBullet>();
+        splitBullet.tier = tier;
         splitBullet.abilityName = abilityName;
         splitBullet.description = description;
         splitBullet.enabled = true;

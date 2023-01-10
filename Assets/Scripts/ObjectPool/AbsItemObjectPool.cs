@@ -19,11 +19,16 @@ public abstract class AbsItemObjectPool : GameObjectPool
     }
 
     private void OnTriggerEnter(Collider other) {
+        if(!readlyPickup) return;
         if((layer & (1 << other.gameObject.layer)) != 0) {
             objectPoolerManager.DeactiveObject(this);
             ActiveItem(other);
-            readlyPickup = false;
         }
+    }
+
+    private void OnDisable() {
+        CancelInvoke("ActivePickup");
+        readlyPickup = false;
     }
 
     private void ActivePickup() {

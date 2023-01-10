@@ -27,7 +27,6 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.transform != excludeTarget && !hit) {
             hit = true;
-            Destroy();
             Vector3 hitPoint = other.ClosestPoint(transform.position);
             GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , hitPoint, Quaternion.LookRotation(hitPoint - transform.position));
             if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
@@ -38,6 +37,7 @@ public class Bullet : MonoBehaviour
                     OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, damage);
                 }
             }
+            Destroy();
         }
     }
 
