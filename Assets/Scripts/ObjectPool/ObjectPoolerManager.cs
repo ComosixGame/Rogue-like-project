@@ -79,13 +79,13 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
 
     public GameObjectPool SpawnObject(GameObjectPool gameObjectPool, Vector3 position, Quaternion rotation) {
         ObjectPrefab objectPrefab = dictionary[gameObjectPool.key];
+        objectPrefab.active ++;
         GameObject gameObj;
         // kiểm tra nếu object có sẵn ko có đủ thì tạo cái mới
         if(objectPrefab.inactive <=0) {
             gameObj = Instantiate(objectPrefab.prefab, position, rotation);
             gameObj.transform.SetParent(transform, false);
             gameObj.SetActive(true);
-            objectPrefab.active ++;
             objectPrefab.size ++;
             //thêm lại vào queue để chờ sử dụng
             objectPrefab.objectPool.Enqueue(gameObj);
@@ -97,12 +97,15 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
             gameObjTransform.position = position;
             gameObjTransform.rotation = rotation;
             gameObj.SetActive(true);
-            objectPrefab.active ++;
             objectPrefab.inactive --;
             // thêm lại vào queue để chờ sử dụng
             objectPrefab.objectPool.Enqueue(gameObj);
         }
         return gameObj.GetComponent<GameObjectPool>();
+    }
+
+    public GameObjectPool SpawnObject(GameObjectPool gameObjectPool) {
+        return SpawnObject(gameObjectPool, Vector3.zero, Quaternion.identity);
     }
 
     public void DeactiveObject(GameObjectPool gameObjectPool) {

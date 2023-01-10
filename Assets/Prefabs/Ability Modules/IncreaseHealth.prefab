@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57167cff2fe6e0c47bbd31d27aacf934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tier: 10
+  image: {fileID: 0}
   abilityName: Increase Max Health
   description: "T\u0103ng m\xE1u t\u1ED1i \u0111a"
   value: 20

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8832573863574590197}
   - component: {fileID: 7689441221117670352}
   - component: {fileID: 4565015447322400952}
-  - component: {fileID: 4228071687136689210}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4228071687136689210
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681938127533131749}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5651962699218005872
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPosition: {fileID: 4371986747891363945}
-  _player: {fileID: 2694546641388824592, guid: 717ddf357a839a148a363692f586e37e, type: 3}
   delayAttack: 3
   timerAttack: 0
   _absAttach: {fileID: 6575222288703455151, guid: 9dda88f0cc8de094f82504d0ec0752ac,
@@ -302,11 +287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224713816ebe5348acaac3878200411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountCoins: 0
+  coin: {fileID: 0}
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 100
-  chanceDropItem: 100
-  item: {fileID: 1201592111422298756, guid: 968733c3b672191479a0a64c881fb23c, type: 3}
 --- !u!114 &5190694723900107276
 MonoBehaviour:
   m_ObjectHideFlags: 0

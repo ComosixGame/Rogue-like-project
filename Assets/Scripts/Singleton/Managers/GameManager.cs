@@ -14,8 +14,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
     [ReadOnly] public int levels, waves;
+    public Transform player {get; private set;}
     public event Action OnEnemiesDestroyed;
-
+    public event Action<Transform> OnSelectedPlayer;
     public event Action OnPause;
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
@@ -63,6 +64,11 @@ public class GameManager : Singleton<GameManager>
     public void UpdateCoin(int amount) {
         amountCoins += amount;
         OnUpdateCoin?.Invoke(amountCoins);
+    }
+
+    public void SelectPlayer(Transform player) {
+        this.player = player;
+        OnSelectedPlayer?.Invoke(this.player);
     }
     
 }

@@ -10,7 +10,7 @@ public class NextLevelDoor : MonoBehaviour
     public Vector3 playerStartPosition;
     private bool levelCleared;
 
-    private void Awake() {
+    private void OnEnable() {
         mapGeneration.OnLevelCleared += OnlevelCleared;
     }
 
@@ -20,6 +20,10 @@ public class NextLevelDoor : MonoBehaviour
                 StartCoroutine(CoroutineNextlevel(other.transform));
             }
         }
+    }
+
+    private void OnDisable() {
+        mapGeneration.OnLevelCleared -= OnlevelCleared;
     }
 
     private void OnlevelCleared() {

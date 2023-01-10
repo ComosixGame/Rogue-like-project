@@ -11,7 +11,7 @@ public class IncreaseDamage : AbsAbilityModule
     {
         playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
         preDamage = playerAttack.damage;
-        playerAttack.damage -= preDamage * (value/100); 
+        playerAttack.damage += preDamage * (value/100); 
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)

@@ -20,7 +20,7 @@ public class UIAbilitySelection : MonoBehaviour
         abilityModuleManager.OnAddAbility -= HideUI;
     }
 
-    private void ShowUI() {
+    private void ShowUI(int numberAbilityAvaiable) {
         menu.SetActive(true);
     }
 

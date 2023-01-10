@@ -65,8 +65,8 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         Invoke("CancelKnockBack", 0.1f);
         healthEnemy.value = health;
         if(health <= 0 && !destroyed) {
-                destroyed = true;
-                Destroy();
+            destroyed = true;
+            Destroy();
         } 
     }
 

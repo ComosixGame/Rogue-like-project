@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7362668146535469e3433adfc72ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tier: 70
+  image: {fileID: 0}
   abilityName: Increase Damage
   description: "T\u0103ng max damage"
   value: 10
