@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7adafdb13c3e6498a9fcfbf4370071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier: 70
+  tier: 10
   image: {fileID: 0}
   abilityName: Split Bullet
   description: Split Bullet
