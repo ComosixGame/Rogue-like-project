@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MyCustomAttribute;
+using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +19,17 @@ public class GameManager : Singleton<GameManager>
     public event Action OnPause;
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
+
+    //nam
+    private float healthPlayer;
+    public UnityEvent<float> OnUpdateHealthPlayer = new UnityEvent<float>();
+
+
+    //update health player
+    public void UpdatePlayHealth(float hp){
+        healthPlayer = hp;
+        OnUpdateHealthPlayer?.Invoke(healthPlayer);
+    }
 
     public List<Transform> GetEnemies() {
         return enemies;
