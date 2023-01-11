@@ -13,7 +13,7 @@ public class MagnetPickUp : MonoBehaviour
         {
             if(hitCollider.GetComponent<AbsItemObjectPool>().readlyPickup) {
                 Transform item = hitCollider.transform;
-                item.position = Vector3.MoveTowards(item.position, offset, 10f * Time.deltaTime);
+                item.position = Vector3.MoveTowards(item.position, offset, 20f * Time.deltaTime);
             }
         }
     }

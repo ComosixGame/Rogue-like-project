@@ -15,7 +15,7 @@ public abstract class AbsItemObjectPool : GameObjectPool
     protected virtual void OnEnable() {
         Vector3 dir = Random.insideUnitSphere.normalized;
         rb.AddForce(dir * 8f, ForceMode.Impulse);
-        Invoke("ActivePickup", 0.5f);
+        Invoke("ActivePickup", 1f);
     }
 
     private void OnTriggerEnter(Collider other) {
