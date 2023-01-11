@@ -27,8 +27,8 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.transform != excludeTarget && !hit) {
             hit = true;
-            Vector3 hitPoint = other.ClosestPoint(transform.position);
-            GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , hitPoint, Quaternion.LookRotation(hitPoint - transform.position));
+            Vector3 hitPoint = other.GetComponent<Collider>().ClosestPoint(transform.position);
+            GameObjectPool effect = ObjectPoolerManager.SpawnObject(impactEffect , hitPoint, Quaternion.identity);
             if(other.gameObject.TryGetComponent(out IDamageble damageble)) {
                 Vector3 dir = other.transform.position - transform.position;
                 dir.y = 0;
