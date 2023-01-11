@@ -9,6 +9,7 @@ public class IncreaseHealth : AbsAbilityModule
     public override AbsAbilityModule AddAbility(GameObject parent)
     {
         IncreaseHealth increaseHealth = parent.AddComponent<IncreaseHealth>();
+        increaseHealth.tier = tier;
         increaseHealth.abilityName = abilityName;
         increaseHealth.description = description;
         increaseHealth.value = value;

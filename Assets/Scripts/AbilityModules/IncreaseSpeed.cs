@@ -17,6 +17,7 @@ public class IncreaseSpeed : AbsAbilityModule
     public override AbsAbilityModule AddAbility(GameObject parent)
     {
         IncreaseSpeed increaseSpeed = parent.AddComponent<IncreaseSpeed>();
+        increaseSpeed.tier = tier;
         increaseSpeed.abilityName = abilityName;
         increaseSpeed.description = description;
         increaseSpeed.value = value;

@@ -17,10 +17,10 @@ public class IncreaseFireRate : AbsAbilityModule
     public override AbsAbilityModule AddAbility(GameObject parent)
     {
         IncreaseFireRate increaseFireRate = parent.AddComponent<IncreaseFireRate>();
+        increaseFireRate.tier = tier;
         increaseFireRate.abilityName = abilityName;
         increaseFireRate.description = description;
         increaseFireRate.value = value;
-        increaseFireRate.enabled = true;
         return increaseFireRate;
     }
 

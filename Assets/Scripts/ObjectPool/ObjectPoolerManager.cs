@@ -84,7 +84,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         // kiểm tra nếu object có sẵn ko có đủ thì tạo cái mới
         if(objectPrefab.inactive <=0) {
             gameObj = Instantiate(objectPrefab.prefab, position, rotation);
-            gameObj.transform.SetParent(transform, false);
+            gameObj.transform.SetParent(transform);
             gameObj.SetActive(true);
             objectPrefab.size ++;
             //thêm lại vào queue để chờ sử dụng

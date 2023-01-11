@@ -77,11 +77,11 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     public void Destroy() {
         objectPoolerManager.SpawnObject(destroyEffect, transform.position, Quaternion.identity);
         gameManager.RemoveEnemy(transform);
-        objectPoolerManager.DeactiveObject(gameObjectPool);
         //spawn coin
         for(int i = 0; i < amountCoins; i++) {
             objectPoolerManager.SpawnObject(coin, transform.position, Quaternion.identity);
         }
+        objectPoolerManager.DeactiveObject(gameObjectPool);
         OnEnemiesDestroy?.Invoke(transform.position);
     }
 }

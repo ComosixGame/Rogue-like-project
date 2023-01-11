@@ -17,6 +17,7 @@ public class IncreaseDamage : AbsAbilityModule
     public override AbsAbilityModule AddAbility(GameObject parent)
     {
         IncreaseDamage increaseDamage = parent.AddComponent<IncreaseDamage>();
+        increaseDamage.tier = tier;
         increaseDamage.abilityName = abilityName;
         increaseDamage.description = description;
         increaseDamage.value = value;

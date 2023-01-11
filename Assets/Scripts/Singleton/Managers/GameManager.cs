@@ -6,6 +6,15 @@ using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
+    /**
+     * Sử dụng Player để tham chiếu đển nhân vật của player
+     * Event OnSelectedPlayer để lắng nghe hành động chọn player dữ liệu đươc gửi đi là Transform player
+     * enemiesCount trả về số lượng enemies còn lại
+     * Event OnEnemiesDestroyed để lắng nghe khi số enemies bằng 0
+     * Event OnUpdateCoin để lặng nghe khi coin đc update dữ liệu gửi đi là số lượng coin
+     * OnPause, OnResume sự kiện pause và resume
+     */
+
     [ReadOnly, SerializeField] private int amountCoins;
     [ReadOnly, SerializeField] private List<Transform> enemies = new List<Transform>();
     public int enemiesCount {
@@ -40,6 +49,7 @@ public class GameManager : Singleton<GameManager>
         enemies.Add(enemy);
     }
 
+    //remove enemy khỏi danh sách enemies
     public void RemoveEnemy(Transform enemy) {
         enemies.Remove(enemy);
         if(enemiesCount == 0) {
@@ -47,6 +57,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    //clear toàn bộ enemy
     public void ClearEnemies() {
         enemies.Clear();
     }
@@ -61,11 +72,13 @@ public class GameManager : Singleton<GameManager>
         OnResume?.Invoke();
     }
 
+    //update tiền nhặt đươc;
     public void UpdateCoin(int amount) {
         amountCoins += amount;
         OnUpdateCoin?.Invoke(amountCoins);
     }
 
+    //set tham chiếu player
     public void SelectPlayer(Transform player) {
         this.player = player;
         OnSelectedPlayer?.Invoke(this.player);

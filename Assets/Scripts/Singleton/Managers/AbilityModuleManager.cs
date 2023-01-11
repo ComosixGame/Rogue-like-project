@@ -40,6 +40,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         AddAbiltyTier();
     }
 
+    //phân cấp ability thành nhiều nhóm theo tier
     private void AddAbiltyTier() {
         foreach(AbsAbilityModule abilityModule in listAbilityAvailable) {
             switch(abilityModule.tier) {
@@ -77,6 +78,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         int dropRateCommon = (int)AbsAbilityModule.Tier.Common;
         int dropRateRare = (int)AbsAbilityModule.Tier.Rare;
         // int dropRateLegendary = (int)AbsAbilityModule.Tier.Legendary;
+        //random theo phân cấp của ability
         int dropChange = Random.Range(0, 100);
         if(dropChange < dropRateCommon) {
             abilityModules = absAbilityModulesCommon.ToArray<AbsAbilityModule>();
@@ -87,12 +89,14 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         }
 
         if(abilityModules.Length == 0) {
+            //chọn ra nhóm ability theo cấp độ nếu nhóm đó số lượng ability còn lại = 0 thì tiếp tục tìm nhóm khác
             abilityModules = RandomDropRateAbility();
         }
 
         return abilityModules;
     }
 
+    //sử dụng để reneder nút nhất chọn ability
     public void RenderAbilitySelector(Transform container, SelectAbilityButton button, int size) {
         int s = size <= listAbilityAvailable.Count ? size : listAbilityAvailable.Count;
         for(int i = 0; i < s; i++) {
@@ -102,27 +106,29 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         }
     }
 
-
+    //phát sự kiện ShowAbilityModuleSeletion
     public void ShowAbilityModuleSeletion() {
         gameManager.PauseGame();
         OnShowAbilityModuleSeletion?.Invoke(listAbilityAvailable.Count);
     }
 
+    // thêm ability vào player
     public void AddAbility(AbsAbilityModule abilityModule) {
-        abilityModule.AddAbility(player.gameObject);
-        abilityModulesActived.Add(abilityModule);
+        AbsAbilityModule newAbility = abilityModule.AddAbility(player.gameObject);
         listAbilityShowed.Clear();
         gameManager.ResumeGame();
-        Debug.Log(abilityModulesActived[0].abilityName);
         OnAddAbility?.Invoke(abilityModule);
-        //cập nhật lai danh sách ability mới sau
+        //cập nhật lai danh sách ability
         absAbilityModulesCommon.Clear();
         absAbilityModulesRare.Clear();
         absAbilityModulesLegendary.Clear();
         listAbilityAvailable.Remove(abilityModule);
+        //thêm ability mới đc add vào player vào danh sách 
+        abilityModulesActived.Add(newAbility);
         AddAbiltyTier();
     }
 
+    //gõ tất cả các ability đã active
     public void ResetAbility() {
         foreach(AbsAbilityModule ability in abilityModulesActived) {
             ability.ResetAbility();

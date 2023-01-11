@@ -15,15 +15,20 @@ public abstract class AbsItemObjectPool : GameObjectPool
     protected virtual void OnEnable() {
         Vector3 dir = Random.insideUnitSphere.normalized;
         rb.AddForce(dir * 8f, ForceMode.Impulse);
-        Invoke("ActivePickup", 0.5f);
+        Invoke("ActivePickup", 1f);
     }
 
     private void OnTriggerEnter(Collider other) {
+        if(!readlyPickup) return;
         if((layer & (1 << other.gameObject.layer)) != 0) {
             objectPoolerManager.DeactiveObject(this);
             ActiveItem(other);
-            readlyPickup = false;
         }
+    }
+
+    private void OnDisable() {
+        CancelInvoke("ActivePickup");
+        readlyPickup = false;
     }
 
     private void ActivePickup() {
