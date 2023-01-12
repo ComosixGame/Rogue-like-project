@@ -9,11 +9,9 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Text waveText;
     [SerializeField] private Text gold;
     [SerializeField] private Text stateText;
-
     [SerializeField] private Transform NameModule;
     [SerializeField] private Transform NameModulePausePopup;
     [SerializeField] private UIModuleDisplay uiModuleDisplay;
-
     [SerializeField] private GameObject _PopupPause;
     [SerializeField] private GameObject _PopupModuleSelector;
     [SerializeField] private GameObject _PopupSettings;
@@ -30,18 +28,15 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
 
-    public Slider reSliderScale;
-    public Toggle fps30, fps60, mute;
-    
-
     //singleton
     private GameManager gameManager;
     private AbilityModuleManager abilityModuleManager;
-    private SoundManager soundManager;
+    private LoadSceneManager loadSceneManager;
 
     private void Awake() {
         gameManager = GameManager.Instance;
         abilityModuleManager = AbilityModuleManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
     }
 
     private void OnEnable() {
@@ -51,7 +46,6 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility += HandleAddAbility;
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
-        mute.onValueChanged.AddListener(MuteGame);
     }
 
     private void OnDisable() {
@@ -61,7 +55,6 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
         abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
-        mute.onValueChanged.RemoveListener(MuteGame);
     }
 
     public void InitScene(){
@@ -106,9 +99,10 @@ public class UIHUD : MonoBehaviour
         _PopupLobby.SetActive(false);
     }
 
-    public void HandleReturnLobby(){
-        SceneManager.LoadScene("Scenes/UI");
+    public void OnLoadScene(string path){
+        loadSceneManager.LoadScene(path);
     }
+
 
     private void ChangeLevelText(int currentLevel) {
         levelText.text = $"Lab : {currentLevel}";
@@ -147,31 +141,8 @@ public class UIHUD : MonoBehaviour
         itemUIClone.transform.SetParent(NameModulePausePopup, false);
         itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
-
-
     public void HandleGetMoreOptions(){
         _optionModule1.SetActive(true);
         _btnGetMore.interactable = false;
-    }
-
-
-    public void MuteGame(bool mute){
-        soundManager.MuteGame(mute);
-    }
-
-    public void QuitGame(){
-        Application.Quit();
-    }
-
-    public void SetScaleRes(float value){
-        Debug.Log("SetScaleRes");
-    }
-
-    public void OnValueChagedFps30(bool check){
-        Debug.Log("OnValueChangedFps30");
-    }
-
-    public void OnValueChangedFps60(bool check){
-        Debug.Log("OnValueChangedFps60");
     }
 }
