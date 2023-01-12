@@ -25,6 +25,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
     
+    private Camera _camera;
     private void Awake() {
         gameManager = GameManager.Instance;
         objectPoolerManager = ObjectPoolerManager.Instance;
@@ -34,6 +35,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
         agent = GetComponent<NavMeshAgent>();
+        _camera = Camera.main;
     }
 
     private void Start() {
@@ -55,6 +57,11 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             agent.Move(dirKnockBack * 3f * Time.deltaTime);
         }
     }
+
+    private void LateUpdate() {
+        healthEnemy.transform.LookAt(_camera.transform);
+    }
+
 
     public void TakeDamge(float damage, Vector3 force)
     {

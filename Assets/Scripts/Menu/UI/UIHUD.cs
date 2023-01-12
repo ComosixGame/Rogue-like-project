@@ -8,8 +8,10 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private Text waveText;
     [SerializeField] private Text gold;
+    [SerializeField] private Text stateText;
 
     [SerializeField] private Transform NameModule;
+    [SerializeField] private Transform NameModulePausePopup;
     [SerializeField] private UIModuleDisplay uiModuleDisplay;
 
     [SerializeField] private GameObject _PopupPause;
@@ -22,6 +24,7 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _LabUI;
     [SerializeField] private GameObject _optionModule1;
     [SerializeField] private GameObject _postionValueModule;
+    [SerializeField] private GameObject _postionValueModulePausePopup;
     [SerializeField] private Button _btnGetMore;
     [SerializeField] private SelectAbilityButton abilityBtn;
     [SerializeField] private Transform abilitySelectorContainer;
@@ -40,6 +43,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange += ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion += showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility += HandleAddAbility;
+        abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
     }
 
@@ -48,6 +52,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange -= ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion -= showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
+        abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
     }
 
@@ -68,6 +73,7 @@ public class UIHUD : MonoBehaviour
         _LabUI.SetActive(false);
         _Pause.SetActive(false);
         _PopupPause.SetActive(true);
+        _postionValueModulePausePopup.GetComponent<Scrollbar>().value = 0;
         gameManager.PauseGame();
     }
 
@@ -98,6 +104,7 @@ public class UIHUD : MonoBehaviour
 
     private void ChangeLevelText(int currentLevel) {
         levelText.text = $"Lab : {currentLevel}";
+        stateText.text = $"State: {currentLevel}";
     }
 
     private void ChangeWavelText(int currentWave) {
@@ -127,8 +134,10 @@ public class UIHUD : MonoBehaviour
         itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
 
-    public void HandleAddModule(AbsAbilityModule newAbility){
-        
+    public void HandleAddModulePausePopup(AbsAbilityModule newAbility){
+        var itemUIClone = Instantiate(uiModuleDisplay, Vector3.zero, Quaternion.identity);
+        itemUIClone.transform.SetParent(NameModulePausePopup, false);
+        itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
 
 
