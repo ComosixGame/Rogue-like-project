@@ -29,9 +29,15 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private SelectAbilityButton abilityBtn;
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
-    private GameManager gameManager;
 
+    public Slider reSliderScale;
+    public Toggle fps30, fps60, mute;
+    
+
+    //singleton
+    private GameManager gameManager;
     private AbilityModuleManager abilityModuleManager;
+    private SoundManager soundManager;
 
     private void Awake() {
         gameManager = GameManager.Instance;
@@ -45,6 +51,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility += HandleAddAbility;
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
+        mute.onValueChanged.AddListener(MuteGame);
     }
 
     private void OnDisable() {
@@ -54,6 +61,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
         abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
+        mute.onValueChanged.RemoveListener(MuteGame);
     }
 
     public void InitScene(){
@@ -146,7 +154,24 @@ public class UIHUD : MonoBehaviour
         _btnGetMore.interactable = false;
     }
 
-    private void UpdateModule(){
 
+    public void MuteGame(bool mute){
+        soundManager.MuteGame(mute);
+    }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
+
+    public void SetScaleRes(float value){
+        Debug.Log("SetScaleRes");
+    }
+
+    public void OnValueChagedFps30(bool check){
+        Debug.Log("OnValueChangedFps30");
+    }
+
+    public void OnValueChangedFps60(bool check){
+        Debug.Log("OnValueChangedFps60");
     }
 }
