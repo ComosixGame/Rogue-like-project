@@ -8,7 +8,8 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
 {
     /** 
      * Sử dụng LoadScene để load scene mới
-     * LoadScene có thể nhận cả index hoặc đường dẫn của scene để load, tham số loadSceneMode Để chọn mode load single hoặc Additive ko nhập mặc định là single
+     * LoadScene có thể nhận cả index hoặc đường dẫn của scene để load, tham số loadSceneMode 
+     * Để chọn mode load single hoặc Additive ko nhập mặc định là single
      * Sử dụng ResetScene để load lại scene đang chạy
      * Sử dụng sử kiện OnLoadProgresscing để lắng nghe quá trình load scene và nhận giá trị progress
      * OnLoadScene để lắng nghe sự kiện load scene

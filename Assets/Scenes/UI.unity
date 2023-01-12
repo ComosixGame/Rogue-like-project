@@ -957,6 +957,57 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &84410834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84410836}
+  - component: {fileID: 84410835}
+  m_Layer: 0
+  m_Name: AbilityModuleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &84410835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84410834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67ced131a6921a47a0ae74e29c5e259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityScripable: {fileID: 11400000, guid: 9db647bc5fd650a4ea1a6c8a1ed8abd0, type: 2}
+  abilityModulesActived: []
+  listAbilityShowed: []
+  listAbilityAvailable: []
+  absAbilityModulesCommon: []
+  absAbilityModulesRare: []
+  absAbilityModulesLegendary: []
+--- !u!4 &84410836
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84410834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 164.74507, y: 138.30138, z: -1.008985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96544983
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,11 +6971,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 4
-    m_MaxSize: 40
+    m_MaxSize: 132
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -8003,7 +8054,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 486026626}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14408,6 +14459,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075347945}
   m_CullTransparentMesh: 1
+--- !u!1 &1075760978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075760980}
+  - component: {fileID: 1075760979}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1075760979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075760978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edbd68ea518425408187bd8f1e2bd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountCoins: 0
+  enemies: []
+  levels: 0
+  waves: 0
+  OnUpdateHealthPlayer:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1075760980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075760978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 164.74507, y: 138.30138, z: -1.008985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076627266
 GameObject:
   m_ObjectHideFlags: 0
@@ -20664,14 +20766,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1001119831}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: BtnPlayGame
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scenes/samp1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1496471887
