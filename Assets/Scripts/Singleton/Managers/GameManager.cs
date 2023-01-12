@@ -34,7 +34,6 @@ public class GameManager : Singleton<GameManager>
     private float healthPlayer;
     public UnityEvent<float> OnUpdateHealthPlayer = new UnityEvent<float>();
 
-
     //update health player
     public void UpdatePlayHealth(float hp){
         healthPlayer = hp;
