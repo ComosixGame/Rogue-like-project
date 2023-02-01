@@ -12,11 +12,20 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
     public Slider healthPlayer;
     private bool destroyed;
+    private Camera _camera;
+
+    private SoundManager soundManager;
+
     void Start()
     {
         health = maxHealth;
         healthPlayer.maxValue = maxHealth;
         healthPlayer.value   = maxHealth;
+        _camera = Camera.main;
+    }
+
+    private void LateUpdate() {
+        healthPlayer.transform.LookAt(_camera.transform);
     }
 
 

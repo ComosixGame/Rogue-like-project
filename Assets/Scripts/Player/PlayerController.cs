@@ -26,11 +26,12 @@ public class PlayerController : MonoBehaviour
     private int aimHash;
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
+    private SoundManager soundManager;
+
 
     private void Awake() {
         gameManager = GameManager.Instance;
         ObjectPoolerManager = ObjectPoolerManager.Instance;
-
         gameManager.SelectPlayer(transform);
 
         inputs = new InputAssets();

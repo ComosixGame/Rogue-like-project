@@ -12,9 +12,12 @@ public class UI : MonoBehaviour
     public GameObject _lobby;
     public GameObject _resume;
 
+    private LoadSceneManager loadSceneManager;
+
     private void Awake() {
         _chapter.SetActive(true);
         _level.SetActive(false);
+        loadSceneManager = LoadSceneManager.Instance;
     }
 
     public void BtnSetting(){
@@ -31,10 +34,7 @@ public class UI : MonoBehaviour
         _resume.SetActive(false);
     }
 
-
-
-    public void BtnPlayGame(){
-        SceneManager.LoadScene("Scenes/Enemy");
-        //SceneManager.LoadScene("Scenes/Level", LoadSceneMode.Additive);
+    public void LoadScene(string path){
+        loadSceneManager.LoadScene(path);
     }
 }

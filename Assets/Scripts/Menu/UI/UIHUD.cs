@@ -8,10 +8,10 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private Text waveText;
     [SerializeField] private Text gold;
-
+    [SerializeField] private Text stateText;
     [SerializeField] private Transform NameModule;
+    [SerializeField] private Transform NameModulePausePopup;
     [SerializeField] private UIModuleDisplay uiModuleDisplay;
-
     [SerializeField] private GameObject _PopupPause;
     [SerializeField] private GameObject _PopupModuleSelector;
     [SerializeField] private GameObject _PopupSettings;
@@ -22,17 +22,21 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _LabUI;
     [SerializeField] private GameObject _optionModule1;
     [SerializeField] private GameObject _postionValueModule;
+    [SerializeField] private GameObject _postionValueModulePausePopup;
     [SerializeField] private Button _btnGetMore;
     [SerializeField] private SelectAbilityButton abilityBtn;
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
-    private GameManager gameManager;
 
+    //singleton
+    private GameManager gameManager;
     private AbilityModuleManager abilityModuleManager;
+    private LoadSceneManager loadSceneManager;
 
     private void Awake() {
         gameManager = GameManager.Instance;
         abilityModuleManager = AbilityModuleManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
     }
 
     private void OnEnable() {
@@ -40,6 +44,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange += ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion += showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility += HandleAddAbility;
+        abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
     }
 
@@ -48,6 +53,7 @@ public class UIHUD : MonoBehaviour
         MapGeneration.OnWaveChange -= ChangeWavelText;
         abilityModuleManager.OnShowAbilityModuleSeletion -= showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
+        abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
     }
 
@@ -68,6 +74,7 @@ public class UIHUD : MonoBehaviour
         _LabUI.SetActive(false);
         _Pause.SetActive(false);
         _PopupPause.SetActive(true);
+        _postionValueModulePausePopup.GetComponent<Scrollbar>().value = 0;
         gameManager.PauseGame();
     }
 
@@ -92,12 +99,14 @@ public class UIHUD : MonoBehaviour
         _PopupLobby.SetActive(false);
     }
 
-    public void HandleReturnLobby(){
-        SceneManager.LoadScene("Scenes/UI");
+    public void OnLoadScene(string path){
+        loadSceneManager.LoadScene(path);
     }
+
 
     private void ChangeLevelText(int currentLevel) {
         levelText.text = $"Lab : {currentLevel}";
+        stateText.text = $"State: {currentLevel}";
     }
 
     private void ChangeWavelText(int currentWave) {
@@ -127,17 +136,13 @@ public class UIHUD : MonoBehaviour
         itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
 
-    public void HandleAddModule(AbsAbilityModule newAbility){
-        
+    public void HandleAddModulePausePopup(AbsAbilityModule newAbility){
+        var itemUIClone = Instantiate(uiModuleDisplay, Vector3.zero, Quaternion.identity);
+        itemUIClone.transform.SetParent(NameModulePausePopup, false);
+        itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
-
-
     public void HandleGetMoreOptions(){
         _optionModule1.SetActive(true);
         _btnGetMore.interactable = false;
-    }
-
-    private void UpdateModule(){
-
     }
 }
