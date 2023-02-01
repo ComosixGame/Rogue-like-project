@@ -1,30 +1,59 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
+using MyCustomAttribute;
 
-public class SoundManager
+[RequireComponent(typeof(AudioSource))]
+public class SoundManager : Singleton<SoundManager>
 {
     private AudioSource audioSource;
-    public UnityEvent<bool> OnMute = new UnityEvent<bool>();
-    private GameManager gameManager;
-    private bool isMute;
+    [SerializeField, ReadOnly] private float volumeSFX = 0.5f;
+    public event Action<bool> OnMute;
+    public event Action<float> OnChangeSFXVolume;
+    public event Action<float> OnChangeMusicVolume;
+    public event Action<bool> OnSetPlayMusic;
 
-    private void Start() {
-        audioSource.mute = isMute;
+    protected override void Awake()
+    {
+        base.Awake();
+        if(TryGetComponent<AudioSource>(out AudioSource audioSource)) {
+            this.audioSource = audioSource;
+        } else {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.playOnAwake = false;
+        audioSource.loop = true;
+        audioSource.minDistance = 0;
     }
 
-    public void PlayOneShot(AudioClip audioClip, float volumeScale = 1){
-        audioSource.PlayOneShot(audioClip, volumeScale);
+    public void SetMusicBackGround(AudioClip audioClip) {
+        audioSource.clip = audioClip;
     }
 
-    public AudioSource AddAudioSource(GameObject parent){
-        AudioSource audioSource = parent.AddComponent<AudioSource>();
-        audioSource.mute = isMute;
-        return audioSource;
+    public void SetPlayMusic(bool play) {
+        if(play) {
+            audioSource.Play();
+        } else {
+            audioSource.Stop();
+        }
+        OnSetPlayMusic?.Invoke(play);
     }
 
-    public void MuteGame(bool mute){
-        isMute = mute;
+    public void PlayeSound(AudioClip audioClip) {
+        audioSource.PlayOneShot(audioClip, volumeSFX);
+    }
+
+    public void Mute(bool mute) {
         audioSource.mute = mute;
         OnMute?.Invoke(mute);
     }
-}
+
+    public void ChangeSFXVolume(float volume) {
+        volumeSFX = volume;
+        OnChangeSFXVolume?.Invoke(volumeSFX);
+    }
+
+    public void ChangeMusicVolume(float volume) {
+        audioSource.volume = volume;
+        OnChangeMusicVolume?.Invoke(volume);
+    }
