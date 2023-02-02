@@ -57,3 +57,4 @@ public class SoundManager : Singleton<SoundManager>
         audioSource.volume = volume;
         OnChangeMusicVolume?.Invoke(volume);
     }
+}
