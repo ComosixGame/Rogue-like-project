@@ -22,6 +22,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
     void Start()
     {
+        gameManager = GameManager.Instance;
         health = maxHealth;
         healthPlayer.maxValue = maxHealth;
         healthPlayer.value   = maxHealth;
@@ -51,6 +52,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
     public void Destroy(){
         // Destroy(gameObject);    
+        gameManager.EndGame(false);
         gameObject.SetActive(false);
         OnLoseGame?.Invoke();
     }

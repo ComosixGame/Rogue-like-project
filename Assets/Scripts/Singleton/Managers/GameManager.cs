@@ -31,10 +31,42 @@ public class GameManager : Singleton<GameManager>
     public event Action OnPause;
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
+    private PlayerData playerData;
+    public int coinPlayer {
+        get {
+           return playerData.coin;
+        }
+        private set {
+
+        }
+    }
+
+    public int testing {
+        get {
+           return playerData.testing;
+        }
+        private set {
+
+        }
+    }
 
     //nam
     private float healthPlayer;
     public UnityEvent<float> OnUpdateHealthPlayer = new UnityEvent<float>();
+
+
+    override protected void Awake() {
+        base.Awake();
+        playerData = PlayerData.Load();
+    }
+
+    public void EndGame(bool isWin) {
+        //Thuực hiện việc update coin khi lose game
+        //Được gọi khi thua mỗi ware
+        playerData.coin += amountCoins;
+        playerData.Save();
+    }
+
 
     //update health player
     public void UpdatePlayHealth(float hp){
@@ -84,5 +116,7 @@ public class GameManager : Singleton<GameManager>
         this.player = player;
         OnSelectedPlayer?.Invoke(this.player);
     }
+
+
     
 }

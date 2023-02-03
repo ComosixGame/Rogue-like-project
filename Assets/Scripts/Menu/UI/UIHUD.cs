@@ -18,6 +18,7 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _PopupLobby;
     [SerializeField] private GameObject _FooterLevel;
     [SerializeField] private GameObject _PopupLoseGame;
+    [SerializeField] private GameObject _PopupWinGame;
     [SerializeField] private GameObject _Pause;
     [SerializeField] private GameObject _Stage;
     [SerializeField] private GameObject _LabUI;
@@ -29,6 +30,8 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
 
+    [SerializeField] private Text goldEndGame;
+
     [SerializeField] private GameObject btnContinueGame;
     [SerializeField] private GameObject btnExitGame;
 
@@ -37,8 +40,10 @@ public class UIHUD : MonoBehaviour
     private AbilityModuleManager abilityModuleManager;
     private LoadSceneManager loadSceneManager;
     private PlayerDamageble playerDamageble;
+    private PlayerData playerData;
 
     private void Awake() {
+        playerData = PlayerData.Load();
         gameManager = GameManager.Instance;
         abilityModuleManager = AbilityModuleManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
@@ -47,15 +52,18 @@ public class UIHUD : MonoBehaviour
     private void OnEnable() {
         MapGeneration.OnLevelChange += ChangeLevelText;
         MapGeneration.OnWaveChange += ChangeWavelText;
+        MapGeneration.OnWinGame += ChangeWinGame;
         abilityModuleManager.OnShowAbilityModuleSeletion += showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility += HandleAddAbility;
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
+        gameManager.OnUpdateCoin += ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame += OnLoseGame;
     }
 
     private void OnDisable() {
         MapGeneration.OnLevelChange -= ChangeLevelText;
         MapGeneration.OnWaveChange -= ChangeWavelText;
+        MapGeneration.OnWinGame -= ChangeWinGame;
         abilityModuleManager.OnShowAbilityModuleSeletion -= showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
         abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
@@ -69,6 +77,7 @@ public class UIHUD : MonoBehaviour
         _PopupModuleSelector.SetActive(false);
         _PopupSettings.SetActive(false);
         _PopupLoseGame.SetActive(false);
+        _PopupWinGame.SetActive(false);
         _Pause.SetActive(true);
         _Stage.SetActive(true);
         _LabUI.SetActive(true);
@@ -110,6 +119,10 @@ public class UIHUD : MonoBehaviour
         loadSceneManager.LoadScene(path);
     }
 
+    public void ChangeWinGame(){
+        _PopupWinGame.SetActive(true);
+        gameManager.EndGame(true);
+    }
 
     private void ChangeLevelText(int currentLevel) {
         levelText.text = $"Lab : {currentLevel}";
@@ -130,9 +143,12 @@ public class UIHUD : MonoBehaviour
         _btnGetMore.interactable = true;
     }
      
-    private void ChangeUpdateCoins(int currentCoin){
+    public void ChangeUpdateCoins(int currentCoin){
         gold.text = $"{currentCoin}";
+        goldEndGame.text = $"Total coins : {currentCoin}";
     }
+
+
 
     public void HandleAddAbility(AbsAbilityModule newAbility){
         abilityEmptyMessage.gameObject.SetActive(false);

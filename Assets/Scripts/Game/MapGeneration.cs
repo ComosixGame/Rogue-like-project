@@ -41,6 +41,7 @@ public class MapGeneration : MonoBehaviour
     public static event Action<int> OnWaveChange;
     public static event Action<int> OnLevelChange;
 
+    public static event Action OnWinGame;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
@@ -169,6 +170,11 @@ public class MapGeneration : MonoBehaviour
     }
 
     public void NextLevel() {
+        //gọi sự kiện khi win game
+        if(CurrentLevel >= levels) {
+            OnWinGame?.Invoke();
+            return;
+        }
         //clear vị trí spawn cũ
         ObjectPoolerManager.ResetObjectPoolerManager();
         enemyPosSpawned.Clear();
