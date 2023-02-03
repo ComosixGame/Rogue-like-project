@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(GameObjectPool))]
@@ -25,9 +26,12 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
     
-    private Camera _camera;
+    private LoadSceneManager loadSceneManager;
+
+    [SerializeField] private Camera _camera;
     private void Awake() {
         gameManager = GameManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
         objectPoolerManager = ObjectPoolerManager.Instance;
         gameObjectPool = GetComponent<GameObjectPool>();
         meshRenderer = GetComponent<MeshRenderer>();
@@ -38,12 +42,14 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         _camera = Camera.main;
     }
 
+
     private void Start() {
         health = maxHealth;
         healthEnemy.maxValue = maxHealth;
         healthEnemy.value = maxHealth;
         gameManager.AddEnemy(transform);
     }
+
 
     private void Update() {
         float alphaThreshold = materialPropertyBlock.GetFloat("_alpha_threshold");
@@ -59,7 +65,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     }
 
     private void LateUpdate() {
-        healthEnemy.transform.LookAt(_camera.transform);
+        healthEnemy.transform.LookAt(gameManager.cam);
     }
 
 

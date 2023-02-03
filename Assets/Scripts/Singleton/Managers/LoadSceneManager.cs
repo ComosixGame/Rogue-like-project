@@ -21,25 +21,43 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
     public event Action OnLoadScene;
     public event Action<float> OnLoadProgresscing;
     public event Action OnResetScene;
+    public event Action<Scene> OnSceneLoaded;
+
+    private ObjectPoolerManager objectPoolerManager;
     
     protected override void Awake() {
         base.Awake();
+        objectPoolerManager = ObjectPoolerManager.Instance;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         currentScene = SceneManager.GetActiveScene().name;
+    }
+
+
+
+    private void OnEnable() {
+        SceneManager.sceneLoaded += HandleSceneLoaded;
+    }
+
+    private void OnDisable(){
+         SceneManager.sceneLoaded -= HandleSceneLoaded;
     }
 
     public void ResetScene() {
         LoadScene(currentSceneIndex);
         OnResetScene?.Invoke();
+        objectPoolerManager.ResetObjectPoolerManager();
     }
     
     public void LoadScene(int index, LoadSceneMode loadSceneMode = LoadSceneMode.Single) {
         StartCoroutine(LoadAsync(index, loadSceneMode));
+        objectPoolerManager.ResetObjectPoolerManager();
         OnLoadScene?.Invoke();
     }
 
     public void LoadScene(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single) {
         StartCoroutine(LoadAsync(scenePath, loadSceneMode));
+        objectPoolerManager.ResetObjectPoolerManager();
+        OnLoadScene?.Invoke();
     }
 
     IEnumerator LoadAsync(int sceneIndex, LoadSceneMode loadSceneMode = LoadSceneMode.Single) {
@@ -58,6 +76,11 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
             OnLoadProgresscing?.Invoke(progress);
             yield return null;
         }
+    }
+
+    private void HandleSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
+        currentSceneIndex =  scene.buildIndex;
+        OnSceneLoaded?.Invoke(scene);
     }
 
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using MyCustomAttribute;
 using UnityEngine.UI;
+using System;
 
 public class PlayerDamageble : MonoBehaviour, IDamageble
 {
@@ -15,6 +16,9 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     private Camera _camera;
 
     private SoundManager soundManager;
+
+    public static event Action OnLoseGame;
+
 
     void Start()
     {
@@ -46,6 +50,8 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     }
 
     public void Destroy(){
-        Destroy(gameObject);
+        // Destroy(gameObject);    
+        gameObject.SetActive(false);
+        OnLoseGame?.Invoke();
     }
 }

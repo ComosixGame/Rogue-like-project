@@ -24,6 +24,8 @@ public class GameManager : Singleton<GameManager>
     }
     [ReadOnly] public int levels, waves;
     public Transform player {get; private set;}
+    public Transform cam {get; private set;}
+    
     public event Action OnEnemiesDestroyed;
     public event Action<Transform> OnSelectedPlayer;
     public event Action OnPause;

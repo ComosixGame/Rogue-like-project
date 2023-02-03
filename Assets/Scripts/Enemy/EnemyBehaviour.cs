@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 using MyCustomAttribute;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehaviour : MonoBehaviour
@@ -17,10 +18,12 @@ public class EnemyBehaviour : MonoBehaviour
     public AbsAttach _absAttach;
     private bool isRotation;
     private GameManager gameManager;
+    private LoadSceneManager loadSceneManager;
 
     //fix player
     private void Awake() {
         gameManager = GameManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
         agent = GetComponent<NavMeshAgent>();
         _absAttach = GetComponent<AbsAttach>();
         _absAttach.Init();
@@ -29,9 +32,19 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnEnable() {
         _absAttach.OnAttacked += ResetAttack;
+        loadSceneManager.OnSceneLoaded += sceneLoad;
+        loadSceneManager.OnLoadScene += sceneLoaded;
     }
 
     private void Start() {
+        _player = gameManager.player;
+    }
+
+    public void sceneLoad(Scene scene){
+        _player = gameManager.player;
+    }
+
+    public void sceneLoaded(){
         _player = gameManager.player;
     }
 
@@ -42,6 +55,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnDisable() {
         _absAttach.OnAttacked -= ResetAttack;
+        loadSceneManager.OnSceneLoaded -= sceneLoad;
+        loadSceneManager.OnLoadScene -= sceneLoaded;
     }
 
     private void Move() {
