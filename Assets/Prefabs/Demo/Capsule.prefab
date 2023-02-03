@@ -393,7 +393,7 @@ MonoBehaviour:
   coin: {fileID: 744428139078250218, guid: 3321a9d122010604c9dc790875d91de6, type: 3}
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 10
+  maxHealth: 1000
   healthEnemy: {fileID: 8934935472712584298}
 --- !u!114 &5903251921383155484
 MonoBehaviour:

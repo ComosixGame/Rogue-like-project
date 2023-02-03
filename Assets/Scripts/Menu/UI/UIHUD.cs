@@ -17,6 +17,7 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _PopupSettings;
     [SerializeField] private GameObject _PopupLobby;
     [SerializeField] private GameObject _FooterLevel;
+    [SerializeField] private GameObject _PopupLoseGame;
     [SerializeField] private GameObject _Pause;
     [SerializeField] private GameObject _Stage;
     [SerializeField] private GameObject _LabUI;
@@ -28,10 +29,14 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
 
+    [SerializeField] private GameObject btnContinueGame;
+    [SerializeField] private GameObject btnExitGame;
+
     //singleton
     private GameManager gameManager;
     private AbilityModuleManager abilityModuleManager;
     private LoadSceneManager loadSceneManager;
+    private PlayerDamageble playerDamageble;
 
     private void Awake() {
         gameManager = GameManager.Instance;
@@ -45,7 +50,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnShowAbilityModuleSeletion += showAbilityModuleSeletion;
         abilityModuleManager.OnAddAbility += HandleAddAbility;
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
-        gameManager.OnUpdateCoin += ChangeUpdateCoins;
+        PlayerDamageble.OnLoseGame += OnLoseGame;
     }
 
     private void OnDisable() {
@@ -55,6 +60,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility -= HandleAddAbility;
         abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
+        PlayerDamageble.OnLoseGame -= OnLoseGame;
     }
 
     public void InitScene(){
@@ -62,6 +68,7 @@ public class UIHUD : MonoBehaviour
         _PopupPause.SetActive(false);
         _PopupModuleSelector.SetActive(false);
         _PopupSettings.SetActive(false);
+        _PopupLoseGame.SetActive(false);
         _Pause.SetActive(true);
         _Stage.SetActive(true);
         _LabUI.SetActive(true);
@@ -144,5 +151,19 @@ public class UIHUD : MonoBehaviour
     public void HandleGetMoreOptions(){
         _optionModule1.SetActive(true);
         _btnGetMore.interactable = false;
+    }
+
+    public void OnLoseGame(){
+        _PopupLoseGame.SetActive(true);
+    }
+
+
+    public void HandleContinueGame(){
+        InitScene();
+        loadSceneManager.ResetScene();
+    }
+
+    public void HandleExitGame(string path){
+        OnLoadScene(path);
     }
 }

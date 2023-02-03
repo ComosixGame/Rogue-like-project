@@ -41,6 +41,7 @@ public class MapGeneration : MonoBehaviour
     public static event Action<int> OnWaveChange;
     public static event Action<int> OnLevelChange;
 
+
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
         gameManager = GameManager.Instance;
@@ -73,17 +74,16 @@ public class MapGeneration : MonoBehaviour
 
     private void OnEnable() {
         //chờ object pool tạo xong các object
-        ObjectPoolerManager.OnCreatedObject += SpawnGameObject;
         gameManager.OnEnemiesDestroyed += OnEnemiesDestroyed;
     }
 
     private void Start() {
+        SpawnGameObject();
         OnLevelChange?.Invoke(CurrentLevel);
         OnWaveChange?.Invoke(CurrentWave);
     }
 
     private void OnDisable() {
-        ObjectPoolerManager.OnCreatedObject -= SpawnGameObject;
         gameManager.OnEnemiesDestroyed -= OnEnemiesDestroyed;
     }
 
@@ -140,7 +140,7 @@ public class MapGeneration : MonoBehaviour
         spawnEffect.GetComponent<ParticleSystem>().Stop();
     }
 
-    private void SpawnGameObject() {
+    public void SpawnGameObject() {
         //tạo hệ thống grid vị trí có thể spawn
         CreateGridBoard();
         //random vật cản
