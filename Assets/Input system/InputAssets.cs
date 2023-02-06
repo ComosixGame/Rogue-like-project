@@ -105,6 +105,54 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Touch"",
+            ""id"": ""995af381-7961-463a-9b9b-af1c8912de42"",
+            ""actions"": [
+                {
+                    ""name"": ""HoldTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""6cd7a233-f22e-4056-bfc5-02789bc08d99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StartTouch"",
+                    ""type"": ""Value"",
+                    ""id"": ""0eb3ab43-ff3d-4000-94f7-353804b743b1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9cad3669-cba1-4ed5-97fe-86d0308966fb"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3fb13e6-0cef-4ee2-bd2d-5818c1becc6a"",
+                    ""path"": ""<Touchscreen>/primaryTouch/startPosition"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -112,6 +160,10 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
         // PlayerController
         m_PlayerController = asset.FindActionMap("PlayerController", throwIfNotFound: true);
         m_PlayerController_Move = m_PlayerController.FindAction("Move", throwIfNotFound: true);
+        // Touch
+        m_Touch = asset.FindActionMap("Touch", throwIfNotFound: true);
+        m_Touch_HoldTouch = m_Touch.FindAction("HoldTouch", throwIfNotFound: true);
+        m_Touch_StartTouch = m_Touch.FindAction("StartTouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -200,8 +252,54 @@ public partial class @InputAssets : IInputActionCollection2, IDisposable
         }
     }
     public PlayerControllerActions @PlayerController => new PlayerControllerActions(this);
+
+    // Touch
+    private readonly InputActionMap m_Touch;
+    private ITouchActions m_TouchActionsCallbackInterface;
+    private readonly InputAction m_Touch_HoldTouch;
+    private readonly InputAction m_Touch_StartTouch;
+    public struct TouchActions
+    {
+        private @InputAssets m_Wrapper;
+        public TouchActions(@InputAssets wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HoldTouch => m_Wrapper.m_Touch_HoldTouch;
+        public InputAction @StartTouch => m_Wrapper.m_Touch_StartTouch;
+        public InputActionMap Get() { return m_Wrapper.m_Touch; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TouchActions set) { return set.Get(); }
+        public void SetCallbacks(ITouchActions instance)
+        {
+            if (m_Wrapper.m_TouchActionsCallbackInterface != null)
+            {
+                @HoldTouch.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnHoldTouch;
+                @HoldTouch.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnHoldTouch;
+                @HoldTouch.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnHoldTouch;
+                @StartTouch.started -= m_Wrapper.m_TouchActionsCallbackInterface.OnStartTouch;
+                @StartTouch.performed -= m_Wrapper.m_TouchActionsCallbackInterface.OnStartTouch;
+                @StartTouch.canceled -= m_Wrapper.m_TouchActionsCallbackInterface.OnStartTouch;
+            }
+            m_Wrapper.m_TouchActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @HoldTouch.started += instance.OnHoldTouch;
+                @HoldTouch.performed += instance.OnHoldTouch;
+                @HoldTouch.canceled += instance.OnHoldTouch;
+                @StartTouch.started += instance.OnStartTouch;
+                @StartTouch.performed += instance.OnStartTouch;
+                @StartTouch.canceled += instance.OnStartTouch;
+            }
+        }
+    }
+    public TouchActions @Touch => new TouchActions(this);
     public interface IPlayerControllerActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface ITouchActions
+    {
+        void OnHoldTouch(InputAction.CallbackContext context);
+        void OnStartTouch(InputAction.CallbackContext context);
     }
 }

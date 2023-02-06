@@ -83,6 +83,54 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Touch",
+            "id": "995af381-7961-463a-9b9b-af1c8912de42",
+            "actions": [
+                {
+                    "name": "HoldTouch",
+                    "type": "Button",
+                    "id": "6cd7a233-f22e-4056-bfc5-02789bc08d99",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StartTouch",
+                    "type": "Value",
+                    "id": "0eb3ab43-ff3d-4000-94f7-353804b743b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9cad3669-cba1-4ed5-97fe-86d0308966fb",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3fb13e6-0cef-4ee2-bd2d-5818c1becc6a",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
