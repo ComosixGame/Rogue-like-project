@@ -12,7 +12,7 @@ namespace FancyScrollView.Example06
     class SlideScreenTransition : MonoBehaviour
     {
         [SerializeField] RectTransform targetTransform = default;
-        [SerializeField] GraphicRaycaster graphicRaycaster = default;
+        public GraphicRaycaster graphicRaycaster = default;
 
         const float Duration = 0.3f; // example purpose, a fixed number, the same with scroll view duration
 

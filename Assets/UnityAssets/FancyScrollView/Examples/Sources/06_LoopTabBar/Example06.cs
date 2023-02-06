@@ -5,6 +5,7 @@
  */
 
 using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +15,34 @@ namespace FancyScrollView.Example06
     {
         [SerializeField] ScrollView scrollView = default;
         [SerializeField] Text selectedItemInfo = default;
-        [SerializeField] Window[] windows = default;
-
+        [SerializeField] List<Window> windows = new List<Window>();
+        [SerializeField] ChapterScriptAble chapterScriptAble;
+        [SerializeField] private Transform ChapterParent;
+        [SerializeField] GraphicRaycaster graphicRaycasterAdd;
         Window currentWindow;
+        [SerializeField] private Window windowPrefab;
+
+        private LoadSceneManager loadSceneManager;
+
+
+        private void Awake() {
+            loadSceneManager = LoadSceneManager.Instance;
+        }
 
         void Start()
         {
+            foreach(ChapterScriptAble.Chapter chapter in chapterScriptAble.chapters) {
+                Window window = Instantiate(windowPrefab);
+                windows.Add(window);
+                window.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd; 
+                window.transform.SetParent(ChapterParent, true); 
+                window.index = chapter.index;
+
+            }
+
             scrollView.OnSelectionChanged(OnSelectionChanged);
 
-            var items = Enumerable.Range(0, windows.Length)
+            var items = Enumerable.Range(0, windows.Count)
                 .Select(i => new ItemData($"Tab {i}"))
                 .ToList();
 
@@ -32,7 +52,7 @@ namespace FancyScrollView.Example06
 
         void OnSelectionChanged(int index, MovementDirection direction)
         {
-            selectedItemInfo.text = $"Selected tab info: index {index}";
+            selectedItemInfo.text = $"Selected chapter: index {index}";
 
             if (currentWindow != null)
             {
@@ -40,11 +60,15 @@ namespace FancyScrollView.Example06
                 currentWindow = null;
             }
 
-            if (index >= 0 && index < windows.Length)
+            if (index >= 0 && index < windows.Count)
             {
                 currentWindow = windows[index];
                 currentWindow.In(direction);
             }
+        }
+
+        public void PlayChapter() {
+            loadSceneManager.LoadScene(currentWindow.index);
         }
     }
 }

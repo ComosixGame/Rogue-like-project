@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject _popupSettings;
     public GameObject _popupSelectedCharacter;
     public GameObject _popupConfirmWeapon;
+    public GameObject _popupSelectedChapter;
 
     private void Start() {
         InitGame();
@@ -42,7 +43,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void BtnCharacter(){
-         _chapter.SetActive(false);
+        _chapter.SetActive(false);
         _shop.SetActive(false);
         _character.SetActive(true);
         _weapon.SetActive(false);
