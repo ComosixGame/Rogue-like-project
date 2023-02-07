@@ -35,9 +35,8 @@ namespace FancyScrollView.Example06
                 Window window = Instantiate(windowPrefab);
                 windows.Add(window);
                 window.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd; 
-                window.transform.SetParent(ChapterParent, true); 
+                window.transform.SetParent(ChapterParent, false); 
                 window.index = chapter.index;
-
             }
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
@@ -69,6 +68,7 @@ namespace FancyScrollView.Example06
 
         public void PlayChapter() {
             loadSceneManager.LoadScene(currentWindow.index);
+            Debug.Log(currentWindow.index);
         }
     }
 }
