@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Window 1
 --- !u!1 &510751603022876428
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 510751603022876430}
+  index: 0
+  path: 
 --- !u!114 &510751603022876430
 MonoBehaviour:
   m_ObjectHideFlags: 0
