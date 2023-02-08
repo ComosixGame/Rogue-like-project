@@ -18,10 +18,15 @@ namespace FancyScrollView.Example06 {
         private LoadSceneManager loadSceneManager;
         public GameObject _popupSelectedCharacter;
         [SerializeField] Text characterIndex;
+        [SerializeField] Text priceCharacter;
+        [SerializeField] GameObject _popUpSelectedCharacter;
         private GameManager gameManager;
-
+        private PlayerData playerData;
+        
         private void Awake() {
             gameManager = GameManager.Instance;
+            playerData = PlayerData.Load();
+            _popUpSelectedCharacter.SetActive(false);
         }
 
         void Start()
@@ -32,7 +37,7 @@ namespace FancyScrollView.Example06 {
                 characterDisplay.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd;
                 characterDisplay.transform.SetParent(CharacterParent, false);
                 characterDisplay.index = i;
-
+                characterDisplay.price = characterScripable.characters[i].priceCharacter;
             }
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
@@ -62,9 +67,21 @@ namespace FancyScrollView.Example06 {
         }
 
         public void SelectedCharacter(){
-            _popupSelectedCharacter.SetActive(false);
-            characterIndex.text = $"Character Index: {currentCharacter.index}";
-            gameManager.SelectedCharacter(currentCharacter.index);
+            int coinCurrent = playerData.coin;
+            int priCharacter = currentCharacter.price;
+            if(coinCurrent >= priCharacter){
+                _popupSelectedCharacter.SetActive(false);
+                characterIndex.text = $"Character Index: {currentCharacter.index}";
+                priceCharacter.text = $"Price character: {currentCharacter.price}";
+                gameManager.SelectedCharacter(currentCharacter.index);
+                gameManager.updateCoinThenBuyItem(priCharacter);
+            }else{
+                _popUpSelectedCharacter.SetActive(true);
+            }
+        }
+
+        public void handleConfirmSelectedCharacter(){
+            _popUpSelectedCharacter.SetActive(false);
         }
     }
 }

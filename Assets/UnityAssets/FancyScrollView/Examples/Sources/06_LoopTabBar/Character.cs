@@ -6,6 +6,7 @@ namespace FancyScrollView.Example06{
         [SerializeField] SlideScreenTransition transition = default;
 
         public int index;
+        public int price;
 
         public void In(MovementDirection direction) => transition?.In(direction);
 

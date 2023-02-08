@@ -24,6 +24,6 @@ public class IncreaseHealth : AbsAbilityModule
 
     public override void ResetAbility()
     {
-        Debug.Log("reset mau");
+        
     }
 }

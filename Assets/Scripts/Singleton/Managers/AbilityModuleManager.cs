@@ -19,13 +19,13 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     private ObjectPoolerManager ObjectPoolerManager;
     public event Action<int> OnShowAbilityModuleSeletion;
     public event Action<AbsAbilityModule> OnAddAbility;
-
-    
+    private AbilityModuleManager abilityModuleManager;    
     protected override void Awake()
     {
         base.Awake();
         gameManager = GameManager.Instance;
         ObjectPoolerManager = ObjectPoolerManager.Instance;
+        abilityModuleManager = AbilityModuleManager.Instance;
         abilityModulesActived = new List<AbsAbilityModule>();
         listAbilityShowed = new List<AbsAbilityModule>();
         listAbilityAvailable = new List<AbsAbilityModule>();
@@ -42,6 +42,11 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     private void OnEnable() {
         gameManager.OnSelectedPlayer += SetPlayer;
     }
+
+    // private void OnDisable() {
+    //     gameManager.OnSelectedPlayer -= SetPlayer;
+    // }
+
 
     public void SetPlayer(Transform player){
         this.player = player;
@@ -141,7 +146,14 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
             ability.ResetAbility();
             Destroy(ability);
         }
+        //reset ability list
         abilityModulesActived.Clear();
+        absAbilityModulesCommon.Clear();
+        absAbilityModulesRare.Clear();
+        absAbilityModulesLegendary.Clear();
+        
+        listAbilityAvailable = abilityScripable.abilityModules.ToList<AbsAbilityModule>();
+        AddAbiltyTier();
     }
     
 }

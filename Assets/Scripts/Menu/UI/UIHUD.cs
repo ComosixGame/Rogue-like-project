@@ -105,6 +105,7 @@ public class UIHUD : MonoBehaviour
 
     public void HandleResume(){
         InitScene();
+        abilityModuleManager.ResetAbility();
         gameManager.ResumeGame();
     }
 
