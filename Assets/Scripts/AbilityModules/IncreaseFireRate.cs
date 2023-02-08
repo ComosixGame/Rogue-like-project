@@ -26,7 +26,7 @@ public class IncreaseFireRate : AbsAbilityModule
 
     public override void ResetAbility()
     {
-        controller.fireRateTime = preFireRate;
+        
     }
 
 }

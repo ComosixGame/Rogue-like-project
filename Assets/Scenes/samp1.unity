@@ -2796,8 +2796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9cb8ba550774b44ab761ff8b320c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels: 3
-  waves: 2
+  levels: 2
+  waves: 1
   startPosition: {fileID: 190321703}
   row: 8
   collumn: 8
@@ -6965,8 +6965,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238009037}
   m_HandleRect: {fileID: 238009036}
   m_Direction: 2
-  m_Value: 0.9999949
-  m_Size: 0.9401028
+  m_Value: 0.9999966
+  m_Size: 0.9401026
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9121,9 +9121,6 @@ MonoBehaviour:
   enemies: []
   levels: 0
   waves: 0
-  OnUpdateHealthPlayer:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1738909852
 Transform:
   m_ObjectHideFlags: 0

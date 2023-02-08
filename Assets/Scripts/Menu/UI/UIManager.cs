@@ -20,6 +20,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Gun> gunList = new List<Gun>();
     [SerializeField] private Transform gunParent;
     Gun currentGun;
+    [SerializeField] private Text coins;
+
+    private GameManager gameManager;
+    private PlayerData playerData;
+    private void Awake() {
+        gameManager = GameManager.Instance;
+        playerData = PlayerData.Load();
+        coins.text = $"Coin: {playerData.coin}";
+    }
+
 
     private void Start() {
         InitGame();
@@ -29,6 +39,18 @@ public class UIManager : MonoBehaviour
            gunDisplay.transform.SetParent(gunParent, false);
            gunDisplay.index = gun.index;
         }
+    }
+
+    private void OnEnable() {
+        gameManager.OnUpdateCoinThenBuyItem += updateCoinThenBuyItem;
+    }
+
+    private void OnDisable() {
+        gameManager.OnUpdateCoinThenBuyItem += updateCoinThenBuyItem;
+    }
+    
+    public void updateCoinThenBuyItem(int coin){
+        coins.text = $"Coin: {coin}";
     }
 
     public void InitGame(){

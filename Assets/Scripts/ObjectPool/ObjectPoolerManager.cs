@@ -28,6 +28,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     [ReadOnly, SerializeField] private List<ObjectPrefab> objectPrefabs;
     private List<int> listIndexRandomItem;
     private Dictionary<string, ObjectPrefab> dictionary;
+    private List<GameObject> gameObjects;
     public event Action OnCreatedObject;
 
     protected override void Awake()
@@ -37,6 +38,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         objectPrefabs = new List<ObjectPrefab>();
         dictionary = new Dictionary<string, ObjectPrefab>();
         listIndexRandomItem = new List<int>();
+        gameObjects = new List<GameObject>();
     }
 
     private void OnEnable() {
@@ -59,6 +61,8 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
                 objectPrefab.inactive ++;
                 // thêm vào queue để chờ sử dụng
                 objectPrefab.objectPool.Enqueue(gameObj);
+
+                gameObjects.Add(gameObj);
             }
         }
 
@@ -86,12 +90,14 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
             gameObj = Instantiate(objectPrefab.prefab, position, rotation);
             gameObj.transform.SetParent(transform);
             gameObj.SetActive(true);
-            objectPrefab.size ++;
+            objectPrefab.size ++;   
             //thêm lại vào queue để chờ sử dụng
             objectPrefab.objectPool.Enqueue(gameObj);
+            gameObjects.Add(gameObj);
         } else {
             //nếu còn object thì dequeue từ queue để sử dụng
             gameObj = objectPrefab.objectPool.Dequeue();
+            Debug.Log(gameObj.name);
             gameObj.SetActive(false);
             Transform gameObjTransform = gameObj.transform;
             gameObjTransform.position = position;
@@ -117,8 +123,8 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
 
     public void ResetObjectPoolerManager() {
         //ẩn tất cả object
-        for(int i = 0; i < transform.childCount; i ++) {
-            transform.GetChild(i).gameObject.SetActive(false);
+        foreach(GameObject gameObject in gameObjects) {
+            gameObject.transform.SetParent(transform);
         }
         //reset Object pool
         foreach(ObjectPoolerScriptable.ScripblePrefab scripblePrefab in ObjectPoolerScriptable.prefabs) {

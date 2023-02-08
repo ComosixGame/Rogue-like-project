@@ -31,6 +31,8 @@ public class GameManager : Singleton<GameManager>
     public event Action OnPause;
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
+
+    public event Action<int> OnUpdateCoinThenBuyItem;
     private PlayerData playerData;
     public int coinPlayer {
         get {
@@ -44,15 +46,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    //nam
-    private float healthPlayer;
-    public UnityEvent<float> OnUpdateHealthPlayer = new UnityEvent<float>();
-
 
     override protected void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
     }
+
 
     public void EndGame(bool isWin) {
         //Thuực hiện việc update coin khi lose game
@@ -61,16 +60,15 @@ public class GameManager : Singleton<GameManager>
         playerData.Save();
     }
 
+    //update coin khi mua đồ
+    public void updateCoinThenBuyItem(int priceCharacter){
+        playerData.coin -= priceCharacter;
+        playerData.Save();
+        OnUpdateCoinThenBuyItem?.Invoke(playerData.coin);
+    }
     public void SelectedCharacter(int indexCharacter){
         playerData.indexCharacter = indexCharacter;
         playerData.Save();
-    }
-
-
-    //update health player
-    public void UpdatePlayHealth(float hp){
-        healthPlayer = hp;
-        OnUpdateHealthPlayer?.Invoke(healthPlayer);
     }
 
     public List<Transform> GetEnemies() {
@@ -115,7 +113,6 @@ public class GameManager : Singleton<GameManager>
         this.player = player;
         OnSelectedPlayer?.Invoke(this.player);
     }
-
 
     
 }
