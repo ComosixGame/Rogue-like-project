@@ -18,15 +18,21 @@ namespace FancyScrollView.Example06 {
         private LoadSceneManager loadSceneManager;
         public GameObject _popupSelectedCharacter;
         [SerializeField] Text characterIndex;
+        private GameManager gameManager;
+
+        private void Awake() {
+            gameManager = GameManager.Instance;
+        }
 
         void Start()
         {
-            foreach(CharacterScripable.Character character in characterScripable.characters){
+            for(int i = 0; i<characterScripable.characters.Length; i++) {
                 Character characterDisplay = Instantiate(characterPrefab);
                 charactersList.Add(characterDisplay);
                 characterDisplay.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd;
                 characterDisplay.transform.SetParent(CharacterParent, false);
-                characterDisplay.index = character.index;
+                characterDisplay.index = i;
+
             }
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
@@ -58,6 +64,7 @@ namespace FancyScrollView.Example06 {
         public void SelectedCharacter(){
             _popupSelectedCharacter.SetActive(false);
             characterIndex.text = $"Character Index: {currentCharacter.index}";
+            gameManager.SelectedCharacter(currentCharacter.index);
         }
     }
 }

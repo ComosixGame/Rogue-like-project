@@ -5,9 +5,10 @@ using System;
 
 public class PlayerDamageble : MonoBehaviour, IDamageble
 {
+    public AudioClip hitSound;
+    public AudioClip deadSound;
     [SerializeField] private float maxHealth;
     [ReadOnly, SerializeField] private float health;
-    // public ParticleSystem destroyEffect;
     private ObjectPoolerManager objectPooler;
     private GameManager gameManager;
 
@@ -23,6 +24,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     void Start()
     {
         gameManager = GameManager.Instance;
+        soundManager = SoundManager.Instance;
         health = maxHealth;
         healthPlayer.maxValue = maxHealth;
         healthPlayer.value   = maxHealth;
@@ -35,6 +37,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
 
     public void TakeDamge(float damage, Vector3 force){
+        soundManager.PlaySound(hitSound);
         health -= damage;
         healthPlayer.value = health;
         if(health <= 0 && !destroyed){
@@ -51,7 +54,8 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     }
 
     public void Destroy(){
-        // Destroy(gameObject);    
+        // Destroy(gameObject);
+        soundManager.PlaySound(deadSound);    
         gameManager.EndGame(false);
         gameObject.SetActive(false);
         OnLoseGame?.Invoke();

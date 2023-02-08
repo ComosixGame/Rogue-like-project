@@ -6,8 +6,8 @@ public class CharacterScripable : ScriptableObject
 {
     [System.Serializable]
     public class Character{
-        public int index;
         public string nameCharacter;
+        public GameObject prefab;
     }
 
     public Character[] characters;

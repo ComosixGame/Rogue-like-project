@@ -28,12 +28,13 @@ public class PlayerController : MonoBehaviour
     private ObjectPoolerManager ObjectPoolerManager;
     private SoundManager soundManager;
 
+    public AudioClip shootSound;
+
 
     private void Awake() {
         gameManager = GameManager.Instance;
         ObjectPoolerManager = ObjectPoolerManager.Instance;
-        gameManager.SelectPlayer(transform);
-
+        soundManager = SoundManager.Instance;
         inputs = new InputAssets();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(aimHash, true);
             rigAim.weight = 1;
             if(timerAttack >= fireRateTime) {
+                soundManager.PlaySound(shootSound);
                 timerAttack = 0;
                 animator.SetTrigger(attackHash);
                 playerAttack.Attack();

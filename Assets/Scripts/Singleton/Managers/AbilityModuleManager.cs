@@ -34,10 +34,17 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         absAbilityModulesLegendary = new List<AbsAbilityModule>();
     }
 
+    
     private void Start() {
-        player = gameManager.player;
         listAbilityAvailable = abilityScripable.abilityModules.ToList<AbsAbilityModule>();
         AddAbiltyTier();
+    }
+    private void OnEnable() {
+        gameManager.OnSelectedPlayer += SetPlayer;
+    }
+
+    public void SetPlayer(Transform player){
+        this.player = player;
     }
 
     //phân cấp ability thành nhiều nhóm theo tier

@@ -5,16 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    //public GameObject _chapter;
     public GameObject _level;
 
     public GameObject _gameSettings;
-    //public GameObject _lobby;
     public GameObject _resume;
     private LoadSceneManager loadSceneManager;
 
     private void Awake() {
-        //_chapter.SetActive(true);
         _level.SetActive(false);
         loadSceneManager = LoadSceneManager.Instance;
     }
@@ -24,7 +21,6 @@ public class UI : MonoBehaviour
     }
 
     public void BtnLobby(){
-        //_lobby.SetActive(true);
         _level.SetActive(false);
         _resume.SetActive(false);
     }
