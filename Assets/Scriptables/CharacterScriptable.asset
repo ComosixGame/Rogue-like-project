@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: CharacterScriptable
   m_EditorClassIdentifier: 
   characters:
-  - index: 0
-    nameCharacter: 2
-  - index: 1
-    nameCharacter: Two
-  - index: 2
-    nameCharacter: Three
+  - nameCharacter: Nhanvat1
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}
+  - nameCharacter: Nhanvat2
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}
+  - nameCharacter: Nhanvat3
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}

@@ -36,17 +36,11 @@ public class GameManager : Singleton<GameManager>
         get {
            return playerData.coin;
         }
-        private set {
-
-        }
     }
 
-    public int testing {
+    public int indexCharacter {
         get {
-           return playerData.testing;
-        }
-        private set {
-
+            return playerData.indexCharacter;
         }
     }
 
@@ -64,6 +58,11 @@ public class GameManager : Singleton<GameManager>
         //Thuực hiện việc update coin khi lose game
         //Được gọi khi thua mỗi ware
         playerData.coin += amountCoins;
+        playerData.Save();
+    }
+
+    public void SelectedCharacter(int indexCharacter){
+        playerData.indexCharacter = indexCharacter;
         playerData.Save();
     }
 

@@ -100,11 +100,12 @@ public class SaveSystem<T> where T : new()
 public class PlayerData
 {
     public int coin;
-    public int testing;
+    public int indexCharacter;
+
 
     public PlayerData() {
         coin = 0;
-        testing = 123;
+        indexCharacter = 0;
     }
 
     public static PlayerData Load()

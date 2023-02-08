@@ -9,16 +9,26 @@ public class UIManager : MonoBehaviour
     public GameObject _shop;
     public GameObject _character;
     public GameObject _weapon;
-
     public GameObject _popupLoadComplete;
     public GameObject _popupMission;
     public GameObject _popupSettings;
     public GameObject _popupSelectedCharacter;
     public GameObject _popupConfirmWeapon;
     public GameObject _popupSelectedChapter;
+    [SerializeField] GunScriptable gunScriptable;
+    [SerializeField] private Gun gunPrefab;
+    [SerializeField] List<Gun> gunList = new List<Gun>();
+    [SerializeField] private Transform gunParent;
+    Gun currentGun;
 
     private void Start() {
         InitGame();
+        foreach(GunScriptable.Gun gun in gunScriptable.guns){
+           Gun gunDisplay = Instantiate(gunPrefab);
+           gunList.Add(gunDisplay);
+           gunDisplay.transform.SetParent(gunParent, false);
+           gunDisplay.index = gun.index;
+        }
     }
 
     public void InitGame(){

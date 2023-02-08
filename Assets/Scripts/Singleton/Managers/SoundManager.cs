@@ -39,7 +39,7 @@ public class SoundManager : Singleton<SoundManager>
         OnSetPlayMusic?.Invoke(play);
     }
 
-    public void PlayeSound(AudioClip audioClip) {
+    public void PlaySound(AudioClip audioClip) {
         audioSource.PlayOneShot(audioClip, volumeSFX);
     }
 

@@ -27,11 +27,14 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     public static event Action<Vector3> OnEnemiesDestroy;
     
     private LoadSceneManager loadSceneManager;
+    private SoundManager soundManager;
+    public AudioClip deadSound;
 
     [SerializeField] private Camera _camera;
     private void Awake() {
         gameManager = GameManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
+        soundManager = SoundManager.Instance;
         objectPoolerManager = ObjectPoolerManager.Instance;
         gameObjectPool = GetComponent<GameObjectPool>();
         meshRenderer = GetComponent<MeshRenderer>();
@@ -79,6 +82,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         healthEnemy.value = health;
         if(health <= 0 && !destroyed) {
             destroyed = true;
+            soundManager.PlaySound(deadSound);
             Destroy();
         } 
     }
