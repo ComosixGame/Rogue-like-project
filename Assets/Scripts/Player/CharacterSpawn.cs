@@ -12,7 +12,7 @@ public class CharacterSpawn : MonoBehaviour
 
     private void Awake() {
         gameManager = GameManager.Instance;
-        int index = gameManager.indexCharacter;
+        int index = gameManager.characterSeleted;
         Debug.Log(characterScripable.characters[index].nameCharacter);
         GameObject prefab = characterScripable.characters[index].prefab;
         GameObject player = Instantiate(prefab, spawmPos, Quaternion.identity);

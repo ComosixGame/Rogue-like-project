@@ -30,6 +30,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     private Dictionary<string, ObjectPrefab> dictionary;
     private List<GameObject> gameObjects;
     public event Action OnCreatedObject;
+    private LoadSceneManager loadSceneManager;
 
     protected override void Awake()
     {
@@ -39,9 +40,11 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         dictionary = new Dictionary<string, ObjectPrefab>();
         listIndexRandomItem = new List<int>();
         gameObjects = new List<GameObject>();
+        loadSceneManager = LoadSceneManager.Instance;
     }
 
     private void OnEnable() {
+        loadSceneManager.OnLoadScene += ResetObjectPoolerManager;
         EnemyDamageble.OnEnemiesDestroy += SpawnItem;
     }
 
@@ -97,7 +100,6 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         } else {
             //nếu còn object thì dequeue từ queue để sử dụng
             gameObj = objectPrefab.objectPool.Dequeue();
-            Debug.Log(gameObj.name);
             gameObj.SetActive(false);
             Transform gameObjTransform = gameObj.transform;
             gameObjTransform.position = position;
@@ -124,7 +126,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     public void ResetObjectPoolerManager() {
         //ẩn tất cả object
         foreach(GameObject gameObject in gameObjects) {
-            gameObject.transform.SetParent(transform);
+            gameObject.SetActive(false);
         }
         //reset Object pool
         foreach(ObjectPoolerScriptable.ScripblePrefab scripblePrefab in ObjectPoolerScriptable.prefabs) {

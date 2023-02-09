@@ -40,12 +40,14 @@ public class UIHUD : MonoBehaviour
     private AbilityModuleManager abilityModuleManager;
     private LoadSceneManager loadSceneManager;
     private PlayerDamageble playerDamageble;
+    private ObjectPoolerManager objectPoolerManager;
     private PlayerData playerData;
 
     private void Awake() {
         playerData = PlayerData.Load();
         gameManager = GameManager.Instance;
         abilityModuleManager = AbilityModuleManager.Instance;
+        objectPoolerManager = ObjectPoolerManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
     }
 
@@ -119,6 +121,7 @@ public class UIHUD : MonoBehaviour
 
     public void OnLoadScene(string path){
         loadSceneManager.LoadScene(path);
+        gameManager.EndGame(true);
     }
 
     public void ChangeWinGame(){

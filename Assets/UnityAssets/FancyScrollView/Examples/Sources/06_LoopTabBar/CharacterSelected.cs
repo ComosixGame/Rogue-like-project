@@ -17,16 +17,16 @@ namespace FancyScrollView.Example06 {
         [SerializeField] private Character characterPrefab;
         private LoadSceneManager loadSceneManager;
         public GameObject _popupSelectedCharacter;
-        [SerializeField] Text characterIndex;
-        [SerializeField] Text priceCharacter;
+        //[SerializeField] Text nameCharacter;
         [SerializeField] GameObject _popUpSelectedCharacter;
         private GameManager gameManager;
-        private PlayerData playerData;
-        
+        [SerializeField] private GameObject _popupConfirm;
+
+        [SerializeField] private GameObject _btnBuy;
+        [SerializeField] private GameObject _btnSelect;
         private void Awake() {
             gameManager = GameManager.Instance;
-            playerData = PlayerData.Load();
-            _popUpSelectedCharacter.SetActive(false);
+            // _popUpSelectedCharacter.SetActive(false);
         }
 
         void Start()
@@ -37,7 +37,8 @@ namespace FancyScrollView.Example06 {
                 characterDisplay.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd;
                 characterDisplay.transform.SetParent(CharacterParent, false);
                 characterDisplay.index = i;
-                characterDisplay.price = characterScripable.characters[i].priceCharacter;
+                characterDisplay.priceCharacter = characterScripable.characters[i].priceCharacter;
+                characterDisplay.nameCharacter = characterScripable.characters[i].nameCharacter;
             }
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
@@ -64,24 +65,27 @@ namespace FancyScrollView.Example06 {
                 currentCharacter = charactersList[index];
                 currentCharacter.In(direction);
             }
+
+            bool own = gameManager.characterOwn.IndexOf(currentCharacter.index) != -1;
+            
+            _btnBuy.SetActive(!own);
+            _btnSelect.SetActive(own);
+
+
+            //Debug.Log(characterScripable.characters[gameManager.characterSeleted].nameCharacter);
         }
 
         public void SelectedCharacter(){
-            int coinCurrent = playerData.coin;
-            int priCharacter = currentCharacter.price;
-            if(coinCurrent >= priCharacter){
-                _popupSelectedCharacter.SetActive(false);
-                characterIndex.text = $"Character Index: {currentCharacter.index}";
-                priceCharacter.text = $"Price character: {currentCharacter.price}";
-                gameManager.SelectedCharacter(currentCharacter.index);
-                gameManager.updateCoinThenBuyItem(priCharacter);
-            }else{
-                _popUpSelectedCharacter.SetActive(true);
-            }
+            gameManager.SelectedCharacter(currentCharacter.index);
+            _popUpSelectedCharacter.SetActive(false);
         }
 
-        public void handleConfirmSelectedCharacter(){
-            _popUpSelectedCharacter.SetActive(false);
+        public void BuyItem() {
+           bool success = gameManager.BuyItem(currentCharacter.index, currentCharacter.priceCharacter);
+            _popupConfirm.SetActive(!success);
+            _btnBuy.SetActive(!success);
+            _btnSelect.SetActive(success);
+            //_popUpSelectedCharacter.SetActive(false);
         }
     }
 }
