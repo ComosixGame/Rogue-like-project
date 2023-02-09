@@ -45,18 +45,15 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
     public void ResetScene() {
         LoadScene(currentSceneIndex);
         OnResetScene?.Invoke();
-        objectPoolerManager.ResetObjectPoolerManager();
     }
     
     public void LoadScene(int index, LoadSceneMode loadSceneMode = LoadSceneMode.Single) {
         StartCoroutine(LoadAsync(index, loadSceneMode));
-        objectPoolerManager.ResetObjectPoolerManager();
         OnLoadScene?.Invoke();
     }
 
     public void LoadScene(string scenePath, LoadSceneMode loadSceneMode = LoadSceneMode.Single) {
         StartCoroutine(LoadAsync(scenePath, loadSceneMode));
-        objectPoolerManager.ResetObjectPoolerManager();
         OnLoadScene?.Invoke();
     }
 

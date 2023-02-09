@@ -32,7 +32,8 @@ public class GameManager : Singleton<GameManager>
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
 
-    public event Action<int> OnUpdateCoinThenBuyItem;
+    public event Action<int> OnUpdateCoinPlayer;
+    public event Action OnupdateInfoCharacter;
     private PlayerData playerData;
     public int coinPlayer {
         get {
@@ -40,16 +41,22 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public int indexCharacter {
+    public int characterSeleted {
         get {
-            return playerData.indexCharacter;
+            return playerData.characterSeleted;
         }
     }
 
+    public List<int> characterOwn {
+        get {
+            return playerData.characters;
+        }
+    }
 
     override protected void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
+        Debug.Log(playerData.coin);
     }
 
 
@@ -60,15 +67,31 @@ public class GameManager : Singleton<GameManager>
         playerData.Save();
     }
 
-    //update coin khi mua đồ
-    public void updateCoinThenBuyItem(int priceCharacter){
-        playerData.coin -= priceCharacter;
-        playerData.Save();
-        OnUpdateCoinThenBuyItem?.Invoke(playerData.coin);
+    //buy character
+    public bool BuyItem(int indexItem, int priceCharacter){
+        if(playerData.coin >= priceCharacter) {
+            if(playerData.characters.IndexOf(indexItem) == -1) {
+                playerData.characters.Add(indexItem);
+                playerData.coin -= priceCharacter;
+                PlayerData.Load();
+                playerData.Save();
+                OnUpdateCoinPlayer?.Invoke(playerData.coin);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
+
+    //selected character
     public void SelectedCharacter(int indexCharacter){
-        playerData.indexCharacter = indexCharacter;
-        playerData.Save();
+        if(playerData.characters.IndexOf(indexCharacter) != -1) {
+            playerData.characterSeleted = indexCharacter;
+            playerData.Save();
+            OnupdateInfoCharacter?.Invoke();
+        }
     }
 
     public List<Transform> GetEnemies() {

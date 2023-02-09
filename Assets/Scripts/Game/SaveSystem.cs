@@ -100,21 +100,25 @@ public class SaveSystem<T> where T : new()
 public class PlayerData
 {
     public int coin;
-    public int indexCharacter;
+    public int characterSeleted;
+
+    public List<int> characters;
 
 
     public PlayerData() {
         coin = 0;
-        indexCharacter = 0;
+        characterSeleted = 0;
+        characters = new List<int>();
+        characters.Add(0);
     }
 
     public static PlayerData Load()
     {
-        return SaveSystem<PlayerData>.Load();
+        return SaveSystem<PlayerData>.Load(false);
     }
 
     public void Save()
     {
-        SaveSystem<PlayerData>.Save(this);
+        SaveSystem<PlayerData>.Save(this,false);
     }
 }
