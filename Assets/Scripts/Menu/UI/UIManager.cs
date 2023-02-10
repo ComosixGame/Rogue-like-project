@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,14 +26,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text coins;
     [SerializeField] private Text nameCharacter;
     [SerializeField] private Text priceCharacter;
-
     private GameManager gameManager;
     private PlayerData playerData;
+    private SoundManager soundManager;
     private void Awake() {
         gameManager = GameManager.Instance;
         playerData = PlayerData.Load();
+        soundManager = SoundManager.Instance;
         coins.text = $"Coin: {playerData.coin}";
-         nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
+        nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
         priceCharacter.text = $"Price character {characterScripable.characters[0].priceCharacter}";
     }
 
@@ -45,6 +47,7 @@ public class UIManager : MonoBehaviour
            gunDisplay.transform.SetParent(gunParent, false);
            gunDisplay.index = gun.index;
         }
+
     }
 
     private void OnEnable() {
@@ -56,7 +59,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
         gameManager.OnupdateInfoCharacter -= updateInfoCharacter;
     }
-    
+
     public void updateCoinThenBuyItem(int coin){
         coins.text = $"Coin: {coin}";
     }
@@ -142,11 +145,10 @@ public class UIManager : MonoBehaviour
     }
 
     public void btnOpenPopupSelectCharacter(){
-        Debug.Log("okkk");
         _popupSelectedCharacter.SetActive(true);
     }
     public void handleConfirmSelectedCharacter(){
         _popUpSelectedCharacter.SetActive(false);
     }
-
+    
 }

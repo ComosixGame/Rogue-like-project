@@ -25,16 +25,15 @@ public class GameManager : Singleton<GameManager>
     [ReadOnly] public int levels, waves;
     public Transform player {get; private set;}
     public Transform cam {get; private set;}
-    
     public event Action OnEnemiesDestroyed;
     public event Action<Transform> OnSelectedPlayer;
     public event Action OnPause;
     public event Action OnResume;
     public event Action<int> OnUpdateCoin;
-
     public event Action<int> OnUpdateCoinPlayer;
     public event Action OnupdateInfoCharacter;
     private PlayerData playerData;
+    public SettingData settingData;
     public int coinPlayer {
         get {
            return playerData.coin;
@@ -56,7 +55,7 @@ public class GameManager : Singleton<GameManager>
     override protected void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
-        Debug.Log(playerData.coin);
+        settingData = SettingData.Load();
     }
 
 
