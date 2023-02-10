@@ -6,11 +6,14 @@ using MyCustomAttribute;
 public class SoundManager : Singleton<SoundManager>
 {
     private AudioSource audioSource;
+    private GameManager gameManager;
     [SerializeField, ReadOnly] private float volumeSFX = 0.5f;
     public event Action<bool> OnMute;
     public event Action<float> OnChangeSFXVolume;
     public event Action<float> OnChangeMusicVolume;
     public event Action<bool> OnSetPlayMusic;
+
+    private bool isMute;
 
     protected override void Awake()
     {
@@ -24,6 +27,12 @@ public class SoundManager : Singleton<SoundManager>
         audioSource.playOnAwake = false;
         audioSource.loop = true;
         audioSource.minDistance = 0;
+        gameManager = GameManager.Instance;
+    }
+
+    private void Start() {
+        isMute = gameManager.settingData.mute;
+        audioSource.mute = isMute;
     }
 
     public void SetMusicBackGround(AudioClip audioClip) {
@@ -43,8 +52,11 @@ public class SoundManager : Singleton<SoundManager>
         audioSource.PlayOneShot(audioClip, volumeSFX);
     }
 
-    public void Mute(bool mute) {
+    public void MuteGame(bool mute) {
+        isMute = mute;
         audioSource.mute = mute;
+        gameManager.settingData.mute = mute;
+        gameManager.settingData.Save();
         OnMute?.Invoke(mute);
     }
 

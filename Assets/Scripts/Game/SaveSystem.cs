@@ -122,3 +122,22 @@ public class PlayerData
         SaveSystem<PlayerData>.Save(this,false);
     }
 }
+
+public class SettingData{
+    public bool mute;
+    public float resolutionScale;
+    public int fps;
+    public SettingData(){
+        mute = false;
+        fps = 60;
+        resolutionScale = 0.7f;
+    }
+
+    public static SettingData Load(){
+        return SaveSystem<SettingData>.Load(false);
+    }
+
+    public void Save(){
+        SaveSystem<SettingData>.Save(this, false);
+    }
+}
