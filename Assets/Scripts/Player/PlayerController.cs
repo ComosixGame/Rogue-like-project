@@ -84,10 +84,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool(aimHash, true);
             rigAim.weight = 1;
             if(timerAttack >= fireRateTime) {
-                soundManager.PlaySound(shootSound);
                 timerAttack = 0;
-                animator.SetTrigger(attackHash);
-                playerAttack.Attack();
+                bool notReload = playerAttack.Attack();
+                if(notReload) {
+                    soundManager.PlaySound(shootSound);
+                    animator.SetTrigger(attackHash);
+                }
             }
         } else {
             animator.SetBool(aimHash, false);
