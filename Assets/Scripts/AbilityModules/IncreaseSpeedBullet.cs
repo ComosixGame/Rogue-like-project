@@ -28,7 +28,7 @@ public class IncreaseSpeedBullet : AbsAbilityModule
 
     public override void ResetAbility()
     {
-        throw new System.NotImplementedException();
+        
     }
 
 

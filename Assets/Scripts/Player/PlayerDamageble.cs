@@ -8,16 +8,14 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     public AudioClip hitSound;
     public AudioClip deadSound;
     [SerializeField] private float maxHealth;
+    [Label("Armor(%)")] public float armor;
     [ReadOnly, SerializeField] private float health;
     private ObjectPoolerManager objectPooler;
     private GameManager gameManager;
-
     public Slider healthPlayer;
     private bool destroyed;
     private Camera _camera;
-
     private SoundManager soundManager;
-
     public static event Action OnLoseGame;
 
 
@@ -38,6 +36,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
     public void TakeDamge(float damage, Vector3 force){
         soundManager.PlaySound(hitSound);
+        damage -= damage * (armor/100);
         health -= damage;
         healthPlayer.value = health;
         if(health <= 0 && !destroyed){
