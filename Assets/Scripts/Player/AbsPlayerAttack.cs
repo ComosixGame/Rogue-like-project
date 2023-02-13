@@ -9,6 +9,7 @@ public abstract class AbsPlayerAttack : MonoBehaviour
     public int MagazineCapacity;
     public float reloadDuration;
     public float damage;
+    public float speed = 30f;
     [ReadOnly, SerializeField] private int remainingAmmo;
     [ReadOnly, SerializeField] private float reloadTime;
     private bool outOfAmmo;

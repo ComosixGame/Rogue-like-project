@@ -393,6 +393,7 @@ MonoBehaviour:
   MagazineCapacity: 24
   reloadDuration: 2
   damage: 100
+  speed: 30
   remainingAmmo: 0
   reloadTime: 0
 --- !u!1 &1894917545

@@ -3,6 +3,7 @@ using UnityEngine;
 using MyCustomAttribute;
 public class Bullet : MonoBehaviour
 {
+    private float speed;
     public GameObjectPool impactEffect;
     [SerializeField] private Rigidbody rb;
     private bool fired, hit;
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate() {
         if(fired) {
-            rb.velocity = transform.forward.normalized * 30f;
+            rb.velocity = transform.forward.normalized * speed;
         }
     }
 
@@ -41,9 +42,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Fire(float damage) {
+    public void Fire(float damage, float speed) {
         fired = true;
         this.damage = damage; 
+        this.speed = speed;
     }
 
     private void Destroy() {

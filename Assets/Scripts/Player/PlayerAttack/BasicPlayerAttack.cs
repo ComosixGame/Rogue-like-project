@@ -5,6 +5,6 @@ public class BasicPlayerAttack : AbsPlayerAttack
     {
         attackEffect.Play();
         GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
-        newBullet.GetComponent<Bullet>().Fire(damage);
+        newBullet.GetComponent<Bullet>().Fire(damage, speed);
     }
 }
