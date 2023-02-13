@@ -1,7 +1,7 @@
 
 public class BasicPlayerAttack : AbsPlayerAttack
 {
-    public override void Attack()
+    public override void Fire()
     {
         attackEffect.Play();
         GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, attackEffect.transform.position, attackEffect.transform.rotation);
