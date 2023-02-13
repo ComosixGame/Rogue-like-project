@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    override protected void Awake() {
+    protected override void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
         settingData = SettingData.Load();
