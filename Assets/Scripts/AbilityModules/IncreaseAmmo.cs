@@ -5,7 +5,7 @@ public class IncreaseAmmo : AbsAbilityModule
 {
     [SerializeField, Label("Value(%)")] private float value;
     private AbsPlayerAttack playerAttack;
-    private float preAmmo;
+    private int preAmmo;
     public override void AbilityActive()
     {
         playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
