@@ -9,7 +9,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     public AudioClip deadSound;
     [SerializeField] private float maxHealth;
     [Label("Armor(%)")] public float armor;
-    [ReadOnly, SerializeField] private float health;
+    public float health {get; private set;}
     private ObjectPoolerManager objectPooler;
     private GameManager gameManager;
     public Slider healthPlayer;
@@ -58,5 +58,9 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
         gameManager.EndGame(false);
         gameObject.SetActive(false);
         OnLoseGame?.Invoke();
+    }
+
+    public float GetMaxHealth() {
+        return maxHealth;
     }
 }
