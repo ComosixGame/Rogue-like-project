@@ -3284,6 +3284,7 @@ MonoBehaviour:
   _popupSelectedCharacter: {fileID: 0}
   _popupConfirmWeapon: {fileID: 0}
   _popupSelectedChapter: {fileID: 0}
+  _popupConfirmNotEnoughMoney: {fileID: 0}
   gunScriptable: {fileID: 0}
   characterScripable: {fileID: 0}
   gunPrefab: {fileID: 0}
@@ -4501,9 +4502,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -17}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &387098422
 MonoBehaviour:
@@ -4548,7 +4549,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902307223}
   m_HandleRect: {fileID: 902307222}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4628,9 +4629,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: -17}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &389778914
 MonoBehaviour:
@@ -7898,7 +7899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000059604645, y: 0.00008893592}
+  m_AnchoredPosition: {x: 0.0000059604645, y: -0.0002404952}
   m_SizeDelta: {x: 0, y: 2907.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &692835465
@@ -7921,7 +7922,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 850, y: 850}
+  m_CellSize: {x: 850, y: 1000}
   m_Spacing: {x: 150, y: 200}
   m_Constraint: 1
   m_ConstraintCount: 2
@@ -8052,9 +8053,10 @@ MonoBehaviour:
   _popupSelectedCharacter: {fileID: 481119171}
   _popupConfirmWeapon: {fileID: 1610538103}
   _popupSelectedChapter: {fileID: 481119171}
+  _popupConfirmNotEnoughMoney: {fileID: 2012237336}
   gunScriptable: {fileID: 11400000, guid: 64b6a4661b6ae364390c1c23baf7ce49, type: 2}
   characterScripable: {fileID: 11400000, guid: ef2ca6622d55e1a47ac83123862172a3, type: 2}
-  gunPrefab: {fileID: -4955299117360081676, guid: 1725dcf863225c94890cea107cde9d0a,
+  gunPrefab: {fileID: 5974331825752550826, guid: 1725dcf863225c94890cea107cde9d0a,
     type: 3}
   gunList: []
   gunParent: {fileID: 692835464}
@@ -8292,9 +8294,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 20}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &727903706
 MonoBehaviour:
@@ -10156,7 +10158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &891004356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10331,7 +10333,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20117,13 +20119,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703053403}
+  - component: {fileID: 1703053404}
   m_Layer: 5
   m_Name: Weapon Collection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1703053403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20145,6 +20148,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 123.354}
   m_SizeDelta: {x: 0, y: 3415.351}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1703053404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703053402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85979553468e38c40ac1485b8b58dd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _btnBuy: {fileID: 0}
+  _btnSelect: {fileID: 0}
 --- !u!1 &1705044633
 GameObject:
   m_ObjectHideFlags: 0
@@ -24920,7 +24937,7 @@ GameObject:
   - component: {fileID: 2012237339}
   - component: {fileID: 2012237338}
   m_Layer: 5
-  m_Name: Popup Return Lobby
+  m_Name: Popup Not enough money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25494,7 +25511,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

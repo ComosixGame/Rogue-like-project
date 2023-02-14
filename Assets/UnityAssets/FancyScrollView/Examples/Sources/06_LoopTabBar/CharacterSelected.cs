@@ -81,11 +81,10 @@ namespace FancyScrollView.Example06 {
         }
 
         public void BuyItem() {
-           bool success = gameManager.BuyItem(currentCharacter.index, currentCharacter.priceCharacter);
+            bool success = gameManager.BuyItem(currentCharacter.index, currentCharacter.priceCharacter);
             _popupConfirm.SetActive(!success);
             _btnBuy.SetActive(!success);
             _btnSelect.SetActive(success);
-            //_popUpSelectedCharacter.SetActive(false);
         }
     }
 }

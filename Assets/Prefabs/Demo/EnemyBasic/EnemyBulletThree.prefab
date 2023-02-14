@@ -232,10 +232,10 @@ GameObject:
   - component: {fileID: 7407995875355185237}
   - component: {fileID: 7407995875355185236}
   - component: {fileID: 7407995875355185227}
-  - component: {fileID: 5903251921383155484}
   - component: {fileID: 7591746090547872497}
+  - component: {fileID: -8079696956964248558}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: EnemyBulletThree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,23 +393,10 @@ MonoBehaviour:
   coin: {fileID: 744428139078250218, guid: 3321a9d122010604c9dc790875d91de6, type: 3}
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 1000
+  maxHealth: 100
   healthEnemy: {fileID: 8934935472712584298}
   deadSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   _camera: {fileID: 0}
---- !u!114 &5903251921383155484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7407995875355185235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1305997383178436, guid: 96b8a56e59ad1d445ac0be8033f31a20, type: 3}
 --- !u!114 &7591746090547872497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +409,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ecce8d6a7bd54da5e398feac5bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: enemy_1
+  key: enemy_8
+--- !u!114 &-8079696956964248558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407995875355185235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbde2b9dfc2a48b4fb812810e0bc2234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1305997383178436, guid: 96b8a56e59ad1d445ac0be8033f31a20, type: 3}
+  numberOfBullet: 3
+  angel: 80
 --- !u!1001 &7000412653149677813
 PrefabInstance:
   m_ObjectHideFlags: 0

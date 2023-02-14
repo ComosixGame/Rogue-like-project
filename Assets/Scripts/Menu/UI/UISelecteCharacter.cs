@@ -8,6 +8,5 @@ public class UISelecteCharacter : MonoBehaviour
 
     public void BtnSelectCharacter(){
         _popupSelectCharacter.SetActive(true);
-        Debug.Log("okkk");
     }
 }

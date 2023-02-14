@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e79f269c2d6ff4d8255ea97d4226e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7155788659206797011, guid: c5b179961ce194848809c563ae7d0cf7, type: 3}
-  numberBullet: 3
-  timerVolleyOfBullets: 3
-  _enemyBehaviour: {fileID: 1849442298439016577, guid: 7c0e137c17eb35d4c893d9c52c3cffb0,
-    type: 3}
+  bullet: {fileID: 1305997383178436, guid: 96b8a56e59ad1d445ac0be8033f31a20, type: 3}
+  numberOfBullet: 0
+  _delayAttack: 0
+  _timerAttack: 0
+  fire: 0
