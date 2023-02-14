@@ -49,6 +49,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
         if(!destroyed) {
             float h = health + healthRestore;
             health = h <= maxHealth ? h : maxHealth; 
+            healthPlayer.value = health;
         }
     }
 
