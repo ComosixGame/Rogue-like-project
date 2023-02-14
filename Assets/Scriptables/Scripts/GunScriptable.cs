@@ -5,8 +5,9 @@ public class GunScriptable : ScriptableObject
 {
     [System.Serializable]
     public class Gun{
-        public int index;
         public string nameGun;
+        public int priceGun;
+        public GameObject prefabGun;
     }
     
     public Gun[] guns;

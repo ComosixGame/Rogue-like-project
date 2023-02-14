@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GunScripable Manager
   m_EditorClassIdentifier: 
   guns:
-  - index: 0
-    nameGun: Gun One
-  - index: 1
-    nameGun: Gun Two
-  - index: 2
-    nameGun: Gun Three
+  - nameGun: GunOne
+    priceGun: 0
+    prefabGun: {fileID: 0}
+  - nameGun: GunTwo
+    priceGun: 10000
+    prefabGun: {fileID: 0}

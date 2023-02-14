@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3931644168276374691}
   - component: {fileID: 8760771856754633712}
   - component: {fileID: 2048969231135658805}
+  - component: {fileID: 257090588462216308}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -241,6 +242,7 @@ MonoBehaviour:
     type: 3}
   rb: {fileID: 3931644168276374691}
   splitBullet: 0
+  excludeTarget: {fileID: 0}
 --- !u!114 &2048969231135658805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +256,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: player_bullet
+--- !u!114 &257090588462216308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155788659206797011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4103362f73565f84fb016312792fd6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TakeDame: 3
