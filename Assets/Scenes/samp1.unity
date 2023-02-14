@@ -2773,13 +2773,10 @@ MonoBehaviour:
   increasesEnemy: 2
   delaySpawnEnemy: 1.5
   enemies:
-  - gameObjectPool: {fileID: 7591746090547872497, guid: b44b184bfd99bda49815bd145a706a05,
+  - gameObjectPool: {fileID: 7591746090547872497, guid: 1c0cf7b1027851b4bacecf1573eeddaa,
       type: 3}
     chanceToSpawn: 100
-  - gameObjectPool: {fileID: 7591746090547872497, guid: 1fe6981676a994e45b70e666104579ec,
-      type: 3}
-    chanceToSpawn: 100
-  - gameObjectPool: {fileID: 7591746090547872497, guid: cde550e7dd6001f4cba65096fb4b2b6b,
+  - gameObjectPool: {fileID: 7591746090547872497, guid: eff96d66ca81f324b94524f294fd3f3a,
       type: 3}
     chanceToSpawn: 100
   teleEffect: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,

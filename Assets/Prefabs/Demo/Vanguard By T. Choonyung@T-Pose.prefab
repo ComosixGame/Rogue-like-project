@@ -390,15 +390,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   attackEffect: {fileID: 1523235788929243938}
-
-  damage: 50
-
   MagazineCapacity: 24
   reloadDuration: 2
-  damage: 100
+  damage: 0
   remainingAmmo: 0
   reloadTime: 0
-
 --- !u!1 &1894917545
 GameObject:
   m_ObjectHideFlags: 0

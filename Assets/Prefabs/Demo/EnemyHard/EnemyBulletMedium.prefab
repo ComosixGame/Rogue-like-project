@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 5903251921383155484}
   - component: {fileID: 7591746090547872497}
   m_Layer: 0
-  m_Name: EnemyBulletBasic
+  m_Name: EnemyBulletMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7155788659206797011, guid: 3a99a15822f761d40aeae70033e743de, type: 3}
+  bullet: {fileID: 7155788659206797011, guid: 74478cf41fc4555408ac991e977c9863, type: 3}
 --- !u!114 &7591746090547872497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ecce8d6a7bd54da5e398feac5bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: enemy_6
+  key: enemy_11
 --- !u!1001 &7000412653149677813
 PrefabInstance:
   m_ObjectHideFlags: 0
