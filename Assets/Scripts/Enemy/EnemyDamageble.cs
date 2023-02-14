@@ -22,11 +22,13 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private ObjectPoolerManager objectPoolerManager;
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
-    public static event Action<Transform, float> OnHit;
     private LoadSceneManager loadSceneManager;
     private SoundManager soundManager;
     public AudioClip deadSound;
     [SerializeField] private Camera _camera;
+    private bool isBurning;
+    private float burnDamage;
+    private float burnTimer;
     private EnemyBehaviour enemyBehaviour;
 
     private void Awake() {
@@ -61,8 +63,18 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             meshRenderer.SetPropertyBlock(materialPropertyBlock);
         }
 
+        //knockback
         if(knockBack) {
             agent.Move(dirKnockBack * 3f * Time.deltaTime);
+        }
+
+        //thiêu đốt
+        if(isBurning) {
+            burnTimer += Time.deltaTime;
+            if(burnTimer >= 0.5f) {
+                TakeDamge(burnDamage, Vector3.zero);
+                burnTimer = 0;
+            }
         }
     }
 
@@ -83,8 +95,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             destroyed = true;
             soundManager.PlaySound(deadSound);
             Destroy();
-        } 
-        OnHit?.Invoke(transform, damage);
+        }
     }
 
     private void CancelKnockBack() {
@@ -95,6 +106,17 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         CancelInvoke("CancelStun");
         enemyBehaviour.inStun = true;
         Invoke("CancelStun", stunTime);
+    }
+
+    public void Burn(float damage, float burnTime) {
+        CancelInvoke("CancelBurn");
+        burnDamage = damage;
+        isBurning = true;
+        Invoke("CancelBurn", burnTime);
+    }
+
+    private void CancelBurn() {
+        enemyBehaviour.inStun = false;
     }
 
     private void CancelStun() {

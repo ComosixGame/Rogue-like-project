@@ -10,7 +10,7 @@ public class VampireAttack : AbsAbilityModule
     public override void AbilityActive()
     {
         playerDamageble = GetComponent<PlayerDamageble>();
-        EnemyDamageble.OnHit += Vampire;
+        Bullet.OnHitEnemy += Vampire;
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)
@@ -27,10 +27,10 @@ public class VampireAttack : AbsAbilityModule
 
     public override void ResetAbility()
     {
-        EnemyDamageble.OnHit -= Vampire;
+        Bullet.OnHitEnemy -= Vampire;
     }
 
-    private void Vampire(Transform enemy, float damage) {
+    private void Vampire(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
         int c = Random.Range(0, 100);
         if(c <= chance) {
             float heal = damage * (value/100);

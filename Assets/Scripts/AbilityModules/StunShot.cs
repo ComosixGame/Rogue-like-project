@@ -5,7 +5,7 @@ public class StunShot : AbsAbilityModule
     [SerializeField] private float stunTime;
     public override void AbilityActive()
     {
-        EnemyDamageble.OnHit += StunEnemy;
+        Bullet.OnHitEnemy += StunEnemy;
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)
@@ -21,10 +21,10 @@ public class StunShot : AbsAbilityModule
 
     public override void ResetAbility()
     {
-        EnemyDamageble.OnHit -= StunEnemy;
+        Bullet.OnHitEnemy -= StunEnemy;
     }
 
-    private void StunEnemy(Transform enemy, float damage) {
+    private void StunEnemy(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
         if(enemy.TryGetComponent(out EnemyDamageble enemyDamageble)) {
             enemyDamageble.Stun(stunTime);
         }

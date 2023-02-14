@@ -13,15 +13,15 @@ public class Shield : MonoBehaviour
         transform.Rotate(Vector3.up * Time.deltaTime * speedRotate);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos() {
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(transform.position, 0.3f);
     }
 
     private void OnDrawGizmosSelected() {
-#if UNITY_EDITOR
         Handles.color = new Color32(66, 133, 244, 80);
         Handles.DrawSolidDisc(transform.position, Vector3.up, Vector3.Distance(transform.position, shield.position));
-#endif
     }
+#endif
 }
