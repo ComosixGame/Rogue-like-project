@@ -2813,14 +2813,14 @@ MonoBehaviour:
   startPosition: {fileID: 190321703}
   row: 8
   collumn: 8
-  minObstacle: 10
-  maxObstacle: 20
+  minObstacle: 0
+  maxObstacle: 0
   obstacles:
   - gameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
       type: 3}
     chanceToSpawn: 100
-  minEnemy: 1
-  maxEnemy: 1
+  minEnemy: 2
+  maxEnemy: 2
   increasesEnemy: 2
   delaySpawnEnemy: 1.5
   enemies:

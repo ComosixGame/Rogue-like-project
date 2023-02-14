@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     [ReadOnly, SerializeField] private float timerAttack;
     public AbsAttach _absAttach;
     private bool isRotation;
+    [ReadOnly] public bool inStun;
     private GameManager gameManager;
     private LoadSceneManager loadSceneManager;
 
@@ -49,8 +50,13 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     private void Update() {
-        Move();
-        HandleAttack();
+        if(inStun) {
+            agent.ResetPath();
+            agent.isStopped = true;
+        } else{
+            Move();
+            HandleAttack();
+        }
     }
 
     private void OnDisable() {

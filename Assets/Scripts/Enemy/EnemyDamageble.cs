@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(GameObjectPool))]
@@ -12,9 +11,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     [SerializeField] private AbsItemObjectPool coin;
     [SerializeField] private GameObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
-    
     public Slider healthEnemy;
-
     private float health;
     private bool destroyed, knockBack;
     private Vector3 dirKnockBack;
@@ -25,12 +22,13 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private ObjectPoolerManager objectPoolerManager;
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
-    
+    public static event Action<Transform, float> OnHit;
     private LoadSceneManager loadSceneManager;
     private SoundManager soundManager;
     public AudioClip deadSound;
-
     [SerializeField] private Camera _camera;
+    private EnemyBehaviour enemyBehaviour;
+
     private void Awake() {
         gameManager = GameManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
@@ -42,6 +40,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
         agent = GetComponent<NavMeshAgent>();
+        enemyBehaviour = GetComponent<EnemyBehaviour>();
         _camera = Camera.main;
     }
 
@@ -85,10 +84,21 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             soundManager.PlaySound(deadSound);
             Destroy();
         } 
+        OnHit?.Invoke(transform, damage);
     }
 
     private void CancelKnockBack() {
         knockBack = false;
+    }
+
+    public void Stun(float stunTime) {
+        CancelInvoke("CancelStun");
+        enemyBehaviour.inStun = true;
+        Invoke("CancelStun", stunTime);
+    }
+
+    private void CancelStun() {
+        enemyBehaviour.inStun = false;
     }
 
     public void Destroy() {

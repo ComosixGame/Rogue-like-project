@@ -5,7 +5,6 @@ public class MagnetPickUp : MonoBehaviour
     [SerializeField] private Vector3 center;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layer;
-
     private SoundManager soundManager;
     public AudioClip suckSound;
     
