@@ -1,16 +1,49 @@
+using System;
 using UnityEngine;
+using MyCustomAttribute;
 
 public abstract class AbsPlayerAttack : MonoBehaviour
 {
     [SerializeField] protected GameObjectPool bullet;
     [SerializeField] protected ParticleSystem attackEffect;
+    public int MagazineCapacity;
+    public float reloadDuration;
     public float damage;
+    [ReadOnly, SerializeField] private int remainingAmmo;
+    [ReadOnly, SerializeField] private float reloadTime;
+    private bool outOfAmmo;
     protected ObjectPoolerManager objectPoolerManager;
+    public static event Action<float> OnReloading;
 
     protected virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
+        remainingAmmo = MagazineCapacity;
     }
 
-    public abstract void Attack();
+    private void Update() {
+        if(outOfAmmo) {
+            reloadTime += Time.deltaTime;
+            reloadTime = reloadTime>reloadDuration?reloadDuration:reloadTime;
+            OnReloading?.Invoke(reloadTime);
+            if(reloadTime >= reloadDuration) {
+                remainingAmmo = MagazineCapacity;
+                reloadTime = 0;
+                outOfAmmo = false;
+            }
+        }
+    }
+
+    public bool Attack(){
+        if(remainingAmmo > 0) {
+            Fire();
+            remainingAmmo--;
+            return true;
+        } else {
+            outOfAmmo = true;
+            return false;
+        }
+    }
+
+    public abstract void Fire();
 
 }
