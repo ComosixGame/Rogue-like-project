@@ -16,10 +16,11 @@ public class UIManager : MonoBehaviour
     public GameObject _popupSelectedCharacter;
     public GameObject _popupConfirmWeapon;
     public GameObject _popupSelectedChapter;
+    public GameObject _popupConfirmNotEnoughMoney;
     [SerializeField] GunScriptable gunScriptable;
     [SerializeField] CharacterScripable characterScripable;
-    [SerializeField] private Gun gunPrefab;
-    [SerializeField] List<Gun> gunList = new List<Gun>();
+    [SerializeField] private CardGun gunPrefab;
+    [SerializeField] List<CardGun> gunList = new List<CardGun>();
     [SerializeField] private Transform gunParent;
     Gun currentGun;
     [SerializeField] private GameObject _popUpSelectedCharacter;
@@ -41,11 +42,14 @@ public class UIManager : MonoBehaviour
 
     private void Start() {
         InitGame();
-        foreach(GunScriptable.Gun gun in gunScriptable.guns){
-           Gun gunDisplay = Instantiate(gunPrefab);
-           gunList.Add(gunDisplay);
-           gunDisplay.transform.SetParent(gunParent, false);
-           gunDisplay.index = gun.index;
+
+        for(int i = 0; i < gunScriptable.guns.Length; i++){
+            CardGun gunDisplay = Instantiate(gunPrefab);
+            gunList.Add(gunDisplay);
+            gunDisplay.transform.SetParent(gunParent, false);
+            gunDisplay.index = i;
+            gunDisplay.priceGun = gunScriptable.guns[i].priceGun;
+            gunDisplay.nameGun = gunScriptable.guns[i].nameGun;
         }
 
     }
@@ -53,11 +57,17 @@ public class UIManager : MonoBehaviour
     private void OnEnable() {
         gameManager.OnUpdateCoinPlayer += updateCoinThenBuyItem;
         gameManager.OnupdateInfoCharacter += updateInfoCharacter;
+        CardGun.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
     }
 
     private void OnDisable() {
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
         gameManager.OnupdateInfoCharacter -= updateInfoCharacter;
+        CardGun.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
+    }
+
+    public void showPopUpConfirmNotEnoughMoney(){
+        _popupConfirmNotEnoughMoney.SetActive(true);
     }
 
     public void updateCoinThenBuyItem(int coin){

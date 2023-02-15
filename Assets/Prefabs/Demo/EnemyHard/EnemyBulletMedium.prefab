@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 5903251921383155484}
   - component: {fileID: 7591746090547872497}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: EnemyBulletMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,11 +389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224713816ebe5348acaac3878200411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCoins: 200
+  amountCoins: 10
   coin: {fileID: 744428139078250218, guid: 3321a9d122010604c9dc790875d91de6, type: 3}
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
-  maxHealth: 1000
+  maxHealth: 100
   healthEnemy: {fileID: 8934935472712584298}
   deadSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   _camera: {fileID: 0}
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1305997383178436, guid: 96b8a56e59ad1d445ac0be8033f31a20, type: 3}
+  bullet: {fileID: 7155788659206797011, guid: 74478cf41fc4555408ac991e977c9863, type: 3}
 --- !u!114 &7591746090547872497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430ecce8d6a7bd54da5e398feac5bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: enemy_1
+  key: enemy_11
 --- !u!1001 &7000412653149677813
 PrefabInstance:
   m_ObjectHideFlags: 0

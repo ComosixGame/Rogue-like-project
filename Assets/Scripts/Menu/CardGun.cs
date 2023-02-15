@@ -1,23 +1,26 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Gun : MonoBehaviour
+public class CardGun : MonoBehaviour
 {
     public int index;
     public string nameGun;
     public int priceGun;
 
-    Gun currentGun = null;
+    CardGun currentGun = null;
 
     [SerializeField] private Text nameGunText;
-    [SerializeField] GameObject _btnBuy;
-    [SerializeField] GameObject _btnSelected;
+    [SerializeField] private GameObject _btnBuy;
+    [SerializeField] private GameObject _btnSelected;
 
     private GameManager gameManager;
+
+    public static event Action OnNotEnoughMoney;
     
     private void Awake() {
         gameManager = GameManager.Instance;
-        currentGun =  GetComponent<Gun>();
+        currentGun =  GetComponent<CardGun>();
     }
 
     private void Start() {
@@ -36,7 +39,8 @@ public class Gun : MonoBehaviour
 
     public void BuyWeapon(){
         bool success = gameManager.BuyWeapon(currentGun.index, currentGun.priceGun);
-        _btnBuy.SetActive(false);
-        _btnSelected.SetActive(true);
+        OnNotEnoughMoney?.Invoke();
+        _btnBuy.SetActive(!success);
+        _btnSelected.SetActive(success);
     }
 }

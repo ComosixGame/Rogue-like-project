@@ -926,7 +926,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144378318}
-  m_LocalRotation: {x: 0.56296235, y: -0.000000021331159, z: 0.000000014529817, w: 0.82648253}
+  m_LocalRotation: {x: 0.56296235, y: 0.000000021331163, z: -0.000000014529821, w: 0.82648253}
   m_LocalPosition: {x: 0, y: 28.570002, z: -26.330002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1125,7 +1125,9 @@ MonoBehaviour:
   levelText: {fileID: 62760314}
   waveText: {fileID: 232570993}
   gold: {fileID: 336972124}
+  stateText: {fileID: 0}
   NameModule: {fileID: 746821136}
+  NameModulePausePopup: {fileID: 0}
   uiModuleDisplay: {fileID: 1204654799874953082, guid: f80474e025079f64cb1152b89c4ca52a,
     type: 3}
   _PopupPause: {fileID: 594684798}
@@ -1133,12 +1135,21 @@ MonoBehaviour:
   _PopupSettings: {fileID: 1272718394}
   _PopupLobby: {fileID: 255854552}
   _FooterLevel: {fileID: 955286733}
+  _PopupLoseGame: {fileID: 0}
+  _PopupWinGame: {fileID: 0}
   _Pause: {fileID: 636370882}
   _Stage: {fileID: 520841824}
   _LabUI: {fileID: 441647795}
   _optionModule1: {fileID: 1706306176}
   _postionValueModule: {fileID: 426805605}
+  _postionValueModulePausePopup: {fileID: 0}
   _btnGetMore: {fileID: 1372143311}
+  abilityBtn: {fileID: 0}
+  abilitySelectorContainer: {fileID: 0}
+  abilityEmptyMessage: {fileID: 0}
+  goldEndGame: {fileID: 0}
+  btnContinueGame: {fileID: 0}
+  btnExitGame: {fileID: 0}
 --- !u!114 &221493948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,7 +1843,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.56296235, y: -0.000000021331159, z: 0.000000014529817, w: 0.82648253}
+  m_LocalRotation: {x: 0.56296235, y: 0.000000021331163, z: -0.000000014529821, w: 0.82648253}
   m_LocalPosition: {x: 0, y: 22.6, z: -25.835001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3648,6 +3659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
   text: {fileID: 807285615}
   abilityModule: {fileID: 0}
 --- !u!114 &511336786
@@ -4144,7 +4156,7 @@ MonoBehaviour:
   increasesEnemy: 2
   delaySpawnEnemy: 1.5
   enemies:
-  - gameObjectPool: {fileID: 7591746090547872497, guid: 5f6636215e009b946a6b80c31e298251,
+  - gameObjectPool: {fileID: 7591746090547872497, guid: 6faca5f55d1a292459c4901729224989,
       type: 3}
     chanceToSpawn: 100
   teleEffect: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
@@ -5157,6 +5169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
   text: {fileID: 952217947}
   abilityModule: {fileID: 0}
 --- !u!114 &738081628
@@ -8321,6 +8334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
   text: {fileID: 1647376713}
   abilityModule: {fileID: 0}
 --- !u!114 &1529757483
@@ -9243,6 +9257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
   text: {fileID: 1191440443}
   abilityModule: {fileID: 0}
 --- !u!114 &1706306179
@@ -9543,9 +9558,6 @@ MonoBehaviour:
   enemies: []
   levels: 0
   waves: 0
-  OnUpdateHealthPlayer:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1738909852
 Transform:
   m_ObjectHideFlags: 0
@@ -10446,6 +10458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
   text: {fileID: 633917385}
   abilityModule: {fileID: 0}
 --- !u!114 &1914823309
@@ -11862,6 +11875,7 @@ MonoBehaviour:
   rigAim: {fileID: 1712179443}
   targetAim: {fileID: 1216842461}
   fireRateTime: 0.2
+  shootSound: {fileID: 0}
 --- !u!4 &919132148653637975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694546641388824592, guid: 717ddf357a839a148a363692f586e37e,
@@ -11898,6 +11912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048cb66c35a2f374092bc234aba99972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 0}
+  deadSound: {fileID: 0}
   maxHealth: 10
   health: 0
   healthPlayer: {fileID: 261470648}
@@ -11918,6 +11934,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 512
+  suckSound: {fileID: 0}
 --- !u!1001 &2517031264920794105
 PrefabInstance:
   m_ObjectHideFlags: 0

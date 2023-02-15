@@ -14,6 +14,7 @@ public abstract class AbsPlayerAttack : MonoBehaviour
     [ReadOnly, SerializeField] private float reloadTime;
     private bool outOfAmmo;
     protected ObjectPoolerManager objectPoolerManager;
+    //time reload bullet
     public static event Action<float> OnReloading;
     public event Action<Transform> OnAttack;
 

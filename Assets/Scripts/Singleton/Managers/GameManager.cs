@@ -52,6 +52,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public List<int> weaponOwn{
+        get{
+            return playerData.weapons;
+        }
+    }
+
     protected override void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
@@ -90,6 +96,33 @@ public class GameManager : Singleton<GameManager>
             playerData.characterSeleted = indexCharacter;
             playerData.Save();
             OnupdateInfoCharacter?.Invoke();
+        }
+    }
+
+    //Buy weapon
+    public bool BuyWeapon(int indexWeapon, int priceWeapon){
+        if(playerData.coin >= priceWeapon){
+            if(playerData.weapons.IndexOf(indexWeapon) == -1){
+                playerData.weapons.Add(indexWeapon);
+                playerData.coin -= priceWeapon;
+                PlayerData.Load();
+                playerData.Save();
+                OnUpdateCoinPlayer?.Invoke(playerData.coin);
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    //Selected weapon
+    public void SelectedWeapon(int indexWeapon){
+        if(playerData.weapons.IndexOf(indexWeapon) != -1){
+            playerData.weaponSelected = indexWeapon;
+            playerData.Save();
+            OnUpdateCoinPlayer?.Invoke(playerData.coin);
         }
     }
 
