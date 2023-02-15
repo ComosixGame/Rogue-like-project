@@ -121,7 +121,7 @@ public class UIHUD : MonoBehaviour
 
     public void OnLoadScene(string path){
         loadSceneManager.LoadScene(path);
-        gameManager.EndGame(true);
+        //gameManager.EndGame(true);
     }
 
     public void ChangeWinGame(){

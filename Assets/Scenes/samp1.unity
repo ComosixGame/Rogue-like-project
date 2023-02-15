@@ -2768,15 +2768,18 @@ MonoBehaviour:
   - gameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
       type: 3}
     chanceToSpawn: 100
-  minEnemy: 3
-  maxEnemy: 3
+  minEnemy: 1
+  maxEnemy: 1
   increasesEnemy: 2
   delaySpawnEnemy: 1.5
   enemies:
-  - gameObjectPool: {fileID: 7591746090547872497, guid: 1c0cf7b1027851b4bacecf1573eeddaa,
+  - gameObjectPool: {fileID: 7591746090547872497, guid: cde550e7dd6001f4cba65096fb4b2b6b,
       type: 3}
     chanceToSpawn: 100
-  - gameObjectPool: {fileID: 7591746090547872497, guid: eff96d66ca81f324b94524f294fd3f3a,
+  - gameObjectPool: {fileID: 7591746090547872497, guid: b44b184bfd99bda49815bd145a706a05,
+      type: 3}
+    chanceToSpawn: 100
+  - gameObjectPool: {fileID: 7591746090547872497, guid: 1fe6981676a994e45b70e666104579ec,
       type: 3}
     chanceToSpawn: 100
   teleEffect: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
@@ -6617,7 +6620,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 238009037}
   m_HandleRect: {fileID: 238009036}
   m_Direction: 2
-  m_Value: 0.9999966
+  m_Value: 1
   m_Size: 0.9401026
   m_NumberOfSteps: 0
   m_OnValueChanged:

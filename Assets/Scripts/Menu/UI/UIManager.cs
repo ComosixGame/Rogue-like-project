@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject _popupConfirmWeapon;
     public GameObject _popupSelectedChapter;
     public GameObject _popupConfirmNotEnoughMoney;
+    public GameObject _popupConfirmSelected;
     [SerializeField] GunScriptable gunScriptable;
     [SerializeField] CharacterScripable characterScripable;
     [SerializeField] private CardGun gunPrefab;
@@ -50,6 +51,8 @@ public class UIManager : MonoBehaviour
             gunDisplay.index = i;
             gunDisplay.priceGun = gunScriptable.guns[i].priceGun;
             gunDisplay.nameGun = gunScriptable.guns[i].nameGun;
+            gunDisplay.thumb = gunScriptable.guns[i].thumb;
+            //gunDisplay.RenderCard();
         }
 
     }
@@ -57,17 +60,27 @@ public class UIManager : MonoBehaviour
     private void OnEnable() {
         gameManager.OnUpdateCoinPlayer += updateCoinThenBuyItem;
         gameManager.OnupdateInfoCharacter += updateInfoCharacter;
-        CardGun.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
+        gameManager.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
+        CardGun.ConfirmSelected += showPopUpConfirmSelected;
     }
 
     private void OnDisable() {
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
         gameManager.OnupdateInfoCharacter -= updateInfoCharacter;
-        CardGun.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
+        gameManager.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
+        CardGun.ConfirmSelected -= showPopUpConfirmSelected;
     }
 
     public void showPopUpConfirmNotEnoughMoney(){
         _popupConfirmNotEnoughMoney.SetActive(true);
+    }
+
+    public void showPopUpConfirmSelected(){
+        _popupConfirmSelected.SetActive(true);
+    }
+
+    public void hidePopUpConfirmSelected(){
+        _popupConfirmSelected.SetActive(false);
     }
 
     public void updateCoinThenBuyItem(int coin){

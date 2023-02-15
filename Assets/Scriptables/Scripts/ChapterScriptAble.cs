@@ -7,6 +7,8 @@ public class ChapterScriptAble : ScriptableObject
     public class Chapter{
         public int index;
         public string path;
+        public string nameChapter;
+        public Sprite thumb;
     }
 
     public Chapter[] chapters;
