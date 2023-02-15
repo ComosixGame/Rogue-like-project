@@ -15,6 +15,7 @@ public abstract class AbsPlayerAttack : MonoBehaviour
     private bool outOfAmmo;
     protected ObjectPoolerManager objectPoolerManager;
     public static event Action<float> OnReloading;
+    public event Action<Transform> OnAttack;
 
     protected virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
@@ -36,8 +37,9 @@ public abstract class AbsPlayerAttack : MonoBehaviour
 
     public bool Attack(){
         if(remainingAmmo > 0) {
-            Fire();
+            Fire(attackEffect.transform.position, attackEffect.transform.rotation);
             remainingAmmo--;
+            OnAttack?.Invoke(attackEffect.transform);
             return true;
         } else {
             outOfAmmo = true;
@@ -45,6 +47,6 @@ public abstract class AbsPlayerAttack : MonoBehaviour
         }
     }
 
-    public abstract void Fire();
+    public abstract void Fire(Vector3 shootPos, Quaternion shootRot);
 
 }
