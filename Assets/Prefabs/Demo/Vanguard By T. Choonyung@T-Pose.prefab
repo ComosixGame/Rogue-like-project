@@ -393,6 +393,7 @@ MonoBehaviour:
   MagazineCapacity: 24
   reloadDuration: 2
   damage: 20
+  speed: 30
   remainingAmmo: 0
   reloadTime: 0
 --- !u!1 &1894917545
@@ -1478,6 +1479,7 @@ GameObject:
   - component: {fileID: 919132148653637979}
   - component: {fileID: 919132148653637982}
   - component: {fileID: 919132148653637985}
+  - component: {fileID: 3900964496377453763}
   m_Layer: 3
   m_Name: Vanguard By T. Choonyung@T-Pose
   m_TagString: Player
@@ -1616,7 +1618,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   deadSound: {fileID: 8300000, guid: 8401456349c492a489ed90469e317e43, type: 3}
   maxHealth: 100
-  health: 0
+  armor: 0
   healthPlayer: {fileID: 2477117081124766954}
 --- !u!114 &919132148653637985
 MonoBehaviour:
@@ -1636,6 +1638,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   suckSound: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
+--- !u!114 &3900964496377453763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327917442935796394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78b679728634554d83fa0c5a29d720e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tier: 0
+  image: {fileID: 0}
+  abilityName: 
+  description: 
+  damageReductionRate: 30
 --- !u!1 &3493451762172295190
 GameObject:
   m_ObjectHideFlags: 0

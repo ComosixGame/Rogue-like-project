@@ -9,12 +9,14 @@ public abstract class AbsPlayerAttack : MonoBehaviour
     public int MagazineCapacity;
     public float reloadDuration;
     public float damage;
+    public float speed = 30f;
     [ReadOnly, SerializeField] private int remainingAmmo;
     [ReadOnly, SerializeField] private float reloadTime;
     private bool outOfAmmo;
     protected ObjectPoolerManager objectPoolerManager;
     //time reload bullet
     public static event Action<float> OnReloading;
+    public event Action<Transform> OnAttack;
 
     protected virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
@@ -36,8 +38,9 @@ public abstract class AbsPlayerAttack : MonoBehaviour
 
     public bool Attack(){
         if(remainingAmmo > 0) {
-            Fire();
+            Fire(attackEffect.transform.position, attackEffect.transform.rotation);
             remainingAmmo--;
+            OnAttack?.Invoke(attackEffect.transform);
             return true;
         } else {
             outOfAmmo = true;
@@ -45,6 +48,6 @@ public abstract class AbsPlayerAttack : MonoBehaviour
         }
     }
 
-    public abstract void Fire();
+    public abstract void Fire(Vector3 shootPos, Quaternion shootRot);
 
 }

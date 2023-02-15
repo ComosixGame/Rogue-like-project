@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SplitBullet : AbsAbilityModule
 {
+    private AbsPlayerAttack playerAttack;
     private ObjectPoolerManager objectPoolerManager;
     
     protected override void Awake()
@@ -13,6 +14,7 @@ public class SplitBullet : AbsAbilityModule
 
     public override void AbilityActive()
     {
+        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
         Bullet.OnHitEnemy += ActiveSplitBullet;
     }
 
@@ -31,7 +33,7 @@ public class SplitBullet : AbsAbilityModule
         Bullet.OnHitEnemy -= ActiveSplitBullet;
     }
     
-    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, Transform splitTarget, float damage) {
+    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, Transform splitTarget, Vector3 bulletDir, float damage) {
         for(int i = 0; i < 4; i++) {
             Vector3 dir;
             switch(i) {
@@ -54,7 +56,7 @@ public class SplitBullet : AbsAbilityModule
             Bullet newBullet = obj.GetComponent<Bullet>();
             newBullet.splitBullet = true;
             newBullet.excludeTarget = splitTarget;
-            newBullet.Fire(damage);
+            newBullet.Fire(damage, playerAttack.speed);
         }
     }
 
