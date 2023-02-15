@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(GameObjectPool))]
@@ -12,9 +11,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     [SerializeField] private AbsItemObjectPool coin;
     [SerializeField] private GameObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
-    
     public Slider healthEnemy;
-
     private float health;
     private bool destroyed, knockBack;
     private Vector3 dirKnockBack;
@@ -25,12 +22,15 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
     private ObjectPoolerManager objectPoolerManager;
     private NavMeshAgent agent;
     public static event Action<Vector3> OnEnemiesDestroy;
-    
     private LoadSceneManager loadSceneManager;
     private SoundManager soundManager;
     public AudioClip deadSound;
-
     [SerializeField] private Camera _camera;
+    private bool isBurning;
+    private float burnDamage;
+    private float burnTimer;
+    private EnemyBehaviour enemyBehaviour;
+
     private void Awake() {
         gameManager = GameManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
@@ -42,6 +42,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
         meshRenderer.SetPropertyBlock(materialPropertyBlock);
         agent = GetComponent<NavMeshAgent>();
+        enemyBehaviour = GetComponent<EnemyBehaviour>();
         _camera = Camera.main;
     }
 
@@ -62,8 +63,18 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             meshRenderer.SetPropertyBlock(materialPropertyBlock);
         }
 
+        //knockback
         if(knockBack) {
             agent.Move(dirKnockBack * 3f * Time.deltaTime);
+        }
+
+        //thiêu đốt
+        if(isBurning) {
+            burnTimer += Time.deltaTime;
+            if(burnTimer >= 0.5f) {
+                TakeDamge(burnDamage, Vector3.zero);
+                burnTimer = 0;
+            }
         }
     }
 
@@ -84,11 +95,32 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
             destroyed = true;
             soundManager.PlaySound(deadSound);
             Destroy();
-        } 
+        }
     }
 
     private void CancelKnockBack() {
         knockBack = false;
+    }
+
+    public void Stun(float stunTime) {
+        CancelInvoke("CancelStun");
+        enemyBehaviour.inStun = true;
+        Invoke("CancelStun", stunTime);
+    }
+
+    public void Burn(float damage, float burnTime) {
+        CancelInvoke("CancelBurn");
+        burnDamage = damage;
+        isBurning = true;
+        Invoke("CancelBurn", burnTime);
+    }
+
+    private void CancelBurn() {
+        enemyBehaviour.inStun = false;
+    }
+
+    private void CancelStun() {
+        enemyBehaviour.inStun = false;
     }
 
     public void Destroy() {

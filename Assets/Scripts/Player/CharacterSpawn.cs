@@ -6,8 +6,6 @@ public class CharacterSpawn : MonoBehaviour
 {
     public CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] private CharacterScripable characterScripable;
-    public Vector3 spawmPos;
-
     private GameManager gameManager;
 
     private void Awake() {
@@ -15,7 +13,7 @@ public class CharacterSpawn : MonoBehaviour
         int index = gameManager.characterSeleted;
         Debug.Log(characterScripable.characters[index].nameCharacter);
         GameObject prefab = characterScripable.characters[index].prefab;
-        GameObject player = Instantiate(prefab, spawmPos, Quaternion.identity);
+        GameObject player = Instantiate(prefab, transform.position, Quaternion.identity);
         cinemachineVirtualCamera.Follow = player.transform;
         cinemachineVirtualCamera.LookAt = player.transform;
         //
@@ -31,9 +29,10 @@ public class CharacterSpawn : MonoBehaviour
     {
         
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos() {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(spawmPos, 2f);
+        Gizmos.DrawSphere(transform.position, 1f);
     }
+#endif
 }

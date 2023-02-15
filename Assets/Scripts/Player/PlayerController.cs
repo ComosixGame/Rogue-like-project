@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,7 +28,6 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
     private SoundManager soundManager;
-
     public AudioClip shootSound;
 
 

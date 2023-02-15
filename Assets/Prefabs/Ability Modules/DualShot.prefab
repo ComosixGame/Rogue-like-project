@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3118286121411130237
+--- !u!1 &2583727013762205454
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7688044455976328572}
-  - component: {fileID: 8125591063201625005}
+  - component: {fileID: 2583727013762205452}
+  - component: {fileID: -3134884168228491846}
   m_Layer: 0
-  m_Name: IncreaseFireRate
+  m_Name: DualShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7688044455976328572
+--- !u!4 &2583727013762205452
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118286121411130237}
+  m_GameObject: {fileID: 2583727013762205454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.10247765, y: 1.8649834, z: -14.74893}
+  m_LocalPosition: {x: 8.533864, y: -12.573819, z: 0.15345563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8125591063201625005
+--- !u!114 &-3134884168228491846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3118286121411130237}
+  m_GameObject: {fileID: 2583727013762205454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1b542622fa97a4fb9f0e6cd66a3722, type: 3}
+  m_Script: {fileID: 11500000, guid: a8288423f4345fc449958bdab080395a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tier: 70
+  tier: 10
   image: {fileID: 0}
-  abilityName: Increase Fire Rate
-  description: "T\u0103ng t\u1ED1c \u0111\u1ED9 b\u1EAFn"
-  value: 25
+  abilityName: DualShot
+  description: DualShot
+  offset: {x: 1, y: 0, z: 0}

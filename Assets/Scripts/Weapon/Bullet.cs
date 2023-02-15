@@ -3,6 +3,7 @@ using UnityEngine;
 using MyCustomAttribute;
 public class Bullet : MonoBehaviour
 {
+    private float speed;
     public GameObjectPool impactEffect;
     [SerializeField] private Rigidbody rb;
     private bool fired, hit;
@@ -11,7 +12,7 @@ public class Bullet : MonoBehaviour
     private float damage;
     private GameObjectPool gameObjectPool;
     private ObjectPoolerManager ObjectPoolerManager;
-    public static event Action<GameObjectPool, Vector3, Transform, float> OnHitEnemy;
+    public static event Action<GameObjectPool, Vector3, Transform, Vector3, float> OnHitEnemy;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
@@ -20,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate() {
         if(fired) {
-            rb.velocity = transform.forward.normalized * 30f;
+            rb.velocity = transform.forward.normalized * speed;
         }
     }
 
@@ -34,16 +35,17 @@ public class Bullet : MonoBehaviour
                 dir.y = 0;
                 damageble.TakeDamge(damage, dir);
                 if(!splitBullet) {
-                    OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, damage);
+                    OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, transform.forward, damage);
                 }
             }
             Destroy();
         }
     }
 
-    public void Fire(float damage) {
+    public void Fire(float damage, float speed) {
         fired = true;
         this.damage = damage; 
+        this.speed = speed;
     }
 
     private void Destroy() {
