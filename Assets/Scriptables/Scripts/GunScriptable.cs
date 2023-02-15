@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "GunScripable Manager", menuName = "Scriptable Manager/Gun Manager")]
 public class GunScriptable : ScriptableObject
@@ -8,6 +9,7 @@ public class GunScriptable : ScriptableObject
         public string nameGun;
         public int priceGun;
         public GameObject prefabGun;
+        public Sprite thumb;        
     }
     
     public Gun[] guns;

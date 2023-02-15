@@ -6,10 +6,12 @@ public class Gun : MonoBehaviour
     public int index;
     public string nameGun;
     public int priceGun;
+    public Sprite thumb;
 
     Gun currentGun = null;
 
     [SerializeField] private Text nameGunText;
+    [SerializeField] private SpriteRenderer thumbGun;
     [SerializeField] GameObject _btnBuy;
     [SerializeField] GameObject _btnSelected;
 
@@ -22,6 +24,7 @@ public class Gun : MonoBehaviour
 
     private void Start() {
         nameGunText.text = $"{nameGun}";
+        thumbGun.sprite = thumb;
 
         bool own = gameManager.weaponOwn.IndexOf(currentGun.index) != -1;
 

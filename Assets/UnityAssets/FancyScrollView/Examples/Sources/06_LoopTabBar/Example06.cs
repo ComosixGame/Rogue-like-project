@@ -15,12 +15,12 @@ namespace FancyScrollView.Example06
     {
         [SerializeField] ScrollView scrollView = default;
         [SerializeField] Text selectedItemInfo = default;
-        [SerializeField] List<Window> windows = new List<Window>();
+        [SerializeField] List<Chapter> chapters = new List<Chapter>();
         [SerializeField] ChapterScriptAble chapterScriptAble;
         [SerializeField] private Transform ChapterParent;
         [SerializeField] GraphicRaycaster graphicRaycasterAdd;
-        Window currentWindow;
-        [SerializeField] private Window windowPrefab;
+        Chapter currentChapter;
+        [SerializeField] private Chapter chapterPrefab;
 
         private LoadSceneManager loadSceneManager;
 
@@ -31,17 +31,19 @@ namespace FancyScrollView.Example06
 
         void Start()
         {
-            foreach(ChapterScriptAble.Chapter chapter in chapterScriptAble.chapters) {
-                Window window = Instantiate(windowPrefab);
-                windows.Add(window);
-                window.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd; 
-                window.transform.SetParent(ChapterParent, false); 
-                window.index = chapter.index;
+            for(int i = 0;  i< chapterScriptAble.chapters.Length; i++){
+                Chapter chapter = Instantiate(chapterPrefab);
+                chapters.Add(chapter);
+                chapter.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd; 
+                chapter.transform.SetParent(ChapterParent, false); 
+                chapter.index = i;
+                chapter.nameChapter = chapterScriptAble.chapters[i].nameChapter;
+                chapter.thumb = chapterScriptAble.chapters[i].thumb;
             }
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
 
-            var items = Enumerable.Range(0, windows.Count)
+            var items = Enumerable.Range(0, chapters.Count)
                 .Select(i => new ItemData($"Tab {i}"))
                 .ToList();
 
@@ -51,24 +53,26 @@ namespace FancyScrollView.Example06
 
         void OnSelectionChanged(int index, MovementDirection direction)
         {
-            selectedItemInfo.text = $"Selected chapter: index {index}";
 
-            if (currentWindow != null)
+            if (currentChapter != null)
             {
-                currentWindow.Out(direction);
-                currentWindow = null;
+                currentChapter.Out(direction);
+                currentChapter = null;
             }
 
-            if (index >= 0 && index < windows.Count)
+            if (index >= 0 && index < chapters.Count)
             {
-                currentWindow = windows[index];
-                currentWindow.In(direction);
+                currentChapter = chapters[index];
+                currentChapter.In(direction);
             }
+
+
+            selectedItemInfo.text = $"Selected chapter: {currentChapter.nameChapter}";
         }
 
         public void PlayChapter() {
-            loadSceneManager.LoadScene(currentWindow.index);
-            Debug.Log(currentWindow.index);
+            loadSceneManager.LoadScene(currentChapter.index);
+            Debug.Log(currentChapter.index);
         }
     }
 }

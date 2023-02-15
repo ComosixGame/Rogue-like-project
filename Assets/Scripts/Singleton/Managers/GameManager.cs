@@ -32,6 +32,8 @@ public class GameManager : Singleton<GameManager>
     public event Action<int> OnUpdateCoin;
     public event Action<int> OnUpdateCoinPlayer;
     public event Action OnupdateInfoCharacter;
+    public event Action OnNotEnoughMoney;
+    public event Action OnupdateStatus;
     private PlayerData playerData;
     public SettingData settingData;
     public int coinPlayer {
@@ -42,7 +44,7 @@ public class GameManager : Singleton<GameManager>
 
     public int characterSeleted {
         get {
-            return playerData.characterSeleted;
+            return playerData.selectedCharacter;
         }
     }
 
@@ -93,7 +95,7 @@ public class GameManager : Singleton<GameManager>
     //selected character
     public void SelectedCharacter(int indexCharacter){
         if(playerData.characters.IndexOf(indexCharacter) != -1) {
-            playerData.characterSeleted = indexCharacter;
+            playerData.selectedCharacter = indexCharacter;
             playerData.Save();
             OnupdateInfoCharacter?.Invoke();
         }
@@ -105,14 +107,16 @@ public class GameManager : Singleton<GameManager>
             if(playerData.weapons.IndexOf(indexWeapon) == -1){
                 playerData.weapons.Add(indexWeapon);
                 playerData.coin -= priceWeapon;
-                PlayerData.Load();
                 playerData.Save();
                 OnUpdateCoinPlayer?.Invoke(playerData.coin);
+                OnupdateStatus?.Invoke();
+                PlayerData.Load();
                 return true;
             }else{
                 return false;
             }
         }else{
+            OnNotEnoughMoney?.Invoke();
             return false;
         }
     }
@@ -120,7 +124,7 @@ public class GameManager : Singleton<GameManager>
     //Selected weapon
     public void SelectedWeapon(int indexWeapon){
         if(playerData.weapons.IndexOf(indexWeapon) != -1){
-            playerData.weaponSelected = indexWeapon;
+            playerData.selectedWeapon = indexWeapon;
             playerData.Save();
             OnUpdateCoinPlayer?.Invoke(playerData.coin);
         }
