@@ -33,7 +33,7 @@ public class SplitBullet : AbsAbilityModule
         Bullet.OnHitEnemy -= ActiveSplitBullet;
     }
     
-    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, Transform splitTarget, float damage) {
+    private void ActiveSplitBullet(GameObjectPool bullet, Vector3 hitPoint, Transform splitTarget, Vector3 bulletDir, float damage) {
         for(int i = 0; i < 4; i++) {
             Vector3 dir;
             switch(i) {

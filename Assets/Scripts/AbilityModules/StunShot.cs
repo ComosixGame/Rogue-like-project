@@ -24,7 +24,7 @@ public class StunShot : AbsAbilityModule
         Bullet.OnHitEnemy -= StunEnemy;
     }
 
-    private void StunEnemy(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
+    private void StunEnemy(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, Vector3 bulletDir, float damage) {
         if(enemy.TryGetComponent(out EnemyDamageble enemyDamageble)) {
             enemyDamageble.Stun(stunTime);
         }

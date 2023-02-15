@@ -30,7 +30,7 @@ public class VampireAttack : AbsAbilityModule
         Bullet.OnHitEnemy -= Vampire;
     }
 
-    private void Vampire(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
+    private void Vampire(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, Vector3 bulletDir,float damage) {
         int c = Random.Range(0, 100);
         if(c <= chance) {
             float heal = damage * (value/100);

@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     private float damage;
     private GameObjectPool gameObjectPool;
     private ObjectPoolerManager ObjectPoolerManager;
-    public static event Action<GameObjectPool, Vector3, Transform, float> OnHitEnemy;
+    public static event Action<GameObjectPool, Vector3, Transform, Vector3, float> OnHitEnemy;
 
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
                 dir.y = 0;
                 damageble.TakeDamge(damage, dir);
                 if(!splitBullet) {
-                    OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, damage);
+                    OnHitEnemy?.Invoke(gameObjectPool, hitPoint, other.transform, transform.forward, damage);
                 }
             }
             Destroy();

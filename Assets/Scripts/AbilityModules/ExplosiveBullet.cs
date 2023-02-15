@@ -33,7 +33,7 @@ public class ExplosiveBullet : AbsAbilityModule
         Bullet.OnHitEnemy -= Explosive;
     }
 
-    private void Explosive(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
+    private void Explosive(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, Vector3 bulletDir, float damage) {
         Collider[] hitColliders = Physics.OverlapSphere(hitPoint, radius, ~excludeLayer);
         foreach (Collider hitCollider in hitColliders)
         {

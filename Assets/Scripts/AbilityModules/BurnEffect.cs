@@ -27,7 +27,7 @@ public class BurnEffect : AbsAbilityModule
         Bullet.OnHitEnemy -= Burn;
     }
 
-    private void Burn(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, float damage) {
+    private void Burn(GameObjectPool bullet, Vector3 hitPoint, Transform enemy, Vector3 bulletDir, float damage) {
         if(enemy.TryGetComponent(out EnemyDamageble enemyDamageble)) {
             float burnDamage = damage * (damageRate/100);
             enemyDamageble.Burn(burnDamage, time);
