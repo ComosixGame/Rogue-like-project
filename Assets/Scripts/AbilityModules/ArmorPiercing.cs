@@ -15,7 +15,7 @@ public class ArmorPiercing : AbsAbilityModule
 
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         Bullet.OnHitEnemy += Piercing;
     }
 

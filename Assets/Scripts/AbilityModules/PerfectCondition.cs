@@ -13,7 +13,7 @@ public class PerfectCondition : AbsAbilityModule
     public override void AbilityActive()
     {
         playerDamageble = GetComponent<PlayerDamageble>();
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         preDamage = playerAttack.damage;
     }
 
