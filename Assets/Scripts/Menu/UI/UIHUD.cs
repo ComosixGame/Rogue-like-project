@@ -143,6 +143,8 @@ public class UIHUD : MonoBehaviour
             abilityEmptyMessage.gameObject.SetActive(true);
         }
         abilityModuleManager.RenderAbilitySelector(abilitySelectorContainer, abilityBtn, 3);
+        
+
         _PopupModuleSelector.SetActive(true);
         _postionValueModule.GetComponent<Scrollbar>().value = 0;
         _btnGetMore.interactable = true;

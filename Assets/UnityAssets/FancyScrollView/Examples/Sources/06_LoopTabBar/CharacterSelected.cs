@@ -35,6 +35,7 @@ namespace FancyScrollView.Example06 {
             for(int i = 0; i<characterScripable.characters.Length; i++) {
                 Character characterDisplay = Instantiate(characterPrefab);
                 charactersList.Add(characterDisplay);
+                characterDisplay.gameObject.SetActive(i == 0);
                 characterDisplay.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd;
                 characterDisplay.transform.SetParent(CharacterParent, false);
                 characterDisplay.index = i;
