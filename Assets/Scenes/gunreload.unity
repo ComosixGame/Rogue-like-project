@@ -2709,7 +2709,7 @@ GameObject:
   - component: {fileID: 542117035}
   - component: {fileID: 542117034}
   - component: {fileID: 542117038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

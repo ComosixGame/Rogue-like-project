@@ -315,6 +315,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c062cfad8996094ba89ca91ae84d120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootPoint: {fileID: 4594189195364134168}
+  amount: 3
+  delayAttack: 1
+  bomb: {fileID: 5308659851561974654, guid: 6b85a702181fc2f46a1425cd56518909, type: 3}
+  warningSign: {fileID: -1241504218404844473, guid: e21120ff46b0fec4fa4e662f9ff8a5d3,
+    type: 3}
+  timesFire: 1
 --- !u!1001 &8216819867973898006
 PrefabInstance:
   m_ObjectHideFlags: 0

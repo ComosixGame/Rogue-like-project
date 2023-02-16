@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 798815358120664868}
   - component: {fileID: 8337914202961407981}
   - component: {fileID: 4589455542683548909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8832573863574590197}
   - component: {fileID: 7689441221117670352}
   - component: {fileID: 4565015447322400952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4371986747891363945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 7407995875355185227}
   - component: {fileID: 7591746090547872497}
   - component: {fileID: -8079696956964248558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBulletThreeMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,6 +361,7 @@ MonoBehaviour:
   timerAttack: 0
   _absAttach: {fileID: 7991186218002894356, guid: b8fbfaa7aba21e24ba18ed9a091cc02f,
     type: 3}
+  inStun: 0
 --- !u!54 &7407995875355185236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -432,6 +433,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 239166026783364580}
     m_Modifications:
+    - target: {fileID: 1934632829426376025, guid: 11e14f54d1c089a40aab4b2273b084f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934632829638778132, guid: 11e14f54d1c089a40aab4b2273b084f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1934632829692988668, guid: 11e14f54d1c089a40aab4b2273b084f5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -442,10 +453,20 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1934632829692988671, guid: 11e14f54d1c089a40aab4b2273b084f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1934632829785793689, guid: 11e14f54d1c089a40aab4b2273b084f5,
         type: 3}
       propertyPath: m_Name
       value: EnemyHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 1934632829785793689, guid: 11e14f54d1c089a40aab4b2273b084f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1934632829785793694, guid: 11e14f54d1c089a40aab4b2273b084f5,
         type: 3}
