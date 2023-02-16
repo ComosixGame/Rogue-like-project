@@ -19,5 +19,6 @@ namespace FancyScrollView.Example06
         public void In(MovementDirection direction) => transition?.In(direction);
 
         public void Out(MovementDirection direction) => transition?.Out(direction);
+
     }
 }

@@ -9,6 +9,7 @@ public class CharacterScripable : ScriptableObject
         public string nameCharacter;
         public int priceCharacter;
         public GameObject prefab;
+        public Sprite thumb;
     }
 
     public Character[] characters;

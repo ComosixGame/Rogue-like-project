@@ -16,6 +16,8 @@ MonoBehaviour:
   - nameGun: GunOne
     priceGun: 0
     prefabGun: {fileID: 0}
+    thumb: {fileID: 21300000, guid: e26214f38d510104698430e49b7210e0, type: 3}
   - nameGun: GunTwo
-    priceGun: 10000
+    priceGun: 1000
     prefabGun: {fileID: 0}
+    thumb: {fileID: 21300000, guid: c5aa0a70a43bb28449809ed6569dba9f, type: 3}
