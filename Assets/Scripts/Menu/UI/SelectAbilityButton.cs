@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using MyCustomAttribute;
 
 [RequireComponent(typeof(Button))]
-public class SelectAbilityButton : GameObjectPool
+public class SelectAbilityButton : MonoBehaviour
 {
     [SerializeField] private Text text;
     [SerializeField, ReadOnly] private AbsAbilityModule abilityModule;
@@ -19,12 +19,12 @@ public class SelectAbilityButton : GameObjectPool
 
     private void OnEnable() {
         button.onClick.AddListener(SelectAbility);
-        abilityModuleManager.OnAddAbility += DeactiveBtn;
+        abilityModuleManager.OnAddAbility += DestroyBtn;
     }
 
     private void OnDisable() {
         button.onClick.RemoveListener(SelectAbility);
-        abilityModuleManager.OnAddAbility -= DeactiveBtn;
+        abilityModuleManager.OnAddAbility -= DestroyBtn;
     }
 
     public void SelectAbility() {
@@ -36,7 +36,7 @@ public class SelectAbilityButton : GameObjectPool
         text.text = abilityModule.abilityName;
     }
 
-    public void DeactiveBtn(AbsAbilityModule newAbility) {
-        objectPoolerManager.DeactiveObject(this);
+    public void DestroyBtn(AbsAbilityModule newAbility) {
+        Destroy(gameObject);
     }
 }

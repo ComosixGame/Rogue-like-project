@@ -112,7 +112,7 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
     public void RenderAbilitySelector(Transform container, SelectAbilityButton button, int size) {
         int s = size <= listAbilityAvailable.Count ? size : listAbilityAvailable.Count;
         for(int i = 0; i < s; i++) {
-            SelectAbilityButton btn = ObjectPoolerManager.SpawnObject(button).GetComponent<SelectAbilityButton>();
+            SelectAbilityButton btn = Instantiate(button);
             btn.transform.SetParent(container, false);
             btn.SetAbilityModule(GetRandomAbility());
         }

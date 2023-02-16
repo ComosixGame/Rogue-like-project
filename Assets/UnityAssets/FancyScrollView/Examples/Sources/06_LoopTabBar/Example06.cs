@@ -33,6 +33,7 @@ namespace FancyScrollView.Example06
         {
             for(int i = 0;  i< chapterScriptAble.chapters.Length; i++){
                 Chapter chapter = Instantiate(chapterPrefab);
+                chapter.gameObject.SetActive(i==0);
                 chapters.Add(chapter);
                 chapter.GetComponent<SlideScreenTransition>().graphicRaycaster = graphicRaycasterAdd; 
                 chapter.transform.SetParent(ChapterParent, false); 
@@ -40,6 +41,7 @@ namespace FancyScrollView.Example06
                 chapter.nameChapter = chapterScriptAble.chapters[i].nameChapter;
                 chapter.thumb = chapterScriptAble.chapters[i].thumb;
             }
+
 
             scrollView.OnSelectionChanged(OnSelectionChanged);
 

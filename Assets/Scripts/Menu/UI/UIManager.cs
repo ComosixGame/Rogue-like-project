@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         gameManager = GameManager.Instance;
         playerData = PlayerData.Load();
         soundManager = SoundManager.Instance;
-        coins.text = $"Coin: {playerData.coin}";
+        coins.text = $"{playerData.coin}";
         nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
         priceCharacter.text = $"Price character {characterScripable.characters[0].priceCharacter}";
     }
