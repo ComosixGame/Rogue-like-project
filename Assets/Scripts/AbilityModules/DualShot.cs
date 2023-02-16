@@ -16,7 +16,7 @@ public class DualShot : AbsAbilityModule
 
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         playerAttack.OnAttack += Shot;
     }
 

@@ -9,7 +9,7 @@ public class SpeedReload : AbsAbilityModule
 
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         preReloadTime = playerAttack.reloadDuration;
         playerAttack.reloadDuration += preReloadTime * (value/100);
     }

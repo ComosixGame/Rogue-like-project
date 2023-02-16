@@ -6,6 +6,7 @@ public abstract class AbsPlayerAttack : MonoBehaviour
 {
     [SerializeField] protected GameObjectPool bullet;
     [SerializeField] protected ParticleSystem attackEffect;
+    public float fireRateTime;
     public int MagazineCapacity;
     public float reloadDuration;
     public float damage;

@@ -9,11 +9,12 @@ using UnityEngine.Animations.Rigging;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private AbsPlayerAttack playerAttack;
+    public Transform weaponHolder;
+    public AbsPlayerAttack weapon;
+    [HideInInspector] public AbsPlayerAttack playerAttack;
     public float speed;
     [SerializeField] public Rig rigAim;
     [SerializeField] private Transform targetAim;
-    public float fireRateTime = 0.5f;
     private float timerAttack;
     private bool readyAttack;
     private Vector3 dirMove;
@@ -43,7 +44,11 @@ public class PlayerController : MonoBehaviour
         speedDodgeHash = Animator.StringToHash("SpeedDodge");
         attackHash = Animator.StringToHash("Attack");
         aimHash = Animator.StringToHash("Aim");
+    }
 
+    private void Start() {
+        playerAttack = Instantiate(weapon, weaponHolder.position, weaponHolder.rotation);
+        playerAttack.transform.SetParent(weaponHolder);
     }
 
     private void OnEnable() {
@@ -83,7 +88,7 @@ public class PlayerController : MonoBehaviour
             timerAttack += Time.deltaTime;
             animator.SetBool(aimHash, true);
             rigAim.weight = 1;
-            if(timerAttack >= fireRateTime) {
+            if(timerAttack >= playerAttack.fireRateTime) {
                 timerAttack = 0;
                 bool notReload = playerAttack.Attack();
                 if(notReload) {
@@ -138,9 +143,5 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat(velocityHash, v);
         }
         readyAttack = velocity == 0 && gameManager.enemiesCount > 0;;
-    }
-
-    public AbsPlayerAttack GetPlayerAttackComp(){
-        return playerAttack;
     }
 }

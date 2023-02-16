@@ -9,7 +9,7 @@ public class IncreaseDamage : AbsAbilityModule
 
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         preDamage = playerAttack.damage;
         playerAttack.damage += preDamage * (value/100); 
     }

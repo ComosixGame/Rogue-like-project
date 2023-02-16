@@ -10,7 +10,7 @@ public class IncreaseSpeedBullet : AbsAbilityModule
     
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         preSpeed = playerAttack.speed;
         playerAttack.speed += preSpeed * (value/100);
     }

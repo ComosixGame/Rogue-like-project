@@ -10,8 +10,8 @@ public class IncreaseFireRate : AbsAbilityModule
     public override void AbilityActive()
     {
         controller = GetComponent<PlayerController>();
-        preFireRate = controller.fireRateTime;
-        controller.fireRateTime -= preFireRate * (value/100); 
+        preFireRate = controller.playerAttack.fireRateTime;
+        controller.playerAttack.fireRateTime -= preFireRate * (value/100); 
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)

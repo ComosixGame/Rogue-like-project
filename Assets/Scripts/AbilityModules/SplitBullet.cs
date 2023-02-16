@@ -14,7 +14,7 @@ public class SplitBullet : AbsAbilityModule
 
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         Bullet.OnHitEnemy += ActiveSplitBullet;
     }
 

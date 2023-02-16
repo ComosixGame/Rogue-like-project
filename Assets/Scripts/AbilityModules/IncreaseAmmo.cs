@@ -8,7 +8,7 @@ public class IncreaseAmmo : AbsAbilityModule
     private int preAmmo;
     public override void AbilityActive()
     {
-        playerAttack = GetComponent<PlayerController>().GetPlayerAttackComp();
+        playerAttack = GetComponent<PlayerController>().playerAttack;
         preAmmo = playerAttack.MagazineCapacity;
         playerAttack.MagazineCapacity += Mathf.RoundToInt(preAmmo * (value/100));
 
