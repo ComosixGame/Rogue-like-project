@@ -1,21 +1,18 @@
 using UnityEngine;
 using UnityEngine.AI;
-using MyCustomAttribute;
 using UnityEngine.SceneManagement;
+using MyCustomAttribute;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class EnemyBehaviour : MonoBehaviour
+public class BossBehaviour : MonoBehaviour
 {
-    private NavMeshAgent agent;
+   private NavMeshAgent agent;
     private float idleTimer;
-    public Transform shootPosition;
-    private bool readyAttack, fired;
     private Transform _player;
-    public float delayAttack = 3.0f;
-    [ReadOnly, SerializeField] private float timerAttack;
-    public AbsAttach _absAttach;
-    private bool isRotation;
-    [ReadOnly] public bool inStun;
+    [SerializeField, ReadOnly] private AbsBossAttack[] bossAttacks;
+    private int indexAttack;
+    private bool readyAttack, fired;
+    [SerializeField] private float delayAttack;
+    private float timerAttack;
     private GameManager gameManager;
     private LoadSceneManager loadSceneManager;
 
@@ -24,13 +21,13 @@ public class EnemyBehaviour : MonoBehaviour
         gameManager = GameManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
         agent = GetComponent<NavMeshAgent>();
-        _absAttach = GetComponent<AbsAttach>();
-        _absAttach.Init();
-
+        bossAttacks = GetComponents<AbsBossAttack>();
     }
 
     private void OnEnable() {
-        _absAttach.OnAttacked += ResetAttack;
+        foreach(AbsBossAttack bossAttack in bossAttacks) {
+            bossAttack.OnAttackeComplete += ResetAttack;
+        }
         loadSceneManager.OnSceneLoaded += sceneLoad;
         loadSceneManager.OnLoadScene += sceneLoaded;
     }
@@ -48,17 +45,14 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     private void Update() {
-        if(inStun) {
-            agent.ResetPath();
-            agent.isStopped = true;
-        } else{
-            Move();
-            HandleAttack();
-        }
+        Move();
+        HandleAttack();
     }
 
     private void OnDisable() {
-        _absAttach.OnAttacked -= ResetAttack;
+        foreach(AbsBossAttack bossAttack in bossAttacks) {
+            bossAttack.OnAttackeComplete -= ResetAttack;
+        }
         loadSceneManager.OnSceneLoaded -= sceneLoad;
         loadSceneManager.OnLoadScene -= sceneLoaded;
     }
@@ -67,8 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
         if(readyAttack){
             agent.ResetPath();
             agent.SetDestination(transform.position);
-        }
-        else{
+        } else {
             if(agent.remainingDistance <= agent.stoppingDistance) {
                 idleTimer += Time.deltaTime;
                 if(idleTimer >= 0.5f) {
@@ -99,8 +92,12 @@ public class EnemyBehaviour : MonoBehaviour
             }
             if(Vector3.Angle(transform.forward, dirLook) <= 0.1f) {
                 if(!fired) {
-                    fired = true;  
-                    _absAttach.Attack(shootPosition);
+                    fired = true;
+                    bossAttacks[indexAttack].Attack();
+                    indexAttack++;
+                    if(indexAttack >= bossAttacks.Length) {
+                        indexAttack = 0;
+                    }
                 }
             }
 
@@ -113,4 +110,3 @@ public class EnemyBehaviour : MonoBehaviour
         fired = false;
     }
 }
-

@@ -9,8 +9,9 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
 {
     [SerializeField] private int amountCoins;
     [SerializeField] private AbsItemObjectPool coin;
-    [SerializeField] private GameObjectPool destroyEffect;
+    [SerializeField] private EffectObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
+    [SerializeField] private bool canKnockBack = true;
     public Slider healthEnemy;
     private float health;
     private bool destroyed, knockBack;
@@ -64,7 +65,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         }
 
         //knockback
-        if(knockBack) {
+        if(canKnockBack && knockBack) {
             agent.Move(dirKnockBack * 3f * Time.deltaTime);
         }
 

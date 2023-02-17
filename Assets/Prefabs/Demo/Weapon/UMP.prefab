@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   attackEffect: {fileID: 2141468630707795829}
+  fireRateTime: 0.3
   MagazineCapacity: 24
   reloadDuration: 2
   damage: 100
