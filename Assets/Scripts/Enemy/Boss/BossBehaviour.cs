@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
 using MyCustomAttribute;
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Random = UnityEngine.Random;
 using MyCustomAttribute;
 using UnityEngine.SceneManagement;
 
@@ -73,7 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
             if(agent.remainingDistance <= agent.stoppingDistance) {
                 idleTimer += Time.deltaTime;
                 if(idleTimer >= 0.5f) {
-                    Vector3 pos = RandomNavmeshLocation(agent.height * 2);
+                    Vector3 pos = Utils.RandomNavmeshLocation(transform.position, agent.height * 2);
                     agent.ResetPath();
                     agent.SetDestination(pos);
                     idleTimer = 0;
@@ -112,19 +111,6 @@ public class EnemyBehaviour : MonoBehaviour
     private void ResetAttack() {
         readyAttack = false;
         fired = false;
-    }
-
-    private Vector3 RandomNavmeshLocation(float radius) {
-        //tính random điểm có thể đi trên nav mesh
-        Vector3 finalPosition = Vector3.zero;
-        float RandomDistance = Random.Range(5, 11);
-        Vector3 randomDirection = Random.insideUnitSphere * RandomDistance;
-        randomDirection += transform.position;
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
-            finalPosition = hit.position;  
-        }
-        return finalPosition;
     }
 }
 
