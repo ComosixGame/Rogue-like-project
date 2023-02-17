@@ -46,7 +46,7 @@ namespace FancyScrollView.Example06
             scrollView.OnSelectionChanged(OnSelectionChanged);
 
             var items = Enumerable.Range(0, chapters.Count)
-                .Select(i => new ItemData($"Tab {i}"))
+                .Select(i => new ItemData($"{chapterScriptAble.chapters[i].nameChapter}"))
                 .ToList();
 
             scrollView.UpdateData(items);

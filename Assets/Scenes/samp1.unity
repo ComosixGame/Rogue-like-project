@@ -8943,7 +8943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinemachineVirtualCamera: {fileID: 144378319}
   characterScripable: {fileID: 11400000, guid: ef2ca6622d55e1a47ac83123862172a3, type: 2}
-  spawmPos: {x: -4.08, y: 0, z: -18.09}
 --- !u!4 &1768999476
 Transform:
   m_ObjectHideFlags: 0
@@ -10478,7 +10477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48a166e49971bc94c9f20da40c4c2f46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c41e1c9b4599a144aae493762ca763f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

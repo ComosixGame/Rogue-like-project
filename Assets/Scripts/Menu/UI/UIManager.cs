@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text coins;
     [SerializeField] private Text nameCharacter;
     [SerializeField] private Text priceCharacter;
+    [SerializeField] private Sprite thumb;
     private GameManager gameManager;
     private PlayerData playerData;
     private SoundManager soundManager;
@@ -36,8 +37,10 @@ public class UIManager : MonoBehaviour
         playerData = PlayerData.Load();
         soundManager = SoundManager.Instance;
         coins.text = $"{playerData.coin}";
-        nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
-        priceCharacter.text = $"Price character {characterScripable.characters[0].priceCharacter}";
+        // nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
+        // priceCharacter.text = $"Price character {characterScripable.characters[0].priceCharacter}";
+        Debug.Log(characterScripable.characters[0].thumb);
+        //thumb = characterScripable.characters[0].thumb;
     }
 
 
@@ -59,14 +62,12 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable() {
         gameManager.OnUpdateCoinPlayer += updateCoinThenBuyItem;
-        gameManager.OnupdateInfoCharacter += updateInfoCharacter;
         gameManager.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected += showPopUpConfirmSelected;
     }
 
     private void OnDisable() {
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
-        gameManager.OnupdateInfoCharacter -= updateInfoCharacter;
         gameManager.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected -= showPopUpConfirmSelected;
     }
@@ -85,11 +86,6 @@ public class UIManager : MonoBehaviour
 
     public void updateCoinThenBuyItem(int coin){
         coins.text = $"Coin: {coin}";
-    }
-
-    public void updateInfoCharacter(){
-        nameCharacter.text = $"Name character {characterScripable.characters[gameManager.characterSeleted].nameCharacter}";
-        priceCharacter.text = $"Price character {characterScripable.characters[gameManager.characterSeleted].priceCharacter}";
     }
 
     public void InitGame(){
