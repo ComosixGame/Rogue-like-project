@@ -97,21 +97,35 @@ public class SaveSystem<T> where T : new()
     }
 }
 
+[Serializable]
 public class PlayerData
 {
+    public bool firstTime;
     public int coin;
     public int selectedCharacter;
     public int selectedWeapon;
-
     public List<int> characters, weapons;
+    public int energy;
+    public string energyUpdateDateTimeJson;
+    public DateTime energyUpdateDateTime {
+        get {
+            return Convert.ToDateTime(energyUpdateDateTimeJson);
+        }
+        set {
+            energyUpdateDateTimeJson = value.ToString();
+        }
+    }
 
     public PlayerData() {
+        firstTime = true;
         coin = 0;
         selectedCharacter = 0;
         characters = new List<int>();
         weapons = new List<int>();
         characters.Add(0);
         weapons.Add(0);
+        energy = 0;
+        energyUpdateDateTimeJson = DateTime.Now.ToString();
     }
 
     public static PlayerData Load()
@@ -121,6 +135,9 @@ public class PlayerData
 
     public void Save()
     {
+        if(this.firstTime) {
+            this.firstTime = false;
+        }
         SaveSystem<PlayerData>.Save(this,false);
     }
 }
