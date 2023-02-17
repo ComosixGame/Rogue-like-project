@@ -10,7 +10,7 @@ public class BossBombAttack : AbsBossAttack
     [SerializeField] private Bomb bomb;
     [SerializeField] private GameObjectPool warningSign;
     private List<GameObjectPool> warningSigns;
-    private Transform player;
+    [SerializeField] private Transform player;
     private int timesFire = 1;
     private GameManager gameManager;
     private ObjectPoolerManager objectPooler;
@@ -22,14 +22,6 @@ public class BossBombAttack : AbsBossAttack
         warningSigns = new List<GameObjectPool>();
     }
 
-    private void OnEnable() {
-        gameManager.OnSelectedPlayer += SetPlayer;
-    }
-
-    private void OnDisable() {
-        gameManager.OnSelectedPlayer += SetPlayer;
-    }
-
     public override void Attack()
     {   
         StartCoroutine(Fire());
@@ -37,7 +29,7 @@ public class BossBombAttack : AbsBossAttack
 
     IEnumerator Fire() {
         while(timesFire <= amount) {
-            Vector3 target = player.position;
+            Vector3 target = gameManager.player.position;
             GameObjectPool warningSignClone = objectPooler.SpawnObject(warningSign, target + Vector3.up * 0.01f, Quaternion.identity);
             Vector3 dir = target - transform.position;
             Bomb bombClone = objectPooler.SpawnObject(bomb, shootPoint.position, shootPoint.rotation) as Bomb;
@@ -48,16 +40,12 @@ public class BossBombAttack : AbsBossAttack
             float radius = bombClone.radius;
             warningSignClone.transform.localScale = new Vector3(radius * 2, radius * 2, radius * 2);
             float dis = Vector3.Distance(target, transform.position);
-            Vector3 v = Utils.CalculateVelocity(target, shootPoint.position, dis * 0.05f);
+            Vector3 v = Utils.CalculateVelocity(target, shootPoint.position, dis * 0.08f);
             bombClone.GetComponent<Rigidbody>().AddForce(v , ForceMode.Impulse);
             timesFire ++;
             yield return new WaitForSeconds(delayAttack);
         }
         AttackeComplete();
         timesFire = 1;
-    }
-
-    private void SetPlayer(Transform player) {
-        this.player = player;
     }
 }

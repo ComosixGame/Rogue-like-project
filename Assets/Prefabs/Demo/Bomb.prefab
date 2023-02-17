@@ -120,6 +120,8 @@ MonoBehaviour:
     m_Bits: 2057
   radius: 4
   damage: 50
+  explosiveEffect: {fileID: -7699458031320576649, guid: 0a463e328a9e16a41ac516d62bfe2421,
+    type: 3}
 --- !u!54 &5308659851561974653
 Rigidbody:
   m_ObjectHideFlags: 0

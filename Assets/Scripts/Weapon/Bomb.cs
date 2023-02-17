@@ -7,6 +7,7 @@ public class Bomb : GameObjectPool
     [SerializeField] private LayerMask layerTrigger;
     public float radius;
     [SerializeField] private float damage;
+    public EffectObjectPool explosiveEffect;
     private ObjectPoolerManager objectPooler;
     public event Action OnExplosive;
 
@@ -35,8 +36,9 @@ public class Bomb : GameObjectPool
     }
 
     private void Destroy() {
-        OnExplosive?.Invoke();
+        objectPooler.SpawnObject(explosiveEffect, transform.position, Quaternion.identity);
         objectPooler.DeactiveObject(this);
+        OnExplosive?.Invoke();
         OnExplosive = null;
     }
 

@@ -29,6 +29,7 @@ public class MapGeneration : MonoBehaviour
     [SerializeField] private int increasesEnemy;
     public float delaySpawnEnemy;
     [SerializeField] private ObjectSpawn[] enemies;
+    [SerializeField] private GameObjectPool boss;
     public EffectObjectPool teleEffect;
     private List<Vector3> gridPositions, enemyPosSpawned, obstaclePosSpawned;
     private List<int> listIndexEnemy;
@@ -40,7 +41,6 @@ public class MapGeneration : MonoBehaviour
     public event Action OnLevelCleared;
     public static event Action<int> OnWaveChange;
     public static event Action<int> OnLevelChange;
-
     public static event Action OnWinGame;
 
     private void Awake() {
@@ -141,6 +141,10 @@ public class MapGeneration : MonoBehaviour
         spawnEffect.GetComponent<ParticleSystem>().Stop();
     }
 
+    private void SpawnBoss(Vector3 postion) {
+        ObjectPoolerManager.SpawnObject(boss, postion, Quaternion.identity);
+    }
+
     public void SpawnGameObject() {
         //tạo hệ thống grid vị trí có thể spawn
         CreateGridBoard();
@@ -170,15 +174,31 @@ public class MapGeneration : MonoBehaviour
     }
 
     public void NextLevel() {
+        CurrentLevel++;
         //gọi sự kiện khi win game
-        if(CurrentLevel >= levels) {
+        if(CurrentLevel > levels) {
             OnWinGame?.Invoke();
             return;
         }
+
         //clear vị trí spawn cũ
         ObjectPoolerManager.ResetObjectPoolerManager();
         enemyPosSpawned.Clear();
         obstaclePosSpawned.Clear();
+
+        //spawn boss nếu là level cuối
+        if(CurrentLevel == levels) {
+            int randomIndexPos = Random.Range(0,gridPositions.Count);
+            Vector3 spawnPos = gridPositions[randomIndexPos];
+            while(obstaclePosSpawned.IndexOf(spawnPos) != -1 || enemyPosSpawned.IndexOf(spawnPos) != -1) {
+                randomIndexPos = Random.Range(0,gridPositions.Count);
+                spawnPos = gridPositions[randomIndexPos];
+            }
+            waves = 1;
+            SpawnBoss(spawnPos);
+            return;
+        }
+        
         //tăng số lượng enemy
         minEnemy += increasesEnemy;
         maxEnemy += increasesEnemy;
@@ -190,7 +210,6 @@ public class MapGeneration : MonoBehaviour
         //random enemy
         Invoke("RandomSpawnEnemy", 1f);
         CurrentWave = 1;
-        CurrentLevel++;
         OnLevelChange?.Invoke(CurrentLevel);
         OnWaveChange?.Invoke(CurrentWave);
     }

@@ -9,7 +9,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
 {
     [SerializeField] private int amountCoins;
     [SerializeField] private AbsItemObjectPool coin;
-    [SerializeField] private GameObjectPool destroyEffect;
+    [SerializeField] private EffectObjectPool destroyEffect;
     [SerializeField] private float maxHealth;
     public Slider healthEnemy;
     private float health;
