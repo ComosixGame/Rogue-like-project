@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: healing-item
+  pickupSound: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
   layer:
     serializedVersion: 2
     m_Bits: 8

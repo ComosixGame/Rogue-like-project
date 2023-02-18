@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: coin-item
+  pickupSound: {fileID: 8300000, guid: 0a27d930ab0130643b93ed42361ce26f, type: 3}
   layer:
     serializedVersion: 2
     m_Bits: 8

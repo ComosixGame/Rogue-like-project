@@ -3,12 +3,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public abstract class AbsItemObjectPool : GameObjectPool
 {
+    [SerializeField] private AudioClip pickupSound;
     [SerializeField] private LayerMask layer;
     private Rigidbody rb;
     private ObjectPoolerManager objectPoolerManager;
     public bool readlyPickup;
+    private SoundManager soundManager;
+
     protected virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
+        soundManager = SoundManager.Instance;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -23,6 +27,7 @@ public abstract class AbsItemObjectPool : GameObjectPool
         if((layer & (1 << other.gameObject.layer)) != 0) {
             objectPoolerManager.DeactiveObject(this);
             ActiveItem(other);
+            soundManager.PlaySound(pickupSound);
         }
     }
 
