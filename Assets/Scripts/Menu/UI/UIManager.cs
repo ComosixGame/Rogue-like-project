@@ -37,10 +37,6 @@ public class UIManager : MonoBehaviour
         playerData = PlayerData.Load();
         soundManager = SoundManager.Instance;
         coins.text = $"{playerData.coin}";
-        // nameCharacter.text = $"Name character {characterScripable.characters[0].nameCharacter}";
-        // priceCharacter.text = $"Price character {characterScripable.characters[0].priceCharacter}";
-        Debug.Log(characterScripable.characters[0].thumb);
-        //thumb = characterScripable.characters[0].thumb;
     }
 
 
