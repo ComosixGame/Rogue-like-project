@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MyCustomAttribute;
-using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -36,6 +35,13 @@ public class GameManager : Singleton<GameManager>
     public event Action OnupdateStatus;
     private PlayerData playerData;
     public SettingData settingData;
+
+    public bool firstTimeStart {
+        get {
+            return playerData.firstTime;
+        }
+    }
+
     public int coinPlayer {
         get {
            return playerData.coin;
@@ -57,6 +63,24 @@ public class GameManager : Singleton<GameManager>
     public List<int> weaponOwn{
         get{
             return playerData.weapons;
+        }
+    }
+
+    public int energy {
+        get {
+            return playerData.energy;
+        }
+    }
+
+    public DateTime energyUpdateDateTime {
+        get {
+            return playerData.energyUpdateDateTime;
+        }
+    }
+
+    public string energyUpdateDateTimeJson {
+        get {
+            return playerData.energyUpdateDateTimeJson;
         }
     }
 
@@ -171,6 +195,12 @@ public class GameManager : Singleton<GameManager>
     public void SelectPlayer(Transform player) {
         this.player = player;
         OnSelectedPlayer?.Invoke(this.player);
+    }
+
+    public void SaveEnergy(int energy, DateTime time) {
+        playerData.energy = energy;
+        playerData.energyUpdateDateTime = time;
+        playerData.Save();
     }
 
     
