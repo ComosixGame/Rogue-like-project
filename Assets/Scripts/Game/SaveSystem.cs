@@ -102,16 +102,21 @@ public class PlayerData
     public int coin;
     public int selectedCharacter;
     public int selectedWeapon;
+    public int selectedChapter;
 
-    public List<int> characters, weapons;
+    public List<int> characters, weapons, chapters;
 
     public PlayerData() {
         coin = 0;
         selectedCharacter = 0;
+        selectedWeapon = 0;
+        selectedWeapon = 0;
         characters = new List<int>();
         weapons = new List<int>();
+        chapters = new List<int>();
         characters.Add(0);
         weapons.Add(0);
+        chapters.Add(0);
     }
 
     public static PlayerData Load()
