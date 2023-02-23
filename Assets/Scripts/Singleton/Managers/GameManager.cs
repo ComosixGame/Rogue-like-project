@@ -66,6 +66,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public List<int> dailyMissions{
+        get {
+            return playerData.dailyMissions;
+        }
+    }
+
     public int energy {
         get {
             return playerData.energy;
@@ -84,6 +90,18 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public DateTime dailyMissionDateTime{
+        get {
+            return playerData.dailyMissionDateTime;
+        }
+    }
+
+    public string dailyMissionDateTimeJson{
+        get {
+            return playerData.dailyMissionDateTimeJson;
+        }
+    }
+
     protected override void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
@@ -95,7 +113,7 @@ public class GameManager : Singleton<GameManager>
         //Thuực hiện việc update coin khi lose game
         //Được gọi khi thua mỗi ware
         playerData.coin += amountCoins;
-        playerData.Save();
+        PlayerDataSave();
     }
 
     //buy character
@@ -104,8 +122,7 @@ public class GameManager : Singleton<GameManager>
             if(playerData.characters.IndexOf(indexItem) == -1) {
                 playerData.characters.Add(indexItem);
                 playerData.coin -= priceCharacter;
-                PlayerData.Load();
-                playerData.Save();
+                PlayerDataSave();
                 OnUpdateCoinPlayer?.Invoke(playerData.coin);
                 return true;
             } else {
@@ -120,7 +137,7 @@ public class GameManager : Singleton<GameManager>
     public void SelectedCharacter(int indexCharacter){
         if(playerData.characters.IndexOf(indexCharacter) != -1) {
             playerData.selectedCharacter = indexCharacter;
-            playerData.Save();
+            PlayerDataSave();
             OnupdateInfoCharacter?.Invoke();
         }
     }
@@ -131,10 +148,9 @@ public class GameManager : Singleton<GameManager>
             if(playerData.weapons.IndexOf(indexWeapon) == -1){
                 playerData.weapons.Add(indexWeapon);
                 playerData.coin -= priceWeapon;
-                playerData.Save();
+                PlayerDataSave();
                 OnUpdateCoinPlayer?.Invoke(playerData.coin);
                 OnupdateStatus?.Invoke();
-                PlayerData.Load();
                 return true;
             }else{
                 return false;
@@ -149,9 +165,13 @@ public class GameManager : Singleton<GameManager>
     public void SelectedWeapon(int indexWeapon){
         if(playerData.weapons.IndexOf(indexWeapon) != -1){
             playerData.selectedWeapon = indexWeapon;
-            playerData.Save();
+            PlayerDataSave();
             OnUpdateCoinPlayer?.Invoke(playerData.coin);
         }
+    }
+
+    public void PlayerDataSave(){
+        playerData.Save();
     }
 
     public List<Transform> GetEnemies() {
@@ -200,8 +220,11 @@ public class GameManager : Singleton<GameManager>
     public void SaveEnergy(int energy, DateTime time) {
         playerData.energy = energy;
         playerData.energyUpdateDateTime = time;
-        playerData.Save();
+        PlayerDataSave();
     }
 
-    
+    public void SaveTimeDailyMission(DateTime time){
+        playerData.dailyMissionDateTime = time;
+        PlayerDataSave();
+    }
 }

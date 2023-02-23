@@ -32,17 +32,19 @@ public class UIManager : MonoBehaviour
     private GameManager gameManager;
     private PlayerData playerData;
     private SoundManager soundManager;
+    private LoadSceneManager loadSceneManager;
+
     private void Awake() {
         gameManager = GameManager.Instance;
         playerData = PlayerData.Load();
         soundManager = SoundManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
         coins.text = $"{playerData.coin}";
     }
 
 
     private void Start() {
         InitGame();
-
         for(int i = 0; i < gunScriptable.guns.Length; i++){
             CardGun gunDisplay = Instantiate(gunPrefab);
             gunList.Add(gunDisplay);

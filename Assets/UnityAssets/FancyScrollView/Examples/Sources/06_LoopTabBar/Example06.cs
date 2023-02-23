@@ -1,13 +1,9 @@
-/*
- * FancyScrollView (https://github.com/setchi/FancyScrollView)
- * Copyright (c) 2020 setchi
- * Licensed under MIT (https://github.com/setchi/FancyScrollView/blob/master/LICENSE)
- */
-
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 
 namespace FancyScrollView.Example06
 {
@@ -19,14 +15,22 @@ namespace FancyScrollView.Example06
         [SerializeField] ChapterScriptAble chapterScriptAble;
         [SerializeField] private Transform ChapterParent;
         [SerializeField] GraphicRaycaster graphicRaycasterAdd;
+        [SerializeField] GameObject _popupLoading;
         Chapter currentChapter;
         [SerializeField] private Chapter chapterPrefab;
-
         private LoadSceneManager loadSceneManager;
-
+        [SerializeField] private GameObject LoadingScreen;
+        [SerializeField] private Slider loadingBar;
+        [SerializeField] private GameObject headerUI;
+        [SerializeField] private GameObject bodyUI;
+        [SerializeField] private GameObject footerUI;
 
         private void Awake() {
             loadSceneManager = LoadSceneManager.Instance;
+        }
+
+        private void OnEnable() {
+            loadSceneManager.OnLoadProgresscing += LoadProgresscing;
         }
 
         void Start()
@@ -74,7 +78,19 @@ namespace FancyScrollView.Example06
 
         public void PlayChapter() {
             loadSceneManager.LoadScene(currentChapter.index);
-            Debug.Log(currentChapter.index);
+        }
+
+         public void LoadProgresscing(float progress){
+            _popupLoading.SetActive(true);  
+            headerUI.SetActive(false);
+            bodyUI.SetActive(false);
+            footerUI.SetActive(false);
+            loadingBar.value = progress;
+        }
+
+
+        private void OnDisable() {
+            loadSceneManager.OnLoadProgresscing -= LoadProgresscing;
         }
     }
 }
