@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using MyCustomAttribute;
+using UnityEngine.UI;
 
 public class LoadSceneManager : Singleton<LoadSceneManager>
 {
@@ -15,6 +16,7 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
      * OnLoadScene để lắng nghe sự kiện load scene
      * Sử dụng sử kiện OnResetScene để lắng nghe quá trình Reset scene
     */
+
     [SerializeField, ReadOnly] private int currentSceneIndex;
     [SerializeField, ReadOnly] private string currentScene;
     private AsyncOperation operation;
@@ -22,8 +24,9 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
     public event Action<float> OnLoadProgresscing;
     public event Action OnResetScene;
     public event Action<Scene> OnSceneLoaded;
-
     private ObjectPoolerManager objectPoolerManager;
+
+    [HideInInspector] public int nextLevel;
     
     protected override void Awake() {
         base.Awake();
@@ -32,14 +35,12 @@ public class LoadSceneManager : Singleton<LoadSceneManager>
         currentScene = SceneManager.GetActiveScene().name;
     }
 
-
-
     private void OnEnable() {
         SceneManager.sceneLoaded += HandleSceneLoaded;
     }
 
     private void OnDisable(){
-         SceneManager.sceneLoaded -= HandleSceneLoaded;
+        SceneManager.sceneLoaded -= HandleSceneLoaded;
     }
 
     public void ResetScene() {

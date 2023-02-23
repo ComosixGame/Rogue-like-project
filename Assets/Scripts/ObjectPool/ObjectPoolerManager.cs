@@ -41,6 +41,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
         listIndexRandomItem = new List<int>();
         gameObjects = new List<GameObject>();
         loadSceneManager = LoadSceneManager.Instance;
+        
     }
 
     private void OnEnable() {

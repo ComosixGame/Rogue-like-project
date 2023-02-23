@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a918c6ffd0938014db79e1419e21cfaf, type: 3}
+  m_Name: Daily Mission Manager
+  m_EditorClassIdentifier: 
+  dailyMissions:
+  - nameDailyMission: Daily 1
+    coinReceive: 10
+  - nameDailyMission: Daily 2
+    coinReceive: 20
+  - nameDailyMission: Daily 3
+    coinReceive: 30
+  - nameDailyMission: Daily 4
+    coinReceive: 30
+  - nameDailyMission: Daily 5
+    coinReceive: 30
+  - nameDailyMission: Daily 6
+    coinReceive: 30
+  - nameDailyMission: Daily 7
+    coinReceive: 30
+  - nameDailyMission: Daily 8
+    coinReceive: 30
+  - nameDailyMission: Daily 9
+    coinReceive: 30
+  - nameDailyMission: Daily 10
+    coinReceive: 30
+  - nameDailyMission: Daily 11
+    coinReceive: 30
+  - nameDailyMission: Daily 12
+    coinReceive: 30
+  - nameDailyMission: Daily 13
+    coinReceive: 30
+  - nameDailyMission: Daily 14
+    coinReceive: 30
+  - nameDailyMission: Daily 15
+    coinReceive: 30
+  - nameDailyMission: Daily 16
+    coinReceive: 30
+  - nameDailyMission: Daily 17
+    coinReceive: 30
+  - nameDailyMission: Daily 18
+    coinReceive: 30
+  - nameDailyMission: Daily 19
+    coinReceive: 30
+  - nameDailyMission: Daily 20
+    coinReceive: 30
