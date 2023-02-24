@@ -60,7 +60,6 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame += OnLoseGame;
-            
     }
 
     private void OnDisable() {
@@ -73,6 +72,7 @@ public class UIHUD : MonoBehaviour
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame -= OnLoseGame;
     }
+
 
     public void InitScene(){
         _PopupLobby.SetActive(false);
