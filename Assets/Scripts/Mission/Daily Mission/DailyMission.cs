@@ -12,6 +12,18 @@ public class DailyMission : MonoBehaviour
     [SerializeField] private Text _coinReceive;
     [SerializeField] private GameObject _btnCompleteDailyMission;
     public static event Action<int> CompleteDailyMission;
+    private GameManager gameManager;
+
+    private void Awake() {
+        gameManager = GameManager.Instance;
+    }
+    private void OnEnable() {
+        //LoginGameDailyMission.OnLoginGame += LoginGame;
+    }
+
+    public void LoginGame(int indexMission){
+        Debug.Log("login thanh cong");
+    }
 
     private void Start() {
         _nameDailyMission.text = $"{nameDailyMission}";
@@ -21,5 +33,9 @@ public class DailyMission : MonoBehaviour
     public void HandleCompleteDailyMission(){
         Debug.Log(coinReceive);
         CompleteDailyMission?.Invoke(coinReceive);
+    }
+
+    private void OnDisable() {
+        //LoginGameDailyMission.OnLoginGame -= LoginGame;
     }
 }

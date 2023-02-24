@@ -26,6 +26,7 @@ public class DailyMissionManager : MonoBehaviour
         LoadData();
     }
 
+
     private void Start() {
         CountDownSecondTimeOnLoadGame();
         StartCoroutine(CountDownSecondTime());
@@ -72,7 +73,6 @@ public class DailyMissionManager : MonoBehaviour
         //reset danh sach
         mshowed.Clear();
         dailyMissions.Clear();
-
         foreach(int index in gameManager.dailyMissions) {
             DailyMission dailyMission = Instantiate(DailyMissionPrefab);
             dailyMission.transform.SetParent(DailyMissionParent, false);
@@ -81,6 +81,42 @@ public class DailyMissionManager : MonoBehaviour
             dailyMission.index = index;
             dailyMission.nameDailyMission = dailyMissionScriptable.dailyMissions[dailyMission.index].nameDailyMission;
             dailyMission.coinReceive = dailyMissionScriptable.dailyMissions[dailyMission.index].coinReceive;
+            // if(dailyMission.index == 0){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 1";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
+            // if(dailyMission.index == 1){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 2";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
+            // if(dailyMission.index == 2){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 3";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
+            // if(dailyMission.index == 3){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 4";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
+            // if(dailyMission.index == 4){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 5";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
+            // if(dailyMission.index == 5){
+            //     Debug.Log("ok");
+            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 6";
+            // }else{
+            //     Debug.Log("khong co nhiemj vu");
+            // }
         }
         setPositionScrollbar.GetComponent<Scrollbar>().value = 1;
         gameManager.PlayerDataSave();
