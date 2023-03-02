@@ -3192,9 +3192,6 @@ MonoBehaviour:
   gunParent: {fileID: 0}
   _popUpSelectedCharacter: {fileID: 0}
   coins: {fileID: 0}
-  nameCharacter: {fileID: 0}
-  priceCharacter: {fileID: 0}
-  thumb: {fileID: 0}
 --- !u!1 &312177595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3475,10 +3472,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700610514}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ClosePanelMission
-        m_Mode: 1
+      - m_Target: {fileID: 2131202970}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5941,6 +5938,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506321070}
   m_CullTransparentMesh: 1
+--- !u!1 &509086224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509086226}
+  - component: {fileID: 509086225}
+  m_Layer: 0
+  m_Name: Mission
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509086225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509086224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb4f62b39a69a5418b3c70ab7c2f2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dailyMissionScriptable: {fileID: 11400000, guid: 28b2dbbeba3322246858bcbba999c2a0,
+    type: 2}
+  timeToRecoverDaily: 1000
+  displayeDailyMissions: []
+--- !u!4 &509086226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509086224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54.015804, y: 296.09924, z: -12.707722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510475906
 GameObject:
   m_ObjectHideFlags: 0
@@ -8027,7 +8072,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706871036}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIMission, Assembly-CSharp
         m_MethodName: BtnDailyMisson
         m_Mode: 1
@@ -8278,9 +8323,6 @@ MonoBehaviour:
   gunParent: {fileID: 692835464}
   _popUpSelectedCharacter: {fileID: 2012237336}
   coins: {fileID: 1011835959}
-  nameCharacter: {fileID: 0}
-  priceCharacter: {fileID: 0}
-  thumb: {fileID: 0}
 --- !u!114 &700610515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8353,7 +8395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000059604645, y: 1879.1725}
+  m_AnchoredPosition: {x: 0.0000059604645, y: 1879.1724}
   m_SizeDelta: {x: 0, y: 5007.798}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &712390615
@@ -9232,7 +9274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706871036}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIMission, Assembly-CSharp
         m_MethodName: BtnAchievements
         m_Mode: 1
@@ -9519,8 +9561,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2116482865}
   m_HandleRect: {fileID: 2116482864}
   m_Direction: 2
-  m_Value: 0.0000003897577
-  m_Size: 0.62472576
+  m_Value: 0.00000025983846
+  m_Size: 0.61982286
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9608,51 +9650,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819430696}
   m_CullTransparentMesh: 1
---- !u!1 &821260738
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 821260740}
-  - component: {fileID: 821260741}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &821260740
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821260738}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99.682076, y: 489.78915, z: -1.1641366}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &821260741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821260738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 374603ff086ffdb40a3620bc9dd169fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indexLoginGameMission: 0
 --- !u!1 &832096411
 GameObject:
   m_ObjectHideFlags: 0
@@ -10729,10 +10726,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 700610514}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: BtnMission
-        m_Mode: 1
+      - m_Target: {fileID: 2131202970}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1158875375}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10741,10 +10750,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 821260741}
-        m_TargetAssemblyTypeName: LoginDailyMission, Assembly-CSharp
-        m_MethodName: LoginMission
-        m_Mode: 3
+      - m_Target: {fileID: 1610538103}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12528,6 +12537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountCoins: 0
+  coinMission: 0
   enemies: []
   levels: 0
   waves: 0
@@ -20394,7 +20404,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1703053403}
-  - component: {fileID: 1703053404}
   m_Layer: 5
   m_Name: Weapon Collection
   m_TagString: Untagged
@@ -20423,20 +20432,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 123.354}
   m_SizeDelta: {x: 0, y: 3415.351}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1703053404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1703053402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85979553468e38c40ac1485b8b58dd5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _btnBuy: {fileID: 0}
-  _btnSelect: {fileID: 0}
 --- !u!1 &1705044633
 GameObject:
   m_ObjectHideFlags: 0
@@ -20529,7 +20524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1706871035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20559,11 +20554,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706871034}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05402c757899e4b40b7c11c9c2d63325, type: 3}
+  m_Script: {fileID: 11500000, guid: d777c8faace795d4ca694b81359e953d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DailyMissionPrefab: {fileID: 5528873500759883588, guid: 674d76e69322f4d49b454259bd3b1f7d,
+    type: 3}
+  dailyMissions: []
+  DailyMissionParent: {fileID: 712390614}
 --- !u!1 &1714768580
 GameObject:
   m_ObjectHideFlags: 0
@@ -22551,9 +22550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cece3512037d8740a7e9fb180c95f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexLoginGameMission: 2
-  dailyMissions: []
-  dailyMissionScriptable: {fileID: 0}
 --- !u!1 &1882565522
 GameObject:
   m_ObjectHideFlags: 0
@@ -24376,7 +24372,6 @@ GameObject:
   - component: {fileID: 1999853864}
   - component: {fileID: 1999853863}
   - component: {fileID: 1999853862}
-  - component: {fileID: 1999853865}
   m_Layer: 5
   m_Name: Mission
   m_TagString: Untagged
@@ -24475,27 +24470,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999853860}
   m_CullTransparentMesh: 1
---- !u!114 &1999853865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999853860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb4f62b39a69a5418b3c70ab7c2f2fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dailyMissionScriptable: {fileID: 11400000, guid: 28b2dbbeba3322246858bcbba999c2a0,
-    type: 2}
-  DailyMissionPrefab: {fileID: 5528873500759883588, guid: 674d76e69322f4d49b454259bd3b1f7d,
-    type: 3}
-  dailyMissions: []
-  DailyMissionParent: {fileID: 712390614}
-  setPositionScrollbar: {fileID: 813736491}
-  timeToRecoverDaily: 86400
-  timeLeft: 0
 --- !u!1 &2000749301
 GameObject:
   m_ObjectHideFlags: 0
@@ -26240,8 +26214,8 @@ RectTransform:
   m_Father: {fileID: 1759720091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.00000014626603}
-  m_AnchorMax: {x: 1, y: 0.62472576}
+  m_AnchorMin: {x: 0, y: 0.00000009878464}
+  m_AnchorMax: {x: 1, y: 0.61982286}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26593,7 +26567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2131202971
 RectTransform:
   m_ObjectHideFlags: 0

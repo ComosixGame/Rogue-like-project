@@ -106,11 +106,12 @@ public class PlayerData
     public int selectedWeapon;
     public int selectedChapter;
     public int selectedDailyMission;
-    public List<int> characters, weapons, dailyMissions;
+    public List<int> characters, weapons;
     public int energy;
     public string energyUpdateDateTimeJson;
     public string dailyMissionDateTimeJson;
-
+    public List<DailyMissionGoal> displayeDailyMissions;
+    
     public DateTime energyUpdateDateTime {
         get {
             return Convert.ToDateTime(energyUpdateDateTimeJson);
@@ -137,7 +138,6 @@ public class PlayerData
         selectedWeapon = 0;
         characters = new List<int>();
         weapons = new List<int>();
-        dailyMissions = new List<int>();
         //chapters = new List<int>();
         characters.Add(0);
         weapons.Add(0);
@@ -146,6 +146,8 @@ public class PlayerData
         //dailyMissions.Add(0);
         energyUpdateDateTimeJson = DateTime.Now.ToString();
         dailyMissionDateTimeJson = DateTime.Now.ToString();
+        displayeDailyMissions = new List<DailyMissionGoal>();
+        
     }
 
     public static PlayerData Load()

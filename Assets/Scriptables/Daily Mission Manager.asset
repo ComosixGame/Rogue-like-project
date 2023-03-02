@@ -13,43 +13,153 @@ MonoBehaviour:
   m_Name: Daily Mission Manager
   m_EditorClassIdentifier: 
   dailyMissions:
-  - nameDailyMission: Daily 1
-    coinReceive: 10
-  - nameDailyMission: Daily 2
-    coinReceive: 20
-  - nameDailyMission: Daily 3
-    coinReceive: 30
-  - nameDailyMission: Daily 4
-    coinReceive: 30
-  - nameDailyMission: Daily 5
-    coinReceive: 30
-  - nameDailyMission: Daily 6
-    coinReceive: 30
-  - nameDailyMission: Daily 7
-    coinReceive: 30
-  - nameDailyMission: Daily 8
-    coinReceive: 30
-  - nameDailyMission: Daily 9
-    coinReceive: 30
-  - nameDailyMission: Daily 10
-    coinReceive: 30
-  - nameDailyMission: Daily 11
-    coinReceive: 30
-  - nameDailyMission: Daily 12
-    coinReceive: 30
-  - nameDailyMission: Daily 13
-    coinReceive: 30
-  - nameDailyMission: Daily 14
-    coinReceive: 30
-  - nameDailyMission: Daily 15
-    coinReceive: 30
-  - nameDailyMission: Daily 16
-    coinReceive: 30
-  - nameDailyMission: Daily 17
-    coinReceive: 30
-  - nameDailyMission: Daily 18
-    coinReceive: 30
-  - nameDailyMission: Daily 19
-    coinReceive: 30
-  - nameDailyMission: Daily 20
-    coinReceive: 30
+  - title: Daily 1
+    index: 0
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 20
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 0
+    currentAmount: 0
+  - title: Daily 2
+    index: 1
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 10
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 1
+    currentAmount: 0
+  - title: Daily 3
+    index: 2
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 6
+    currentAmount: 0
+  - title: Daily 4
+    index: 3
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 8
+    currentAmount: 0
+  - title: Daily 5
+    index: 4
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 10
+    currentAmount: 0
+  - title: Daily 6
+    index: 5
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 12
+    currentAmount: 0
+  - title: Daily 7
+    index: 6
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 14
+    currentAmount: 0
+  - title: Daily 8
+    index: 7
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 16
+    currentAmount: 0
+  - title: Daily 9
+    index: 8
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 18
+    currentAmount: 0
+  - title: Daily 10
+    index: 9
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 20
+    currentAmount: 0
+  - title: Daily 11
+    index: 10
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 22
+    currentAmount: 0
+  - title: Daily 12
+    index: 11
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 24
+    currentAmount: 0
+  - title: Daily 13
+    index: 12
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 26
+    currentAmount: 0
+  - title: Daily 14
+    index: 13
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 28
+    currentAmount: 0
+  - title: Daily 15
+    index: 14
+    completed: 0
+    description: 
+    experienceReward: 0
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 30
+    currentAmount: 0
