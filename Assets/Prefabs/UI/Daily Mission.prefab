@@ -137,11 +137,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  nameDailyMission: 
-  coinReceive: 0
-  _nameDailyMission: {fileID: 8338558864652764340}
-  _coinReceive: {fileID: 8318591022728827515}
-  _btnCompleteDailyMission: {fileID: 8318591022674659214}
+  isActive: 0
+  title: 
+  description: 
+  experienceReward: 0
+  goldReward: 0
+  titleText: {fileID: 8338558864652764340}
+  receverCoin: {fileID: 8318591022674659208}
 --- !u!1 &8318591022674659214
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +268,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5528873500759883588}
         m_TargetAssemblyTypeName: DailyMission, Assembly-CSharp
-        m_MethodName: HandleCompleteDailyMission
+        m_MethodName: HandleCompletedMission
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

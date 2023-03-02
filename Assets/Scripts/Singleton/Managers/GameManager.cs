@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
      */
 
     [ReadOnly, SerializeField] private int amountCoins;
+    [ReadOnly, SerializeField] private int coinMission;
     [ReadOnly, SerializeField] private List<Transform> enemies = new List<Transform>();
     public int enemiesCount {
         get {
@@ -33,6 +34,8 @@ public class GameManager : Singleton<GameManager>
     public event Action OnupdateInfoCharacter;
     public event Action OnNotEnoughMoney;
     public event Action OnupdateStatus;
+    public event Action OnLoginGameSuccess;
+    public event Action<int> OnReceiveCoinReward;
     private PlayerData playerData;
     public SettingData settingData;
 
@@ -66,12 +69,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public List<int> dailyMissions{
-        get {
-            return playerData.dailyMissions;
-        }
-    }
-
     public int energy {
         get {
             return playerData.energy;
@@ -101,6 +98,12 @@ public class GameManager : Singleton<GameManager>
             return playerData.dailyMissionDateTimeJson;
         }
     }
+    
+    public List<DailyMissionGoal> displayeDailyMissions {
+        get {
+            return playerData.displayeDailyMissions;
+        }
+    }
 
     protected override void Awake() {
         base.Awake();
@@ -114,6 +117,13 @@ public class GameManager : Singleton<GameManager>
         //Được gọi khi thua mỗi ware
         playerData.coin += amountCoins;
         PlayerDataSave();
+    }
+
+    //Thực hiện việc nhận tiền khi hoàn thành nhiệm vụ
+    public void IncreaseGoldReward(int coinReward){
+        playerData.coin += coinReward;
+        PlayerDataSave();
+        OnReceiveCoinReward?.Invoke(playerData.coin);
     }
 
     //buy character
@@ -225,6 +235,17 @@ public class GameManager : Singleton<GameManager>
 
     public void SaveTimeDailyMission(DateTime time){
         playerData.dailyMissionDateTime = time;
+        PlayerDataSave();
+    }
+
+    public void SaveDailyMissionGoals(List<DailyMissionGoal> dailyMissionGoals) {
+        List<DailyMissionGoal> newList = new List<DailyMissionGoal>();
+
+        //Tao clone de tranh xoa tren tham chieu
+        foreach(DailyMissionGoal dailyMission in dailyMissionGoals) {
+            newList.Add(dailyMission.DailyMissionGoalClone());
+        }
+        playerData.displayeDailyMissions = newList;
         PlayerDataSave();
     }
 }

@@ -26,9 +26,6 @@ public class UIManager : MonoBehaviour
     Gun currentGun;
     [SerializeField] private GameObject _popUpSelectedCharacter;
     [SerializeField] private Text coins;
-    [SerializeField] private Text nameCharacter;
-    [SerializeField] private Text priceCharacter;
-    [SerializeField] private Sprite thumb;
     private GameManager gameManager;
     private PlayerData playerData;
     private SoundManager soundManager;
@@ -36,10 +33,8 @@ public class UIManager : MonoBehaviour
 
     private void Awake() {
         gameManager = GameManager.Instance;
-        playerData = PlayerData.Load();
         soundManager = SoundManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
-        coins.text = $"{playerData.coin}";
     }
 
 
@@ -53,23 +48,34 @@ public class UIManager : MonoBehaviour
             gunDisplay.priceGun = gunScriptable.guns[i].priceGun;
             gunDisplay.nameGun = gunScriptable.guns[i].nameGun;
             gunDisplay.thumb = gunScriptable.guns[i].thumb;
-            //gunDisplay.RenderCard();
         }
-
+        coins.text = $"{gameManager.coinPlayer}";
     }
 
     private void OnEnable() {
         gameManager.OnUpdateCoinPlayer += updateCoinThenBuyItem;
         gameManager.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected += showPopUpConfirmSelected;
+        DailyMission.OnCompletedMission += CompletedMission;
+        gameManager.OnReceiveCoinReward += ReceiveCoinReward;
     }
 
     private void OnDisable() {
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
         gameManager.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected -= showPopUpConfirmSelected;
+        DailyMission.OnCompletedMission -= CompletedMission;
+        gameManager.OnReceiveCoinReward -= ReceiveCoinReward;
     }
 
+    public void CompletedMission(int goldReward){
+        gameManager.IncreaseGoldReward(goldReward);
+    }
+
+
+    public void ReceiveCoinReward(int coin){
+         coins.text = $"{coin}";
+    }
     public void showPopUpConfirmNotEnoughMoney(){
         _popupConfirmNotEnoughMoney.SetActive(true);
     }
@@ -83,7 +89,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void updateCoinThenBuyItem(int coin){
-        coins.text = $"Coin: {coin}";
+        coins.text = $"{coin}";
     }
 
     public void InitGame(){

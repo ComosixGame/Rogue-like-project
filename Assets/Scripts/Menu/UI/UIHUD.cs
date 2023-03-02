@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 public class UIHUD : MonoBehaviour
 {
@@ -29,12 +30,8 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private SelectAbilityButton abilityBtn;
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
-
     [SerializeField] private Text goldEndGame;
-
-    [SerializeField] private GameObject btnContinueGame;
-    [SerializeField] private GameObject btnExitGame;
-
+    
     //singleton
     private GameManager gameManager;
     private AbilityModuleManager abilityModuleManager;
@@ -42,6 +39,9 @@ public class UIHUD : MonoBehaviour
     private PlayerDamageble playerDamageble;
     private ObjectPoolerManager objectPoolerManager;
     private PlayerData playerData;
+    private DailyMissionManager dailyMissionManager;
+
+    //event
 
     private void Awake() {
         playerData = PlayerData.Load();

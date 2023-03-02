@@ -1,153 +1,164 @@
-using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using System;
-using Random=UnityEngine.Random;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using MyCustomAttribute;
 
-public class DailyMissionManager : MonoBehaviour
+public class DailyMissionManager : Singleton<DailyMissionManager>
 {
-    [SerializeField] DailyMissionScriptable dailyMissionScriptable;
-    DailyMission currentDailyMission;
-    [SerializeField] private DailyMission DailyMissionPrefab;
-    [SerializeField, ReadOnly] List<DailyMission> dailyMissions = new List<DailyMission>();
-    [SerializeField] private Transform DailyMissionParent;
-    [SerializeField] private Scrollbar setPositionScrollbar;
-    private List<int> mshowed = new List<int>();
-    private GameManager gameManager;
-    private float timePassed = 0;
-    [SerializeField, Label("Time to recover daily mission(s)")] private float timeToRecoverDaily;
-    [SerializeField, ReadOnly] private float timeLeft = 0;
-    private DateTime dailyUpdateDateTime;
+  [SerializeField] private DailyMissionScriptable dailyMissionScriptable;
+  private GameManager gameManager;
+  private float timePassed = 0;
+  [SerializeField, Label("Time to recover daily mission(s)")] private float timeToRecoverDaily;
+  private DateTime dailyUpdateDateTime;
+  public List<DailyMissionGoal> dailyMissions { get; set; }
+  public List<DailyMissionGoal> displayeDailyMissions;
+  public event Action<List<DailyMissionGoal>> OnRandomDailyMission;
+  public event Action OnRenderDailyMission;
+  private LoadSceneManager loadSceneManager;
+  protected override void Awake()
+  {
+    base.Awake();
+    gameManager = GameManager.Instance;
+    loadSceneManager = LoadSceneManager.Instance;
+    dailyMissions = new List<DailyMissionGoal>();
+    displayeDailyMissions = new List<DailyMissionGoal>();
 
-    private void Awake() {
-        gameManager = GameManager.Instance;
-        LoadData();
+    foreach (DailyMissionGoal dailyMission in dailyMissionScriptable.dailyMissions)
+    {
+      dailyMissions.Add(dailyMission.DailyMissionGoalClone());
     }
+  }
 
+  private void OnEnable()
+  {
+    EnemyDamageble.OnEnemiesDestroy += KillEnemy;
+    loadSceneManager.OnLoadScene += OnLoadScene;
+    loadSceneManager.OnSceneLoaded += SceneLoaded;
+  }
 
-    private void Start() {
-        CountDownSecondTimeOnLoadGame();
-        StartCoroutine(CountDownSecondTime());
+  private void OnDisable()
+  {
+    EnemyDamageble.OnEnemiesDestroy -= KillEnemy;
+    if (loadSceneManager != null)
+    {
+      loadSceneManager.OnLoadScene -= OnLoadScene;
+      loadSceneManager.OnSceneLoaded -= SceneLoaded;
     }
+  }
 
-    private void OnApplicationQuit() {
-        gameManager.SaveTimeDailyMission(dailyUpdateDateTime);
+  private void Start()
+  {
+    CountDownSecondTimeOnLoadGame();
+    StartCoroutine(CountDownSecondTime());
+    LoadData();
+  }
+
+  private void OnApplicationQuit()
+  {
+    gameManager.SaveTimeDailyMission(dailyUpdateDateTime);
+    gameManager.SaveDailyMissionGoals(displayeDailyMissions);
+  }
+
+
+
+  public void LoadData()
+  {
+    if (gameManager.firstTimeStart)
+    {
+      OnRandomDailyMission?.Invoke(dailyMissions);
     }
+  }
 
-    public void LoadData(){
-        if(gameManager.firstTimeStart){
-            RandomDailyMission();
-        }
-    }
+  public void RandomDailyMission()
+  {
+    gameManager.PlayerDataSave();
+  }
 
-    public void RandomDailyMission(){
-        int loop = dailyMissionScriptable.dailyMissions.Length < 10 ? dailyMissionScriptable.dailyMissions.Length : 10;
-        foreach(DailyMission mission in dailyMissions) {
-            Destroy(mission.gameObject);
-        }
-        //reset danh sach
-        mshowed.Clear();
+  public void RenderDailyMission()
+  {
+    gameManager.PlayerDataSave();
+  }
+
+  private IEnumerator CountDownSecondTime()
+  {
+    while (true)
+    {
+      timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
+      if (timePassed >= timeToRecoverDaily)
+      {
         dailyMissions.Clear();
-
-        for(int i = 0; i < loop; i++){
-            int random = Random.Range(0, dailyMissionScriptable.dailyMissions.Length);
-            while(mshowed.IndexOf(random) != -1) {
-                random = Random.Range(0, dailyMissionScriptable.dailyMissions.Length);
-            }
-            mshowed.Add(random);
-            DailyMission dailyMission = Instantiate(DailyMissionPrefab);
-            dailyMissions.Add(dailyMission);
-            dailyMission.transform.SetParent(DailyMissionParent, false);
-            dailyMission.index = random;
-            dailyMission.nameDailyMission = dailyMissionScriptable.dailyMissions[random].nameDailyMission;
-            dailyMission.coinReceive = dailyMissionScriptable.dailyMissions[random].coinReceive;
-            gameManager.dailyMissions.Add(random);
+        foreach (DailyMissionGoal dailyMission in dailyMissionScriptable.dailyMissions)
+        {
+          dailyMissions.Add(dailyMission.DailyMissionGoalClone());
         }
-        setPositionScrollbar.GetComponent<Scrollbar>().value = 1;
-        gameManager.PlayerDataSave();
+        gameManager.displayeDailyMissions.Clear();
+        OnRandomDailyMission?.Invoke(dailyMissions);
+        dailyUpdateDateTime = DateTime.Now;
+      }
+      yield return new WaitForSeconds(1f);
+    }
+  }
+
+
+  public void CountDownSecondTimeOnLoadGame()
+  {
+    dailyUpdateDateTime = gameManager.dailyMissionDateTime;
+    timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
+
+    if (timePassed >= timeToRecoverDaily)
+    {
+      // dailyMissions.Clear();
+      // foreach (DailyMissionGoal dailyMission in dailyMissionScriptable.dailyMissions)
+      // {
+      //   dailyMissions.Add(dailyMission.DailyMissionGoalClone());
+      // }
+      gameManager.displayeDailyMissions.Clear();
+      OnRandomDailyMission?.Invoke(dailyMissions);
+      dailyUpdateDateTime = DateTime.Now;
+    }
+    else
+    {
+      //data cu
+      OnRenderDailyMission?.Invoke();
     }
 
-    public void RenderDailyMission(){
-        //reset danh sach
-        mshowed.Clear();
-        dailyMissions.Clear();
-        foreach(int index in gameManager.dailyMissions) {
-            DailyMission dailyMission = Instantiate(DailyMissionPrefab);
-            dailyMission.transform.SetParent(DailyMissionParent, false);
-            dailyMissions.Add(dailyMission);
-            mshowed.Add(index);
-            dailyMission.index = index;
-            dailyMission.nameDailyMission = dailyMissionScriptable.dailyMissions[dailyMission.index].nameDailyMission;
-            dailyMission.coinReceive = dailyMissionScriptable.dailyMissions[dailyMission.index].coinReceive;
-            // if(dailyMission.index == 0){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 1";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-            // if(dailyMission.index == 1){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 2";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-            // if(dailyMission.index == 2){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 3";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-            // if(dailyMission.index == 3){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 4";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-            // if(dailyMission.index == 4){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 5";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-            // if(dailyMission.index == 5){
-            //     Debug.Log("ok");
-            //     dailyMission.nameDailyMission = $"Xong nhiem vụ 6";
-            // }else{
-            //     Debug.Log("khong co nhiemj vu");
-            // }
-        }
-        setPositionScrollbar.GetComponent<Scrollbar>().value = 1;
-        gameManager.PlayerDataSave();
+  }
+
+  private void OnLoadScene()
+  {
+    gameManager.SaveDailyMissionGoals(displayeDailyMissions);
+
+  }
+
+  private void SceneLoaded(Scene scene)
+  {
+    OnRenderDailyMission?.Invoke();
+  }
+
+  private void KillEnemy(Vector3 dir)
+  {
+    foreach (DailyMissionGoal dailyMission in displayeDailyMissions)
+    {
+      dailyMission.completed = dailyMission.EnemyKilled();
     }
+  }
 
-    private IEnumerator CountDownSecondTime() {
-        while(true) {
-            timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
-            //Debug.Log(timePassed);
-            if(timePassed >= timeToRecoverDaily){
-                gameManager.dailyMissions.Clear();
-                RandomDailyMission();
-                dailyUpdateDateTime = DateTime.Now;
-            }
-            yield return new WaitForSeconds(1f);
-        }
+  public void StartGame()
+  {
+    foreach (DailyMissionGoal dailyMission in displayeDailyMissions)
+    {
+      dailyMission.completed = dailyMission.ItemStarting();
     }
+  }
 
-
-    public void CountDownSecondTimeOnLoadGame(){
-        dailyUpdateDateTime = gameManager.dailyMissionDateTime;
-        timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
-
-        if(timePassed >= timeToRecoverDaily){
-            gameManager.dailyMissions.Clear();
-            RandomDailyMission();
-            dailyUpdateDateTime = DateTime.Now;
-        } else {
-            //data cu
-            RenderDailyMission();
-        }
-
+  public void CollecteItem()
+  {
+    foreach (DailyMissionGoal dailyMission in displayeDailyMissions)
+    {
+      dailyMission.completed = dailyMission.ItemCollected();
     }
+  }
+
 }
