@@ -11,15 +11,10 @@ public class CharacterSpawn : MonoBehaviour
     private void Awake() {
         gameManager = GameManager.Instance;
         int index = gameManager.characterSeleted;
-        Debug.Log(characterScripable.characters[index].nameCharacter);
         GameObject prefab = characterScripable.characters[index].prefab;
         GameObject player = Instantiate(prefab, transform.position, Quaternion.identity);
         cinemachineVirtualCamera.Follow = player.transform;
         cinemachineVirtualCamera.LookAt = player.transform;
-        //
-        ///
-        ///
-
         gameManager.SelectPlayer(player.transform);
     }
 
