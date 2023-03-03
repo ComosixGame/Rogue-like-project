@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8318591022535612892}
   - component: {fileID: 8318591022535612899}
   - component: {fileID: 8318591022535612898}
-  - component: {fileID: 5528873500759883588}
+  - component: {fileID: 2832575921805604436}
   m_Layer: 5
   m_Name: Daily Mission
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5528873500759883588
+--- !u!114 &2832575921805604436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,15 +133,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8318591022535612896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 006b8815bbbb26740ae9274d3f24fc4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 050411bf10aa43d4882f2f6cc921ab43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  isActive: 0
+  completed: 0
   title: 
   description: 
   experienceReward: 0
   goldReward: 0
+  isReceveiCoin: 0
   titleText: {fileID: 8338558864652764340}
   receverCoin: {fileID: 8318591022674659208}
 --- !u!1 &8318591022674659214
@@ -266,8 +267,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5528873500759883588}
-        m_TargetAssemblyTypeName: DailyMission, Assembly-CSharp
+      - m_Target: {fileID: 2832575921805604436}
+        m_TargetAssemblyTypeName: DailyMissionCard, Assembly-CSharp
         m_MethodName: HandleCompletedMission
         m_Mode: 1
         m_Arguments:

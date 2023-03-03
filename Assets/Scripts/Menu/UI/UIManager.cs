@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -18,19 +17,13 @@ public class UIManager : MonoBehaviour
     public GameObject _popupSelectedChapter;
     public GameObject _popupConfirmNotEnoughMoney;
     public GameObject _popupConfirmSelected;
-    [SerializeField] GunScriptable gunScriptable;
-    [SerializeField] CharacterScripable characterScripable;
-    [SerializeField] private CardGun gunPrefab;
-    [SerializeField] List<CardGun> gunList = new List<CardGun>();
-    [SerializeField] private Transform gunParent;
-    Gun currentGun;
-    [SerializeField] private GameObject _popUpSelectedCharacter;
+    public GameObject _popUpSelectedCharacter;
     [SerializeField] private Text coins;
     private GameManager gameManager;
     private PlayerData playerData;
     private SoundManager soundManager;
     private LoadSceneManager loadSceneManager;
-
+    public static event Action OnReloadDailyMission;
     private void Awake() {
         gameManager = GameManager.Instance;
         soundManager = SoundManager.Instance;
@@ -40,15 +33,6 @@ public class UIManager : MonoBehaviour
 
     private void Start() {
         InitGame();
-        for(int i = 0; i < gunScriptable.guns.Length; i++){
-            CardGun gunDisplay = Instantiate(gunPrefab);
-            gunList.Add(gunDisplay);
-            gunDisplay.transform.SetParent(gunParent, false);
-            gunDisplay.index = i;
-            gunDisplay.priceGun = gunScriptable.guns[i].priceGun;
-            gunDisplay.nameGun = gunScriptable.guns[i].nameGun;
-            gunDisplay.thumb = gunScriptable.guns[i].thumb;
-        }
         coins.text = $"{gameManager.coinPlayer}";
     }
 
@@ -56,7 +40,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnUpdateCoinPlayer += updateCoinThenBuyItem;
         gameManager.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected += showPopUpConfirmSelected;
-        DailyMission.OnCompletedMission += CompletedMission;
+        DailyMissionCard.OnCompletedMission += CompletedMission;
         gameManager.OnReceiveCoinReward += ReceiveCoinReward;
     }
 
@@ -64,7 +48,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnUpdateCoinPlayer -= updateCoinThenBuyItem;
         gameManager.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected -= showPopUpConfirmSelected;
-        DailyMission.OnCompletedMission -= CompletedMission;
+        DailyMissionCard.OnCompletedMission -= CompletedMission;
         gameManager.OnReceiveCoinReward -= ReceiveCoinReward;
     }
 
@@ -137,6 +121,7 @@ public class UIManager : MonoBehaviour
         _popupLoadComplete.SetActive(false);
         _popupMission.SetActive(true);
         _popupSettings.SetActive(false);
+        OnReloadDailyMission?.Invoke();
     }
 
     public void BtnSettings(){
@@ -173,5 +158,4 @@ public class UIManager : MonoBehaviour
     public void handleConfirmSelectedCharacter(){
         _popUpSelectedCharacter.SetActive(false);
     }
-    
 }

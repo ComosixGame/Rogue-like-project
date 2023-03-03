@@ -9,8 +9,9 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
 {
   [SerializeField] private DailyMissionScriptable dailyMissionScriptable;
   private GameManager gameManager;
-  private float timePassed = 0;
-  [SerializeField, Label("Time to recover daily mission(s)")] private float timeToRecoverDaily;
+  private int timePassed = 0;
+  [SerializeField, Label("Time to recover daily mission(s)")] private int timeToRecoverDaily;
+  [SerializeField, ReadOnly] private int timeLeft = 0;
   private DateTime dailyUpdateDateTime;
   public List<DailyMissionGoal> dailyMissions { get; set; }
   public List<DailyMissionGoal> displayeDailyMissions;
@@ -36,11 +37,13 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     EnemyDamageble.OnEnemiesDestroy += KillEnemy;
     loadSceneManager.OnLoadScene += OnLoadScene;
     loadSceneManager.OnSceneLoaded += SceneLoaded;
+    UIManager.OnReloadDailyMission += CountDownSecondTimeOnLoadGame;
   }
 
   private void OnDisable()
   {
     EnemyDamageble.OnEnemiesDestroy -= KillEnemy;
+    UIManager.OnReloadDailyMission -= CountDownSecondTimeOnLoadGame;
     if (loadSceneManager != null)
     {
       loadSceneManager.OnLoadScene -= OnLoadScene;
@@ -53,15 +56,20 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     CountDownSecondTimeOnLoadGame();
     StartCoroutine(CountDownSecondTime());
     LoadData();
+    TimeRemainingDailyMission();
+    //Thực hiện check khi vào game nhiem vu
+    //Check nhiem vu da thanh cong
+    StartGame();
+    //Khi bam nút mission thì lưu lại thông tin vào file save
+    gameManager.SaveDailyMissionGoals(displayeDailyMissions);
   }
+  
 
   private void OnApplicationQuit()
   {
     gameManager.SaveTimeDailyMission(dailyUpdateDateTime);
     gameManager.SaveDailyMissionGoals(displayeDailyMissions);
   }
-
-
 
   public void LoadData()
   {
@@ -81,11 +89,12 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     gameManager.PlayerDataSave();
   }
 
+  //Ham tinh thoi gian va ramdom ra nhiem vu
   private IEnumerator CountDownSecondTime()
   {
     while (true)
     {
-      timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
+      timePassed = (int)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
       if (timePassed >= timeToRecoverDaily)
       {
         dailyMissions.Clear();
@@ -102,18 +111,14 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
   }
 
 
+  //Dem nguoc thoi gian va va render ra nhiem vu tuy thuoc dieu kien
   public void CountDownSecondTimeOnLoadGame()
   {
     dailyUpdateDateTime = gameManager.dailyMissionDateTime;
-    timePassed = (float)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
+    timePassed = (int)(DateTime.Now - dailyUpdateDateTime).TotalSeconds;
 
     if (timePassed >= timeToRecoverDaily)
     {
-      // dailyMissions.Clear();
-      // foreach (DailyMissionGoal dailyMission in dailyMissionScriptable.dailyMissions)
-      // {
-      //   dailyMissions.Add(dailyMission.DailyMissionGoalClone());
-      // }
       gameManager.displayeDailyMissions.Clear();
       OnRandomDailyMission?.Invoke(dailyMissions);
       dailyUpdateDateTime = DateTime.Now;
@@ -121,9 +126,19 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     else
     {
       //data cu
+      timeLeft = timeToRecoverDaily - timePassed;
       OnRenderDailyMission?.Invoke();
     }
 
+  }
+
+  //Function caculate time remaining of daily mission
+  public void TimeRemainingDailyMission(){
+    timeLeft = timeToRecoverDaily - timePassed;
+    float hour, minute;
+    hour = timeLeft / 3600;
+    minute = timeLeft % 3600 / 60;
+    //Debug.Log(hour + " : " + minute);
   }
 
   private void OnLoadScene()
@@ -149,7 +164,7 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
   {
     foreach (DailyMissionGoal dailyMission in displayeDailyMissions)
     {
-      dailyMission.completed = dailyMission.ItemStarting();
+      dailyMission.completed = dailyMission.Starting();
     }
   }
 

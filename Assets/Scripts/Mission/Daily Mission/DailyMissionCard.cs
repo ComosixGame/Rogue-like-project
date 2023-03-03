@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DailyMission : MonoBehaviour
+public class DailyMissionCard : MonoBehaviour
 {
-    public int index;
+     public int index;
     public bool completed;
     public string title;
     public string description;
@@ -14,8 +14,8 @@ public class DailyMission : MonoBehaviour
     public Text titleText;
     public Button receverCoin;
     private DailyMissionGoal dailyMissionGoal;
+    
     public static event Action<int> OnCompletedMission;
-
     private void Start() {
         titleText.text = title;
         receverCoin.interactable = false;
@@ -36,7 +36,6 @@ public class DailyMission : MonoBehaviour
         }
     }
 
-    
     public void SetData(DailyMissionGoal dailyMissionGoal) {
         index = dailyMissionGoal.index;
         completed = dailyMissionGoal.completed;
