@@ -75,8 +75,6 @@ public class EnergyManager : Singleton<EnergyManager>
         } else {
             timeLeft =  timeToRecoverEnergy -  timePassed;
         }
-
-        
     }
 
     IEnumerator EnergyRecoverCoroutine() {

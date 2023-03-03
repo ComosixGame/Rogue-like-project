@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class DailyMissions : MonoBehaviour
 {
-  [SerializeField] private DailyMission DailyMissionPrefab;
-  [SerializeField, ReadOnly] public List<DailyMission> dailyMissions = new List<DailyMission>();
+  [SerializeField] private DailyMissionCard DailyMissionPrefab;
   [SerializeField] private Transform DailyMissionParent;
+  [SerializeField, ReadOnly] public List<DailyMissionCard> dailyMissions = new List<DailyMissionCard>();
   private List<int> mshowed = new List<int>();
   private GameManager gameManager;
   private DailyMissionManager dailyMissionManager;
@@ -25,14 +25,11 @@ public class DailyMissions : MonoBehaviour
     dailyMissionManager.OnRenderDailyMission += RenderDailyMission;
   }
 
-  public void RandomDailyMissionRender(){
-    //Xu ly viec random sau khi het thoi gian
-  }
-
+  //Random ra nhiem vu
   public void RandomDailyMission(List<DailyMissionGoal> dailyMissionGoals)
   {
     int loop = dailyMissionGoals.Count < 10 ? dailyMissionGoals.Count : 10;
-    foreach (DailyMission mission in dailyMissions)
+    foreach (DailyMissionCard mission in dailyMissions)
     {
       Destroy(mission.gameObject);
     }
@@ -49,13 +46,11 @@ public class DailyMissions : MonoBehaviour
         random = Random.Range(0, dailyMissionGoals.Count);
       }
       mshowed.Add(random);
-      DailyMission dailyMission = Instantiate(DailyMissionPrefab);
+      DailyMissionCard dailyMission = Instantiate(DailyMissionPrefab);
       dailyMissions.Add(dailyMission);
       dailyMission.transform.SetParent(DailyMissionParent, false);
       dailyMission.index = random;
-
       DailyMissionGoal dailyMissionGoal = dailyMissionGoals[random];
-
       dailyMission.SetData(dailyMissionGoal);
       dailyMissionManager.displayeDailyMissions.Add(dailyMissionGoal);
     }
@@ -63,9 +58,10 @@ public class DailyMissions : MonoBehaviour
     gameManager.SaveDailyMissionGoals(dailyMissionManager.displayeDailyMissions);
   }
 
+  //thuc hien render lai nhiem vu cu
   public void RenderDailyMission()
   {
-    foreach (DailyMission mission in dailyMissions)
+    foreach (DailyMissionCard mission in dailyMissions)
     {
       Destroy(mission.gameObject);
     }
@@ -75,7 +71,7 @@ public class DailyMissions : MonoBehaviour
     dailyMissionManager.displayeDailyMissions.Clear();
     foreach (DailyMissionGoal dailyMissionGoal in gameManager.displayeDailyMissions)
     {
-      DailyMission dailyMission = Instantiate(DailyMissionPrefab);
+      DailyMissionCard dailyMission = Instantiate(DailyMissionPrefab);
       dailyMission.transform.SetParent(DailyMissionParent, false);
       dailyMission.SetData(dailyMissionGoal);
       dailyMissions.Add(dailyMission);

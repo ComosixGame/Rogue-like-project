@@ -46,9 +46,6 @@ public class EnemyBulletsBasic : AbsBullet
 
     public override void FixedUpdate()
     {
-        // if(fired) {
-        //     _rb.velocity = transform.forward.normalized * speedBullet;
-        // }
         if(fired && speed != 0 && rb != null)
             rb.position += (transform.forward + offset) * (speed * Time.deltaTime);
     }

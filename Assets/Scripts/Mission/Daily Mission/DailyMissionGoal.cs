@@ -35,11 +35,11 @@ public class DailyMissionGoal
         return currentAmount >= requiredAmount;
     }
 
-    public bool ItemStarting()
+    public bool Starting()
     {
         if(goalType == GoalTypes.Starting)
         {
-            currentAmount++;
+            currentAmount = 0;
         }
         return currentAmount >= requiredAmount;
     }
