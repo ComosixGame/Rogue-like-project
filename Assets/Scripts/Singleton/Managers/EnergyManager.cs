@@ -2,24 +2,42 @@ using System;
 using System.Collections;
 using UnityEngine;
 using MyCustomAttribute;
+using UnityEngine.SceneManagement;
 
 public class EnergyManager : Singleton<EnergyManager>
 {
-    [SerializeField] private int maxEnergy;
+    [SerializeField] private int _maxEnergy;
+    public float maxEnergy {get {
+        return _maxEnergy;
+    }}
     [SerializeField, Label("Time to recover energy(s)")] private float timeToRecoverEnergy;
     [SerializeField] private int recoverEnergy;
     [SerializeField] private int energy;
     private DateTime energyUpdateDateTime;
     private float timePassed = 0;
     [SerializeField, ReadOnly] private float timeLeft = 0;
-    public event Action<int> OnRecoverEnergy;
+    public event Action<int> OnUpdateEnergy;
     public event Action<float> OnEnergyRecoverTimerCounter;
     private GameManager gameManager;
+    private LoadSceneManager loadSceneManager;
 
     protected override void Awake()
     {
         base.Awake();
         gameManager = GameManager.Instance;
+        loadSceneManager = LoadSceneManager.Instance;
+    }
+
+    private void OnEnable() {
+        if(loadSceneManager != null){
+            loadSceneManager.OnSceneLoaded += SceneLoaded;
+        }
+    }
+
+    private void OnDisable() {
+        if(loadSceneManager != null){
+            loadSceneManager.OnSceneLoaded -= SceneLoaded;
+        }
     }
 
     private void Start() {
@@ -36,6 +54,7 @@ public class EnergyManager : Singleton<EnergyManager>
         if(isEnough) {
             this.energy -= energy;
             energyUpdateDateTime = DateTime.Now;
+            OnUpdateEnergy?.Invoke(this.energy);
         }
     }
 
@@ -45,9 +64,9 @@ public class EnergyManager : Singleton<EnergyManager>
 
         if(timePassed >= timeToRecoverEnergy) {
             int recoveredEnergy = energy + recoverEnergy;
-            energy = recoveredEnergy < maxEnergy ? recoveredEnergy : maxEnergy;
-            OnRecoverEnergy?.Invoke(energy);
+            energy = recoveredEnergy < _maxEnergy ? recoveredEnergy : _maxEnergy;
             energyUpdateDateTime = DateTime.Now;
+            OnUpdateEnergy?.Invoke(energy);
         }
 
         timeLeft = timeToRecoverEnergy - timePassed;
@@ -55,12 +74,17 @@ public class EnergyManager : Singleton<EnergyManager>
 
     private void LoadData() {
         if(gameManager.firstTimeStart) {
-            energy = maxEnergy;
+            energy = _maxEnergy;
         } else {
             energy = gameManager.energy;
             energyUpdateDateTime = gameManager.energyUpdateDateTime;
             RecoverEnergyOnGameload();
         }
+        OnUpdateEnergy?.Invoke(energy);
+    }
+
+    private void SceneLoaded(Scene scene){
+        OnUpdateEnergy?.Invoke(energy);
     }
 
     private void RecoverEnergyOnGameload() {
@@ -69,9 +93,10 @@ public class EnergyManager : Singleton<EnergyManager>
         if(timePassed >= timeToRecoverEnergy) {
             int timesRecovered = Mathf.FloorToInt(timePassed/timeToRecoverEnergy);
             int recoveredEnergy = recoverEnergy * timesRecovered;
-            energy = recoveredEnergy < maxEnergy ? recoveredEnergy : maxEnergy;
+            energy = recoveredEnergy < _maxEnergy ? recoveredEnergy : _maxEnergy;
             energyUpdateDateTime = DateTime.Now.AddSeconds(timesRecovered * timeToRecoverEnergy - timePassed);
             timeLeft = timesRecovered * timeToRecoverEnergy - timePassed;
+            OnUpdateEnergy?.Invoke(energy);
         } else {
             timeLeft =  timeToRecoverEnergy -  timePassed;
         }

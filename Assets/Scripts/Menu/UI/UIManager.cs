@@ -19,15 +19,21 @@ public class UIManager : MonoBehaviour
     public GameObject _popupConfirmSelected;
     public GameObject _popUpSelectedCharacter;
     [SerializeField] private Text coins;
+    [SerializeField] private Text UpdateEnergyText;
+    [SerializeField] private Text MinuteText;
+    [SerializeField] private Text SecondText;
+    [SerializeField] private Text MaxEnergyText;
     private GameManager gameManager;
     private PlayerData playerData;
     private SoundManager soundManager;
     private LoadSceneManager loadSceneManager;
+    private EnergyManager energyManager;
     public static event Action OnReloadDailyMission;
     private void Awake() {
         gameManager = GameManager.Instance;
         soundManager = SoundManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
+        energyManager = EnergyManager.Instance;
     }
 
 
@@ -43,6 +49,8 @@ public class UIManager : MonoBehaviour
         DailyMissionCard.OnCompletedMission += CompletedMission;
         AchievementCard.OnCompletedAchievement += CompletedAchievement;
         gameManager.OnReceiveCoinReward += ReceiveCoinReward;
+        energyManager.OnUpdateEnergy += RecoverEnergy;
+        energyManager.OnEnergyRecoverTimerCounter += EnergyRecoverTimerCounter;
     }
 
     private void OnDisable() {
@@ -52,14 +60,31 @@ public class UIManager : MonoBehaviour
         DailyMissionCard.OnCompletedMission -= CompletedMission;
         AchievementCard.OnCompletedAchievement -= CompletedAchievement;
         gameManager.OnReceiveCoinReward -= ReceiveCoinReward;
+        energyManager.OnUpdateEnergy -= RecoverEnergy;
+        energyManager.OnEnergyRecoverTimerCounter -= EnergyRecoverTimerCounter;
     }
 
     public void CompletedMission(int goldReward){
         gameManager.IncreaseGoldReward(goldReward);
     }
 
+
     public void CompletedAchievement(int goldReward){
         gameManager.IncreaseGoldReward(goldReward);
+    }
+
+    public void EnergyRecoverTimerCounter(float time){
+        int timeInt = (int)time;
+        float minute, second;
+        minute = (int)(timeInt / 60);
+        second = (int)(timeInt % 60);
+        MinuteText.text = $"{minute} :";
+        SecondText.text = $" {second}";
+    }
+
+    public void RecoverEnergy(int energy){
+        UpdateEnergyText.text = $"{energy} /";
+        MaxEnergyText.text = $" {energyManager.maxEnergy}";
     }
 
     public void ReceiveCoinReward(int coin){
