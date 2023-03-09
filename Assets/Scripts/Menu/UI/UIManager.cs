@@ -59,7 +59,6 @@ public class UIManager : MonoBehaviour
     }
 
     public void CompletedAchievement(int goldReward){
-        Debug.Log("CompletedAchievement");
         gameManager.IncreaseGoldReward(goldReward);
     }
 
