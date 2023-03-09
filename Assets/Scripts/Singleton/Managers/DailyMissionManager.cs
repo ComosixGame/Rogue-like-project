@@ -8,15 +8,21 @@ using MyCustomAttribute;
 public class DailyMissionManager : Singleton<DailyMissionManager>
 {
   [SerializeField] private DailyMissionScriptable dailyMissionScriptable;
+  [SerializeField] private AchievementScriptAble achievementScriptAble;
   private GameManager gameManager;
   private int timePassed = 0;
   [SerializeField, Label("Time to recover daily mission(s)")] private int timeToRecoverDaily;
   [SerializeField, ReadOnly] private int timeLeft = 0;
   private DateTime dailyUpdateDateTime;
   public List<DailyMissionGoal> dailyMissions { get; set; }
+  public List<AchievementGoal> achievements { get; set; }
   public List<DailyMissionGoal> displayeDailyMissions;
+  public List<AchievementGoal> displayAchievements;
   public event Action<List<DailyMissionGoal>> OnRandomDailyMission;
   public event Action OnRenderDailyMission;
+  public event Action OnRenderAchievements;
+
+  public event Action<List<AchievementGoal>> OnRandomAchievements;
   private LoadSceneManager loadSceneManager;
   protected override void Awake()
   {
@@ -25,10 +31,17 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     loadSceneManager = LoadSceneManager.Instance;
     dailyMissions = new List<DailyMissionGoal>();
     displayeDailyMissions = new List<DailyMissionGoal>();
+    achievements = new List<AchievementGoal>();
+    displayAchievements = new List<AchievementGoal>();
 
     foreach (DailyMissionGoal dailyMission in dailyMissionScriptable.dailyMissions)
     {
       dailyMissions.Add(dailyMission.DailyMissionGoalClone());
+    }
+
+    foreach (AchievementGoal achievement in achievementScriptAble.achievementGoals)
+    {
+      achievements.Add(achievement.AchievementGoalClone());
     }
   }
 
@@ -38,11 +51,13 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     loadSceneManager.OnLoadScene += OnLoadScene;
     loadSceneManager.OnSceneLoaded += SceneLoaded;
     UIManager.OnReloadDailyMission += CountDownSecondTimeOnLoadGame;
+    EnemyDamageble.OnEnemiesDestroy += AchievementKillEnemy;
   }
 
   private void OnDisable()
   {
     EnemyDamageble.OnEnemiesDestroy -= KillEnemy;
+    EnemyDamageble.OnEnemiesDestroy -= AchievementKillEnemy;
     UIManager.OnReloadDailyMission -= CountDownSecondTimeOnLoadGame;
     if (loadSceneManager != null)
     {
@@ -62,6 +77,7 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     StartGame();
     //Khi bam nút mission thì lưu lại thông tin vào file save
     gameManager.SaveDailyMissionGoals(displayeDailyMissions);
+    gameManager.saveAchievements(displayAchievements);
   }
   
 
@@ -69,6 +85,7 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
   {
     gameManager.SaveTimeDailyMission(dailyUpdateDateTime);
     gameManager.SaveDailyMissionGoals(displayeDailyMissions);
+    gameManager.saveAchievements(displayAchievements);
   }
 
   public void LoadData()
@@ -76,6 +93,7 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     if (gameManager.firstTimeStart)
     {
       OnRandomDailyMission?.Invoke(dailyMissions);
+      OnRandomAchievements?.Invoke(achievements);
     }
   }
 
@@ -141,15 +159,17 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     //Debug.Log(hour + " : " + minute);
   }
 
+
   private void OnLoadScene()
   {
     gameManager.SaveDailyMissionGoals(displayeDailyMissions);
-
+    gameManager.saveAchievements(displayAchievements);
   }
 
   private void SceneLoaded(Scene scene)
   {
     OnRenderDailyMission?.Invoke();
+    OnRenderAchievements?.Invoke();
   }
 
   private void KillEnemy(Vector3 dir)
@@ -173,6 +193,20 @@ public class DailyMissionManager : Singleton<DailyMissionManager>
     foreach (DailyMissionGoal dailyMission in displayeDailyMissions)
     {
       dailyMission.completed = dailyMission.ItemCollected();
+    }
+  }
+
+
+  private void AchievementKillEnemy(Vector3 dir){
+    foreach(AchievementGoal achievement in displayAchievements){
+      achievement.completed = achievement.EnemyKilled();
+    }
+  }
+
+  public void AchievementCollecteItem(){
+    foreach (AchievementGoal achievement in displayAchievements)
+    {
+      achievement.completed = achievement.EnemyKilled();
     }
   }
 
