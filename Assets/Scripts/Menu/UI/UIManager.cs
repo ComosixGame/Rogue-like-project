@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnNotEnoughMoney += showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected += showPopUpConfirmSelected;
         DailyMissionCard.OnCompletedMission += CompletedMission;
+        AchievementCard.OnCompletedAchievement += CompletedAchievement;
         gameManager.OnReceiveCoinReward += ReceiveCoinReward;
     }
 
@@ -49,6 +50,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnNotEnoughMoney -= showPopUpConfirmNotEnoughMoney;
         CardGun.ConfirmSelected -= showPopUpConfirmSelected;
         DailyMissionCard.OnCompletedMission -= CompletedMission;
+        AchievementCard.OnCompletedAchievement -= CompletedAchievement;
         gameManager.OnReceiveCoinReward -= ReceiveCoinReward;
     }
 
@@ -56,6 +58,10 @@ public class UIManager : MonoBehaviour
         gameManager.IncreaseGoldReward(goldReward);
     }
 
+    public void CompletedAchievement(int goldReward){
+        Debug.Log("CompletedAchievement");
+        gameManager.IncreaseGoldReward(goldReward);
+    }
 
     public void ReceiveCoinReward(int coin){
          coins.text = $"{coin}";

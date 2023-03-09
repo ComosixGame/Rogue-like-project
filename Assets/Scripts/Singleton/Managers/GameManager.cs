@@ -105,6 +105,12 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public List<AchievementGoal> displayAchievement{
+        get{
+            return playerData.displayAchievement;
+        }
+    }
+
     protected override void Awake() {
         base.Awake();
         playerData = PlayerData.Load();
@@ -246,6 +252,19 @@ public class GameManager : Singleton<GameManager>
             newList.Add(dailyMission.DailyMissionGoalClone());
         }
         playerData.displayeDailyMissions = newList;
+        PlayerDataSave();
+    }
+
+
+    public void saveAchievements(List<AchievementGoal> achievementGoals){
+        List<AchievementGoal> achievementGoalsList = new List<AchievementGoal>();
+
+        //Tao clone de tranh xoa tren tham chieu
+        foreach(AchievementGoal achievement in achievementGoals){
+            achievementGoalsList.Add(achievement.AchievementGoalClone());
+        }
+
+        playerData.displayAchievement = achievementGoalsList;
         PlayerDataSave();
     }
 }

@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5589d9e28b895484ea20ddc323a66369, type: 3}
+  m_Name: Achievement Manager
+  m_EditorClassIdentifier: 
+  achievementGoals:
+  - title: Achievement 1
+    index: 1
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 1
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 2
+    index: 2
+    completed: 0
+    description: 
+    goldReward: 100
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 2
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 3
+    index: 3
+    completed: 0
+    description: 
+    goldReward: 300
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 3
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 4
+    index: 4
+    completed: 0
+    description: 
+    goldReward: 500
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 4
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 5
+    index: 5
+    completed: 0
+    description: 
+    goldReward: 700
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 5
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 6
+    index: 6
+    completed: 0
+    description: 
+    goldReward: 800
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 6
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 7
+    index: 7
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 7
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 8
+    index: 8
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 8
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 9
+    index: 9
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 9
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 10
+    index: 10
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 10
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 11
+    index: 11
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 11
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 12
+    index: 12
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 12
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 13
+    index: 13
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 13
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 14
+    index: 14
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 14
+    currentAmount: 0
+    isReceveiCoin: 0
+  - title: Achievement 15
+    index: 15
+    completed: 0
+    description: 
+    goldReward: 0
+    goalType: 0
+    nameQuestGoal: 
+    requiredAmount: 15
+    currentAmount: 0
+    isReceveiCoin: 0

@@ -111,6 +111,7 @@ public class PlayerData
     public string energyUpdateDateTimeJson;
     public string dailyMissionDateTimeJson;
     public List<DailyMissionGoal> displayeDailyMissions;
+    public List<AchievementGoal> displayAchievement;
     
     public DateTime energyUpdateDateTime {
         get {
@@ -147,6 +148,7 @@ public class PlayerData
         energyUpdateDateTimeJson = DateTime.Now.ToString();
         dailyMissionDateTimeJson = DateTime.Now.ToString();
         displayeDailyMissions = new List<DailyMissionGoal>();
+        displayAchievement = new List<AchievementGoal>();
         
     }
 
