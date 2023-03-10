@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using MyCustomAttribute;
-using UnityEngine.UI;
 
 public class LoadSceneManager : Singleton<LoadSceneManager>
 {

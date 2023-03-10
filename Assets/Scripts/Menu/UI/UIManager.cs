@@ -14,17 +14,17 @@ public class UIManager : MonoBehaviour
     public GameObject _popupSettings;
     public GameObject _popupSelectedCharacter;
     public GameObject _popupConfirmWeapon;
-    public GameObject _popupSelectedChapter;
     public GameObject _popupConfirmNotEnoughMoney;
     public GameObject _popupConfirmSelected;
     public GameObject _popUpSelectedCharacter;
+    public GameObject _popupConfirmNotEnoughEnergy;
+    public GameObject _popupLoading;
     [SerializeField] private Text coins;
     [SerializeField] private Text UpdateEnergyText;
     [SerializeField] private Text MinuteText;
     [SerializeField] private Text SecondText;
     [SerializeField] private Text MaxEnergyText;
     private GameManager gameManager;
-    private PlayerData playerData;
     private SoundManager soundManager;
     private LoadSceneManager loadSceneManager;
     private EnergyManager energyManager;
@@ -187,5 +187,9 @@ public class UIManager : MonoBehaviour
     }
     public void handleConfirmSelectedCharacter(){
         _popUpSelectedCharacter.SetActive(false);
+    }
+    public void handleConfirmClosePopupNotEnoughEnergy(){
+        _popupConfirmNotEnoughEnergy.SetActive(false);
+        _popupLoading.SetActive(false);
     }
 }

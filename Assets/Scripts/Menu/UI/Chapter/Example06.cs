@@ -16,6 +16,7 @@ namespace FancyScrollView.Example06
         [SerializeField] private Transform ChapterParent;
         [SerializeField] GraphicRaycaster graphicRaycasterAdd;
         [SerializeField] GameObject _popupLoading;
+        [SerializeField] private GameObject _popupConfirmNotEnoughEnergy;
         Chapter currentChapter;
         [SerializeField] private Chapter chapterPrefab;
         private LoadSceneManager loadSceneManager;
@@ -24,13 +25,18 @@ namespace FancyScrollView.Example06
         [SerializeField] private GameObject headerUI;
         [SerializeField] private GameObject bodyUI;
         [SerializeField] private GameObject footerUI;
-
+        private EnergyManager energyManager;
+        [SerializeField] private Button BtnPlayChapter;
+        private bool isEnergy;
         private void Awake() {
             loadSceneManager = LoadSceneManager.Instance;
+            energyManager = EnergyManager.Instance;
         }
 
         private void OnEnable() {
             loadSceneManager.OnLoadProgresscing += LoadProgresscing;
+            energyManager.OnPlayChapter += PlayChapter;
+            energyManager.OnNotEnoughEnergy += NotEnoughEnergy;
         }
 
         void Start()
@@ -55,6 +61,7 @@ namespace FancyScrollView.Example06
 
             scrollView.UpdateData(items);
             scrollView.SelectCell(0);
+
         }
 
         void OnSelectionChanged(int index, MovementDirection direction)
@@ -78,19 +85,25 @@ namespace FancyScrollView.Example06
 
         public void PlayChapter() {
             loadSceneManager.LoadScene(currentChapter.index);
+            isEnergy = true;
         }
 
-         public void LoadProgresscing(float progress){
-            _popupLoading.SetActive(true);  
-            headerUI.SetActive(false);
-            bodyUI.SetActive(false);
-            footerUI.SetActive(false);
-            loadingBar.value = progress;
+        public void LoadProgresscing(float progress){
+            if(isEnergy){
+                _popupLoading.SetActive(true);  
+                loadingBar.value = progress;
+            }
+        }
+
+        public void NotEnoughEnergy(){
+            _popupConfirmNotEnoughEnergy.SetActive(true);
         }
 
 
         private void OnDisable() {
             loadSceneManager.OnLoadProgresscing -= LoadProgresscing;
+            energyManager.OnPlayChapter -= PlayChapter;
+            energyManager.OnNotEnoughEnergy -= NotEnoughEnergy;
         }
     }
 }

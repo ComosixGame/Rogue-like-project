@@ -18,6 +18,8 @@ public class EnergyManager : Singleton<EnergyManager>
     [SerializeField, ReadOnly] private float timeLeft = 0;
     public event Action<int> OnUpdateEnergy;
     public event Action<float> OnEnergyRecoverTimerCounter;
+    public event Action OnPlayChapter;
+    public event Action OnNotEnoughEnergy;
     private GameManager gameManager;
     private LoadSceneManager loadSceneManager;
 
@@ -26,6 +28,7 @@ public class EnergyManager : Singleton<EnergyManager>
         base.Awake();
         gameManager = GameManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
+        LoadData();
     }
 
     private void OnEnable() {
@@ -42,7 +45,6 @@ public class EnergyManager : Singleton<EnergyManager>
 
     private void Start() {
         StartCoroutine(EnergyRecoverCoroutine());
-        LoadData();
     }
 
     private void OnApplicationQuit() {
@@ -55,6 +57,10 @@ public class EnergyManager : Singleton<EnergyManager>
             this.energy -= energy;
             energyUpdateDateTime = DateTime.Now;
             OnUpdateEnergy?.Invoke(this.energy);
+            OnPlayChapter?.Invoke();
+        }
+        else{
+            OnNotEnoughEnergy?.Invoke();
         }
     }
 
