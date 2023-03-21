@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIModuleDisplay : MonoBehaviour
 {
-    [SerializeField] private Text nameModule;
+    [SerializeField] private TMP_Text nameModule;
     private AbilityModuleManager abilityModuleManager;
 
     private void Awake() {

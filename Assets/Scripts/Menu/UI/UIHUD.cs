@@ -3,13 +3,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System;
+using TMPro;
 
 public class UIHUD : MonoBehaviour
 {
-    [SerializeField] private Text levelText;
-    [SerializeField] private Text waveText;
-    [SerializeField] private Text gold;
-    [SerializeField] private Text stateText;
+    [SerializeField] private TMP_Text levelText;
+    [SerializeField] private TMP_Text waveText;
+    [SerializeField] private TMP_Text gold;
+    [SerializeField] private TMP_Text stateText;
     [SerializeField] private Transform NameModule;
     [SerializeField] private Transform NameModulePausePopup;
     [SerializeField] private UIModuleDisplay uiModuleDisplay;
@@ -23,14 +24,13 @@ public class UIHUD : MonoBehaviour
     [SerializeField] private GameObject _Pause;
     [SerializeField] private GameObject _Stage;
     [SerializeField] private GameObject _LabUI;
-    [SerializeField] private GameObject _optionModule1;
     [SerializeField] private GameObject _postionValueModule;
     [SerializeField] private GameObject _postionValueModulePausePopup;
     [SerializeField] private Button _btnGetMore;
     [SerializeField] private SelectAbilityButton abilityBtn;
     [SerializeField] private Transform abilitySelectorContainer;
     [SerializeField] private Text abilityEmptyMessage;
-    [SerializeField] private Text goldEndGame;
+    [SerializeField] private TMP_Text goldEndGame;
     
     //singleton
     private GameManager gameManager;
@@ -129,7 +129,7 @@ public class UIHUD : MonoBehaviour
     }
 
     private void ChangeLevelText(int currentLevel) {
-        levelText.text = $"Lab : {currentLevel}";
+        levelText.text = $"LAB : {currentLevel}";
         stateText.text = $"State: {currentLevel}";
     }
 
@@ -151,7 +151,7 @@ public class UIHUD : MonoBehaviour
      
     public void ChangeUpdateCoins(int currentCoin){
         gold.text = $"{currentCoin}";
-        goldEndGame.text = $"Total coins : {currentCoin}";
+        goldEndGame.text = $"{currentCoin}";
     }
 
 
@@ -171,7 +171,6 @@ public class UIHUD : MonoBehaviour
         itemUIClone.GetComponent<UIModuleDisplay>().SetText(newAbility.abilityName);
     }
     public void HandleGetMoreOptions(){
-        _optionModule1.SetActive(true);
         _btnGetMore.interactable = false;
     }
 

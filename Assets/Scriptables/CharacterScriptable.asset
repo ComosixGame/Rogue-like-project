@@ -13,7 +13,18 @@ MonoBehaviour:
   m_Name: CharacterScriptable
   m_EditorClassIdentifier: 
   characters:
-  - nameCharacter: Sliver
+  - nameCharacter: Nhanvat1
+    priceCharacter: 1000
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}
+    thumb: {fileID: 21300000, guid: 2ad49fe75824d4058ac179f8481edfef, type: 3}
+  - nameCharacter: Nhanvat2
+    priceCharacter: 2000
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}
+    thumb: {fileID: 21300000, guid: 66f91b0096bee4238b9ddab051776895, type: 3}
+  - nameCharacter: Nhanvat3
     priceCharacter: 30000
-    prefab: {fileID: 743595168555037925, guid: 8532457b5f7b435468d3750e72ad7ce9, type: 3}
-    thumb: {fileID: 21300000, guid: e26214f38d510104698430e49b7210e0, type: 3}
+    prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
+      type: 3}
+    thumb: {fileID: 21300000, guid: 4395e9f9635e04da39033df3aef85405, type: 3}

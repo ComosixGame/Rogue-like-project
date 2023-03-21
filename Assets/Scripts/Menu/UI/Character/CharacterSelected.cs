@@ -26,6 +26,7 @@ namespace FancyScrollView.Example06 {
         [SerializeField] private GameObject _btnBuy;
         [SerializeField] private GameObject _btnSelect;
 
+        public static event Action ConfirmSelected;
         private void Awake() {
             gameManager = GameManager.Instance;
         }
@@ -81,7 +82,8 @@ namespace FancyScrollView.Example06 {
 
         public void SelectedCharacter(){
             gameManager.SelectedCharacter(currentCharacter.index);
-            _popUpSelectedCharacter.SetActive(false);
+            ConfirmSelected?.Invoke();
+            //_popUpSelectedCharacter.SetActive(false);
         }
 
         public void BuyItem() {

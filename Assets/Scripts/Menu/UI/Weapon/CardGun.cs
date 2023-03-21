@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardGun : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class CardGun : MonoBehaviour
 
     CardGun currentGun = null;
 
-    [SerializeField] private Text nameGunText;
+    [SerializeField] private TMP_Text nameGunText;
     [SerializeField] private GameObject _btnBuy;
     [SerializeField] private GameObject _btnSelected;
-    [SerializeField] private Text _ownerGun;
+    [SerializeField] private TMP_Text _ownerGun;
 
     private bool own;
     private GameManager gameManager;
@@ -32,14 +33,14 @@ public class CardGun : MonoBehaviour
 
     private void Start() {
         nameGunText.text = $"{nameGun}";
-        gameObject.transform.GetChild(1).GetComponent<Image>().sprite = currentGun.thumb;
+        gameObject.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = currentGun.thumb;
 
         own = gameManager.weaponOwn.IndexOf(currentGun.index) != -1;
 
         if(own){
             _ownerGun.text = $"Owner";
         }else{
-            _ownerGun.text = $"{priceGun}";
+            _ownerGun.text = $"{priceGun}$";
         }
         _btnBuy.SetActive(!own);
         _btnSelected.SetActive(own);
@@ -50,7 +51,7 @@ public class CardGun : MonoBehaviour
         _ownerGun.text = $"Owner";
     }
 
-     public void SelectedWeapon(){
+    public void SelectedWeapon(){
         gameManager.SelectedWeapon(currentGun.index);
         ConfirmSelected?.Invoke();
     }

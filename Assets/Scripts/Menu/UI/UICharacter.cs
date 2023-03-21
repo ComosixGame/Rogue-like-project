@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class UICharacter : MonoBehaviour
 {
   
-    [SerializeField] private Sprite thumb;
-
+    private Sprite thumb;
+    
     [SerializeField] CharacterScripable characterScripable;
     private GameManager gameManager;
 
@@ -21,6 +21,7 @@ public class UICharacter : MonoBehaviour
 
     public void updateInfoCharacter(){
         gameObject.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = characterScripable.characters[gameManager.characterSeleted].thumb;
+
     }
 
     private void OnDisable() {
