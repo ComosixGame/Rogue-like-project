@@ -2,15 +2,14 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-
+using TMPro;
 
 namespace FancyScrollView.Example06
 {
     class Example06 : MonoBehaviour
     {
         [SerializeField] ScrollView scrollView = default;
-        [SerializeField] Text selectedItemInfo = default;
+        [SerializeField] TMP_Text selectedItemInfo = default;
         [SerializeField] List<Chapter> chapters = new List<Chapter>();
         [SerializeField] ChapterScriptAble chapterScriptAble;
         [SerializeField] private Transform ChapterParent;
@@ -80,11 +79,13 @@ namespace FancyScrollView.Example06
             }
 
 
-            selectedItemInfo.text = $"Selected chapter: {currentChapter.nameChapter}";
+            selectedItemInfo.text = $"Chapter: {currentChapter.nameChapter}";
         }
 
         public void PlayChapter() {
             loadSceneManager.LoadScene(currentChapter.index);
+            footerUI.SetActive(false);
+            headerUI.SetActive(false);
             isEnergy = true;
         }
 

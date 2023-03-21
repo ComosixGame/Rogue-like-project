@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace FancyScrollView.Example06
 {
@@ -8,6 +9,7 @@ namespace FancyScrollView.Example06
         [SerializeField] Animator animator = default;
         [SerializeField] Text message = default;
         [SerializeField] Button button = default;
+        [SerializeField] TMP_Text butonText = default;
 
         static class AnimatorHash
         {
@@ -22,6 +24,7 @@ namespace FancyScrollView.Example06
         public override void UpdateContent(ItemData itemData)
         {
             message.text = itemData.Message;
+            butonText.text = itemData.Message;
         }
 
         public override void UpdatePosition(float position)

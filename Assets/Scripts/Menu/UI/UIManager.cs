@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public GameObject _shop;
     public GameObject _character;
     public GameObject _weapon;
-    public GameObject _popupLoadComplete;
     public GameObject _popupMission;
     public GameObject _popupSettings;
     public GameObject _popupSelectedCharacter;
@@ -20,10 +19,10 @@ public class UIManager : MonoBehaviour
     public GameObject _popupConfirmNotEnoughEnergy;
     public GameObject _popupLoading;
     [SerializeField] private Text coins;
-    [SerializeField] private Text UpdateEnergyText;
-    [SerializeField] private Text MinuteText;
-    [SerializeField] private Text SecondText;
-    [SerializeField] private Text MaxEnergyText;
+    [SerializeField] private TMP_Text UpdateEnergyText;
+    [SerializeField] private TMP_Text MinuteText;
+    [SerializeField] private TMP_Text SecondText;
+    [SerializeField] private TMP_Text MaxEnergyText;
     private GameManager gameManager;
     private SoundManager soundManager;
     private LoadSceneManager loadSceneManager;
@@ -51,6 +50,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnReceiveCoinReward += ReceiveCoinReward;
         energyManager.OnUpdateEnergy += RecoverEnergy;
         energyManager.OnEnergyRecoverTimerCounter += EnergyRecoverTimerCounter;
+        FancyScrollView.Example06.CharacterSelected.ConfirmSelected += showPopUpConfirmSelected;
     }
 
     private void OnDisable() {
@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
         gameManager.OnReceiveCoinReward -= ReceiveCoinReward;
         energyManager.OnUpdateEnergy -= RecoverEnergy;
         energyManager.OnEnergyRecoverTimerCounter -= EnergyRecoverTimerCounter;
+        FancyScrollView.Example06.CharacterSelected.ConfirmSelected -= showPopUpConfirmSelected;
     }
 
     public void CompletedMission(int goldReward){
@@ -142,28 +143,19 @@ public class UIManager : MonoBehaviour
     }
 
     public void BtnLoadComplete(){
-        _popupLoadComplete.SetActive(true);
         _popupMission.SetActive(false);
         _popupSettings.SetActive(false);
     }
 
     public void BtnMission(){
-        _popupLoadComplete.SetActive(false);
         _popupMission.SetActive(true);
         _popupSettings.SetActive(false);
         OnReloadDailyMission?.Invoke();
     }
 
     public void BtnSettings(){
-        _popupLoadComplete.SetActive(false);
         _popupMission.SetActive(false);
         _popupSettings.SetActive(true);
-    }
-    public void BtnConfirmWeapon(){
-        _popupConfirmWeapon.SetActive(true);
-    }
-    public void ClosePanelLoad(){
-        _popupLoadComplete.SetActive(false);
     }
 
     public void ClosePanelMission(){
@@ -178,15 +170,15 @@ public class UIManager : MonoBehaviour
         _popupSelectedCharacter.SetActive(false);
     }
 
-    public void ClosePanelSelectedWeapon(){
-        _popupConfirmWeapon.SetActive(false);
-    }
-
     public void btnOpenPopupSelectCharacter(){
         _popupSelectedCharacter.SetActive(true);
     }
     public void handleConfirmSelectedCharacter(){
         _popUpSelectedCharacter.SetActive(false);
+    }
+
+    public void handleCloseConfirmSelectedWeapon(){
+        _popupConfirmSelected.SetActive(false);
     }
     public void handleConfirmClosePopupNotEnoughEnergy(){
         _popupConfirmNotEnoughEnergy.SetActive(false);
