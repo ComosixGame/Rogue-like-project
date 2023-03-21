@@ -16,12 +16,12 @@ MonoBehaviour:
   - index: 1
     path: 
     nameChapter: Chapter 1
-    thumb: {fileID: 21300000, guid: e26214f38d510104698430e49b7210e0, type: 3}
+    thumb: {fileID: 21300000, guid: 1c2ab4f76147d4d37b4c494fb962fc82, type: 3}
   - index: 2
     path: 
     nameChapter: Chapter 2
-    thumb: {fileID: 21300000, guid: c5aa0a70a43bb28449809ed6569dba9f, type: 3}
+    thumb: {fileID: 21300000, guid: e0010eb95ca6947f8b3d7b1a723d52bd, type: 3}
   - index: 3
     path: 
     nameChapter: Chapter 3
-    thumb: {fileID: 21300000, guid: 12070fc778aa68641b25f72ea7f9fb38, type: 3}
+    thumb: {fileID: 21300000, guid: ddf2cd21fdde84ea9943128e35d8e77b, type: 3}

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AchievementCard : MonoBehaviour
 {
@@ -11,13 +12,16 @@ public class AchievementCard : MonoBehaviour
     public int goldReward;
     public bool isReceveiCoin;
     public Button receverCoin;
-    public Text titleText;
+    public TMP_Text titleText;
+    public TMP_Text goldRewardText;
     private AchievementGoal achievementGoal;
     public static event Action<int> OnCompletedAchievement;
     private void Start() {
         titleText.text = title;
+        goldRewardText.text = goldReward.ToString();
         if(completed && !isReceveiCoin){
             receverCoin.interactable = true;
+            goldRewardText.text = "Claim";
         }else{
             receverCoin.interactable = false;
         }

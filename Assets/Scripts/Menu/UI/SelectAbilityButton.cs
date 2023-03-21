@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MyCustomAttribute;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class SelectAbilityButton : MonoBehaviour
 {
-    [SerializeField] private Text text;
+    [SerializeField] private TMP_Text text;
     [SerializeField, ReadOnly] private AbsAbilityModule abilityModule;
     private Button button;
     private AbilityModuleManager abilityModuleManager;

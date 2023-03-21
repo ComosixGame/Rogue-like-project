@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 namespace FancyScrollView.Example06{
     public class Character : MonoBehaviour
     {
@@ -10,8 +10,9 @@ namespace FancyScrollView.Example06{
         public int priceCharacter;
         public string nameCharacter;
         public Sprite thumb;
-
-        [SerializeField] private Text nameCharacterText;
+        [SerializeField] public TMP_Text nameCharacterText;
+        [SerializeField] public TMP_Text priceCharacterText;
+        [SerializeField] public Image spriteCharacter;
 
         public void In(MovementDirection direction) => transition?.In(direction);
 
@@ -21,10 +22,14 @@ namespace FancyScrollView.Example06{
 
         private void Awake() {
             currentCharacter = GetComponent<Character>();
+            spriteCharacter.GetComponent<Image>();
         }
        
         private void Start() {
-            gameObject.GetComponent<Image>().sprite = currentCharacter.thumb;
+            //gameObject.GetComponent<Image>().sprite = currentCharacter.thumb;
+            currentCharacter.spriteCharacter.sprite = currentCharacter.thumb;
+            currentCharacter.nameCharacterText.text = $"{currentCharacter.nameCharacter}";
+            currentCharacter.priceCharacterText.text = $"{currentCharacter.priceCharacter}";
         }
 
     }
