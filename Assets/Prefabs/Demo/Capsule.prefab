@@ -361,6 +361,7 @@ MonoBehaviour:
   timerAttack: 0
   _absAttach: {fileID: 7991186218002894356, guid: b8fbfaa7aba21e24ba18ed9a091cc02f,
     type: 3}
+  inStun: 0
 --- !u!54 &7407995875355185236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -394,6 +395,7 @@ MonoBehaviour:
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 1000
+  canKnockBack: 1
   healthEnemy: {fileID: 8934935472712584298}
   deadSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   _camera: {fileID: 0}

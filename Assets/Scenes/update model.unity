@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2675,11 +2675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa1c6f4b9b1bc554aaef0613d53ef9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergy: 10
+  _maxEnergy: 0
   timeToRecoverEnergy: 10
   recoverEnergy: 1
   energy: 0
-  timePassed: 0
   timeLeft: 0
 --- !u!4 &494561276
 Transform:
@@ -6011,6 +6010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountCoins: 0
+  coinMission: 0
   enemies: []
   levels: 0
   waves: 0
@@ -7619,10 +7619,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b86faab4ff92d042844e8c2fde95f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelText: {fileID: 1418290460}
-  waveText: {fileID: 1093902569}
-  gold: {fileID: 651457854}
-  stateText: {fileID: 1749224585}
+  levelText: {fileID: 0}
+  waveText: {fileID: 0}
+  gold: {fileID: 0}
+  stateText: {fileID: 0}
   NameModule: {fileID: 1006880072}
   NameModulePausePopup: {fileID: 1442208854}
   uiModuleDisplay: {fileID: 2301086897775236033, guid: b170d53b50015b74ea298349364dc4e0,
@@ -7637,7 +7637,6 @@ MonoBehaviour:
   _Pause: {fileID: 823901102}
   _Stage: {fileID: 887313819}
   _LabUI: {fileID: 1689705179}
-  _optionModule1: {fileID: 0}
   _postionValueModule: {fileID: 285581116}
   _postionValueModulePausePopup: {fileID: 2065767785}
   _btnGetMore: {fileID: 923437890}
@@ -7645,9 +7644,7 @@ MonoBehaviour:
     type: 3}
   abilitySelectorContainer: {fileID: 1564692634}
   abilityEmptyMessage: {fileID: 127316737}
-  goldEndGame: {fileID: 589011141}
-  btnContinueGame: {fileID: 1710393480}
-  btnExitGame: {fileID: 0}
+  goldEndGame: {fileID: 0}
 --- !u!114 &1513642460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7975,7 +7972,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8846,6 +8843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountCoins: 0
+  coinMission: 0
   enemies: []
   levels: 0
   waves: 0

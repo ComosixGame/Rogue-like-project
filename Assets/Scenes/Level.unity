@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2094,14 +2094,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 0}
   waveText: {fileID: 0}
+  gold: {fileID: 0}
+  stateText: {fileID: 0}
+  NameModule: {fileID: 0}
+  NameModulePausePopup: {fileID: 0}
+  uiModuleDisplay: {fileID: 0}
   _PopupPause: {fileID: 1259712857}
   _PopupModuleSelector: {fileID: 786778921}
   _PopupSettings: {fileID: 197142339}
   _PopupLobby: {fileID: 1149938398}
   _FooterLevel: {fileID: 76425924}
+  _PopupLoseGame: {fileID: 0}
+  _PopupWinGame: {fileID: 0}
   _Pause: {fileID: 488574430}
   _Stage: {fileID: 193415384}
   _LabUI: {fileID: 1800192706}
+  _postionValueModule: {fileID: 0}
+  _postionValueModulePausePopup: {fileID: 0}
+  _btnGetMore: {fileID: 0}
+  abilityBtn: {fileID: 0}
+  abilitySelectorContainer: {fileID: 0}
+  abilityEmptyMessage: {fileID: 0}
+  goldEndGame: {fileID: 0}
 --- !u!1 &357454850
 GameObject:
   m_ObjectHideFlags: 0

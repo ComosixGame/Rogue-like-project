@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1066,9 +1066,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b86faab4ff92d042844e8c2fde95f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelText: {fileID: 62760314}
-  waveText: {fileID: 232570993}
-  gold: {fileID: 336972124}
+  levelText: {fileID: 0}
+  waveText: {fileID: 0}
+  gold: {fileID: 0}
   stateText: {fileID: 0}
   NameModule: {fileID: 746821136}
   NameModulePausePopup: {fileID: 0}
@@ -1084,7 +1084,6 @@ MonoBehaviour:
   _Pause: {fileID: 636370882}
   _Stage: {fileID: 520841824}
   _LabUI: {fileID: 441647795}
-  _optionModule1: {fileID: 1706306176}
   _postionValueModule: {fileID: 426805605}
   _postionValueModulePausePopup: {fileID: 0}
   _btnGetMore: {fileID: 1372143311}
@@ -3418,7 +3417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 807285615}
+  text: {fileID: 0}
   abilityModule: {fileID: 0}
 --- !u!114 &511336786
 MonoBehaviour:
@@ -4784,7 +4783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 952217947}
+  text: {fileID: 0}
   abilityModule: {fileID: 0}
 --- !u!114 &738081628
 MonoBehaviour:
@@ -7739,7 +7738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1647376713}
+  text: {fileID: 0}
   abilityModule: {fileID: 0}
 --- !u!114 &1529757483
 MonoBehaviour:
@@ -8718,7 +8717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1191440443}
+  text: {fileID: 0}
   abilityModule: {fileID: 0}
 --- !u!114 &1706306179
 MonoBehaviour:
@@ -9715,7 +9714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64373c8b81346c343add3312eed67652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 633917385}
+  text: {fileID: 0}
   abilityModule: {fileID: 0}
 --- !u!114 &1914823309
 MonoBehaviour:

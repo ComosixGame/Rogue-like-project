@@ -79,7 +79,7 @@ namespace FancyScrollView.Example06
             }
 
 
-            selectedItemInfo.text = $"Chapter: {currentChapter.nameChapter}";
+            selectedItemInfo.text = $"{currentChapter.nameChapter}";
         }
 
         public void PlayChapter() {
