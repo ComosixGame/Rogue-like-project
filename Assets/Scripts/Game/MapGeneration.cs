@@ -43,6 +43,7 @@ public class MapGeneration : MonoBehaviour
     public static event Action<int> OnLevelChange;
     public static event Action OnWinGame;
 
+    public GameObject FloorPrefab;
     private void Awake() {
         ObjectPoolerManager = ObjectPoolerManager.Instance;
         gameManager = GameManager.Instance;
@@ -95,6 +96,7 @@ public class MapGeneration : MonoBehaviour
             for(int x = 0; x < row ; x++) {
                 // 5 là độ lớn của 1 ô grid
                 Transform gridPos=  Instantiate(startPosition, startPosition.position + new Vector3(x * 5, 0, -y * 5), startPosition.rotation);
+                // GameObject floorPrefab = Instantiate(FloorPrefab);
                 gridPos.SetParent(transform);
                 gridPositions.Add(gridPos.position);
             }

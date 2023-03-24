@@ -395,6 +395,7 @@ MonoBehaviour:
   destroyEffect: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
     type: 3}
   maxHealth: 100
+  canKnockBack: 1
   healthEnemy: {fileID: 8934935472712584298}
   deadSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   _camera: {fileID: 0}
