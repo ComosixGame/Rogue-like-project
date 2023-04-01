@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 3891938a559161048955158101e9334e
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: ARKHAN
+  - first:
+      1: 100002
+    second: //RootNode
+  - first:
+      1: 100004
+    second: ARKHAN_
+  - first:
+      1: 100006
+    second: ARKHAN_ Head
+  - first:
+      1: 100008
+    second: ARKHAN_ L Calf
+  - first:
+      1: 100010
+    second: ARKHAN_ L Clavicle
+  - first:
+      1: 100012
+    second: ARKHAN_ L Finger0
+  - first:
+      1: 100014
+    second: ARKHAN_ L Finger01
+  - first:
+      1: 100016
+    second: ARKHAN_ L Finger1
+  - first:
+      1: 100018
+    second: ARKHAN_ L Finger11
+  - first:
+      1: 100020
+    second: ARKHAN_ L Foot
+  - first:
+      1: 100022
+    second: ARKHAN_ L Forearm
+  - first:
+      1: 100024
+    second: ARKHAN_ L Hand
+  - first:
+      1: 100026
+    second: ARKHAN_ L Thigh
+  - first:
+      1: 100028
+    second: ARKHAN_ L Toe0
+  - first:
+      1: 100030
+    second: ARKHAN_ L UpperArm
+  - first:
+      1: 100032
+    second: ARKHAN_ Neck
+  - first:
+      1: 100034
+    second: ARKHAN_ Pelvis
+  - first:
+      1: 100036
+    second: ARKHAN_ Queue de cheval 1
+  - first:
+      1: 100038
+    second: ARKHAN_ R Calf
+  - first:
+      1: 100040
+    second: ARKHAN_ R Clavicle
+  - first:
+      1: 100042
+    second: ARKHAN_ R Finger0
+  - first:
+      1: 100044
+    second: ARKHAN_ R Finger01
+  - first:
+      1: 100046
+    second: ARKHAN_ R Finger1
+  - first:
+      1: 100048
+    second: ARKHAN_ R Finger11
+  - first:
+      1: 100050
+    second: ARKHAN_ R Foot
+  - first:
+      1: 100052
+    second: ARKHAN_ R Forearm
+  - first:
+      1: 100054
+    second: ARKHAN_ R Hand
+  - first:
+      1: 100056
+    second: ARKHAN_ R Thigh
+  - first:
+      1: 100058
+    second: ARKHAN_ R Toe0
+  - first:
+      1: 100060
+    second: ARKHAN_ R UpperArm
+  - first:
+      1: 100062
+    second: ARKHAN_ Spine
+  - first:
+      1: 100064
+    second: ARKHAN_ Spine1
+  - first:
+      4: 400000
+    second: ARKHAN
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: ARKHAN_
+  - first:
+      4: 400006
+    second: ARKHAN_ Head
+  - first:
+      4: 400008
+    second: ARKHAN_ L Calf
+  - first:
+      4: 400010
+    second: ARKHAN_ L Clavicle
+  - first:
+      4: 400012
+    second: ARKHAN_ L Finger0
+  - first:
+      4: 400014
+    second: ARKHAN_ L Finger01
+  - first:
+      4: 400016
+    second: ARKHAN_ L Finger1
+  - first:
+      4: 400018
+    second: ARKHAN_ L Finger11
+  - first:
+      4: 400020
+    second: ARKHAN_ L Foot
+  - first:
+      4: 400022
+    second: ARKHAN_ L Forearm
+  - first:
+      4: 400024
+    second: ARKHAN_ L Hand
+  - first:
+      4: 400026
+    second: ARKHAN_ L Thigh
+  - first:
+      4: 400028
+    second: ARKHAN_ L Toe0
+  - first:
+      4: 400030
+    second: ARKHAN_ L UpperArm
+  - first:
+      4: 400032
+    second: ARKHAN_ Neck
+  - first:
+      4: 400034
+    second: ARKHAN_ Pelvis
+  - first:
+      4: 400036
+    second: ARKHAN_ Queue de cheval 1
+  - first:
+      4: 400038
+    second: ARKHAN_ R Calf
+  - first:
+      4: 400040
+    second: ARKHAN_ R Clavicle
+  - first:
+      4: 400042
+    second: ARKHAN_ R Finger0
+  - first:
+      4: 400044
+    second: ARKHAN_ R Finger01
+  - first:
+      4: 400046
+    second: ARKHAN_ R Finger1
+  - first:
+      4: 400048
+    second: ARKHAN_ R Finger11
+  - first:
+      4: 400050
+    second: ARKHAN_ R Foot
+  - first:
+      4: 400052
+    second: ARKHAN_ R Forearm
+  - first:
+      4: 400054
+    second: ARKHAN_ R Hand
+  - first:
+      4: 400056
+    second: ARKHAN_ R Thigh
+  - first:
+      4: 400058
+    second: ARKHAN_ R Toe0
+  - first:
+      4: 400060
+    second: ARKHAN_ R UpperArm
+  - first:
+      4: 400062
+    second: ARKHAN_ Spine
+  - first:
+      4: 400064
+    second: ARKHAN_ Spine1
+  - first:
+      43: 4300000
+    second: ARKHAN
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: ARKHAN
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips:
+  - 7050862f63efa6844857c7075b045b4d
+  - bb1cefd5fab7f1a48a477f2dadd378be
+  - 086e7a6bfb35b1148ab8785e777134ab
+  - beeb473035547374cba56c77e6a4e081
+  - 2dd8c2b0de9520e44aad7c13f1058f90
+  - 180fc56ffdbc30341abd768cccd0ab64
+  - 4197fdb2fd7c1c846991c2eda0cab364
+  - 958ed74f539e9f04dbad87e0c8bffb17
+  - 15b791fea4defc44ab2f5685653fe33d
+  - 8f28c26d818ec994ba7b92aac604d25d
+  - c68dafcedd70c784699363e71cfadbc5
+  - d3b163259f2286a44b0a343d5f8e94e8
+  - 23c5c651e31012746935311848822d35
+  - a6ce8b11c8233a24dbcab5f88db96ca6
+  - fc632bfa3f0d772408c4d2ecd0fb48b7
+  - c191739ec638ae8498155315408c89d1
+  - d13d42273e03ec149a0c8c995e8ac746
+  - 4132c8af871056a419720ba823fb56b4
+  - 1c0aca4e8184c6243a33b1aed511b3dd
+  - be7ab8c1433de504ab3e813f1bd768a8
+  - 3db6840827039fb499417d7881c06b65
+  - 342958c350d9dff479992bb235e74aa9
+  - 1a1284c680052ea4f8004ad65dfd8b05
+  - eaf3b6dc55c17a54ba657bc0dcf9d0f9
+  - 9e6a8db06fb15444783851c2f4843717
+  - ac0467b7261f9684ebbe703708e193d6
+  - 964305d1901c4b54cabb03f769b4b728
+  - 887f601d7ddd50b41b304192191a2647
+  - e939dc9aa330dbb498045b6a97d00069
+  - 02b379b20c1e4fe4189a746514aa47b5
+  - ce543ee9706deba46995c6fed9c27ecb
+  - 1ffe455d1a4867148851ce855ddba4a4
+  - a21fbf013597f86499667871c5667878
+  - 231b9373469153f479356da16c178462
+  - dff7a95d0640ca84b93922477388389a
+  - 967d96fc09e17db46ac975c0add5bf5a
+  - 2ca36d3ece7c401489552bce25e94503
+  - 7ee869990ce3e204fa22ea0012c11ae6
+  - 801f1026d164e3d40916c41faf1130be
+  - 0f14aa9232814894db1431aedf911e4b
+  - f987405e21a93ae47a87fc52b25495f0
+  - 5a9687105800da747852eca5be683037
+  - 316daa5e881b5534e93eac336f845b47
+  - 365cec4d49f119c45bceb47fa910be67
+  - c0025cc58749cd64baca48805eaec9d3
+  - 3a1c30e64b404614fad55454e898df7c
+  - 444dbd6ae5fb30644bd6952ac4e188b4
+  - 2fae1e7f03d09174da4c833614f0a397
+  - 088f18a1feb641d43a0c45a780015660
+  - 77970fad4e2fe7a45a8d0a15b56a23a7
+  - 744cf44c529b16a48a3cb4e55b6f3da6
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

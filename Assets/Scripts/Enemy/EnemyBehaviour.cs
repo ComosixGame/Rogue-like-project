@@ -18,6 +18,11 @@ public class EnemyBehaviour : MonoBehaviour
     [ReadOnly] public bool inStun;
     private GameManager gameManager;
     private LoadSceneManager loadSceneManager;
+    private int run;
+    private Animator _animator;
+    private int _velocityMove;
+    private int _StandAiming;
+    [SerializeField] private float maxSpeed;
 
     //fix player
     private void Awake() {
@@ -26,7 +31,10 @@ public class EnemyBehaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         _absAttach = GetComponent<AbsAttach>();
         _absAttach.Init();
+        _animator = GetComponent<Animator>();
 
+        _velocityMove = Animator.StringToHash("Velocity");
+        _StandAiming = Animator.StringToHash("StandAiming");
     }
 
     private void OnEnable() {
@@ -64,9 +72,12 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     private void Move() {
+        Vector3 horizontalVelocity = new Vector3(agent.velocity.x, 0, agent.velocity.z);
+        float Velocity = horizontalVelocity.magnitude / maxSpeed;
         if(readyAttack){
             agent.ResetPath();
             agent.SetDestination(transform.position);
+            _animator.SetFloat(_velocityMove, Velocity);
         }
         else{
             if(agent.remainingDistance <= agent.stoppingDistance) {
@@ -76,8 +87,10 @@ public class EnemyBehaviour : MonoBehaviour
                     agent.ResetPath();
                     agent.SetDestination(pos);
                     idleTimer = 0;
+                   _animator.SetFloat(_velocityMove, Velocity);
                 }
             }
+            _animator.SetFloat(_velocityMove, Velocity);
         }
     }
 
@@ -85,26 +98,27 @@ public class EnemyBehaviour : MonoBehaviour
         if(!readyAttack) {
             timerAttack += Time.deltaTime;
             if(timerAttack >= delayAttack){
+                _animator.SetBool(_StandAiming, true);  
                 timerAttack = 0;
                 readyAttack = true;
+                Debug.Log("1");
             }
         } else {
+            Debug.Log("1.5");
             Vector3 dirLook = (_player.transform.position - transform.position).normalized;
             dirLook.y = 0;
-            
             //Thuc hien xoay 
             if(dirLook != Vector3.zero){
                 Quaternion rotLook = Quaternion.LookRotation(dirLook);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rotLook, 5f * Time.deltaTime);
             }
-            if(Vector3.Angle(transform.forward, dirLook) <= 0.1f) {
+            if(Vector3.Angle(transform.forward, dirLook) <= 0.3f) {
                 if(!fired) {
                     fired = true;  
                     _absAttach.Attack(shootPosition);
+                     Debug.Log("2");
                 }
             }
-
-
         }
     }
 

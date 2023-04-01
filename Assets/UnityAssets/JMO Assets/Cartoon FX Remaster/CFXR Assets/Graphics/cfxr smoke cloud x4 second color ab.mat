@@ -13,7 +13,6 @@ Material:
   - _ALPHABLEND_ON
   - _CFXR_DISSOLVE
   - _CFXR_DITHERED_SHADOWS_ON
-  - _CFXR_HDR_BOOST
   - _CFXR_SECONDCOLOR_LERP
   - _FADING_ON
   m_InvalidKeywords:
@@ -75,7 +74,7 @@ Material:
     - _DstBlend: 10
     - _EdgeFadePow: 1
     - _FadeAlongU: 0
-    - _HdrBoost: 1
+    - _HdrBoost: 0
     - _HdrMultiply: 2
     - _IndirectLightingMix: 0.5
     - _InvertDissolveTex: 0

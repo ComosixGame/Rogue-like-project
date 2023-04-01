@@ -9,12 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Basic.unity
     guid: 36272086c2f217446bf9e2a9069225e5
   - enabled: 1
-    path: Assets/Scenes/Forest.unity
-    guid: 3c871c0cbbf6cc24a8d37b7ca8d3fcd8
+    path: Assets/Scenes/Forestone.unity
+    guid: 94eabcbe0edbfef45823b42269a27e5f
   - enabled: 1
-    path: Assets/Scenes/Snow.unity
-    guid: 121da854a7557ed4595f1f14d6d89334
+    path: Assets/Scenes/SnowOne.unity
+    guid: 9c261ba9185cf19449561ab0b8e1b5f9
   - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 078bd86c23cc76744b1d413e2bba2c95,
+      type: 2}

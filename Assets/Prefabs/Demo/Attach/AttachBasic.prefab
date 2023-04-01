@@ -44,8 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayAttack: 3
-  timerAttack: 2.5522091
-  readyAttack: 0
-  isFireBullet: 1
-  bullet: {fileID: 7155788659206797011, guid: c5b179961ce194848809c563ae7d0cf7, type: 3}
+  bullet: {fileID: 7155788659206797011, guid: 3a99a15822f761d40aeae70033e743de, type: 3}

@@ -1,0 +1,749 @@
+fileFormatVersion: 2
+guid: 1879194ae1026f243b8e4c13741e58cd
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: AMIRA_
+  - first:
+      1: 100004
+    second: AMIRA_ Head
+  - first:
+      1: 100006
+    second: AMIRA_ L Calf
+  - first:
+      1: 100008
+    second: AMIRA_ L Clavicle
+  - first:
+      1: 100010
+    second: AMIRA_ L Finger0
+  - first:
+      1: 100012
+    second: AMIRA_ L Finger01
+  - first:
+      1: 100014
+    second: AMIRA_ L Finger1
+  - first:
+      1: 100016
+    second: AMIRA_ L Finger11
+  - first:
+      1: 100018
+    second: AMIRA_ L Foot
+  - first:
+      1: 100020
+    second: AMIRA_ L Forearm
+  - first:
+      1: 100022
+    second: AMIRA_ L Hand
+  - first:
+      1: 100024
+    second: AMIRA_ L Thigh
+  - first:
+      1: 100026
+    second: AMIRA_ L Toe0
+  - first:
+      1: 100028
+    second: AMIRA_ L UpperArm
+  - first:
+      1: 100030
+    second: AMIRA_ Neck
+  - first:
+      1: 100032
+    second: AMIRA_ Pelvis
+  - first:
+      1: 100034
+    second: AMIRA_ Queue de cheval 1
+  - first:
+      1: 100036
+    second: AMIRA_ R Calf
+  - first:
+      1: 100038
+    second: AMIRA_ R Clavicle
+  - first:
+      1: 100040
+    second: AMIRA_ R Finger0
+  - first:
+      1: 100042
+    second: AMIRA_ R Finger01
+  - first:
+      1: 100044
+    second: AMIRA_ R Finger1
+  - first:
+      1: 100046
+    second: AMIRA_ R Finger11
+  - first:
+      1: 100048
+    second: AMIRA_ R Foot
+  - first:
+      1: 100050
+    second: AMIRA_ R Forearm
+  - first:
+      1: 100052
+    second: AMIRA_ R Hand
+  - first:
+      1: 100054
+    second: AMIRA_ R Thigh
+  - first:
+      1: 100056
+    second: AMIRA_ R Toe0
+  - first:
+      1: 100058
+    second: AMIRA_ R UpperArm
+  - first:
+      1: 100060
+    second: AMIRA_ Spine
+  - first:
+      1: 100062
+    second: AMIRA_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: AMIRA_
+  - first:
+      4: 400004
+    second: AMIRA_ Head
+  - first:
+      4: 400006
+    second: AMIRA_ L Calf
+  - first:
+      4: 400008
+    second: AMIRA_ L Clavicle
+  - first:
+      4: 400010
+    second: AMIRA_ L Finger0
+  - first:
+      4: 400012
+    second: AMIRA_ L Finger01
+  - first:
+      4: 400014
+    second: AMIRA_ L Finger1
+  - first:
+      4: 400016
+    second: AMIRA_ L Finger11
+  - first:
+      4: 400018
+    second: AMIRA_ L Foot
+  - first:
+      4: 400020
+    second: AMIRA_ L Forearm
+  - first:
+      4: 400022
+    second: AMIRA_ L Hand
+  - first:
+      4: 400024
+    second: AMIRA_ L Thigh
+  - first:
+      4: 400026
+    second: AMIRA_ L Toe0
+  - first:
+      4: 400028
+    second: AMIRA_ L UpperArm
+  - first:
+      4: 400030
+    second: AMIRA_ Neck
+  - first:
+      4: 400032
+    second: AMIRA_ Pelvis
+  - first:
+      4: 400034
+    second: AMIRA_ Queue de cheval 1
+  - first:
+      4: 400036
+    second: AMIRA_ R Calf
+  - first:
+      4: 400038
+    second: AMIRA_ R Clavicle
+  - first:
+      4: 400040
+    second: AMIRA_ R Finger0
+  - first:
+      4: 400042
+    second: AMIRA_ R Finger01
+  - first:
+      4: 400044
+    second: AMIRA_ R Finger1
+  - first:
+      4: 400046
+    second: AMIRA_ R Finger11
+  - first:
+      4: 400048
+    second: AMIRA_ R Foot
+  - first:
+      4: 400050
+    second: AMIRA_ R Forearm
+  - first:
+      4: 400052
+    second: AMIRA_ R Hand
+  - first:
+      4: 400054
+    second: AMIRA_ R Thigh
+  - first:
+      4: 400056
+    second: AMIRA_ R Toe0
+  - first:
+      4: 400058
+    second: AMIRA_ R UpperArm
+  - first:
+      4: 400060
+    second: AMIRA_ Spine
+  - first:
+      4: 400062
+    second: AMIRA_ Spine1
+  - first:
+      74: 7400000
+    second: idleStandNoAim
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'AMIRA_
+      L Clavicle' : position error = 7.252792 mm\n\t'AMIRA_ R Clavicle' : position
+      error = 7.252784 mm\n"
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idleStandNoAim
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: AMIRA_
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ Queue de cheval 1
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Finger0
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Finger01
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Finger1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ L Finger11
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Finger0
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Finger01
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Finger1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ R Finger11
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AMIRA_ Neck
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: AMIRA(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA
+      parentName: AMIRA(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_
+      parentName: AMIRA(Clone)
+      position: {x: -0, y: 0.99702144, z: 0.020999998}
+      rotation: {x: -0.50000066, y: 0.49999934, z: 0.49999934, w: 0.50000066}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AMIRA_ Spine
+      parentName: AMIRA_
+      position: {x: -0.001872661, y: -0.0000000027797842, z: 0.10286102}
+      rotation: {x: 0.5000007, y: -0.4999993, z: -0.5000007, w: -0.4999993}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: AMIRA_ Spine1
+      parentName: AMIRA_ Spine
+      position: {x: -0.19464286, y: -0.00017299652, z: -4.798244e-10}
+      rotation: {x: -1.7177015e-15, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ Neck
+      parentName: AMIRA_ Spine1
+      position: {x: -0.2795108, y: -0.00007850647, z: -2.1774582e-10}
+      rotation: {x: -1.7177015e-15, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ L Clavicle
+      parentName: AMIRA_ Neck
+      position: {x: 0.07893753, y: 0.00009167671, z: 0.04106661}
+      rotation: {x: 0.70710677, y: 0.00028152936, z: -0.70710677, w: 0.00028152936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ L UpperArm
+      parentName: AMIRA_ L Clavicle
+      position: {x: -0.10949317, y: 0, z: 0}
+      rotation: {x: -0.011046139, y: -0.034906957, z: 0.001954705, w: 0.99932766}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: AMIRA_ L Forearm
+      parentName: AMIRA_ L UpperArm
+      position: {x: -0.26154178, y: 0, z: 0}
+      rotation: {x: 9.3132235e-10, y: 6.6291384e-13, z: 0.0007117983, w: 0.99999976}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: AMIRA_ L Hand
+      parentName: AMIRA_ L Forearm
+      position: {x: -0.2537796, y: 0, z: 0}
+      rotation: {x: -0.7064979, y: 0.04016211, z: 0.021511696, w: 0.70624715}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: AMIRA_ L Finger1
+      parentName: AMIRA_ L Hand
+      position: {x: -0.10075847, y: 0.0027165222, z: 0.00040877817}
+      rotation: {x: -0.001148845, y: 0.024879387, z: -0.030158412, w: 0.9992348}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: AMIRA_ L Finger11
+      parentName: AMIRA_ L Finger1
+      position: {x: -0.024661064, y: 0, z: -0.000000009536743}
+      rotation: {x: 4.8838034e-10, y: 9.1961244e-10, z: -0.02454496, w: 0.9996987}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.99999994}
+    - name: AMIRA_ L Finger0
+      parentName: AMIRA_ L Hand
+      position: {x: -0.04058487, y: 0.011549072, z: -0.048899982}
+      rotation: {x: 0.67136455, y: -0.074634135, z: 0.019939391, w: 0.7370902}
+      scale: {x: 1.0000004, y: 1, z: 0.9999996}
+    - name: AMIRA_ L Finger01
+      parentName: AMIRA_ L Finger0
+      position: {x: -0.02921833, y: 0.000000038146972, z: 0}
+      rotation: {x: -0.0000000148974895, y: 3.307909e-10, z: -0.022199001, w: 0.9997536}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: AMIRA_ Head
+      parentName: AMIRA_ Neck
+      position: {x: -0.069852754, y: 0, z: 0}
+      rotation: {x: -7.976137e-14, y: -0.0000000011042733, z: 0.00039883057, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ Queue de cheval 1
+      parentName: AMIRA_ Head
+      position: {x: -0.03865997, y: 0.015430559, z: -0.000000088998064}
+      rotation: {x: 1.5894609e-12, y: 0.0000022468387, z: -0.81008065, w: 0.5863185}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: AMIRA_ R Clavicle
+      parentName: AMIRA_ Neck
+      position: {x: 0.07893753, y: 0.00009190559, z: -0.04106661}
+      rotation: {x: 0.70710677, y: 0.00028152936, z: 0.70710677, w: -0.00028152936}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ R UpperArm
+      parentName: AMIRA_ R Clavicle
+      position: {x: -0.10949317, y: 0, z: 0}
+      rotation: {x: 0.01104642, y: 0.034906566, z: 0.0019561348, w: 0.9993276}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: AMIRA_ R Forearm
+      parentName: AMIRA_ R UpperArm
+      position: {x: -0.2615418, y: 0.0000000047683715, z: 0.00000015258789}
+      rotation: {x: -0.0000000018838582, y: 0.000000029800987, z: 0.00071179745, w: 0.99999976}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+    - name: AMIRA_ R Hand
+      parentName: AMIRA_ R Forearm
+      position: {x: -0.25377947, y: 0, z: -0.00000015258789}
+      rotation: {x: 0.7064979, y: -0.040162113, z: 0.021511698, w: 0.70624715}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: HAND_GUN
+      parentName: AMIRA_ R Hand
+      position: {x: -0.063084565, y: 0.020928038, z: 0.00595108}
+      rotation: {x: 0.033723533, y: 0.036455408, z: -0.6861525, w: 0.72576064}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: AMIRA_ R Finger0
+      parentName: AMIRA_ R Hand
+      position: {x: -0.040584944, y: 0.011549072, z: 0.048899982}
+      rotation: {x: -0.6713645, y: 0.07463537, z: 0.019939544, w: 0.73709005}
+      scale: {x: 1.0000005, y: 1.0000001, z: 0.9999995}
+    - name: AMIRA_ R Finger01
+      parentName: AMIRA_ R Finger0
+      position: {x: -0.029218368, y: 0, z: 0}
+      rotation: {x: 0.000000030456558, y: 0.000000029133394, z: -0.022199005, w: 0.9997536}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ R Finger1
+      parentName: AMIRA_ R Hand
+      position: {x: -0.10075847, y: 0.0027163695, z: -0.00040877817}
+      rotation: {x: 0.0011488461, y: -0.024879381, z: -0.030158408, w: 0.9992348}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000002}
+    - name: AMIRA_ R Finger11
+      parentName: AMIRA_ R Finger1
+      position: {x: -0.024661064, y: 0, z: 0.000000009536743}
+      rotation: {x: -4.4266174e-10, y: 9.424718e-10, z: -0.024544977, w: 0.9996987}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: AMIRA_ Pelvis
+      parentName: AMIRA_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.49999967, y: 0.50000036, z: 0.49999967, w: 0.50000036}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: AMIRA_ L Thigh
+      parentName: AMIRA_ Pelvis
+      position: {x: 0.00000015258789, y: 0.00000019550323, z: 0.10995767}
+      rotation: {x: -0.0098604895, y: 0.9986419, z: 0.002993831, w: 0.051070742}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: AMIRA_ L Calf
+      parentName: AMIRA_ L Thigh
+      position: {x: -0.46567157, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.075295754, w: 0.99716127}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: AMIRA_ L Foot
+      parentName: AMIRA_ L Calf
+      position: {x: -0.39776644, y: 0.0000000047683715, z: 0}
+      rotation: {x: 0.003973871, y: 0.0071832202, z: -0.065596715, w: 0.99781245}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: AMIRA_ L Toe0
+      parentName: AMIRA_ L Foot
+      position: {x: -0.1312804, y: 0.11530727, z: 0.000000019073486}
+      rotation: {x: -1.6642981e-14, y: -1.6642981e-14, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AMIRA_ R Thigh
+      parentName: AMIRA_ Pelvis
+      position: {x: -0.00000015258789, y: -0.00000010967254, z: -0.10995767}
+      rotation: {x: -0.009860426, y: 0.9986418, z: -0.0029951676, w: -0.051072188}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: AMIRA_ R Calf
+      parentName: AMIRA_ R Thigh
+      position: {x: -0.4656716, y: 0, z: 0}
+      rotation: {x: -0.0000000010253366, y: 0.0000000073943687, z: 0.075295754, w: 0.99716127}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: AMIRA_ R Foot
+      parentName: AMIRA_ R Calf
+      position: {x: -0.39776644, y: 0, z: 0}
+      rotation: {x: -0.003973876, y: -0.007183313, z: -0.0655967, w: 0.99781245}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: AMIRA_ R Toe0
+      parentName: AMIRA_ R Foot
+      position: {x: -0.13128039, y: 0.11530728, z: -0.000000019073486}
+      rotation: {x: 1.6642981e-14, y: 1.6642981e-14, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1410c41c0a343554bb97e9c179759e22,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

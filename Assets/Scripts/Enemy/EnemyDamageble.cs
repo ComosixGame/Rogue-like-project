@@ -41,7 +41,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         meshRenderer = GetComponent<MeshRenderer>();
         materialPropertyBlock = new MaterialPropertyBlock();
         materialPropertyBlock.SetFloat("_alpha_threshold", 1);
-        meshRenderer.SetPropertyBlock(materialPropertyBlock);
+//        meshRenderer.SetPropertyBlock(materialPropertyBlock);
         agent = GetComponent<NavMeshAgent>();
         enemyBehaviour = GetComponent<EnemyBehaviour>();
         _camera = Camera.main;
@@ -61,7 +61,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         if(alphaThreshold > 0) {
             float newAlphaThreshold = Mathf.MoveTowards(alphaThreshold, 0, 1f * Time.deltaTime);
             materialPropertyBlock.SetFloat("_alpha_threshold", newAlphaThreshold);
-            meshRenderer.SetPropertyBlock(materialPropertyBlock);
+//            meshRenderer.SetPropertyBlock(materialPropertyBlock);
         }
 
         //knockback
@@ -129,7 +129,7 @@ public class EnemyDamageble : MonoBehaviour, IDamageble
         gameManager.RemoveEnemy(transform);
         //spawn coin
         for(int i = 0; i < amountCoins; i++) {
-            objectPoolerManager.SpawnObject(coin, transform.position, Quaternion.identity);
+            objectPoolerManager.SpawnObject(coin, transform.position + new Vector3(0, 6, 0), Quaternion.identity);
         }
         objectPoolerManager.DeactiveObject(gameObjectPool);
         OnEnemiesDestroy?.Invoke(transform.position);
