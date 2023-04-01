@@ -3921,6 +3921,7 @@ MonoBehaviour:
     type: 3}
   CurrentLevel: 1
   CurrentWave: 1
+  FloorPrefab: {fileID: 0}
 --- !u!1 &560039301
 GameObject:
   m_ObjectHideFlags: 0

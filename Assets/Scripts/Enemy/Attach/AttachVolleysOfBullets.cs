@@ -14,9 +14,13 @@ public class AttachVolleysOfBullets : AbsAttach
     private Transform shootPosition;
     public bool fire;
     private float counterBullet;
+    private Animator _animator;
+    private int _StandAiming;
 
     private void Awake() {
         counterBullet = numberOfBullet;
+        _animator = GetComponent<Animator>();
+        _StandAiming = Animator.StringToHash("StandAiming");
     }
     
 
@@ -49,6 +53,9 @@ public class AttachVolleysOfBullets : AbsAttach
             GameObject newBullet = Instantiate(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
             newBullet.GetComponent<EnemyBulletsBasic>().Fire(shootPosition.forward.normalized);
             counterBullet -= 1;
+            if(counterBullet == 0){
+                _animator.SetBool(_StandAiming, false);
+            }
         } else {
             if(fire) {
                 OnAttackeComplete();

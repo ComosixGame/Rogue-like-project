@@ -6,6 +6,14 @@ public class AttachThree : AbsAttach
     [SerializeField] private int numberOfBullet;
     [Range(0,360), SerializeField] private float angel;
     private float angelPerShot;
+    private Animator _animator;
+    private int _StandAiming;
+
+    private void Awake() {
+        _animator = GetComponent<Animator>();
+        _StandAiming = Animator.StringToHash("StandAiming");
+    }
+
     public override void Init()
     {
         angelPerShot = angel/numberOfBullet - 1;
@@ -18,6 +26,7 @@ public class AttachThree : AbsAttach
             GameObject newBullet = Instantiate(bullet, shootPosition.position, Quaternion.LookRotation(dir));
             newBullet.GetComponent<EnemyBulletsBasic>().Fire(dir);
             k *= -1;
+            _animator.SetBool(_StandAiming, false);
         }
         OnAttackeComplete();
     }
