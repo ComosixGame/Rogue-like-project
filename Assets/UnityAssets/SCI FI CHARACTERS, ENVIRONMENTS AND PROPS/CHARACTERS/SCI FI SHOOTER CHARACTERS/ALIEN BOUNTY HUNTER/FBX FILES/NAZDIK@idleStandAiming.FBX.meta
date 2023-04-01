@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: f61ebbf8d9466bd45981bb7444386d7e
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: NAZDIK_
+  - first:
+      1: 100004
+    second: NAZDIK_ Head
+  - first:
+      1: 100006
+    second: NAZDIK_ L Calf
+  - first:
+      1: 100008
+    second: NAZDIK_ L Clavicle
+  - first:
+      1: 100010
+    second: NAZDIK_ L Finger0
+  - first:
+      1: 100012
+    second: NAZDIK_ L Finger1
+  - first:
+      1: 100014
+    second: NAZDIK_ L Foot
+  - first:
+      1: 100016
+    second: NAZDIK_ L Forearm
+  - first:
+      1: 100018
+    second: NAZDIK_ L Hand
+  - first:
+      1: 100020
+    second: NAZDIK_ L Thigh
+  - first:
+      1: 100022
+    second: NAZDIK_ L Toe0
+  - first:
+      1: 100024
+    second: NAZDIK_ L Toe1
+  - first:
+      1: 100026
+    second: NAZDIK_ L UpperArm
+  - first:
+      1: 100028
+    second: NAZDIK_ Neck
+  - first:
+      1: 100030
+    second: NAZDIK_ Pelvis
+  - first:
+      1: 100032
+    second: NAZDIK_ Queue de cheval 1
+  - first:
+      1: 100034
+    second: NAZDIK_ R Calf
+  - first:
+      1: 100036
+    second: NAZDIK_ R Clavicle
+  - first:
+      1: 100038
+    second: NAZDIK_ R Finger0
+  - first:
+      1: 100040
+    second: NAZDIK_ R Finger1
+  - first:
+      1: 100042
+    second: NAZDIK_ R Foot
+  - first:
+      1: 100044
+    second: NAZDIK_ R Forearm
+  - first:
+      1: 100046
+    second: NAZDIK_ R Hand
+  - first:
+      1: 100048
+    second: NAZDIK_ R Thigh
+  - first:
+      1: 100050
+    second: NAZDIK_ R Toe0
+  - first:
+      1: 100052
+    second: NAZDIK_ R Toe1
+  - first:
+      1: 100054
+    second: NAZDIK_ R UpperArm
+  - first:
+      1: 100056
+    second: NAZDIK_ Spine
+  - first:
+      1: 100058
+    second: NAZDIK_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: NAZDIK_
+  - first:
+      4: 400004
+    second: NAZDIK_ Head
+  - first:
+      4: 400006
+    second: NAZDIK_ L Calf
+  - first:
+      4: 400008
+    second: NAZDIK_ L Clavicle
+  - first:
+      4: 400010
+    second: NAZDIK_ L Finger0
+  - first:
+      4: 400012
+    second: NAZDIK_ L Finger1
+  - first:
+      4: 400014
+    second: NAZDIK_ L Foot
+  - first:
+      4: 400016
+    second: NAZDIK_ L Forearm
+  - first:
+      4: 400018
+    second: NAZDIK_ L Hand
+  - first:
+      4: 400020
+    second: NAZDIK_ L Thigh
+  - first:
+      4: 400022
+    second: NAZDIK_ L Toe0
+  - first:
+      4: 400024
+    second: NAZDIK_ L Toe1
+  - first:
+      4: 400026
+    second: NAZDIK_ L UpperArm
+  - first:
+      4: 400028
+    second: NAZDIK_ Neck
+  - first:
+      4: 400030
+    second: NAZDIK_ Pelvis
+  - first:
+      4: 400032
+    second: NAZDIK_ Queue de cheval 1
+  - first:
+      4: 400034
+    second: NAZDIK_ R Calf
+  - first:
+      4: 400036
+    second: NAZDIK_ R Clavicle
+  - first:
+      4: 400038
+    second: NAZDIK_ R Finger0
+  - first:
+      4: 400040
+    second: NAZDIK_ R Finger1
+  - first:
+      4: 400042
+    second: NAZDIK_ R Foot
+  - first:
+      4: 400044
+    second: NAZDIK_ R Forearm
+  - first:
+      4: 400046
+    second: NAZDIK_ R Hand
+  - first:
+      4: 400048
+    second: NAZDIK_ R Thigh
+  - first:
+      4: 400050
+    second: NAZDIK_ R Toe0
+  - first:
+      4: 400052
+    second: NAZDIK_ R Toe1
+  - first:
+      4: 400054
+    second: NAZDIK_ R UpperArm
+  - first:
+      4: 400056
+    second: NAZDIK_ Spine
+  - first:
+      4: 400058
+    second: NAZDIK_ Spine1
+  - first:
+      74: 7400000
+    second: idleStandAiming
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'NAZDIK_
+      L Clavicle' : position error = 9.889398 mm\n\t'NAZDIK_ R Clavicle' : position
+      error = 10.068440 mm\n"
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idleStandAiming
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: NAZDIK_
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ L Toe1
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ R Toe1
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ Queue de cheval 1
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: NAZDIK_ Neck
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: NAZDIK(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_
+      parentName: NAZDIK(Clone)
+      position: {x: -0, y: 0.944, z: -0.027999999}
+      rotation: {x: -0.50000066, y: 0.49999934, z: 0.49999934, w: 0.50000066}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: NAZDIK_ Spine
+      parentName: NAZDIK_
+      position: {x: -0.050977096, y: -0.000000040349526, z: 0.10862808}
+      rotation: {x: 0.5000007, y: -0.4999993, z: -0.5000007, w: -0.4999993}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: NAZDIK_ Spine1
+      parentName: NAZDIK_ Spine
+      position: {x: -0.21074554, y: -0.00025342224, z: -7.0289385e-10}
+      rotation: {x: -1.7177015e-15, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ Neck
+      parentName: NAZDIK_ Spine1
+      position: {x: -0.2793717, y: -0.08394602, z: -0.000000117825515}
+      rotation: {x: -6.2357384e-15, y: 0.00000008567461, z: -0.030889317, w: 0.9995228}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ Head
+      parentName: NAZDIK_ Neck
+      position: {x: -0.106373444, y: -0.017535362, z: -0.00000002411829}
+      rotation: {x: -4.63478e-14, y: 0.000000009205579, z: -0.003318309, w: 0.9999945}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+    - name: NAZDIK_ Queue de cheval 1
+      parentName: NAZDIK_ Head
+      position: {x: -0.06410568, y: 0.1486675, z: -0.00000022352462}
+      rotation: {x: 9.123998e-13, y: 0.0000011030371, z: -0.39769214, w: 0.9175189}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: NAZDIK_ L Clavicle
+      parentName: NAZDIK_ Neck
+      position: {x: 0.004096985, y: 0.04165888, z: 0.04658882}
+      rotation: {x: -0.5836687, y: -0.018271465, z: 0.81138897, w: -0.025397733}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: NAZDIK_ L UpperArm
+      parentName: NAZDIK_ L Clavicle
+      position: {x: -0.2888327, y: 0, z: 0}
+      rotation: {x: -0.019464543, y: 0.12970525, z: 0.022323396, w: 0.9911102}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: NAZDIK_ L Forearm
+      parentName: NAZDIK_ L UpperArm
+      position: {x: -0.43110642, y: 0.0000000047683715, z: 0}
+      rotation: {x: -0.0020397876, y: 0.021716662, z: 0.018246321, w: 0.9995956}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ L Hand
+      parentName: NAZDIK_ L Forearm
+      position: {x: -0.2511787, y: -0.000000019073486, z: 0}
+      rotation: {x: -0.70681417, y: 0.0039543626, z: 0.003951223, w: 0.7073772}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ L Finger0
+      parentName: NAZDIK_ L Hand
+      position: {x: -0.066379815, y: 0.10330383, z: -0.015873842}
+      rotation: {x: 0.49186242, y: -0.35510254, z: -0.50264657, w: 0.6158896}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: NAZDIK_ L Finger1
+      parentName: NAZDIK_ L Hand
+      position: {x: -0.24006328, y: 0.025661621, z: 0.0060298536}
+      rotation: {x: 0.019788383, y: 0.03850717, z: -0.4613245, w: 0.88617456}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: NAZDIK_ R Clavicle
+      parentName: NAZDIK_ Neck
+      position: {x: 0.004096985, y: 0.041659124, z: -0.04658882}
+      rotation: {x: 0.58366853, y: 0.01826921, z: 0.81138897, w: -0.02539947}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ R UpperArm
+      parentName: NAZDIK_ R Clavicle
+      position: {x: -0.28883278, y: 0, z: 0}
+      rotation: {x: 0.019464564, y: -0.12970518, z: 0.022323295, w: 0.9911102}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: NAZDIK_ R Forearm
+      parentName: NAZDIK_ R UpperArm
+      position: {x: -0.43110642, y: 0, z: 0}
+      rotation: {x: 0.0020399408, y: -0.021716474, z: 0.01824619, w: 0.9995956}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: NAZDIK_ R Hand
+      parentName: NAZDIK_ R Forearm
+      position: {x: -0.25117865, y: -0.000000019073486, z: -0.00000015258789}
+      rotation: {x: 0.70681417, y: -0.0039543784, z: 0.0039512073, w: 0.7073772}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: LIGHTNING_GUN
+      parentName: NAZDIK_ R Hand
+      position: {x: -0.8671258, y: -0.1011792, z: 0.30026346}
+      rotation: {x: -0.045589663, y: 0.1524387, z: -0.6337888, w: 0.75696486}
+      scale: {x: 0.93657094, y: 0.9365709, z: 0.936571}
+    - name: NAZDIK_ R Finger0
+      parentName: NAZDIK_ R Hand
+      position: {x: -0.066379696, y: 0.103303984, z: 0.01587386}
+      rotation: {x: -0.49186242, y: 0.35510257, z: -0.50264657, w: 0.61588967}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: NAZDIK_ R Finger1
+      parentName: NAZDIK_ R Hand
+      position: {x: -0.24006313, y: 0.025661621, z: -0.006029825}
+      rotation: {x: -0.019788353, y: -0.038507182, z: -0.4613245, w: 0.88617456}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: NAZDIK_ Pelvis
+      parentName: NAZDIK_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.49999967, y: 0.50000036, z: 0.49999967, w: 0.50000036}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: NAZDIK_ R Thigh
+      parentName: NAZDIK_ Pelvis
+      position: {x: -0.00000015258789, y: -0.00000012874602, z: -0.12259982}
+      rotation: {x: -0.0194145, y: 0.9996844, z: 0.0017798173, w: -0.015844515}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: NAZDIK_ R Calf
+      parentName: NAZDIK_ R Thigh
+      position: {x: -0.42675462, y: 0, z: 0}
+      rotation: {x: -3.7674674e-10, y: 0.000000003706191, z: 0.10113218, w: 0.994873}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: NAZDIK_ R Foot
+      parentName: NAZDIK_ R Calf
+      position: {x: -0.38552627, y: -0.000000009536743, z: 0}
+      rotation: {x: 0.00023645785, y: -0.015121356, z: -0.08178503, w: 0.9965353}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: NAZDIK_ R Toe0
+      parentName: NAZDIK_ R Foot
+      position: {x: -0.13494295, y: -0.14885642, z: -0.0014764023}
+      rotation: {x: 0.7071068, y: 0.7071068, z: -0.000000094156974, w: 0.000000094156974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ R Toe1
+      parentName: NAZDIK_ R Foot
+      position: {x: -0.13519306, y: 0.20979826, z: -0.0058955285}
+      rotation: {x: 0.000000015434628, y: -0.000000015434651, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ L Thigh
+      parentName: NAZDIK_ Pelvis
+      position: {x: 0.00000015258789, y: 0.00000020980835, z: 0.12259982}
+      rotation: {x: -0.019414483, y: 0.9996844, z: -0.001781177, w: 0.015843075}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ L Calf
+      parentName: NAZDIK_ L Thigh
+      position: {x: -0.42675474, y: 0.0000000035762786, z: 0}
+      rotation: {x: -4.326353e-11, y: -0.000000001876642, z: 0.101132184, w: 0.994873}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: NAZDIK_ L Foot
+      parentName: NAZDIK_ L Calf
+      position: {x: -0.38552627, y: 0.000000019073486, z: -0.000000009536743}
+      rotation: {x: -0.00023646493, y: 0.015121266, z: -0.08178504, w: 0.9965353}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: NAZDIK_ L Toe0
+      parentName: NAZDIK_ L Foot
+      position: {x: -0.13494295, y: -0.14885643, z: 0.0014764023}
+      rotation: {x: 0.7071068, y: 0.7071068, z: 0.000000094156974, w: -0.000000094156974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NAZDIK_ L Toe1
+      parentName: NAZDIK_ L Foot
+      position: {x: -0.13519306, y: 0.20979823, z: 0.0058955094}
+      rotation: {x: -0.000000015434628, y: 0.000000015434651, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: NADZIK
+      parentName: NAZDIK(Clone)
+      position: {x: 0.000000001208619, y: 1.845655, z: -0.0073230267}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f3400118578a5ed49b614d53658077d5,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

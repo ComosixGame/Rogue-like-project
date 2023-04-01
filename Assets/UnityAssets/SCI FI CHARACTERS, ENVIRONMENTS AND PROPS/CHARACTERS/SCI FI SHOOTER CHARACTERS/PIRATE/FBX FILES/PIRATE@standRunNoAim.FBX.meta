@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: 4a350a09190b28c4bb24b79d69772818
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: PIRATE_
+  - first:
+      1: 100004
+    second: PIRATE_ Head
+  - first:
+      1: 100006
+    second: PIRATE_ L Calf
+  - first:
+      1: 100008
+    second: PIRATE_ L Clavicle
+  - first:
+      1: 100010
+    second: PIRATE_ L Foot
+  - first:
+      1: 100012
+    second: PIRATE_ L Forearm
+  - first:
+      1: 100014
+    second: PIRATE_ L Hand
+  - first:
+      1: 100016
+    second: PIRATE_ L Thigh
+  - first:
+      1: 100018
+    second: PIRATE_ L Toe0
+  - first:
+      1: 100020
+    second: PIRATE_ L UpperArm
+  - first:
+      1: 100022
+    second: PIRATE_ Neck
+  - first:
+      1: 100024
+    second: PIRATE_ Pelvis
+  - first:
+      1: 100026
+    second: PIRATE_ R Calf
+  - first:
+      1: 100028
+    second: PIRATE_ R Clavicle
+  - first:
+      1: 100030
+    second: PIRATE_ R Foot
+  - first:
+      1: 100032
+    second: PIRATE_ R Forearm
+  - first:
+      1: 100034
+    second: PIRATE_ R Hand
+  - first:
+      1: 100036
+    second: PIRATE_ R Thigh
+  - first:
+      1: 100038
+    second: PIRATE_ R Toe0
+  - first:
+      1: 100040
+    second: PIRATE_ R UpperArm
+  - first:
+      1: 100042
+    second: PIRATE_ Spine
+  - first:
+      1: 100044
+    second: PIRATE_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: PIRATE_
+  - first:
+      4: 400004
+    second: PIRATE_ Head
+  - first:
+      4: 400006
+    second: PIRATE_ L Calf
+  - first:
+      4: 400008
+    second: PIRATE_ L Clavicle
+  - first:
+      4: 400010
+    second: PIRATE_ L Foot
+  - first:
+      4: 400012
+    second: PIRATE_ L Forearm
+  - first:
+      4: 400014
+    second: PIRATE_ L Hand
+  - first:
+      4: 400016
+    second: PIRATE_ L Thigh
+  - first:
+      4: 400018
+    second: PIRATE_ L Toe0
+  - first:
+      4: 400020
+    second: PIRATE_ L UpperArm
+  - first:
+      4: 400022
+    second: PIRATE_ Neck
+  - first:
+      4: 400024
+    second: PIRATE_ Pelvis
+  - first:
+      4: 400026
+    second: PIRATE_ R Calf
+  - first:
+      4: 400028
+    second: PIRATE_ R Clavicle
+  - first:
+      4: 400030
+    second: PIRATE_ R Foot
+  - first:
+      4: 400032
+    second: PIRATE_ R Forearm
+  - first:
+      4: 400034
+    second: PIRATE_ R Hand
+  - first:
+      4: 400036
+    second: PIRATE_ R Thigh
+  - first:
+      4: 400038
+    second: PIRATE_ R Toe0
+  - first:
+      4: 400040
+    second: PIRATE_ R UpperArm
+  - first:
+      4: 400042
+    second: PIRATE_ Spine
+  - first:
+      4: 400044
+    second: PIRATE_ Spine1
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'PIRATE_ Pelvis' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: PIRATE@standRunNoAim(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_
+      parentName: PIRATE@standRunNoAim(Clone)
+      position: {x: 0.0000000055879354, y: 0.8660555, z: -0.004960437}
+      rotation: {x: -0.42403087, y: 0.42403024, z: 0.5658603, w: 0.56586075}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: PIRATE_ Pelvis
+      parentName: PIRATE_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.46067315, y: 0.5364515, z: 0.46067315, w: 0.5364515}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_ R Thigh
+      parentName: PIRATE_ Pelvis
+      position: {x: -0.00000015258789, y: -0.000000114440915, z: -0.11536316}
+      rotation: {x: -0.2562394, y: 0.9623437, z: -0.08837705, w: -0.02062933}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: PIRATE_ R Calf
+      parentName: PIRATE_ R Thigh
+      position: {x: -0.41832855, y: -0.000000038146972, z: 0}
+      rotation: {x: -0.002500207, y: 0.0058227396, z: 0.34682253, w: 0.93790936}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: PIRATE_ R Foot
+      parentName: PIRATE_ R Calf
+      position: {x: -0.36729938, y: 0.000000009536743, z: -0.000000019073486}
+      rotation: {x: -0.026782334, y: 0.0012575336, z: -0.23437718, w: 0.971776}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: PIRATE_ R Toe0
+      parentName: PIRATE_ R Foot
+      position: {x: -0.14467236, y: 0.17582825, z: -0.000000019073486}
+      rotation: {x: -0.0000008180991, y: -0.0000030077501, z: -0.7071085, w: 0.70710504}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: PIRATE_ L Thigh
+      parentName: PIRATE_ Pelvis
+      position: {x: 0.00000015258789, y: 0.00000019073485, z: 0.11536316}
+      rotation: {x: -0.062678896, y: 0.9956612, z: -0.06870161, w: 0.0031962893}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: PIRATE_ L Calf
+      parentName: PIRATE_ L Thigh
+      position: {x: -0.41832855, y: -0.000000009536743, z: 0.000000009536743}
+      rotation: {x: 0.016256751, y: -0.014223708, z: 0.12581913, w: 0.991818}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: PIRATE_ L Foot
+      parentName: PIRATE_ L Calf
+      position: {x: -0.3672994, y: -0.000000038146972, z: 0.000000019073486}
+      rotation: {x: 0.30077597, y: -0.94359004, z: 0.092929944, w: 0.1026433}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: PIRATE_ L Toe0
+      parentName: PIRATE_ L Foot
+      position: {x: -0.1446724, y: 0.17582822, z: 0.0000000047683715}
+      rotation: {x: -0.0000003312481, y: -0.00000030474135, z: -0.7071072, w: 0.7071064}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: PIRATE_ Spine
+      parentName: PIRATE_
+      position: {x: 0.00017103195, y: 0.000016591548, z: 0.096237026}
+      rotation: {x: -0.55348736, y: 0.44289464, z: 0.49147952, w: 0.505909}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_ Spine1
+      parentName: PIRATE_ Spine
+      position: {x: -0.21755233, y: -0.00017105103, z: 0.000016593933}
+      rotation: {x: -0.048080057, y: -0.000513542, z: -0.062385835, w: 0.9968932}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+    - name: PIRATE_ Neck
+      parentName: PIRATE_ Spine1
+      position: {x: -0.21752211, y: -0.025361633, z: -0.000000038146972}
+      rotation: {x: -0.00044360006, y: -0.008791552, z: 0.019279242, w: 0.99977547}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_ L Clavicle
+      parentName: PIRATE_ Neck
+      position: {x: 0.059019547, y: 0.03151123, z: 0.08080317}
+      rotation: {x: -0.620896, y: 0.006715478, z: 0.7824189, w: -0.04757855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_ L UpperArm
+      parentName: PIRATE_ L Clavicle
+      position: {x: -0.13035782, y: 0, z: 0}
+      rotation: {x: 0.11243024, y: 0.075814985, z: -0.13523138, w: 0.9814908}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: PIRATE_ L Forearm
+      parentName: PIRATE_ L UpperArm
+      position: {x: -0.276612, y: 0, z: 0.000000038146972}
+      rotation: {x: -0.0009589788, y: 0.0033558, z: 0.023113113, w: 0.9997268}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PIRATE_ L Hand
+      parentName: PIRATE_ L Forearm
+      position: {x: -0.25314486, y: 0, z: 0.000000076293944}
+      rotation: {x: 0.9907428, y: 0.054570932, z: -0.11183717, w: 0.05425156}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: PIRATE_ R Clavicle
+      parentName: PIRATE_ Neck
+      position: {x: 0.059019547, y: 0.031511612, z: -0.08080307}
+      rotation: {x: 0.59960437, y: -0.09624184, z: 0.78351784, w: -0.13157539}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: PIRATE_ R UpperArm
+      parentName: PIRATE_ R Clavicle
+      position: {x: -0.13035783, y: 0, z: 0.000000076293944}
+      rotation: {x: -0.24715036, y: -0.11012636, z: -0.11104998, w: 0.9562724}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: PIRATE_ R Forearm
+      parentName: PIRATE_ R UpperArm
+      position: {x: -0.276612, y: -0.000000076293944, z: 0}
+      rotation: {x: 0.05067458, y: -0.024191592, z: 0.00836239, w: 0.99838716}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
+    - name: PIRATE_ R Hand
+      parentName: PIRATE_ R Forearm
+      position: {x: -0.25314492, y: 0, z: 0.000000076293944}
+      rotation: {x: 0.9141812, y: 0.12163525, z: -0.15182266, w: 0.35556656}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: PIRATE_ Head
+      parentName: PIRATE_ Neck
+      position: {x: -0.14282447, y: -0.000000038146972, z: 0.000000009536743}
+      rotation: {x: 0.09464484, y: 0.015259698, z: 0.07646161, w: 0.9924531}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 1
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

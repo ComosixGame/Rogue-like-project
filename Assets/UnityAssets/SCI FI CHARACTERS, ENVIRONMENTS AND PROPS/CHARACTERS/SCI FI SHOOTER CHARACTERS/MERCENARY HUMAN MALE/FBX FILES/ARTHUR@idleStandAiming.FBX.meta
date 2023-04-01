@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 2c04b59c24eac6e4cbad70b006ccf3d9
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: ARTHUR_
+  - first:
+      1: 100004
+    second: ARTHUR_ Head
+  - first:
+      1: 100006
+    second: ARTHUR_ L Calf
+  - first:
+      1: 100008
+    second: ARTHUR_ L Clavicle
+  - first:
+      1: 100010
+    second: ARTHUR_ L Finger0
+  - first:
+      1: 100012
+    second: ARTHUR_ L Finger01
+  - first:
+      1: 100014
+    second: ARTHUR_ L Finger1
+  - first:
+      1: 100016
+    second: ARTHUR_ L Finger11
+  - first:
+      1: 100018
+    second: ARTHUR_ L Foot
+  - first:
+      1: 100020
+    second: ARTHUR_ L Forearm
+  - first:
+      1: 100022
+    second: ARTHUR_ L Hand
+  - first:
+      1: 100024
+    second: ARTHUR_ L Thigh
+  - first:
+      1: 100026
+    second: ARTHUR_ L Toe0
+  - first:
+      1: 100028
+    second: ARTHUR_ L UpperArm
+  - first:
+      1: 100030
+    second: ARTHUR_ Neck
+  - first:
+      1: 100032
+    second: ARTHUR_ Pelvis
+  - first:
+      1: 100034
+    second: ARTHUR_ Queue de cheval 1
+  - first:
+      1: 100036
+    second: ARTHUR_ R Calf
+  - first:
+      1: 100038
+    second: ARTHUR_ R Clavicle
+  - first:
+      1: 100040
+    second: ARTHUR_ R Finger0
+  - first:
+      1: 100042
+    second: ARTHUR_ R Finger01
+  - first:
+      1: 100044
+    second: ARTHUR_ R Finger1
+  - first:
+      1: 100046
+    second: ARTHUR_ R Finger11
+  - first:
+      1: 100048
+    second: ARTHUR_ R Foot
+  - first:
+      1: 100050
+    second: ARTHUR_ R Forearm
+  - first:
+      1: 100052
+    second: ARTHUR_ R Hand
+  - first:
+      1: 100054
+    second: ARTHUR_ R Thigh
+  - first:
+      1: 100056
+    second: ARTHUR_ R Toe0
+  - first:
+      1: 100058
+    second: ARTHUR_ R UpperArm
+  - first:
+      1: 100060
+    second: ARTHUR_ Spine
+  - first:
+      1: 100062
+    second: ARTHUR_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: ARTHUR_
+  - first:
+      4: 400004
+    second: ARTHUR_ Head
+  - first:
+      4: 400006
+    second: ARTHUR_ L Calf
+  - first:
+      4: 400008
+    second: ARTHUR_ L Clavicle
+  - first:
+      4: 400010
+    second: ARTHUR_ L Finger0
+  - first:
+      4: 400012
+    second: ARTHUR_ L Finger01
+  - first:
+      4: 400014
+    second: ARTHUR_ L Finger1
+  - first:
+      4: 400016
+    second: ARTHUR_ L Finger11
+  - first:
+      4: 400018
+    second: ARTHUR_ L Foot
+  - first:
+      4: 400020
+    second: ARTHUR_ L Forearm
+  - first:
+      4: 400022
+    second: ARTHUR_ L Hand
+  - first:
+      4: 400024
+    second: ARTHUR_ L Thigh
+  - first:
+      4: 400026
+    second: ARTHUR_ L Toe0
+  - first:
+      4: 400028
+    second: ARTHUR_ L UpperArm
+  - first:
+      4: 400030
+    second: ARTHUR_ Neck
+  - first:
+      4: 400032
+    second: ARTHUR_ Pelvis
+  - first:
+      4: 400034
+    second: ARTHUR_ Queue de cheval 1
+  - first:
+      4: 400036
+    second: ARTHUR_ R Calf
+  - first:
+      4: 400038
+    second: ARTHUR_ R Clavicle
+  - first:
+      4: 400040
+    second: ARTHUR_ R Finger0
+  - first:
+      4: 400042
+    second: ARTHUR_ R Finger01
+  - first:
+      4: 400044
+    second: ARTHUR_ R Finger1
+  - first:
+      4: 400046
+    second: ARTHUR_ R Finger11
+  - first:
+      4: 400048
+    second: ARTHUR_ R Foot
+  - first:
+      4: 400050
+    second: ARTHUR_ R Forearm
+  - first:
+      4: 400052
+    second: ARTHUR_ R Hand
+  - first:
+      4: 400054
+    second: ARTHUR_ R Thigh
+  - first:
+      4: 400056
+    second: ARTHUR_ R Toe0
+  - first:
+      4: 400058
+    second: ARTHUR_ R UpperArm
+  - first:
+      4: 400060
+    second: ARTHUR_ Spine
+  - first:
+      4: 400062
+    second: ARTHUR_ Spine1
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: ARTHUR@idleStandAiming(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.0042347107, y: -0.052106887, z: 0.0003587862, w: 0.9986325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ARTHUR_
+      parentName: ARTHUR@idleStandAiming(Clone)
+      position: {x: -0, y: 1.0218623, z: -0.052035995}
+      rotation: {x: -0.47326747, y: 0.52537405, z: 0.52537405, w: 0.47326747}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ARTHUR_ Pelvis
+      parentName: ARTHUR_
+      position: {x: -0.00046595943, y: -0.000015098602, z: 0.054847956}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: ARTHUR_ Spine
+      parentName: ARTHUR_ Pelvis
+      position: {x: -0.108628005, y: -0.0001320362, z: -0.00023549079}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: ARTHUR_ Spine1
+      parentName: ARTHUR_ Spine
+      position: {x: -0.23943847, y: -0.00013876437, z: 0.00008738994}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: ARTHUR_ Neck
+      parentName: ARTHUR_ Spine1
+      position: {x: -0.23780654, y: -0.000095348354, z: -0.000000009536743}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: ARTHUR_ L Clavicle
+      parentName: ARTHUR_ Neck
+      position: {x: 0.047724456, y: 0.0049378965, z: 0.043369006}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: ARTHUR_ L UpperArm
+      parentName: ARTHUR_ L Clavicle
+      position: {x: -0.15995415, y: 0.000000009536743, z: 0.00000015258789}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.99999994}
+    - name: ARTHUR_ L Forearm
+      parentName: ARTHUR_ L UpperArm
+      position: {x: -0.34131232, y: 0, z: 0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: ARTHUR_ L Hand
+      parentName: ARTHUR_ L Forearm
+      position: {x: -0.2630004, y: -0.000000038146972, z: 0.000000019073486}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: ARTHUR_ L Finger0
+      parentName: ARTHUR_ L Hand
+      position: {x: -0.08157905, y: -0.0036766052, z: -0.076906644}
+      rotation: {x: 0, y: 0.3826835, z: 0, w: -0.9238795}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ARTHUR_ L Finger01
+      parentName: ARTHUR_ L Finger0
+      position: {x: -0.043121338, y: -0.000000019073486, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999976, y: 0.99999994, z: 0.99999994}
+    - name: ARTHUR_ L Finger1
+      parentName: ARTHUR_ L Hand
+      position: {x: -0.16751571, y: -0.008237228, z: 0.0036819647}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: ARTHUR_ L Finger11
+      parentName: ARTHUR_ L Finger1
+      position: {x: -0.032168426, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: ARTHUR_ R Clavicle
+      parentName: ARTHUR_ Neck
+      position: {x: 0.04772461, y: 0.0049381256, z: -0.04336897}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: ARTHUR_ R UpperArm
+      parentName: ARTHUR_ R Clavicle
+      position: {x: -0.15995422, y: -0.000000009536743, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: ARTHUR_ R Forearm
+      parentName: ARTHUR_ R UpperArm
+      position: {x: -0.3413123, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: ARTHUR_ R Hand
+      parentName: ARTHUR_ R Forearm
+      position: {x: -0.26300055, y: -0.000000038146972, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1}
+    - name: ARTHUR_ R Finger0
+      parentName: ARTHUR_ R Hand
+      position: {x: -0.08157908, y: -0.0036767195, z: 0.076906584}
+      rotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: ARTHUR_ R Finger01
+      parentName: ARTHUR_ R Finger0
+      position: {x: -0.043121375, y: 0.00000015258789, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: ARTHUR_ R Finger1
+      parentName: ARTHUR_ R Hand
+      position: {x: -0.16751564, y: -0.008237342, z: -0.0036816406}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: ARTHUR_ R Finger11
+      parentName: ARTHUR_ R Finger1
+      position: {x: -0.032168426, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: ARTHUR_ Head
+      parentName: ARTHUR_ Neck
+      position: {x: -0.089826204, y: 0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: ARTHUR_ Queue de cheval 1
+      parentName: ARTHUR_ Head
+      position: {x: -0.032152403, y: 0.040203303, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: ARTHUR_ R Thigh
+      parentName: ARTHUR_ Pelvis
+      position: {x: -0.00000015258789, y: -0.0000001335144, z: -0.1225998}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
+    - name: ARTHUR_ R Calf
+      parentName: ARTHUR_ R Thigh
+      position: {x: -0.5175491, y: -0.000000009536743, z: -0.000000019073486}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: ARTHUR_ R Foot
+      parentName: ARTHUR_ R Calf
+      position: {x: -0.4200673, y: -0.000000019073486, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: ARTHUR_ R Toe0
+      parentName: ARTHUR_ R Foot
+      position: {x: -0.108628035, y: 0.15492535, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ARTHUR_ L Thigh
+      parentName: ARTHUR_ Pelvis
+      position: {x: 0.00000015258789, y: 0.00000020503997, z: 0.12259985}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1}
+    - name: ARTHUR_ L Calf
+      parentName: ARTHUR_ L Thigh
+      position: {x: -0.5175491, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: ARTHUR_ L Foot
+      parentName: ARTHUR_ L Calf
+      position: {x: -0.4200673, y: 0.000000009536743, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ARTHUR_ L Toe0
+      parentName: ARTHUR_ L Foot
+      position: {x: -0.108628035, y: 0.15492535, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 1
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

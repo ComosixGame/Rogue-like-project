@@ -1,0 +1,692 @@
+fileFormatVersion: 2
+guid: 291e3e04b7501154e9016bad0b2eedb3
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: GASTAROID_
+  - first:
+      1: 100004
+    second: GASTAROID_ Head
+  - first:
+      1: 100006
+    second: GASTAROID_ L Calf
+  - first:
+      1: 100008
+    second: GASTAROID_ L Clavicle
+  - first:
+      1: 100010
+    second: GASTAROID_ L Foot
+  - first:
+      1: 100012
+    second: GASTAROID_ L Forearm
+  - first:
+      1: 100014
+    second: GASTAROID_ L Hand
+  - first:
+      1: 100016
+    second: GASTAROID_ L HorseLink
+  - first:
+      1: 100018
+    second: GASTAROID_ L Thigh
+  - first:
+      1: 100020
+    second: GASTAROID_ L Toe0
+  - first:
+      1: 100022
+    second: GASTAROID_ L UpperArm
+  - first:
+      1: 100024
+    second: GASTAROID_ Neck
+  - first:
+      1: 100026
+    second: GASTAROID_ Neck1
+  - first:
+      1: 100028
+    second: GASTAROID_ Neck2
+  - first:
+      1: 100030
+    second: GASTAROID_ Pelvis
+  - first:
+      1: 100032
+    second: GASTAROID_ Queue de cheval 1
+  - first:
+      1: 100034
+    second: GASTAROID_ R Calf
+  - first:
+      1: 100036
+    second: GASTAROID_ R Clavicle
+  - first:
+      1: 100038
+    second: GASTAROID_ R Foot
+  - first:
+      1: 100040
+    second: GASTAROID_ R Forearm
+  - first:
+      1: 100042
+    second: GASTAROID_ R Hand
+  - first:
+      1: 100044
+    second: GASTAROID_ R HorseLink
+  - first:
+      1: 100046
+    second: GASTAROID_ R Thigh
+  - first:
+      1: 100048
+    second: GASTAROID_ R Toe0
+  - first:
+      1: 100050
+    second: GASTAROID_ R UpperArm
+  - first:
+      1: 100052
+    second: GASTAROID_ Spine
+  - first:
+      1: 100054
+    second: GASTAROID_ Spine1
+  - first:
+      1: 100056
+    second: GASTAROID_ Tail
+  - first:
+      1: 100058
+    second: GASTAROID_ Tail1
+  - first:
+      1: 100060
+    second: GASTAROID_ Tail2
+  - first:
+      1: 100062
+    second: GASTAROID_ Tail3
+  - first:
+      1: 100064
+    second: GASTAROID_ Tail4
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: GASTAROID_
+  - first:
+      4: 400004
+    second: GASTAROID_ Head
+  - first:
+      4: 400006
+    second: GASTAROID_ L Calf
+  - first:
+      4: 400008
+    second: GASTAROID_ L Clavicle
+  - first:
+      4: 400010
+    second: GASTAROID_ L Foot
+  - first:
+      4: 400012
+    second: GASTAROID_ L Forearm
+  - first:
+      4: 400014
+    second: GASTAROID_ L Hand
+  - first:
+      4: 400016
+    second: GASTAROID_ L HorseLink
+  - first:
+      4: 400018
+    second: GASTAROID_ L Thigh
+  - first:
+      4: 400020
+    second: GASTAROID_ L Toe0
+  - first:
+      4: 400022
+    second: GASTAROID_ L UpperArm
+  - first:
+      4: 400024
+    second: GASTAROID_ Neck
+  - first:
+      4: 400026
+    second: GASTAROID_ Neck1
+  - first:
+      4: 400028
+    second: GASTAROID_ Neck2
+  - first:
+      4: 400030
+    second: GASTAROID_ Pelvis
+  - first:
+      4: 400032
+    second: GASTAROID_ Queue de cheval 1
+  - first:
+      4: 400034
+    second: GASTAROID_ R Calf
+  - first:
+      4: 400036
+    second: GASTAROID_ R Clavicle
+  - first:
+      4: 400038
+    second: GASTAROID_ R Foot
+  - first:
+      4: 400040
+    second: GASTAROID_ R Forearm
+  - first:
+      4: 400042
+    second: GASTAROID_ R Hand
+  - first:
+      4: 400044
+    second: GASTAROID_ R HorseLink
+  - first:
+      4: 400046
+    second: GASTAROID_ R Thigh
+  - first:
+      4: 400048
+    second: GASTAROID_ R Toe0
+  - first:
+      4: 400050
+    second: GASTAROID_ R UpperArm
+  - first:
+      4: 400052
+    second: GASTAROID_ Spine
+  - first:
+      4: 400054
+    second: GASTAROID_ Spine1
+  - first:
+      4: 400056
+    second: GASTAROID_ Tail
+  - first:
+      4: 400058
+    second: GASTAROID_ Tail1
+  - first:
+      4: 400060
+    second: GASTAROID_ Tail2
+  - first:
+      4: 400062
+    second: GASTAROID_ Tail3
+  - first:
+      4: 400064
+    second: GASTAROID_ Tail4
+  - first:
+      74: 7400000
+    second: idle
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'GASTAROID_
+      L Thigh' : position error = 24.920662 mm\n\t'GASTAROID_ R Thigh' : position
+      error = 24.920628 mm\nCopied Avatar Rig Configuration mis-match. Inbetween
+      bone rotation in copied configuration does not match rotation in animation
+      file:\n\t'GASTAROID_ L HorseLink' : rotation error = 88.092278 deg\n\t'GASTAROID_
+      R HorseLink' : rotation error = 70.097939 deg\n"
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\n\t'GASTAROID_ Neck1' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'GASTAROID_
+      Neck2' is inbetween humanoid transforms and has rotation animation that will
+      be discarded.\n\t'GASTAROID_ L HorseLink' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'GASTAROID_ R HorseLink'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: GASTAROID_ Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ L Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: GASTAROID_ R Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: GASTAROID(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0.0000009095804, z: 0.0000009095804, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GASTAROID
+      parentName: GASTAROID(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GASTAROID_
+      parentName: GASTAROID(Clone)
+      position: {x: -0, y: 1.4891692, z: -0.35333747}
+      rotation: {x: -0.14942056, y: 0.1494204, z: 0.69113886, w: 0.6911398}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: GASTAROID_ Pelvis
+      parentName: GASTAROID_
+      position: {x: -2.104633, y: 0.0000011920929, z: 1.0217613}
+      rotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: GASTAROID_ Spine
+      parentName: GASTAROID_ Pelvis
+      position: {x: -0.22915454, y: -0.041392364, z: 0.0000003960612}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: GASTAROID_ L Thigh
+      parentName: GASTAROID_ Spine
+      position: {x: 0.2302272, y: 0.034935303, z: 0.29899904}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 0.9999998, y: 1, z: 0.9999999}
+    - name: GASTAROID_ L Calf
+      parentName: GASTAROID_ L Thigh
+      position: {x: -0.70057356, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GASTAROID_ L HorseLink
+      parentName: GASTAROID_ L Calf
+      position: {x: -0.56072, y: 0.000000038146972, z: 0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000001}
+    - name: GASTAROID_ L Foot
+      parentName: GASTAROID_ L HorseLink
+      position: {x: -0.2742142, y: 0.000000019073486, z: -0.000000114440915}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: GASTAROID_ L Toe0
+      parentName: GASTAROID_ L Foot
+      position: {x: -0.09801184, y: 0.2100034, z: 0.0370993}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1.0000004, y: 0.99999994, z: 1.0000004}
+    - name: GASTAROID_ R Thigh
+      parentName: GASTAROID_ Spine
+      position: {x: 0.23022713, y: 0.034936827, z: -0.2989989}
+      rotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+      scale: {x: 1, y: 0.9999998, z: 1.0000002}
+    - name: GASTAROID_ R Calf
+      parentName: GASTAROID_ R Thigh
+      position: {x: -0.70057356, y: -0.000000038146972, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000004}
+    - name: GASTAROID_ R HorseLink
+      parentName: GASTAROID_ R Calf
+      position: {x: -0.56072026, y: 0.000000057220458, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000005}
+    - name: GASTAROID_ R Foot
+      parentName: GASTAROID_ R HorseLink
+      position: {x: -0.27421424, y: -0.000000019073486, z: -0.000000038146972}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
+    - name: GASTAROID_ R Toe0
+      parentName: GASTAROID_ R Foot
+      position: {x: -0.098011814, y: 0.21000335, z: -0.03709938}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: -0.7071068}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000004}
+    - name: GASTAROID_ Spine1
+      parentName: GASTAROID_ Spine
+      position: {x: -0.45017028, y: -0.00035842895, z: -9.938957e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: GASTAROID_ Neck
+      parentName: GASTAROID_ Spine1
+      position: {x: -0.4502011, y: -0.0001712036, z: -4.7512e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000007, y: 1.0000011, z: 1.0000006}
+    - name: GASTAROID_ L Clavicle
+      parentName: GASTAROID_ Neck
+      position: {x: 0.00000015258789, y: 0.00017211914, z: 0.14302723}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: -0.7071068, w: 0.000000030908623}
+      scale: {x: 0.9999996, y: 0.9999996, z: 0.9999996}
+    - name: GASTAROID_ L UpperArm
+      parentName: GASTAROID_ L Clavicle
+      position: {x: -0.33205575, y: 0, z: -0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999998, y: 1.0000005, z: 1.0000005}
+    - name: GASTAROID_ L Forearm
+      parentName: GASTAROID_ L UpperArm
+      position: {x: -0.66381073, y: -0.000000076293944, z: 0.000000076293944}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999997, y: 1.0000001, z: 1.0000002}
+    - name: GASTAROID_ L Hand
+      parentName: GASTAROID_ L Forearm
+      position: {x: -0.61072356, y: 0.00000015258789, z: -0.000000076293944}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000004}
+    - name: GASTAROID_ R Clavicle
+      parentName: GASTAROID_ Neck
+      position: {x: -0, y: 0.00017288208, z: -0.14302722}
+      rotation: {x: 0.7071068, y: -0.000000030908623, z: 0.7071068, w: -0.000000030908623}
+      scale: {x: 0.99999994, y: 0.9999996, z: 0.99999994}
+    - name: GASTAROID_ R UpperArm
+      parentName: GASTAROID_ R Clavicle
+      position: {x: -0.33205575, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999997, y: 1.0000005, z: 1.0000006}
+    - name: GASTAROID_ R Forearm
+      parentName: GASTAROID_ R UpperArm
+      position: {x: -0.66381073, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000004}
+    - name: GASTAROID_ R Hand
+      parentName: GASTAROID_ R Forearm
+      position: {x: -0.6107234, y: 0, z: 0.000000076293944}
+      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: GASTAROID_ Neck1
+      parentName: GASTAROID_ Neck
+      position: {x: -0.21652023, y: -0.00023086548, z: -6.399932e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.9999998}
+    - name: GASTAROID_ Neck2
+      parentName: GASTAROID_ Neck1
+      position: {x: -0.29183182, y: -0.00022842406, z: -6.3329936e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: GASTAROID_ Head
+      parentName: GASTAROID_ Neck2
+      position: {x: -0.29603118, y: -0.030184478, z: -0.000000047728534}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.99999875, y: 0.9999996, z: 0.9999997}
+    - name: GASTAROID_ Queue de cheval 1
+      parentName: GASTAROID_ Head
+      position: {x: -0.020138245, y: 0.09861793, z: -0.00000016653473}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999996, y: 1.0000006, z: 0.99999994}
+    - name: GASTAROID_ Tail
+      parentName: GASTAROID_ Spine
+      position: {x: 0.59412396, y: 0.013894196, z: -0.00000022329928}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000001}
+    - name: GASTAROID_ Tail1
+      parentName: GASTAROID_ Tail
+      position: {x: -0.52533704, y: -0.0004472351, z: -0.0000000012409873}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1.0000001}
+    - name: GASTAROID_ Tail2
+      parentName: GASTAROID_ Tail1
+      position: {x: -0.56189626, y: -0.0004234314, z: -0.0000000011740485}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: GASTAROID_ Tail3
+      parentName: GASTAROID_ Tail2
+      position: {x: -0.5318808, y: -0.00042404173, z: -0.0000000011757947}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
+    - name: GASTAROID_ Tail4
+      parentName: GASTAROID_ Tail3
+      position: {x: -0.5323238, y: -0.0008789062, z: -0.0000000024371547}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 0.9999998, y: 1, z: 0.9999998}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 15f5ea9e92a93df4583acc736458c6be,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

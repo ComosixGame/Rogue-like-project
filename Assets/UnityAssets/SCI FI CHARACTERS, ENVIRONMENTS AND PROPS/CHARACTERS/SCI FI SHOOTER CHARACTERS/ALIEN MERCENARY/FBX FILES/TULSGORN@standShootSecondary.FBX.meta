@@ -1,0 +1,709 @@
+fileFormatVersion: 2
+guid: 51cb267cab9cdbd4ebf2e3c0c5f813da
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: TULSGORN_
+  - first:
+      1: 100004
+    second: TULSGORN_ Head
+  - first:
+      1: 100006
+    second: TULSGORN_ L Calf
+  - first:
+      1: 100008
+    second: TULSGORN_ L Clavicle
+  - first:
+      1: 100010
+    second: TULSGORN_ L Finger0
+  - first:
+      1: 100012
+    second: TULSGORN_ L Finger01
+  - first:
+      1: 100014
+    second: TULSGORN_ L Finger1
+  - first:
+      1: 100016
+    second: TULSGORN_ L Finger11
+  - first:
+      1: 100018
+    second: TULSGORN_ L Foot
+  - first:
+      1: 100020
+    second: TULSGORN_ L Forearm
+  - first:
+      1: 100022
+    second: TULSGORN_ L Hand
+  - first:
+      1: 100024
+    second: TULSGORN_ L Thigh
+  - first:
+      1: 100026
+    second: TULSGORN_ L Toe0
+  - first:
+      1: 100028
+    second: TULSGORN_ L UpperArm
+  - first:
+      1: 100030
+    second: TULSGORN_ Neck
+  - first:
+      1: 100032
+    second: TULSGORN_ Pelvis
+  - first:
+      1: 100034
+    second: TULSGORN_ Queue de cheval 1
+  - first:
+      1: 100036
+    second: TULSGORN_ R Calf
+  - first:
+      1: 100038
+    second: TULSGORN_ R Clavicle
+  - first:
+      1: 100040
+    second: TULSGORN_ R Finger0
+  - first:
+      1: 100042
+    second: TULSGORN_ R Finger01
+  - first:
+      1: 100044
+    second: TULSGORN_ R Finger1
+  - first:
+      1: 100046
+    second: TULSGORN_ R Finger11
+  - first:
+      1: 100048
+    second: TULSGORN_ R Foot
+  - first:
+      1: 100050
+    second: TULSGORN_ R Forearm
+  - first:
+      1: 100052
+    second: TULSGORN_ R Hand
+  - first:
+      1: 100054
+    second: TULSGORN_ R Thigh
+  - first:
+      1: 100056
+    second: TULSGORN_ R Toe0
+  - first:
+      1: 100058
+    second: TULSGORN_ R UpperArm
+  - first:
+      1: 100060
+    second: TULSGORN_ Spine
+  - first:
+      1: 100062
+    second: TULSGORN_ Spine1
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: TULSGORN_
+  - first:
+      4: 400004
+    second: TULSGORN_ Head
+  - first:
+      4: 400006
+    second: TULSGORN_ L Calf
+  - first:
+      4: 400008
+    second: TULSGORN_ L Clavicle
+  - first:
+      4: 400010
+    second: TULSGORN_ L Finger0
+  - first:
+      4: 400012
+    second: TULSGORN_ L Finger01
+  - first:
+      4: 400014
+    second: TULSGORN_ L Finger1
+  - first:
+      4: 400016
+    second: TULSGORN_ L Finger11
+  - first:
+      4: 400018
+    second: TULSGORN_ L Foot
+  - first:
+      4: 400020
+    second: TULSGORN_ L Forearm
+  - first:
+      4: 400022
+    second: TULSGORN_ L Hand
+  - first:
+      4: 400024
+    second: TULSGORN_ L Thigh
+  - first:
+      4: 400026
+    second: TULSGORN_ L Toe0
+  - first:
+      4: 400028
+    second: TULSGORN_ L UpperArm
+  - first:
+      4: 400030
+    second: TULSGORN_ Neck
+  - first:
+      4: 400032
+    second: TULSGORN_ Pelvis
+  - first:
+      4: 400034
+    second: TULSGORN_ Queue de cheval 1
+  - first:
+      4: 400036
+    second: TULSGORN_ R Calf
+  - first:
+      4: 400038
+    second: TULSGORN_ R Clavicle
+  - first:
+      4: 400040
+    second: TULSGORN_ R Finger0
+  - first:
+      4: 400042
+    second: TULSGORN_ R Finger01
+  - first:
+      4: 400044
+    second: TULSGORN_ R Finger1
+  - first:
+      4: 400046
+    second: TULSGORN_ R Finger11
+  - first:
+      4: 400048
+    second: TULSGORN_ R Foot
+  - first:
+      4: 400050
+    second: TULSGORN_ R Forearm
+  - first:
+      4: 400052
+    second: TULSGORN_ R Hand
+  - first:
+      4: 400054
+    second: TULSGORN_ R Thigh
+  - first:
+      4: 400056
+    second: TULSGORN_ R Toe0
+  - first:
+      4: 400058
+    second: TULSGORN_ R UpperArm
+  - first:
+      4: 400060
+    second: TULSGORN_ Spine
+  - first:
+      4: 400062
+    second: TULSGORN_ Spine1
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'TULSGORN_ Spine1' has translation animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: TULSGORN_
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ Queue de cheval 1
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Finger1
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Finger11
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Finger0
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ L Finger01
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Finger0
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Finger01
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Finger1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ R Finger11
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: TULSGORN_ Neck
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: TULSGORN@standShootSecondary(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_
+      parentName: TULSGORN@standShootSecondary(Clone)
+      position: {x: -0, y: 0.9235928, z: -0.048665266}
+      rotation: {x: -0.671668, y: 0.29982328, z: 0.29592612, w: 0.6094225}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ Pelvis
+      parentName: TULSGORN_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.6186703, y: -0.34399426, z: -0.61751425, w: -0.34291568}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ R Thigh
+      parentName: TULSGORN_ Pelvis
+      position: {x: -0.00000015258789, y: -0.0000001335144, z: -0.1225998}
+      rotation: {x: -0.063463196, y: 0.9613852, z: 0.26464924, w: -0.040886797}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: TULSGORN_ R Calf
+      parentName: TULSGORN_ R Thigh
+      position: {x: -0.4446309, y: -0.0000000047683715, z: 0}
+      rotation: {x: -0.000000008351773, y: 0.0000000098817345, z: 0.17273961, w: 0.9849675}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: TULSGORN_ R Foot
+      parentName: TULSGORN_ R Calf
+      position: {x: -0.36149713, y: 0, z: 0}
+      rotation: {x: 0.16898291, y: -0.07377541, z: -0.108700514, w: 0.9768245}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: TULSGORN_ R Toe0
+      parentName: TULSGORN_ R Foot
+      position: {x: -0.13507406, y: 0.20134746, z: 0}
+      rotation: {x: 0.0000015370425, y: -0.0000005926919, z: -0.70710784, w: 0.70710576}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: TULSGORN_ L Thigh
+      parentName: TULSGORN_ Pelvis
+      position: {x: 0.00000015258789, y: 0.00000019788742, z: 0.12259985}
+      rotation: {x: -0.075874984, y: 0.9500094, z: 0.2849292, w: 0.10266727}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999999}
+    - name: TULSGORN_ L Calf
+      parentName: TULSGORN_ L Thigh
+      position: {x: -0.4446309, y: 0, z: 0.000000019073486}
+      rotation: {x: -0.000000007158092, y: -9.2608743e-10, z: 0.12830694, w: 0.9917345}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: TULSGORN_ L Foot
+      parentName: TULSGORN_ L Calf
+      position: {x: -0.36149722, y: 0.000000009536743, z: -0.000000019073486}
+      rotation: {x: 0.16952737, y: 0.076153435, z: -0.011841148, w: 0.98250747}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: TULSGORN_ L Toe0
+      parentName: TULSGORN_ L Foot
+      position: {x: -0.13507406, y: 0.20134744, z: 0}
+      rotation: {x: 0.00000047745, y: -0.0000011117821, z: -0.70710725, w: 0.7071063}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ Spine
+      parentName: TULSGORN_
+      position: {x: 0.022061829, y: 0.00006596595, z: 0.108631514}
+      rotation: {x: -0.5621218, y: 0.40839744, z: 0.5751692, w: 0.43175346}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ Spine1
+      parentName: TULSGORN_ Spine
+      position: {x: -0.2820243, y: -0.0001856327, z: 0.000052456853}
+      rotation: {x: -0.13506198, y: 0.019265382, z: -0.06875639, w: 0.9882609}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.99999994}
+    - name: TULSGORN_ Neck
+      parentName: TULSGORN_ Spine1
+      position: {x: -0.29174972, y: -0.019034022, z: 0.00001674652}
+      rotation: {x: -0.08372951, y: 0.004157801, z: -0.05021261, w: 0.995214}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: TULSGORN_ L Clavicle
+      parentName: TULSGORN_ Neck
+      position: {x: 0.06729431, y: 0.016485976, z: 0.058062512}
+      rotation: {x: -0.68224037, y: 0.05997921, z: 0.7198831, w: -0.112777986}
+      scale: {x: 1, y: 0.9999999, z: 0.99999994}
+    - name: TULSGORN_ L UpperArm
+      parentName: TULSGORN_ L Clavicle
+      position: {x: -0.1804675, y: 0, z: 0.00000015258789}
+      rotation: {x: -0.18830141, y: 0.091114916, z: -0.11877019, w: 0.970636}
+      scale: {x: 0.9999998, y: 1, z: 0.99999994}
+    - name: TULSGORN_ L Forearm
+      parentName: TULSGORN_ L UpperArm
+      position: {x: -0.3413124, y: -0.000000038146972, z: 0}
+      rotation: {x: -0.0047398508, y: 0.013506256, z: 0.023535898, w: 0.99962056}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: TULSGORN_ L Hand
+      parentName: TULSGORN_ L Forearm
+      position: {x: -0.2630005, y: -0.000000076293944, z: 0}
+      rotation: {x: 0.9020886, y: 0.19344313, z: 0.38471195, w: -0.028507557}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: TULSGORN_ L Finger0
+      parentName: TULSGORN_ L Hand
+      position: {x: -0.11179445, y: 0.021235961, z: -0.1026902}
+      rotation: {x: 0.5403154, y: -0.40167224, z: 0.10775742, w: 0.73151016}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
+    - name: TULSGORN_ L Finger01
+      parentName: TULSGORN_ L Finger0
+      position: {x: -0.056608275, y: 0, z: 0.000000038146972}
+      rotation: {x: 0.0000000072663493, y: 0.000000001646608, z: 0.22100398, w: 0.9752729}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+    - name: TULSGORN_ L Finger1
+      parentName: TULSGORN_ L Hand
+      position: {x: -0.20308773, y: 0.003766327, z: 0.0144844055}
+      rotation: {x: -0.24255942, y: -0.26160684, z: -0.1764154, w: 0.91739005}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: TULSGORN_ L Finger11
+      parentName: TULSGORN_ L Finger1
+      position: {x: -0.051178053, y: 0, z: 0}
+      rotation: {x: -0.04307511, y: 0.030349325, z: -0.580865, w: 0.8122926}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: TULSGORN_ R Clavicle
+      parentName: TULSGORN_ Neck
+      position: {x: 0.067279816, y: 0.03470337, z: -0.04944017}
+      rotation: {x: 0.66542745, y: 0.045232274, z: 0.7446245, w: -0.026357966}
+      scale: {x: 0.99999994, y: 0.9999998, z: 0.9999998}
+    - name: TULSGORN_ R UpperArm
+      parentName: TULSGORN_ R Clavicle
+      position: {x: -0.1804675, y: -0.000000019073486, z: 0}
+      rotation: {x: -0.47569358, y: 0.00033555648, z: 0.041315574, w: 0.8786402}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ R Forearm
+      parentName: TULSGORN_ R UpperArm
+      position: {x: -0.3413122, y: 0, z: 0}
+      rotation: {x: 0.015723376, y: -0.0154009955, z: -0.01927382, w: 0.99957204}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: TULSGORN_ R Hand
+      parentName: TULSGORN_ R Forearm
+      position: {x: -0.26300064, y: 0.000000038146972, z: 0}
+      rotation: {x: 0.7658822, y: 0.073837765, z: 0.18281619, w: 0.6120056}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: TULSGORN_ R Finger0
+      parentName: TULSGORN_ R Hand
+      position: {x: -0.11179447, y: 0.021235924, z: 0.1026902}
+      rotation: {x: -0.70142174, y: 0.037723687, z: -0.072574176, w: 0.70803773}
+      scale: {x: 0.9999998, y: 0.9999998, z: 1}
+    - name: TULSGORN_ R Finger01
+      parentName: TULSGORN_ R Finger0
+      position: {x: -0.05660812, y: -0.000000076293944, z: 0.000000019073486}
+      rotation: {x: 0.000000030834805, y: -0.000000043040995, z: -0.2603794, w: 0.9655064}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: TULSGORN_ R Finger1
+      parentName: TULSGORN_ R Hand
+      position: {x: -0.20308773, y: 0.0037662506, z: -0.014484482}
+      rotation: {x: 0.18766223, y: 0.0040067313, z: 0.0067790123, w: 0.9822021}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TULSGORN_ R Finger11
+      parentName: TULSGORN_ R Finger1
+      position: {x: -0.05117813, y: 0.000000057220458, z: 0.000000076293944}
+      rotation: {x: 0.12458392, y: -0.047345962, z: -0.46297866, w: 0.8762922}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: TULSGORN_ Head
+      parentName: TULSGORN_ Neck
+      position: {x: -0.12165756, y: -0.04178852, z: -0.000000057220458}
+      rotation: {x: 0.22318311, y: 0.04312426, z: -0.030519752, w: 0.9733438}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: TULSGORN_ Queue de cheval 1
+      parentName: TULSGORN_ Head
+      position: {x: 0.028719634, y: 0.060643613, z: -0.000000114440915}
+      rotation: {x: 0.000000034846572, y: 0.0000020626885, z: -0.73743695, w: 0.675416}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.01
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
