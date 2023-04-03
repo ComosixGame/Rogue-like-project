@@ -40,16 +40,6 @@ public class UISettings : MonoBehaviour
         mute.onValueChanged.RemoveListener(MuteGame);
     }
 
-    // public void SetScaleRes(float value){
-    //     float scale = value/10;
-    //     if(gameManager.settingData.resolutionScale != scale) {
-    //         warningText.gameObject.SetActive(true);
-    //         gameManager.settingData.resolutionScale = scale;
-    //         gameManager.settingData.Save();
-    //     }
-    //     resSliderText.text = "Resolution scale:" + scale.ToString();
-    // }
-
      private void OnValueChangedFps30(bool check) {
         if(check) {
             if(gameManager.settingData.fps != 30) {

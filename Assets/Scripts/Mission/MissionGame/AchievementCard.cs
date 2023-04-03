@@ -15,7 +15,20 @@ public class AchievementCard : MonoBehaviour
     public TMP_Text titleText;
     public TMP_Text goldRewardText;
     private AchievementGoal achievementGoal;
+
+    //Singleton
+    private SoundManager soundManager;
+
+    //Action
     public static event Action<int> OnCompletedAchievement;
+
+    //sound
+    public AudioClip btnSound;
+
+    private void Awake() {
+        soundManager = SoundManager.Instance;
+    }
+
     private void Start() {
         titleText.text = title;
         goldRewardText.text = goldReward.ToString();
@@ -45,5 +58,9 @@ public class AchievementCard : MonoBehaviour
         goldReward = achievementGoal.goldReward;
         isReceveiCoin = achievementGoal.isReceveiCoin;
         this.achievementGoal = achievementGoal;
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

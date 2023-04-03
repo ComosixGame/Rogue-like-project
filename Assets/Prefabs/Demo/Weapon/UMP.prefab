@@ -100,12 +100,13 @@ MonoBehaviour:
   bullet: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   attackEffect: {fileID: 2141468630707795829}
   fireRateTime: 0.3
-  MagazineCapacity: 24
-  reloadDuration: 2
-  damage: 50
+  MagazineCapacity: 10
+  reloadDuration: 0.5
+  damage: 100
   speed: 30
   remainingAmmo: 0
   reloadTime: 0
+  shootSound: {fileID: 8300000, guid: c1008da2369bf3440a936fe6b5a5e3d4, type: 3}
 --- !u!1001 &3059582588015163613
 PrefabInstance:
   m_ObjectHideFlags: 0

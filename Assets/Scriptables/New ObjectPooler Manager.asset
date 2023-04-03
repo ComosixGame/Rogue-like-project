@@ -25,21 +25,6 @@ MonoBehaviour:
   - size: 30
     GameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
       type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 5f6636215e009b946a6b80c31e298251,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: bdb610f64de52be4ab0e76af855f09a9,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 26ee7ae64ac0799459ae1580f17425d7,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 5573ffd93e1ab8a45afc5f8807ac9b99,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 81e47eedad6983d44a226751dc5cb411,
-      type: 3}
   - size: 100
     GameObjectPool: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81,
       type: 3}
@@ -51,27 +36,6 @@ MonoBehaviour:
       type: 3}
   - size: 10
     GameObjectPool: {fileID: 744428139078250218, guid: 3321a9d122010604c9dc790875d91de6,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: cde550e7dd6001f4cba65096fb4b2b6b,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 1fe6981676a994e45b70e666104579ec,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: b44b184bfd99bda49815bd145a706a05,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 121c98fef1e55be48ba1f00ff431e031,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 898f439cd90e0a142979cd988b41daa2,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: 1c0cf7b1027851b4bacecf1573eeddaa,
-      type: 3}
-  - size: 30
-    GameObjectPool: {fileID: 7591746090547872497, guid: eff96d66ca81f324b94524f294fd3f3a,
       type: 3}
   - size: 10
     GameObjectPool: {fileID: 5308659851561974654, guid: 6b85a702181fc2f46a1425cd56518909,
@@ -92,5 +56,5 @@ MonoBehaviour:
     GameObjectPool: {fileID: 1638568060393253675, guid: 7daa36af6ee6cd94c8ffb4decc67fa00,
       type: 3}
   - size: 10
-    GameObjectPool: {fileID: 6755560633652983957, guid: 80c74dbf596cdc6438346cf693346b2b,
+    GameObjectPool: {fileID: 7769135714048551931, guid: 3165154aec088a94b9825c97ceed80e9,
       type: 3}

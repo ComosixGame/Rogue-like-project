@@ -81,6 +81,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   readlyPickup: 0
+  pickupSound: {fileID: 8300000, guid: f4bbb9a1f4b3f8d40a72f18332d2ade9, type: 3}
   point: 10
 --- !u!1 &2052804205332797074
 GameObject:

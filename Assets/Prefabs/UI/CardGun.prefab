@@ -618,6 +618,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7502007261864771227}
+        m_TargetAssemblyTypeName: CardGun, Assembly-CSharp
+        m_MethodName: PlayBtnSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7502007261314575836
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +977,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7502007261864771227}
+        m_TargetAssemblyTypeName: CardGun, Assembly-CSharp
+        m_MethodName: PlayBtnSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7502007261864771303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,3 +1091,4 @@ MonoBehaviour:
   _btnBuy: {fileID: 7502007261090912128}
   _btnSelected: {fileID: 7502007261638784036}
   _ownerGun: {fileID: 7502007259827938347}
+  btnSound: {fileID: 8300000, guid: f0e561914ddd74b36b07b7040b6126d4, type: 3}

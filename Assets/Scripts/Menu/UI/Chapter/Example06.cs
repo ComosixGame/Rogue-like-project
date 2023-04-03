@@ -18,15 +18,17 @@ namespace FancyScrollView.Example06
         [SerializeField] private GameObject _popupConfirmNotEnoughEnergy;
         Chapter currentChapter;
         [SerializeField] private Chapter chapterPrefab;
-        private LoadSceneManager loadSceneManager;
         [SerializeField] private GameObject LoadingScreen;
         [SerializeField] private Slider loadingBar;
         [SerializeField] private GameObject headerUI;
         [SerializeField] private GameObject bodyUI;
         [SerializeField] private GameObject footerUI;
-        private EnergyManager energyManager;
-        [SerializeField] private Button BtnPlayChapter;
         private bool isEnergy;
+
+        //singleton
+        private EnergyManager energyManager;
+        private LoadSceneManager loadSceneManager;
+        
         private void Awake() {
             loadSceneManager = LoadSceneManager.Instance;
             energyManager = EnergyManager.Instance;

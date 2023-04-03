@@ -7,9 +7,12 @@ public abstract class AbsItemObjectPool : GameObjectPool
     private Rigidbody rb;
     private ObjectPoolerManager objectPoolerManager;
     public bool readlyPickup;
+    private SoundManager soundManager;
+    public AudioClip pickupSound;
     protected virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
         rb = GetComponent<Rigidbody>();
+        soundManager = SoundManager.Instance;
     }
 
     protected virtual void OnEnable() {
@@ -23,6 +26,7 @@ public abstract class AbsItemObjectPool : GameObjectPool
         if((layer & (1 << other.gameObject.layer)) != 0) {
             objectPoolerManager.DeactiveObject(this);
             ActiveItem(other);
+            soundManager.PlaySound(pickupSound);
         }
     }
 

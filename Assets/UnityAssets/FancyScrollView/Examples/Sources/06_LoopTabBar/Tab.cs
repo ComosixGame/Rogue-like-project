@@ -11,6 +11,16 @@ namespace FancyScrollView.Example06
         [SerializeField] Button button = default;
         [SerializeField] TMP_Text butonText = default;
 
+        //singleton
+        private SoundManager soundManager;
+
+        //sound
+        public AudioClip btnSound;
+
+        private void Awake() {
+            soundManager = SoundManager.Instance;
+        }
+
         static class AnimatorHash
         {
             public static readonly int Scroll = Animator.StringToHash("scroll");
@@ -42,5 +52,9 @@ namespace FancyScrollView.Example06
         float currentPosition = 0;
 
         void OnEnable() => UpdatePosition(currentPosition);
+
+        public void PlayBtnSound(){
+            soundManager.PlaySound(btnSound);
+        }
     }
 }
