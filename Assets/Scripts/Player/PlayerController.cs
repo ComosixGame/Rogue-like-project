@@ -28,14 +28,11 @@ public class PlayerController : MonoBehaviour
     private int aimHash;
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
-    private SoundManager soundManager;
-    public AudioClip shootSound;
 
 
     private void Awake() {
         gameManager = GameManager.Instance;
         ObjectPoolerManager = ObjectPoolerManager.Instance;
-        soundManager = SoundManager.Instance;
         inputs = new InputAssets();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
@@ -92,7 +89,6 @@ public class PlayerController : MonoBehaviour
                 timerAttack = 0;
                 bool notReload = playerAttack.Attack();
                 if(notReload) {
-                    soundManager.PlaySound(shootSound);
                     animator.SetTrigger(attackHash);
                 }
             }

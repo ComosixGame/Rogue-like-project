@@ -35,7 +35,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
 
 
     public void TakeDamge(float damage, Vector3 force){
-        soundManager.PlaySound(hitSound);
+        //soundManager.PlaySound(hitSound);
         damage -= damage * (armor/100);
         health -= damage;
         healthPlayer.value = health;
@@ -54,8 +54,7 @@ public class PlayerDamageble : MonoBehaviour, IDamageble
     }
 
     public void Destroy(){
-        // Destroy(gameObject);
-        soundManager.PlaySound(deadSound);    
+        //soundManager.PlaySound(deadSound);    
         gameManager.EndGame(false);
         gameObject.SetActive(false);
         OnLoseGame?.Invoke();

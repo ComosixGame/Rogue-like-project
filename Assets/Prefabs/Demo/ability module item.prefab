@@ -149,6 +149,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   readlyPickup: 0
+  pickupSound: {fileID: 8300000, guid: a6488731d68fa3a4bb2176cdea9d9a2c, type: 3}
 --- !u!54 &7676825124844662109
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    //UI
     public GameObject _chapter;
     public GameObject _shop;
     public GameObject _character;
@@ -23,10 +24,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text MinuteText;
     [SerializeField] private TMP_Text SecondText;
     [SerializeField] private TMP_Text MaxEnergyText;
+
+    //singleton
     private GameManager gameManager;
     private SoundManager soundManager;
     private LoadSceneManager loadSceneManager;
     private EnergyManager energyManager;
+
+    //sound
+    public AudioClip soundBackground;
+    public AudioClip btnSound;
+
+    //event
     public static event Action OnReloadDailyMission;
     private void Awake() {
         gameManager = GameManager.Instance;
@@ -39,6 +48,8 @@ public class UIManager : MonoBehaviour
     private void Start() {
         InitGame();
         coins.text = $"{gameManager.coinPlayer}";
+        soundManager.SetMusicBackGround(soundBackground);
+        soundManager.SetPlayMusic(true);
     }
 
     private void OnEnable() {
@@ -183,5 +194,9 @@ public class UIManager : MonoBehaviour
     public void handleConfirmClosePopupNotEnoughEnergy(){
         _popupConfirmNotEnoughEnergy.SetActive(false);
         _popupLoading.SetActive(false);
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

@@ -18,16 +18,17 @@ public abstract class AbsPlayerAttack : MonoBehaviour
     //time reload bullet
     public static event Action<float> OnReloading;
     public event Action<Transform> OnAttack;
-
-    protected virtual void Awake() {
+    private SoundManager soundManager;
+    public virtual void Awake() {
         objectPoolerManager = ObjectPoolerManager.Instance;
+        soundManager = SoundManager.Instance;
         remainingAmmo = MagazineCapacity;
     }
 
     private void Update() {
         if(outOfAmmo) {
             reloadTime += Time.deltaTime;
-            reloadTime = reloadTime>reloadDuration?reloadDuration:reloadTime;
+            reloadTime = reloadTime>reloadDuration ? reloadDuration : reloadTime;
             OnReloading?.Invoke(reloadTime);
             if(reloadTime >= reloadDuration) {
                 remainingAmmo = MagazineCapacity;

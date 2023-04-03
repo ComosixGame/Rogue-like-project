@@ -101,10 +101,8 @@ public class EnemyBehaviour : MonoBehaviour
                 _animator.SetBool(_StandAiming, true);  
                 timerAttack = 0;
                 readyAttack = true;
-                Debug.Log("1");
             }
         } else {
-            Debug.Log("1.5");
             Vector3 dirLook = (_player.transform.position - transform.position).normalized;
             dirLook.y = 0;
             //Thuc hien xoay 
@@ -116,7 +114,6 @@ public class EnemyBehaviour : MonoBehaviour
                 if(!fired) {
                     fired = true;  
                     _absAttach.Attack(shootPosition);
-                     Debug.Log("2");
                 }
             }
         }

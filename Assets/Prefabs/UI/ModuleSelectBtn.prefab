@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 53262332786344062}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 53262332786344056}
+        m_TargetAssemblyTypeName: SelectAbilityButton, Assembly-CSharp
+        m_MethodName: PlayBtnSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &53262332786344056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 4896439641741074713}
   abilityModule: {fileID: 0}
+  btnSound: {fileID: 8300000, guid: f0e561914ddd74b36b07b7040b6126d4, type: 3}
 --- !u!1 &4896439641741074695
 GameObject:
   m_ObjectHideFlags: 0

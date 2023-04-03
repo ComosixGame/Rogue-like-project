@@ -17,18 +17,26 @@ namespace FancyScrollView.Example06 {
         [SerializeField] GraphicRaycaster graphicRaycasterAdd;
         Character currentCharacter;
         [SerializeField] private Character characterPrefab;
-        private LoadSceneManager loadSceneManager;
         public GameObject _popupSelectedCharacter;
         [SerializeField] GameObject _popUpSelectedCharacter;
-        private GameManager gameManager;
         [SerializeField] private GameObject _popupConfirm;
-
         [SerializeField] private GameObject _btnBuy;
         [SerializeField] private GameObject _btnSelect;
+        
+        //singleton
+        private LoadSceneManager loadSceneManager;
+        private GameManager gameManager;
+        private SoundManager soundManager;
 
+        //action
         public static event Action ConfirmSelected;
+
+        //sound
+        public AudioClip btnSound;
+
         private void Awake() {
             gameManager = GameManager.Instance;
+            soundManager = SoundManager.Instance;
         }
 
         void Start()
@@ -83,7 +91,6 @@ namespace FancyScrollView.Example06 {
         public void SelectedCharacter(){
             gameManager.SelectedCharacter(currentCharacter.index);
             ConfirmSelected?.Invoke();
-            //_popUpSelectedCharacter.SetActive(false);
         }
 
         public void BuyItem() {
@@ -91,6 +98,10 @@ namespace FancyScrollView.Example06 {
             _popupConfirm.SetActive(!success);
             _btnBuy.SetActive(!success);
             _btnSelect.SetActive(success);
+        }
+
+        public void PlayBtnSound(){
+            soundManager.PlaySound(btnSound);
         }
     }
 }

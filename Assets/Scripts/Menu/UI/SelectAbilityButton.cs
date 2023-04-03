@@ -12,9 +12,15 @@ public class SelectAbilityButton : MonoBehaviour
     private AbilityModuleManager abilityModuleManager;
     private ObjectPoolerManager objectPoolerManager;
 
+    //singleton
+    private SoundManager soundManager;
+
+    //sound
+    public AudioClip btnSound;
     private void Awake() {
         abilityModuleManager = AbilityModuleManager.Instance;
         objectPoolerManager = ObjectPoolerManager.Instance;
+        soundManager = SoundManager.Instance;
         button = GetComponent<Button>();
     }
 
@@ -39,5 +45,9 @@ public class SelectAbilityButton : MonoBehaviour
 
     public void DestroyBtn(AbsAbilityModule newAbility) {
         Destroy(gameObject);
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

@@ -40,8 +40,13 @@ public class UIHUD : MonoBehaviour
     private ObjectPoolerManager objectPoolerManager;
     private PlayerData playerData;
     private DailyMissionManager dailyMissionManager;
+    private SoundManager soundManager;
 
     //event
+
+    //sound
+    public AudioClip soundBasic;
+    public AudioClip btnSound;
 
     private void Awake() {
         playerData = PlayerData.Load();
@@ -49,6 +54,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager = AbilityModuleManager.Instance;
         objectPoolerManager = ObjectPoolerManager.Instance;
         loadSceneManager = LoadSceneManager.Instance;
+        soundManager = SoundManager.Instance;
     }
 
     private void OnEnable() {
@@ -60,6 +66,11 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame += OnLoseGame;
+    }
+
+    private void Start() {
+        soundManager.SetMusicBackGround(soundBasic);
+        soundManager.SetPlayMusic(true);
     }
 
     private void OnDisable() {
@@ -186,5 +197,9 @@ public class UIHUD : MonoBehaviour
 
     public void HandleExitGame(string path){
         OnLoadScene(path);
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

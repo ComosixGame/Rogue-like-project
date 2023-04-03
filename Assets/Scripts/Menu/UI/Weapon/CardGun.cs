@@ -5,26 +5,31 @@ using TMPro;
 
 public class CardGun : MonoBehaviour
 {
+    CardGun currentGun = null;
     public int index;
     public string nameGun;
     public int priceGun;
     public Sprite thumb;
-
-    CardGun currentGun = null;
-
     [SerializeField] private TMP_Text nameGunText;
     [SerializeField] private GameObject _btnBuy;
     [SerializeField] private GameObject _btnSelected;
     [SerializeField] private TMP_Text _ownerGun;
-
     private bool own;
-    private GameManager gameManager;
 
+    //singleton
+    private GameManager gameManager;
+    private SoundManager soundManager;
+
+    //Action
     public static event Action ConfirmSelected;
     
+    //sound
+    public AudioClip btnSound;
+
     private void Awake() {
         gameManager = GameManager.Instance;
         currentGun =  GetComponent<CardGun>();
+        soundManager = SoundManager.Instance;
     }
 
     private void OnEnable() {
@@ -68,5 +73,9 @@ public class CardGun : MonoBehaviour
 
     private void OnDisable() {
         gameManager.OnupdateStatus -= HandleUpdateStatus;
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

@@ -15,8 +15,21 @@ public class DailyMissionCard : MonoBehaviour
     public TMP_Text goldRewardText;
     public Button receverCoin;
     private DailyMissionGoal dailyMissionGoal;
-    
+
+    //singleton
+    private SoundManager soundManager;
+
+    //Action
     public static event Action<int> OnCompletedMission;
+
+    //sound
+    public AudioClip btnSound;
+
+
+    private void Awake() {
+        soundManager = SoundManager.Instance;
+    }
+
     private void Start() {
         titleText.text = title;
         goldRewardText.text = goldReward.ToString();
@@ -48,5 +61,9 @@ public class DailyMissionCard : MonoBehaviour
         isReceveiCoin = dailyMissionGoal.isReceveiCoin;
         //tao mot daily gan bang daily truyen vao
         this.dailyMissionGoal = dailyMissionGoal;
+    }
+
+    public void PlayBtnSound(){
+        soundManager.PlaySound(btnSound);
     }
 }

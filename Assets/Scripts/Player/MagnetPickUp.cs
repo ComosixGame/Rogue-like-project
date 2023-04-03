@@ -5,19 +5,14 @@ public class MagnetPickUp : MonoBehaviour
     [SerializeField] private Vector3 center;
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layer;
-    private SoundManager soundManager;
-    public AudioClip suckSound;
+
     
-    private void Awake() {
-        soundManager = SoundManager.Instance;
-    }
     private void Update() {
         Vector3 offset = transform.position + center;
         Collider[] hitColliders = Physics.OverlapSphere(offset, radius, layer);
         foreach (Collider hitCollider in hitColliders)
         {
             if(hitCollider.GetComponent<AbsItemObjectPool>().readlyPickup) {
-                soundManager.PlaySound(suckSound);
                 Transform item = hitCollider.transform;
                 item.position = Vector3.MoveTowards(item.position, offset, 20f * Time.deltaTime);
             }
