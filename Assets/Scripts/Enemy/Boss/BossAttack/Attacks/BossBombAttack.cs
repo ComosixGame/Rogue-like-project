@@ -40,7 +40,7 @@ public class BossBombAttack : AbsBossAttack
             float radius = bombClone.radius;
             warningSignClone.transform.localScale = new Vector3(radius * 2, radius * 2, radius * 2);
             float dis = Vector3.Distance(target, transform.position);
-            Vector3 v = Utils.CalculateVelocity(target, shootPoint.position, dis * 0.08f);
+            Vector3 v = Utility.CalculateVelocity(target, shootPoint.position, dis * 0.08f);
             bombClone.GetComponent<Rigidbody>().AddForce(v , ForceMode.Impulse);
             timesFire ++;
             yield return new WaitForSeconds(delayAttack);

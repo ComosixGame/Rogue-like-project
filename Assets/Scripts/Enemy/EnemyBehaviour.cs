@@ -83,7 +83,7 @@ public class EnemyBehaviour : MonoBehaviour
             if(agent.remainingDistance <= agent.stoppingDistance) {
                 idleTimer += Time.deltaTime;
                 if(idleTimer >= 0.5f) {
-                    Vector3 pos = Utils.RandomNavmeshLocation(transform.position, agent.height * 2);
+                    Vector3 pos = Utility.RandomNavmeshLocation(transform.position, agent.height * 2);
                     agent.ResetPath();
                     agent.SetDestination(pos);
                     idleTimer = 0;
