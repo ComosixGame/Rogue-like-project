@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - Room
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
