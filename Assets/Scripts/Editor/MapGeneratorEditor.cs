@@ -1,15 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(MapGenerator))]
 public class MapGeneratorEditor : Editor {
-    private bool livePre;
     public override void OnInspectorGUI() {
-        livePre = EditorGUILayout.Toggle("Live Preview", livePre);
         base.OnInspectorGUI();
         MapGenerator map = target as MapGenerator;
-        if(livePre) {
-            map.GenerateRoom();
+        EditorGUILayout.Space(20);
+        if(GUILayout.Button("GENERATE", GUILayout.Height(50))) {
+            map.GenerateRoom(UnityEngine.Random.Range(Int32.MinValue, Int32.MaxValue));
         }
     }
 }
