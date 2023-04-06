@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Collider))]
 public class NextLevelDoor : MonoBehaviour
@@ -8,7 +9,20 @@ public class NextLevelDoor : MonoBehaviour
     [SerializeField] private MapGeneration mapGeneration;
     [SerializeField] private GameObject door;
     public Vector3 playerStartPosition;
+    private int _door;
     private bool levelCleared;
+
+    private Animator _animator;
+
+    public static event Action OnWinGame;
+    private void Awake() {
+        _animator = GetComponent<Animator>();
+        _door = Animator.StringToHash("door");
+    }
+
+    private void Start() {
+        _animator.SetBool(_door, false);
+    }
 
     private void OnEnable() {
         mapGeneration.OnLevelCleared += OnlevelCleared;
@@ -29,6 +43,7 @@ public class NextLevelDoor : MonoBehaviour
     private void OnlevelCleared() {
         door.SetActive(true);
         levelCleared =  true;
+        _animator.SetBool(_door, true);
     }
 
     IEnumerator CoroutineNextlevel(Transform player) {

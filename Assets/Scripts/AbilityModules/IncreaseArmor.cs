@@ -13,7 +13,6 @@ public class IncreaseArmor : AbsAbilityModule
         playerDamageble = GetComponent<PlayerDamageble>();
         preArmor = playerDamageble.armor;
         playerDamageble.armor += value;
-        Debug.Log(playerDamageble.armor);
     }
 
     public override AbsAbilityModule AddAbility(GameObject parent)
