@@ -53,11 +53,13 @@ namespace FancyScrollView.Example06
         public void SelectNextCell()
         {
             SelectCell(Context.SelectedIndex + 1);
+            Debug.Log("next");
         }
 
         public void SelectPrevCell()
         {
             SelectCell(Context.SelectedIndex - 1);
+            Debug.Log("prev");
         }
 
         public void SelectCell(int index)
