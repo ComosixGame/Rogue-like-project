@@ -66,6 +66,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility += HandleAddModulePausePopup;
         gameManager.OnUpdateCoin += ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame += OnLoseGame;
+        door.OnOpenDoor += LoadedWinGame;
     }
 
     private void Start() {
@@ -82,6 +83,7 @@ public class UIHUD : MonoBehaviour
         abilityModuleManager.OnAddAbility -= HandleAddModulePausePopup;
         gameManager.OnUpdateCoin -= ChangeUpdateCoins;
         PlayerDamageble.OnLoseGame -= OnLoseGame;
+        door.OnOpenDoor -= LoadedWinGame;
     }
 
 
@@ -201,5 +203,10 @@ public class UIHUD : MonoBehaviour
 
     public void PlayBtnSound(){
         soundManager.PlaySound(btnSound);
+    }
+
+    public void LoadedWinGame(){
+        _PopupWinGame.SetActive(true);
+        gameManager.EndGame(true);
     }
 }
