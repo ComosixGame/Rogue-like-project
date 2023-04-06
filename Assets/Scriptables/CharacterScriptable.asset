@@ -17,14 +17,14 @@ MonoBehaviour:
     priceCharacter: 1000
     prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
       type: 3}
-    thumb: {fileID: 21300000, guid: 2ad49fe75824d4058ac179f8481edfef, type: 3}
+    thumb: {fileID: 21300000, guid: 437673cbae8624e2ca4a3c35e57e2f51, type: 3}
   - nameCharacter: Nhanvat2
     priceCharacter: 2000
     prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
       type: 3}
-    thumb: {fileID: 21300000, guid: 66f91b0096bee4238b9ddab051776895, type: 3}
+    thumb: {fileID: 21300000, guid: 2ad49fe75824d4058ac179f8481edfef, type: 3}
   - nameCharacter: Nhanvat3
     priceCharacter: 30000
     prefab: {fileID: 3327917442935796394, guid: 717ddf357a839a148a363692f586e37e,
       type: 3}
-    thumb: {fileID: 21300000, guid: 4395e9f9635e04da39033df3aef85405, type: 3}
+    thumb: {fileID: 21300000, guid: 3a73b42d959ec428782c5f3e5d020184, type: 3}

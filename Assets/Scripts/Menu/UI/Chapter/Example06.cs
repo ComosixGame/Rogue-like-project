@@ -80,8 +80,8 @@ namespace FancyScrollView.Example06
                 currentChapter.In(direction);
             }
 
-
             selectedItemInfo.text = $"{currentChapter.nameChapter}";
+            //currentChapter.gameObject.SetActive(false);
         }
 
         public void PlayChapter() {
