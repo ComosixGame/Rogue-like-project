@@ -25,9 +25,13 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Vector2Int mapSize;
     [SerializeField] private Vector2 cellSize;
     [SerializeField] private GameObject floor;
+    [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject corner;
+    [SerializeField] private GameObject door;
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] enemies;
     [SerializeField, ReadOnly] private List<Transform> rooms;
+    [SerializeField, ReadOnly] private int currentRoom;
     private float timer;
     private bool spawnDone;
     public static event Action OnSpawnDone;
@@ -35,6 +39,7 @@ public class MapGenerator : MonoBehaviour
     private Tile mapCenter;
     private List<Tile> bounder;
     private List<Tile> safeArea;
+    private List<Tile> doorArea;
     private List<Tile> tiles;
     private Queue<Tile> shuffletiles;
 
@@ -65,6 +70,7 @@ public class MapGenerator : MonoBehaviour
 
         Room firstRoom = Instantiate(room, transform.position, Quaternion.identity).GetComponent<Room>();
         firstRoom.OpenDoor(doorsOpenFisrtRoom, doorsOpenFisrtRoom);
+        currentRoom = 0;
     }
 
     private void Update()
@@ -119,6 +125,7 @@ public class MapGenerator : MonoBehaviour
         tiles = new List<Tile>();
         bounder = new List<Tile>();
         safeArea = new List<Tile>();
+        doorArea = new List<Tile>();
         Transform holder = roomPlace.Find("room contents")?.transform;
         if (holder == null)
         {
@@ -135,7 +142,8 @@ public class MapGenerator : MonoBehaviour
             for (int y = 0; y < mapSize.y; y++)
             {
                 Vector3 tilePosition = new Vector3(-mapSize.x / 2 + 0.5f + x * cellSize.x, 0, -mapSize.y / 2 + 0.5f + y * cellSize.x);
-                Transform newTile = Instantiate(floor, tilePosition, Quaternion.identity).transform;
+                Transform newFloor = Instantiate(floor, tilePosition, Quaternion.identity).transform;
+                newFloor.gameObject.name = $"floor({x} - {y})";
                 Tile tile = new Tile(x, y);
                 tiles.Add(tile);
 
@@ -145,17 +153,25 @@ public class MapGenerator : MonoBehaviour
                     bounder.Add(tile);
                 }
 
+                //tạo vùng cửa ra vào
+                if ((x >= mapCenter.x - 1 && x <= mapCenter.x && (y < 1 || y >= mapSize.y - 1)) || (y >= mapCenter.y - 1 && y <= mapCenter.y && (x < 1 || x >= mapSize.x - 1)))
+                {
+                    doorArea.Add(tile);
+                }
+
                 //tạo vùng safe trc mỗi cửa ra vào
-                if ((x >= mapCenter.x - 2 && x <= mapCenter.x + 1 && (y <= 1 || y >= mapSize.y - 2)) ||(y >= mapCenter.y - 2 && y <= mapCenter.y + 1 && (x <= 1 || x >= mapSize.x - 2)) )
+                if ((x >= mapCenter.x - 2 && x <= mapCenter.x + 1 && (y <= 1 || y >= mapSize.y - 2)) || (y >= mapCenter.y - 2 && y <= mapCenter.y + 1 && (x <= 1 || x >= mapSize.x - 2)))
                 {
                     safeArea.Add(tile);
                 }
-                newTile.parent = holder;
+
+                newFloor.parent = holder;
             }
         }
 
         shuffletiles = new Queue<Tile>(Utility.ShuffleArray<Tile>(tiles.ToArray()));
 
+        PlacementWall(holder);
         PlacementObstacle(holder);
         GenerateNavMesh();
         PlacementEnemies(holder, seed);
@@ -181,8 +197,7 @@ public class MapGenerator : MonoBehaviour
                 {
                     Vector3 pos = tile.GetPositon(mapSize, cellSize);
                     int rndIndex = Random.Range(0, obstacles.Length);
-                    GameObject newObstacle = Instantiate(obstacles[rndIndex], pos, obstacles[rndIndex].transform.rotation);
-                    newObstacle.transform.SetParent(holder);
+                    GameObject newObstacle = Instantiate(obstacles[rndIndex], pos, obstacles[rndIndex].transform.rotation, holder);
                 }
                 else
                 {
@@ -203,13 +218,83 @@ public class MapGenerator : MonoBehaviour
             {
                 Tile tile = shuffletiles.Dequeue();
                 shuffletiles.Enqueue(tile);
-                if(!safeArea.Contains(tile)) {
+                if (!safeArea.Contains(tile))
+                {
                     Vector3 pos = tile.GetPositon(mapSize, cellSize);
                     int rndIndex = Random.Range(0, enemies.Length);
-                    GameObject newEnemy = Instantiate(enemies[rndIndex], pos + Vector3.up * 2f, enemies[rndIndex].transform.rotation);
-                    newEnemy.transform.SetParent(holder);
+                    GameObject newEnemy = Instantiate(enemies[rndIndex], pos + Vector3.up * 2f, enemies[rndIndex].transform.rotation, holder);
                 }
             }
+        }
+    }
+    private void PlacementWall(Transform holder)
+    {
+        foreach (Tile tile in bounder)
+        {
+            Quaternion rot = Quaternion.identity;
+            Vector3 offset = Vector3.zero;
+
+            //điều chỉnh vị trí tường ra rìa của phần ranh giới
+            if (tile.x == 0)
+            {
+                offset = Vector3.left * cellSize.x / 2;
+                rot = Quaternion.LookRotation(Vector3.right);
+            }
+
+            if (tile.x == mapSize.x - 1)
+            {
+                offset = Vector3.right * cellSize.x / 2;
+                rot = Quaternion.LookRotation(Vector3.right);
+            }
+
+            if (tile.y == 0)
+            {
+                offset = Vector3.back * cellSize.y / 2;
+            }
+
+            if (tile.y == mapSize.y - 1)
+            {
+                offset = Vector3.forward * cellSize.y / 2;
+            }
+
+            //kiểm tra nếu là khu vực cửa thì tạo cửa nếu ko thì tạo tường
+            if (doorArea.Contains(tile))
+            {
+                Instantiate(door, tile.GetPositon(mapSize, cellSize) + offset, rot, holder).name = $"door({tile.x} - {tile.y})";
+            }
+            else
+            {
+                //nếu ở 4 góc thì tạo corner
+                if (tile.x == 0 && tile.y == 0 || tile.x == 0 && tile.y == mapSize.y - 1 || tile.x == mapSize.x - 1 && tile.y == 0 || tile.x == mapSize.x - 1 && tile.y == mapSize.y - 1)
+                {
+                    if (tile.x == 0 && tile.y == 0)
+                    {
+                        rot = Quaternion.LookRotation(Vector3.right);
+                        offset = Vector3.back * cellSize.y / 2 + Vector3.left * cellSize.x / 2;
+                    }
+                    else if (tile.x == 0 && tile.y == mapSize.y - 1)
+                    {
+                        rot = Quaternion.LookRotation(Vector3.back);
+                        offset = Vector3.forward * cellSize.y / 2 + Vector3.left * cellSize.x / 2;
+                    }
+                    else if (tile.x == mapSize.x - 1 && tile.y == 0)
+                    {
+                        rot = Quaternion.LookRotation(Vector3.forward);
+                        offset = Vector3.back * cellSize.y / 2 + Vector3.right * cellSize.x / 2;
+                    }
+                    else
+                    {
+                        rot = Quaternion.LookRotation(Vector3.left);
+                        offset = Vector3.forward * cellSize.y / 2 + Vector3.right * cellSize.x / 2;
+                    }
+                    Instantiate(corner, tile.GetPositon(mapSize, cellSize) + offset, rot, holder).name = $"corner({tile.x} - {tile.y})";
+                }
+                else
+                {
+                    Instantiate(wall, tile.GetPositon(mapSize, cellSize) + offset, rot, holder).name = $"wall({tile.x} - {tile.y})";
+                }
+            }
+
         }
     }
 
@@ -335,11 +420,15 @@ public class MapGenerator : MonoBehaviour
                 Gizmos.DrawCube(tile.GetPositon(mapSize, cellSize) + Vector3.up * 0.1f, new Vector3(cellSize.x, 0, cellSize.y));
             }
         }
+
+        if (doorArea != null)
+        {
+            foreach (Tile tile in doorArea)
+            {
+                Gizmos.color = new Color(0, 0, 1, 0.8f);
+                Gizmos.DrawCube(tile.GetPositon(mapSize, cellSize) + Vector3.up * 0.1f, new Vector3(cellSize.x, 0, cellSize.y));
+            }
+        }
     }
-
-    // private void OnValidate() {
-    //     GenerateRoom(seed);
-    // }
-
 #endif
 }
