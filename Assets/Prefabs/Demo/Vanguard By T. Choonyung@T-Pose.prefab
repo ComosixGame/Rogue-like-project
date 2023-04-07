@@ -1307,8 +1307,8 @@ Transform:
   m_GameObject: {fileID: 3327917442935796394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.096268, y: 0.0000009536743, z: -9.142793}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7580861267644876932}
   - {fileID: 1440054065334868306}
@@ -1386,11 +1386,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 3556416593635127975}
-  weapon: {fileID: 620257319322130992, guid: 93f5d183862e62a43a1ed5f8ab76e1c9, type: 3}
+  weapon: {fileID: 620257319322130992, guid: 1a56180b30e86b24a875d75b4442619d, type: 3}
   playerAttack: {fileID: 0}
-  speed: 10
+  speed: 7
   rigAim: {fileID: 1712179443}
   targetAim: {fileID: 1216842461}
+  weaponScriptable: {fileID: 11400000, guid: 64b6a4661b6ae364390c1c23baf7ce49, type: 2}
 --- !u!114 &919132148653637979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,7 +1444,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 512
-  suckSound: {fileID: 8300000, guid: efe2f89e9a2a40e439501a6a7f847ed0, type: 3}
 --- !u!1 &3493451762172295190
 GameObject:
   m_ObjectHideFlags: 0

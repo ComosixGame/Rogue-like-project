@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: GunScripable Manager
   m_EditorClassIdentifier: 
   guns:
-  - nameGun: GunOne
+  - nameGun: Gatling
     priceGun: 1000
-    prefabGun: {fileID: 0}
+    prefabGun: {fileID: 620257319322130992, guid: 1a56180b30e86b24a875d75b4442619d,
+      type: 3}
     thumb: {fileID: 21300000, guid: 220eddfe2118c4046a83792f2d2455ea, type: 3}
-  - nameGun: GunTwo
+  - nameGun: UMP
     priceGun: 1000
-    prefabGun: {fileID: 0}
+    prefabGun: {fileID: 620257319322130992, guid: 93f5d183862e62a43a1ed5f8ab76e1c9,
+      type: 3}
     thumb: {fileID: 21300000, guid: 09155c0484d834563b88c391bdd51658, type: 3}

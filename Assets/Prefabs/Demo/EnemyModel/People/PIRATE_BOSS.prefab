@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e79f269c2d6ff4d8255ea97d4226e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7155788659206797011, guid: ac58b73fab5b2ef4f931c8e8fea50e1e, type: 3}
+  bullet: {fileID: 1042228181451088633, guid: c79cd77151ba2b3498f970792b48dc97, type: 3}
   numberOfBullet: 5
   _delayAttack: 0.3
   _timerAttack: 0

@@ -8,7 +8,7 @@ public class GunScriptable : ScriptableObject
     public class Gun{
         public string nameGun;
         public int priceGun;
-        public GameObject prefabGun;
+        public AbsPlayerAttack prefabGun;
         public Sprite thumb;        
     }
     

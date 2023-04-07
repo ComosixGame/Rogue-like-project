@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private int aimHash;
     private GameManager gameManager;
     private ObjectPoolerManager ObjectPoolerManager;
+    [SerializeField] private GunScriptable weaponScriptable;
 
 
     private void Awake() {
@@ -44,7 +45,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Start() {
-        playerAttack = Instantiate(weapon, weaponHolder.position, weaponHolder.rotation);
+        int index = gameManager.weaponSelected;
+        AbsPlayerAttack prefabGun = weaponScriptable.guns[index].prefabGun;
+        weapon = prefabGun;
+        playerAttack = Instantiate(prefabGun, weaponHolder.position, weaponHolder.rotation);
         playerAttack.transform.SetParent(weaponHolder);
     }
 

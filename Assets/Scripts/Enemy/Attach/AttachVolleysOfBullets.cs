@@ -6,6 +6,7 @@ using MyCustomAttribute;
 
 public class AttachVolleysOfBullets : AbsAttach
 {
+    private ObjectPoolerManager objectPoolerManager;
     [SerializeField] private int numberOfBullet;
 
     public float _delayAttack;
@@ -18,6 +19,7 @@ public class AttachVolleysOfBullets : AbsAttach
     private int _StandAiming;
 
     private void Awake() {
+        objectPoolerManager = ObjectPoolerManager.Instance;
         counterBullet = numberOfBullet;
         _animator = GetComponent<Animator>();
         _StandAiming = Animator.StringToHash("StandAiming");
@@ -50,7 +52,8 @@ public class AttachVolleysOfBullets : AbsAttach
     
     private void Fired() {
         if(counterBullet > 0){
-            GameObject newBullet = Instantiate(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
+            //GameObject newBullet = Instantiate(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
+            GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
             newBullet.GetComponent<EnemyBulletsBasic>().Fire(shootPosition.forward.normalized);
             counterBullet -= 1;
             if(counterBullet == 0){

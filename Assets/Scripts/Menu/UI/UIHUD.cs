@@ -132,7 +132,7 @@ public class UIHUD : MonoBehaviour
         _PopupLobby.SetActive(false);
     }
 
-    public void OnLoadScene(string path){
+    public void LoadScene(string path){
         loadSceneManager.LoadScene(path);
     }
 
@@ -195,10 +195,6 @@ public class UIHUD : MonoBehaviour
     public void HandleContinueGame(){
         InitScene();
         loadSceneManager.ResetScene();
-    }
-
-    public void HandleExitGame(string path){
-        OnLoadScene(path);
     }
 
     public void PlayBtnSound(){

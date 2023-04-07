@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 2529364835793485559}
   - component: {fileID: 3524074213214776614}
   - component: {fileID: 3931644168276374691}
-  - component: {fileID: -5381488198788107310}
   - component: {fileID: 1042228181451088633}
   - component: {fileID: -5551857901917774023}
   - component: {fileID: 6672884624396454061}
   - component: {fileID: -6190426933736243616}
+  - component: {fileID: -7341504145918856744}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
@@ -119,30 +119,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 1
---- !u!114 &-5381488198788107310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155788659206797011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87638a81b98c036498ac740c0d3c0e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 3931644168276374691}
-  fired: 0
-  rotate: 0
-  rotateAmount: 45
-  bounce: 0
-  bounceForce: 10
-  speed: 20
-  accuracy: 95
-  fireRate: 4
-  muzzlePrefab: {fileID: 0}
-  hitPrefab: {fileID: 0}
-  trails: []
 --- !u!114 &1042228181451088633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4103362f73565f84fb016312792fd6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: Boss
   _TakeDame: 3
 --- !u!199 &-5551857901917774023
 ParticleSystemRenderer:
@@ -5059,3 +5036,27 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-7341504145918856744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155788659206797011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87638a81b98c036498ac740c0d3c0e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 3931644168276374691, guid: 99de91b03546b4541b457f9c0307c8e6, type: 3}
+  fired: 0
+  rotate: 0
+  rotateAmount: 45
+  bounce: 0
+  bounceForce: 10
+  speed: 20
+  accuracy: 95
+  fireRate: 4
+  muzzlePrefab: {fileID: 0}
+  hitPrefab: {fileID: 0}
+  trails: []
