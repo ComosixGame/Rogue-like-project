@@ -43,10 +43,6 @@ public class AbilityModuleManager : Singleton<AbilityModuleManager>
         gameManager.OnSelectedPlayer += SetPlayer;
     }
 
-    // private void OnDisable() {
-    //     gameManager.OnSelectedPlayer -= SetPlayer;
-    // }
-
 
     public void SetPlayer(Transform player){
         this.player = player;

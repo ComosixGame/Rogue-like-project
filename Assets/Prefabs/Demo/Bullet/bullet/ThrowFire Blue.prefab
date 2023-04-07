@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4103362f73565f84fb016312792fd6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: ThrowFire Blue
   _TakeDame: 3
 --- !u!199 &-6991669396925757579
 ParticleSystemRenderer:

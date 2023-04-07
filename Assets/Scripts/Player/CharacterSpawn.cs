@@ -1,11 +1,10 @@
-
 using UnityEngine;
 using Cinemachine;
 
 public class CharacterSpawn : MonoBehaviour
 {
     public CinemachineVirtualCamera cinemachineVirtualCamera;
-    [SerializeField] private CharacterScripable characterScripable;
+    [SerializeField] private CharacterScripable characterScripable; 
     private GameManager gameManager;
 
     private void Awake() {
@@ -16,6 +15,7 @@ public class CharacterSpawn : MonoBehaviour
         cinemachineVirtualCamera.Follow = player.transform;
         cinemachineVirtualCamera.LookAt = player.transform;
         gameManager.SelectPlayer(player.transform);
+        
     }
 
 

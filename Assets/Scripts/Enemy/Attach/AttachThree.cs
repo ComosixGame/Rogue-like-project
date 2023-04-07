@@ -9,9 +9,12 @@ public class AttachThree : AbsAttach
     private Animator _animator;
     private int _StandAiming;
 
+    private ObjectPoolerManager _objectPoolerManager;
+
     private void Awake() {
         _animator = GetComponent<Animator>();
         _StandAiming = Animator.StringToHash("StandAiming");
+        _objectPoolerManager = ObjectPoolerManager.Instance;
     }
 
     public override void Init()
@@ -23,7 +26,7 @@ public class AttachThree : AbsAttach
         int k = 1;
         for(int i = 0 ; i < numberOfBullet; i++){
             Vector3 dir = Quaternion.AngleAxis( i * k * angelPerShot, Vector3.up) * shootPosition.forward;
-            GameObject newBullet = Instantiate(bullet, shootPosition.position, Quaternion.LookRotation(dir));
+            GameObjectPool newBullet = Instantiate(bullet, shootPosition.position, Quaternion.LookRotation(dir));
             newBullet.GetComponent<EnemyBulletsBasic>().Fire(dir);
             k *= -1;
             _animator.SetBool(_StandAiming, false);

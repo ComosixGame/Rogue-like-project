@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     }
     [ReadOnly] public int levels, waves;
     public Transform player {get; private set;}
+    public Transform weapon {get; private set;}
     public Transform cam {get; private set;}
     public event Action OnEnemiesDestroyed;
     public event Action<Transform> OnSelectedPlayer;
@@ -51,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+
     public int characterSeleted {
         get {
             return playerData.selectedCharacter;
@@ -60,6 +62,12 @@ public class GameManager : Singleton<GameManager>
     public List<int> characterOwn {
         get {
             return playerData.characters;
+        }
+    }
+
+    public int weaponSelected{
+        get{
+            return playerData.selectedWeapon;
         }
     }
 
@@ -231,6 +239,11 @@ public class GameManager : Singleton<GameManager>
     public void SelectPlayer(Transform player) {
         this.player = player;
         OnSelectedPlayer?.Invoke(this.player);
+    }
+
+    //set tham chiếu đến weapon
+    public void SelectWeapon(Transform weapon){
+        this.weapon = weapon;
     }
 
     public void SaveEnergy(int energy, DateTime time) {

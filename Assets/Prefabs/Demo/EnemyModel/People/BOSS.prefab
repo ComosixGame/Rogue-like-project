@@ -1131,7 +1131,7 @@ Transform:
   m_GameObject: {fileID: 7769135714048784342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7769135714048551922}
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8dc9e13ed3ac944bf04d8ef3d1c375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7155788659206797011, guid: e84c0fd5194437f4188dad9aa1d354a2, type: 3}
+  bullet: {fileID: 1042228181451088633, guid: e84c0fd5194437f4188dad9aa1d354a2, type: 3}
 --- !u!195 &7769135714048551933
 NavMeshAgent:
   m_ObjectHideFlags: 0

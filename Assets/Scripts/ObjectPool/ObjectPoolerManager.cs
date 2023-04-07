@@ -28,7 +28,7 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     [ReadOnly, SerializeField] private List<ObjectPrefab> objectPrefabs;
     private List<int> listIndexRandomItem;
     private Dictionary<string, ObjectPrefab> dictionary;
-    private List<GameObject> gameObjects;
+    [SerializeField, ReadOnly] private List<GameObject> gameObjects;
     public event Action OnCreatedObject;
     private LoadSceneManager loadSceneManager;
 
@@ -82,6 +82,9 @@ public class ObjectPoolerManager : Singleton<ObjectPoolerManager>
     }
 
     private void OnDisable() {
+        if(loadSceneManager != null) {
+            loadSceneManager.OnLoadScene -= ResetObjectPoolerManager;
+        }
         EnemyDamageble.OnEnemiesDestroy -= SpawnItem;
     }
 

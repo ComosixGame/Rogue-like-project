@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0becb2da12559454584573677575ac9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
+  bullet: {fileID: 257090588462216308, guid: 5469f75a2b44523418b0ceba4916af81, type: 3}
   attackEffect: {fileID: 2141468630707795829}
   fireRateTime: 0.3
   MagazineCapacity: 10
   reloadDuration: 0.5
   damage: 100
-  speed: 30
+  speed: 15
   remainingAmmo: 0
   reloadTime: 0
   shootSound: {fileID: 8300000, guid: c1008da2369bf3440a936fe6b5a5e3d4, type: 3}

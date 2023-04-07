@@ -1,8 +1,13 @@
 using UnityEngine;
 
-public class BulletBasicObs : MonoBehaviour
+public class BulletBasicObs : GameObjectPool
 {
     [SerializeField] private int _TakeDame;
+    private ObjectPoolerManager objectPoolerManager;
+
+    private void Awake() {
+        objectPoolerManager = ObjectPoolerManager.Instance;
+    }
 
     public void Start()
     {
@@ -21,6 +26,6 @@ public class BulletBasicObs : MonoBehaviour
     }
 
     public void AutoDestroy(){
-        Destroy(gameObject);
+       objectPoolerManager.DeactiveObject(this);
     }
 }

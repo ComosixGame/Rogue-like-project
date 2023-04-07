@@ -136,15 +136,11 @@ public class PlayerData
         coin = 0;
         selectedCharacter = 0;
         selectedWeapon = 0;
-        selectedWeapon = 0;
         characters = new List<int>();
         weapons = new List<int>();
-        //chapters = new List<int>();
         characters.Add(0);
         weapons.Add(0);
-        //chapters.Add(0);
         energy = 0;
-        //dailyMissions.Add(0);
         energyUpdateDateTimeJson = DateTime.Now.ToString();
         dailyMissionDateTimeJson = DateTime.Now.ToString();
         displayeDailyMissions = new List<DailyMissionGoal>();

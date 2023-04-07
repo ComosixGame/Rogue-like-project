@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class AbsAttach : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObjectPool bullet;
 
     public abstract void Init();
     public abstract void Attack(Transform shootPosition);

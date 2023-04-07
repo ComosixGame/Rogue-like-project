@@ -13,57 +13,119 @@ MonoBehaviour:
   m_Name: New ObjectPooler Manager
   m_EditorClassIdentifier: 
   prefabs:
-  - size: 30
+  - name: effect
+    size: 30
     GameObjectPool: {fileID: -7699458031320576649, guid: 1f4d9ccc3c033c646bdb292493cba94d,
       type: 3}
-  - size: 30
+  - name: effect
+    size: 30
     GameObjectPool: {fileID: 8488679975446205442, guid: 6a1781d1579f2374297c02b1e938a264,
       type: 3}
-  - size: 30
+  - name: effect
+    size: 30
     GameObjectPool: {fileID: 6162715273609421441, guid: bb33d9e1a8a8e194a8874dd07becbccc,
       type: 3}
-  - size: 30
+  - name: obs
+    size: 30
     GameObjectPool: {fileID: 1638568060393253675, guid: 51fd8a0a51f418b40ac633676d8348a6,
       type: 3}
-  - size: 100
-    GameObjectPool: {fileID: 2048969231135658805, guid: 5469f75a2b44523418b0ceba4916af81,
-      type: 3}
-  - size: 5
+  - name: ability
+    size: 5
     GameObjectPool: {fileID: 6074679171099917309, guid: 968733c3b672191479a0a64c881fb23c,
       type: 3}
-  - size: 5
+  - name: healing
+    size: 5
     GameObjectPool: {fileID: 6764571379852062479, guid: 3001899dda29cab4aa0ea9ffc60a2117,
       type: 3}
-  - size: 10
+  - name: coin
+    size: 10
     GameObjectPool: {fileID: 744428139078250218, guid: 3321a9d122010604c9dc790875d91de6,
       type: 3}
-  - size: 10
+  - name: Bomb
+    size: 10
     GameObjectPool: {fileID: 5308659851561974654, guid: 6b85a702181fc2f46a1425cd56518909,
       type: 3}
-  - size: 10
+  - name: WarningSign
+    size: 10
     GameObjectPool: {fileID: -1241504218404844473, guid: e21120ff46b0fec4fa4e662f9ff8a5d3,
       type: 3}
-  - size: 10
+  - name: effect
+    size: 10
     GameObjectPool: {fileID: -7699458031320576649, guid: 0a463e328a9e16a41ac516d62bfe2421,
       type: 3}
-  - size: 10
+  - name: obs
+    size: 10
     GameObjectPool: {fileID: 1638568060393253675, guid: 69addcf9ea881ec4dbdd900280a4e985,
       type: 3}
-  - size: 10
+  - name: obs
+    size: 10
     GameObjectPool: {fileID: 1638568060393253675, guid: 7daa36af6ee6cd94c8ffb4decc67fa00,
       type: 3}
-  - size: 10
+  - name: enemy
+    size: 10
     GameObjectPool: {fileID: 7769135714048551931, guid: 3165154aec088a94b9825c97ceed80e9,
       type: 3}
-  - size: 10
+  - name: enemy
+    size: 10
     GameObjectPool: {fileID: 8368542778277190384, guid: 3bde1efc32f2bdb4e95d29df1b4465bc,
       type: 3}
-  - size: 10
+  - name: enemy
+    size: 10
     GameObjectPool: {fileID: 6361348099444362557, guid: 54833a5325715ab44956f744357ac5a2,
       type: 3}
-  - size: 10
+  - name: enemy
+    size: 10
     GameObjectPool: {fileID: 7295826998030421413, guid: e3833543ee393684b984e7dfe4a760cb,
       type: 3}
-  - size: 10
+  - name: enemy
+    size: 10
     GameObjectPool: {fileID: 4969323673167010611, guid: 0b72476898e4e2f49911d397aa2ccb54,
+      type: 3}
+  - name: buttlet player
+    size: 60
+    GameObjectPool: {fileID: 257090588462216308, guid: 5469f75a2b44523418b0ceba4916af81,
+      type: 3}
+  - name: Basic Blue
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: c79cd77151ba2b3498f970792b48dc97,
+      type: 3}
+  - name: Basic Orange
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: 99de91b03546b4541b457f9c0307c8e6,
+      type: 3}
+  - name: Boss
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: e84c0fd5194437f4188dad9aa1d354a2,
+      type: 3}
+  - name: Swirl Blue
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: 5959b4616532d8d4b8cad9cfc70cd890,
+      type: 3}
+  - name: Swirl Red
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: bee24add7517416448169e5f712d2e7d,
+      type: 3}
+  - name: ThrowFire Blue
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: 83d9240a5e0a2664081cf5d604e5a204,
+      type: 3}
+  - name: ThrowFire Green
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: e61fca9f57a197e47a764f31e21300ac,
+      type: 3}
+  - name: ThrowFire Red
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: 44991b5e03c7a5c49949814f84b14368,
+      type: 3}
+  - name: enemy
+    size: 10
+    GameObjectPool: {fileID: 4918250828290755961, guid: c0a51497e5ebb94448fa956821de269a,
+      type: 3}
+  - name: Basic Green
+    size: 10
+    GameObjectPool: {fileID: 1042228181451088633, guid: ac58b73fab5b2ef4f931c8e8fea50e1e,
+      type: 3}
+  - name: enemy
+    size: 10
+    GameObjectPool: {fileID: 2445226396927779316, guid: a39041e3e1f6fac42a54fec9f386732c,
       type: 3}
