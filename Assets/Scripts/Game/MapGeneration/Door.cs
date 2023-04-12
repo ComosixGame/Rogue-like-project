@@ -1,16 +1,11 @@
 using UnityEngine;
- 
+
 public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MapGenerator.Direction direction;
+    
 
-    // Update is called once per frame
-    void Update()
-    {
+    private void OnTriggerEnter(Collider other) {
         
     }
 }

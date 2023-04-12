@@ -22,7 +22,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, Range(0, 4)] private int doorsOpenFisrtRoom;
     [SerializeField, MinMax(0, 1)] private Vector2 obstacleRateMinMax;
     [SerializeField, MinMax(0, 1)] private Vector2 EnemiesRateMinMax;
-    [SerializeField] private Vector2Int mapSize;
+    private Vector2Int mapSize;
     [SerializeField] private Vector2 cellSize;
     [SerializeField] private GameObject floor;
     [SerializeField] private GameObject wall;
@@ -126,6 +126,7 @@ public class MapGenerator : MonoBehaviour
         bounder = new List<Tile>();
         safeArea = new List<Tile>();
         doorArea = new List<Tile>();
+        mapSize = new Vector2Int(Random.Range(7, 11), Random.Range(7, 11));
         Transform holder = roomPlace.Find("room contents")?.transform;
         if (holder == null)
         {
@@ -154,13 +155,13 @@ public class MapGenerator : MonoBehaviour
                 }
 
                 //tạo vùng cửa ra vào
-                if ((x >= mapCenter.x - 1 && x <= mapCenter.x && (y < 1 || y >= mapSize.y - 1)) || (y >= mapCenter.y - 1 && y <= mapCenter.y && (x < 1 || x >= mapSize.x - 1)))
+                if ((x == mapCenter.x && (y == 0 || y == mapSize.y - 1)) || (y == mapCenter.y && (x == 0 || x == mapSize.x - 1)))
                 {
                     doorArea.Add(tile);
                 }
 
                 //tạo vùng safe trc mỗi cửa ra vào
-                if ((x >= mapCenter.x - 2 && x <= mapCenter.x + 1 && (y <= 1 || y >= mapSize.y - 2)) || (y >= mapCenter.y - 2 && y <= mapCenter.y + 1 && (x <= 1 || x >= mapSize.x - 2)))
+                if ((x >= mapCenter.x - 1 && x <= mapCenter.x + 1 && (y <= 1 || y >= mapSize.y - 2)) || (y >= mapCenter.y - 1 && y <= mapCenter.y + 1 && (x <= 1 || x >= mapSize.x - 2)))
                 {
                     safeArea.Add(tile);
                 }
@@ -260,7 +261,26 @@ public class MapGenerator : MonoBehaviour
             //kiểm tra nếu là khu vực cửa thì tạo cửa nếu ko thì tạo tường
             if (doorArea.Contains(tile))
             {
-                Instantiate(door, tile.GetPositon(mapSize, cellSize) + offset, rot, holder).name = $"door({tile.x} - {tile.y})";
+                GameObject newDoor = Instantiate(door, tile.GetPositon(mapSize, cellSize) + offset, rot, holder);
+                Door doorComp = newDoor.GetComponent<Door>();
+                if (tile.x == mapCenter.x && tile.y == mapSize.y - 1)
+                {
+                    doorComp.direction = Direction.top;
+                }
+                else if (tile.x == mapCenter.x && tile.y == 0)
+                {
+                    doorComp.direction = Direction.bottom;
+                }
+                else if (tile.x == 0 && tile.y == mapCenter.y)
+                {
+                    doorComp.direction = Direction.left;
+                }
+                else
+                {
+
+                    doorComp.direction = Direction.right;
+                }
+                newDoor.name = $"door {doorComp.direction.ToString()}({tile.x} - {tile.y})";
             }
             else
             {

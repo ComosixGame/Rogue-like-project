@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5250455379466559287}
   - component: {fileID: 5250455379466559280}
   - component: {fileID: 2787393214382350719}
-  - component: {fileID: 1519279952920906667}
+  - component: {fileID: 6816850496256794632}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5250455379466559282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.999599, y: 10.25, z: 2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 10, y: 10.25, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!114 &1519279952920906667
+--- !u!114 &6816850496256794632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2007d654be6b5aa40a53719dba35b7c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
