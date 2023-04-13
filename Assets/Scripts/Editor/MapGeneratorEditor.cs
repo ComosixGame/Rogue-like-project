@@ -9,7 +9,7 @@ public class MapGeneratorEditor : Editor {
         MapGenerator map = target as MapGenerator;
         EditorGUILayout.Space(20);
         if(GUILayout.Button("GENERATE", GUILayout.Height(50))) {
-            map.GenerateRoom(UnityEngine.Random.Range(Int32.MinValue, Int32.MaxValue));
+            map.GenerateRoom(UnityEngine.Random.Range(int.MinValue, int.MaxValue));
         }
     }
 }

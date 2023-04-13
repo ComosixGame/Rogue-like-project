@@ -5,11 +5,25 @@ using Random = UnityEngine.Random;
 
 public class Room : MonoBehaviour
 {
+    public enum Type {
+        normal,
+        boss,
+        exit
+    }
+    public SpriteRenderer thumbnail;
     public List<RoomSpawner> roomSpawners = new List<RoomSpawner>();
     public List<MapGenerator.Direction> openDirections = new List<MapGenerator.Direction>();
+    public Room[] connectedRooms = new Room[4];
+    public Type type;
+    public bool clear;
     public bool spawned;
+    public int seed;
     public static event Action<Room> OnSpawn;
     public static event Action<Room> OnUnSpawn;
+
+    private void Start() {
+        seed = Random.Range(int.MinValue, int.MaxValue);
+    }
 
     private void OnEnable()
     {
@@ -43,6 +57,10 @@ public class Room : MonoBehaviour
             openDirections.Add(roomSpawners[index].direction);
             roomSpawners.Remove(roomSpawners[index]);
         }
+    }
+
+    public void SetThumbRoom(Sprite sprite) {
+        thumbnail.sprite = sprite;
     }
 
     private void OnTriggerEnter(Collider other)

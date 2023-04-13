@@ -35,8 +35,8 @@ public class RoomSpawner : MonoBehaviour
     {
         if (!close && spawn)
         {
-            Room room = Instantiate(mapGenerator.room, transform.position, Quaternion.identity).GetComponent<Room>();
-            room.Connect(GetConnect(direction));
+            Room newRoom = Instantiate(mapGenerator.room, transform.position, Quaternion.identity).GetComponent<Room>();
+            newRoom.Connect(GetConnect(direction));
         }
         // gameObject.SetActive(false);
     }
@@ -62,6 +62,21 @@ public class RoomSpawner : MonoBehaviour
                     gameObject.SetActive(!close);
                     door.SetActive(close);
                     room.openDirections.Remove(direction);
+                } else {
+                    switch(direction) {
+                        case MapGenerator.Direction.left:
+                            room.connectedRooms[0] = roomNeighborhood;
+                            break;
+                        case MapGenerator.Direction.top:
+                            room.connectedRooms[1] = roomNeighborhood;
+                            break;
+                        case MapGenerator.Direction.right:
+                            room.connectedRooms[2] = roomNeighborhood;
+                            break;
+                        default:
+                            room.connectedRooms[3] = roomNeighborhood;
+                            break;
+                    }
                 }
             }
         }

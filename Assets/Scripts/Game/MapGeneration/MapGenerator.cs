@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,9 +17,7 @@ public class MapGenerator : MonoBehaviour
     }
     public GameObject room;
     [SerializeField] private Transform roomPlace;
-    [SerializeField] private GameObject playerRoom;
-    [SerializeField] private GameObject bossRoom;
-    [SerializeField] private GameObject unknownRoom;
+    [SerializeField] private Sprite playerRoom, bossRoom, unknownRoom, exitRoom;
     [SerializeField, Range(0, 4)] private int doorsOpenFisrtRoom;
     [SerializeField, MinMax(0, 1)] private Vector2 obstacleRateMinMax;
     [SerializeField, MinMax(0, 1)] private Vector2 EnemiesRateMinMax;
@@ -30,12 +29,13 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] enemies;
-    [SerializeField, ReadOnly] private List<Transform> rooms;
-    [SerializeField, ReadOnly] private int currentRoom;
+    [SerializeField, ReadOnly] private List<Room> rooms;
+    [SerializeField, ReadOnly] private Room currentRoom;
+    [SerializeField] private int maxLevel;
+    [SerializeField, ReadOnly] private int currentLevel = 1;
     private float timer;
     private bool spawnDone;
     public static event Action OnSpawnDone;
-    private Transform playerTracking;
     private Tile mapCenter;
     private List<Tile> bounder;
     private List<Tile> safeArea;
@@ -50,7 +50,7 @@ public class MapGenerator : MonoBehaviour
 
     private void Awake()
     {
-        rooms = new List<Transform>();
+        rooms = new List<Room>();
     }
 
     private void OnEnable()
@@ -68,9 +68,10 @@ public class MapGenerator : MonoBehaviour
     private void Start()
     {
 
-        Room firstRoom = Instantiate(room, transform.position, Quaternion.identity).GetComponent<Room>();
+        Room firstRoom = Instantiate(room, transform.position + Vector3.up * 9999f, Quaternion.identity).GetComponent<Room>();
+        firstRoom.spawned = true;
         firstRoom.OpenDoor(doorsOpenFisrtRoom, doorsOpenFisrtRoom);
-        currentRoom = 0;
+        currentRoom = firstRoom;
     }
 
     private void Update()
@@ -83,20 +84,59 @@ public class MapGenerator : MonoBehaviour
                 SetRoom();
                 spawnDone = true;
                 OnSpawnDone?.Invoke();
+                GenerateRoom(currentRoom.seed);
             }
 
         }
     }
 
+    public void NextRoom(Room nextRoom, Direction direction, Transform player)
+    {
+        currentRoom.SetThumbRoom(null);
+        nextRoom.SetThumbRoom(playerRoom);
+        GenerateRoom(nextRoom.seed);
+        currentRoom = nextRoom;
+
+        CharacterController controller = player.GetComponent<CharacterController>();
+        controller.enabled = false;
+
+        switch (direction)
+        {
+            case Direction.right:
+                player.position = doorArea[0].GetPositon(mapSize, cellSize);
+                break;
+            case Direction.bottom:
+                player.position = doorArea[1].GetPositon(mapSize, cellSize);
+                break;
+            case Direction.left:
+                player.position = doorArea[2].GetPositon(mapSize, cellSize);
+                break;
+            default:
+                player.position = doorArea[3].GetPositon(mapSize, cellSize);
+                break;
+        }
+
+        controller.enabled = true;
+    }
+
+    public void NextLevel()
+    {
+        currentLevel++;
+        if (currentLevel > maxLevel)
+        {
+            Debug.Log("win");
+        }
+    }
+
     public void AddRoom(Room room)
     {
-        rooms.Add(room.transform);
+        rooms.Add(room);
         timer = 0;
     }
 
     public void RemoveRoom(Room room)
     {
-        rooms.Remove(room.transform);
+        rooms.Remove(room);
         timer = 0;
     }
 
@@ -104,19 +144,10 @@ public class MapGenerator : MonoBehaviour
     {
         for (int i = 0; i < rooms.Count; i++)
         {
-            if (i == 0)
-            {
-                playerTracking = Instantiate(playerRoom, rooms[i].position, Quaternion.identity).transform;
-            }
-            else if (i == rooms.Count - 1)
-            {
-                Instantiate(bossRoom, rooms[i].position, Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(unknownRoom, rooms[i].position, Quaternion.identity);
-            }
+            rooms[i].SetThumbRoom(i == rooms.Count - 1 ? bossRoom : unknownRoom);
         }
+
+        currentRoom.SetThumbRoom(playerRoom);
     }
 
     public void GenerateRoom(int seed)
@@ -125,16 +156,25 @@ public class MapGenerator : MonoBehaviour
         tiles = new List<Tile>();
         bounder = new List<Tile>();
         safeArea = new List<Tile>();
-        doorArea = new List<Tile>();
+        /**
+         * 0: left
+         * 1: top
+         * 2: right
+         * 3: bottom
+        */
+        doorArea = new List<Tile>(4) { new Tile(0, 0), new Tile(0, 0), new Tile(0, 0), new Tile(0, 0) };
         mapSize = new Vector2Int(Random.Range(7, 11), Random.Range(7, 11));
-        Transform holder = roomPlace.Find("room contents")?.transform;
-        if (holder == null)
+        Transform holder = roomPlace.Find("room contents");
+        if (Application.isPlaying)
         {
-            holder = new GameObject("room contents").transform;
-            holder.SetParent(roomPlace);
+            Destroy(holder?.gameObject);
         }
-
-        ClearChildren(holder);
+        else
+        {
+            DestroyImmediate(holder?.gameObject);
+        }
+        holder = new GameObject("room contents").transform;
+        holder.SetParent(roomPlace);
 
         mapCenter = new Tile(mapSize.x / 2, mapSize.y / 2);
 
@@ -155,10 +195,60 @@ public class MapGenerator : MonoBehaviour
                 }
 
                 //tạo vùng cửa ra vào
-                if ((x == mapCenter.x && (y == 0 || y == mapSize.y - 1)) || (y == mapCenter.y && (x == 0 || x == mapSize.x - 1)))
+                if (currentRoom == null)
                 {
-                    doorArea.Add(tile);
+                    //for prevew editor mode
+                    if (x == mapCenter.x)
+                    {
+                        if (y == 0)
+                        {
+                            doorArea[3] = tile;
+                        }
+                        else if (y == mapSize.y - 1)
+                        {
+                            doorArea[1] = tile;
+                        }
+                    }
+                    else if (y == mapCenter.y)
+                    {
+                        if (x == 0)
+                        {
+                            doorArea[0] = tile;
+                        }
+                        else if (x == mapSize.x - 1)
+                        {
+                            doorArea[2] = tile;
+                        }
+                    }
                 }
+                else
+                {
+                    //for runtime play mode
+                    if (x == mapCenter.x)
+                    {
+                        if (y == 0 && currentRoom.openDirections.Contains(Direction.bottom))
+                        {
+                            doorArea[3] = tile;
+                        }
+                        else if (y == mapSize.y - 1 && currentRoom.openDirections.Contains(Direction.top))
+                        {
+                            doorArea[1] = tile;
+                        }
+                    }
+                    else if (y == mapCenter.y)
+                    {
+                        if (x == 0 && currentRoom.openDirections.Contains(Direction.left))
+                        {
+                            doorArea[0] = tile;
+                        }
+                        else if (x == mapSize.x - 1 && currentRoom.openDirections.Contains(Direction.right))
+                        {
+                            doorArea[2] = tile;
+                        }
+                    }
+                }
+
+
 
                 //tạo vùng safe trc mỗi cửa ra vào
                 if ((x >= mapCenter.x - 1 && x <= mapCenter.x + 1 && (y <= 1 || y >= mapSize.y - 2)) || (y >= mapCenter.y - 1 && y <= mapCenter.y + 1 && (x <= 1 || x >= mapSize.x - 2)))
@@ -172,6 +262,11 @@ public class MapGenerator : MonoBehaviour
 
         shuffletiles = new Queue<Tile>(Utility.ShuffleArray<Tile>(tiles.ToArray()));
 
+        StartCoroutine(GenerateContents(holder, seed));
+    }
+
+    private IEnumerator GenerateContents(Transform holder, int seed) {
+        yield return null;
         PlacementWall(holder);
         PlacementObstacle(holder);
         GenerateNavMesh();
@@ -211,6 +306,7 @@ public class MapGenerator : MonoBehaviour
 
     private void PlacementEnemies(Transform holder, int seed)
     {
+        if (currentRoom?.clear == true) return;
         if (enemies.Length > 0)
         {
             float rate = Random.Range(EnemiesRateMinMax.x, EnemiesRateMinMax.y);
@@ -263,22 +359,26 @@ public class MapGenerator : MonoBehaviour
             {
                 GameObject newDoor = Instantiate(door, tile.GetPositon(mapSize, cellSize) + offset, rot, holder);
                 Door doorComp = newDoor.GetComponent<Door>();
-                if (tile.x == mapCenter.x && tile.y == mapSize.y - 1)
-                {
-                    doorComp.direction = Direction.top;
-                }
-                else if (tile.x == mapCenter.x && tile.y == 0)
-                {
-                    doorComp.direction = Direction.bottom;
-                }
-                else if (tile.x == 0 && tile.y == mapCenter.y)
+                doorComp.mapGenerator = this;
+                if (tile == doorArea[0])
                 {
                     doorComp.direction = Direction.left;
+                    doorComp.connectRoom = currentRoom?.connectedRooms[0];
+                }
+                else if (tile == doorArea[1])
+                {
+                    doorComp.direction = Direction.top;
+                    doorComp.connectRoom = currentRoom?.connectedRooms[1];
+                }
+                else if (tile == doorArea[2])
+                {
+                    doorComp.direction = Direction.right;
+                    doorComp.connectRoom = currentRoom?.connectedRooms[2];
                 }
                 else
                 {
-
-                    doorComp.direction = Direction.right;
+                    doorComp.direction = Direction.bottom;
+                    doorComp.connectRoom = currentRoom?.connectedRooms[3];
                 }
                 newDoor.name = $"door {doorComp.direction.ToString()}({tile.x} - {tile.y})";
             }
@@ -361,18 +461,6 @@ public class MapGenerator : MonoBehaviour
         int targetAccessibleTileCount = (int)(mapSize.x * mapSize.y - currentObstacleCount);
         return targetAccessibleTileCount == accessibleTileCount;
     }
-
-    private void ClearChildren(Transform parent)
-    {
-        if (parent.childCount > 0)
-        {
-            while (parent.childCount != 0)
-            {
-                DestroyImmediate(parent.GetChild(0).gameObject);
-            }
-        }
-    }
-
 
     public class Tile
     {
