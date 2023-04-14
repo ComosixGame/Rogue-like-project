@@ -27,15 +27,20 @@ public class RoomSpawner : MonoBehaviour
         gameObject.SetActive(!close);
         door.SetActive(close);
         mapGenerator = GameObject.FindGameObjectWithTag("Rooms").GetComponent<MapGenerator>();
-
-        Invoke("Spawn", 0.1f);
+        Invoke("AddToQueueSpawn", 0.1f);
     }
 
-    private void Spawn()
+    private void AddToQueueSpawn() {
+        if(gameObject.activeSelf) {
+            mapGenerator.roomSpawners.Enqueue(this);
+        }
+    }
+
+    public void Spawn()
     {
         if (!close && spawn)
         {
-            Room newRoom = Instantiate(mapGenerator.room, transform.position, Quaternion.identity).GetComponent<Room>();
+            Room newRoom = Instantiate(mapGenerator.room, transform.position, Quaternion.identity, mapGenerator.mapHolder).GetComponent<Room>();
             newRoom.Connect(GetConnect(direction));
         }
         // gameObject.SetActive(false);

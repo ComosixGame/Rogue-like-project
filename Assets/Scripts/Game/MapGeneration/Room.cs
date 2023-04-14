@@ -32,6 +32,7 @@ public class Room : MonoBehaviour
 
     private void OnDisable()
     {
+        Debug.Log("ok");
         OnUnSpawn?.Invoke(this);
     }
 
@@ -42,8 +43,8 @@ public class Room : MonoBehaviour
         roomSpawner.spawn = false;
         openDirections.Add(direction);
         roomSpawners.Remove(roomSpawner);
-        OpenDoor(0, 1);
         spawned = true;
+        OpenDoor(0, 1);
     }
 
     public void OpenDoor(int minDoors, int maxDoors)

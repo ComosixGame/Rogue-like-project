@@ -27,14 +27,15 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject corner;
     [SerializeField] private GameObject door;
+    [SerializeField] private GameObject exitDoor;
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] enemies;
     [SerializeField, ReadOnly] private List<Room> rooms;
     [SerializeField, ReadOnly] private Room currentRoom;
     [SerializeField] private int maxLevel;
     [SerializeField, ReadOnly] private int currentLevel = 1;
-    private float timer;
-    private bool spawnDone;
+    [HideInInspector] public Transform mapHolder;
+    [HideInInspector] public Queue<RoomSpawner> roomSpawners;
     public static event Action OnSpawnDone;
     private Tile mapCenter;
     private List<Tile> bounder;
@@ -47,11 +48,6 @@ public class MapGenerator : MonoBehaviour
 #if UNITY_EDITOR
     [SerializeField] public bool showGizmos;
 #endif
-
-    private void Awake()
-    {
-        rooms = new List<Room>();
-    }
 
     private void OnEnable()
     {
@@ -67,35 +63,64 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
+        GenerateMap();
+    }
 
-        Room firstRoom = Instantiate(room, transform.position + Vector3.up * 9999f, Quaternion.identity).GetComponent<Room>();
+
+    private IEnumerator SpawnRoom()
+    {
+        yield return new WaitForSeconds(0.1f);
+        while (roomSpawners.Count != 0)
+        {
+            roomSpawners.Dequeue().Spawn();
+            Debug.Log(roomSpawners.Count);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+            SetRoom();
+            OnSpawnDone?.Invoke();
+            GenerateRoom(currentRoom.seed);
+    }
+
+    private void GenerateMap()
+    {
+        rooms = new List<Room>();
+        roomSpawners = new Queue<RoomSpawner>();
+        mapHolder = roomPlace.Find("Map");
+        Destroy(mapHolder?.gameObject);
+        mapHolder = new GameObject("Map").transform;
+        mapHolder.SetParent(roomPlace);
+
+        Room firstRoom = Instantiate(room, transform.position + Vector3.up * 9999f, Quaternion.identity, mapHolder).GetComponent<Room>();
         firstRoom.spawned = true;
         firstRoom.OpenDoor(doorsOpenFisrtRoom, doorsOpenFisrtRoom);
         currentRoom = firstRoom;
-    }
 
-    private void Update()
-    {
-        if (!spawnDone)
-        {
-            timer += Time.deltaTime;
-            if (timer >= 0.5f)
-            {
-                SetRoom();
-                spawnDone = true;
-                OnSpawnDone?.Invoke();
-                GenerateRoom(currentRoom.seed);
-            }
-
-        }
+        StartCoroutine(SpawnRoom());
     }
 
     public void NextRoom(Room nextRoom, Direction direction, Transform player)
     {
-        currentRoom.SetThumbRoom(null);
-        nextRoom.SetThumbRoom(playerRoom);
-        GenerateRoom(nextRoom.seed);
+        switch (nextRoom.type)
+        {
+            case Room.Type.exit:
+                nextRoom.SetThumbRoom(exitRoom);
+                break;
+            case Room.Type.boss:
+                nextRoom.SetThumbRoom(bossRoom);
+                break;
+            default:
+                nextRoom.SetThumbRoom(playerRoom);
+                break;
+        }
+
+        if (currentRoom.type == Room.Type.normal)
+        {
+            currentRoom.SetThumbRoom(null);
+        }
+
         currentRoom = nextRoom;
+        GenerateRoom(nextRoom.seed);
 
         CharacterController controller = player.GetComponent<CharacterController>();
         controller.enabled = false;
@@ -122,6 +147,7 @@ public class MapGenerator : MonoBehaviour
     public void NextLevel()
     {
         currentLevel++;
+        GenerateMap();
         if (currentLevel > maxLevel)
         {
             Debug.Log("win");
@@ -131,22 +157,24 @@ public class MapGenerator : MonoBehaviour
     public void AddRoom(Room room)
     {
         rooms.Add(room);
-        timer = 0;
     }
 
     public void RemoveRoom(Room room)
     {
         rooms.Remove(room);
-        timer = 0;
     }
 
     public void SetRoom()
     {
         for (int i = 0; i < rooms.Count; i++)
         {
-            rooms[i].SetThumbRoom(i == rooms.Count - 1 ? bossRoom : unknownRoom);
+            bool lastLevel = currentLevel == maxLevel;
+            bool isLastRoom = i == rooms.Count - 1;
+            rooms[i].type = isLastRoom && lastLevel ? Room.Type.boss : Room.Type.normal;
+            rooms[i].SetThumbRoom(lastLevel && isLastRoom ? bossRoom : unknownRoom);
         }
-
+        int randomExit = Random.Range(1, rooms.Count);
+        rooms[randomExit].type = Room.Type.exit;
         currentRoom.SetThumbRoom(playerRoom);
     }
 
@@ -260,17 +288,29 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
+
         shuffletiles = new Queue<Tile>(Utility.ShuffleArray<Tile>(tiles.ToArray()));
 
         StartCoroutine(GenerateContents(holder, seed));
     }
 
-    private IEnumerator GenerateContents(Transform holder, int seed) {
+    private IEnumerator GenerateContents(Transform holder, int seed)
+    {
         yield return null;
+        switch (currentRoom.type)
+        {
+            case Room.Type.exit:
+            case Room.Type.boss:
+                GameObject exitDoorClone = Instantiate(exitDoor, mapCenter.GetPositon(mapSize, cellSize), Quaternion.identity, holder);
+                exitDoorClone.GetComponent<ExitDoor>().mapGenerator = this;
+                break;
+            default:
+                PlacementObstacle(holder);
+                PlacementEnemies(holder, seed);
+                break;
+        }
         PlacementWall(holder);
-        PlacementObstacle(holder);
         GenerateNavMesh();
-        PlacementEnemies(holder, seed);
     }
 
     private void PlacementObstacle(Transform holder)
