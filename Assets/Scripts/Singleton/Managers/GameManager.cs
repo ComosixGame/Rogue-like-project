@@ -35,7 +35,6 @@ public class GameManager : Singleton<GameManager>
     public event Action OnupdateInfoCharacter;
     public event Action OnNotEnoughMoney;
     public event Action OnupdateStatus;
-    public event Action OnLoginGameSuccess;
     public event Action<int> OnReceiveCoinReward;
     private PlayerData playerData;
     public SettingData settingData;
