@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     private NavMeshAgent agent;
     private float idleTimer;
     public Transform shootPosition;
+    public Transform shootPositionOne;
     private bool readyAttack, fired;
     private Transform _player;
     public float delayAttack = 3.0f;
@@ -113,7 +114,8 @@ public class EnemyBehaviour : MonoBehaviour
             if(Vector3.Angle(transform.forward, dirLook) <= 0.3f) {
                 if(!fired) {
                     fired = true;  
-                    _absAttach.Attack(shootPosition);
+                    _absAttach.Attack(shootPosition, shootPositionOne);
+                    //_absAttach?.Attack(shootPositionOne);
                 }
             }
         }

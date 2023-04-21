@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class AttachBasic : AbsAttach
+public class AttachBasicTwoTranform : AbsAttach
 {
-
-    private Animator _animator;
+        private Animator _animator;
 
     private int _StandAiming;
 
@@ -19,8 +18,8 @@ public class AttachBasic : AbsAttach
     {
         GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
         newBullet.GetComponent<AbsBullet>().Fire(shootPosition.forward.normalized);
-        // GameObjectPool newBulletOne = objectPoolerManager.SpawnObject(bullet, shootPositionOne.transform.position, shootPositionOne.transform.rotation);
-        // newBulletOne.GetComponent<AbsBullet>().Fire(shootPositionOne.forward.normalized);
+        GameObjectPool newBulletOne = objectPoolerManager.SpawnObject(bullet, shootPositionOne.transform.position, shootPositionOne.transform.rotation);
+        newBulletOne.GetComponent<AbsBullet>().Fire(shootPositionOne.forward.normalized);
         OnAttackeComplete();
         _animator.SetBool(_StandAiming, false);
     }
@@ -29,6 +28,4 @@ public class AttachBasic : AbsAttach
     {
         
     }
-
 }
-

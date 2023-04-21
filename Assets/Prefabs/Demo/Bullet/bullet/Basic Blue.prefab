@@ -132,16 +132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 3931644168276374691}
   fired: 0
-  rotate: 0
-  rotateAmount: 45
-  bounce: 0
-  bounceForce: 10
   speed: 20
   accuracy: 95
-  fireRate: 4
   muzzlePrefab: {fileID: 0}
-  hitPrefab: {fileID: 0}
-  trails: []
 --- !u!114 &1042228181451088633
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class AttachVolleysOfBullets : AbsAttach
     [ReadOnly, SerializeField] private float _timerAttack;
     
     private Transform shootPosition;
+    private Transform shootPositionOne;
     public bool fire;
     private float counterBullet;
     private Animator _animator;
@@ -43,18 +44,20 @@ public class AttachVolleysOfBullets : AbsAttach
     }
 
 
-    public override void Attack(Transform shootPosition)
+    public override void Attack(Transform shootPosition, Transform shootPositionOne)
     {
         this.shootPosition = shootPosition; 
+        this.shootPositionOne = shootPositionOne;
         counterBullet = numberOfBullet;
         fire =  true;
     }
     
     private void Fired() {
         if(counterBullet > 0){
-            //GameObject newBullet = Instantiate(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
             GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, shootPosition.transform.position, shootPosition.transform.rotation);
             newBullet.GetComponent<EnemyBulletsBasic>().Fire(shootPosition.forward.normalized);
+            // GameObjectPool newBulletOne = objectPoolerManager.SpawnObject(bullet, shootPositionOne.transform.position, shootPositionOne.transform.rotation);
+            // newBulletOne.GetComponent<EnemyBulletsBasic>().Fire(shootPositionOne.forward.normalized);
             counterBullet -= 1;
             if(counterBullet == 0){
                 _animator.SetBool(_StandAiming, false);
