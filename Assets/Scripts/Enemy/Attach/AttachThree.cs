@@ -21,7 +21,7 @@ public class AttachThree : AbsAttach
     {
         angelPerShot = angel/numberOfBullet - 1;
     }
-    public override void Attack(Transform shootPosition)
+    public override void Attack(Transform shootPosition, Transform shootPositionOne)
     {   
         int k = 1;
         for(int i = 0 ; i < numberOfBullet; i++){

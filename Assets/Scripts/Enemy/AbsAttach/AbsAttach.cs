@@ -8,7 +8,7 @@ public abstract class AbsAttach : MonoBehaviour
     public GameObjectPool bullet;
 
     public abstract void Init();
-    public abstract void Attack(Transform shootPosition);
+    public abstract void Attack(Transform shootPosition, Transform shootPositionOne);
     public event Action OnAttacked;
 
     protected void OnAttackeComplete(){
