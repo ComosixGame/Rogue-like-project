@@ -15,7 +15,7 @@ public class BasicPlayerAttack : AbsPlayerAttack
         soundManager = SoundManager.Instance;
     }
 
-    public override void Fire(Vector3 shootPos, Quaternion shootRot)
+    protected override void Fire(Vector3 shootPos, Quaternion shootRot)
     {
         attackEffect.Play();
         GameObjectPool newBullet = objectPoolerManager.SpawnObject(bullet, shootPos, shootRot);

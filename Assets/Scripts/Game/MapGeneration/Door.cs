@@ -8,6 +8,18 @@ public class Door : MonoBehaviour
     public MapGenerator.Direction direction;
     public Room connectRoom;
 
+    private void OnEnable() {
+        MapGenerator.OnRoomClear += OpenDoor;
+    }
+
+    private void OnDisable() {
+        MapGenerator.OnRoomClear -= OpenDoor;
+    }
+    
+    private void OpenDoor() {
+        GetComponent<Collider>().isTrigger = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if ((layerMask & (1 << other.gameObject.layer)) != 0)

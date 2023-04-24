@@ -7,6 +7,7 @@ public class Room : MonoBehaviour
 {
     public enum Type {
         normal,
+        first,
         boss,
         exit
     }
@@ -32,7 +33,6 @@ public class Room : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("ok");
         OnUnSpawn?.Invoke(this);
     }
 
