@@ -50,6 +50,6 @@ public abstract class AbsPlayerAttack : MonoBehaviour
         }
     }
 
-    public abstract void Fire(Vector3 shootPos, Quaternion shootRot);
+    protected abstract void Fire(Vector3 shootPos, Quaternion shootRot);
 
 }
