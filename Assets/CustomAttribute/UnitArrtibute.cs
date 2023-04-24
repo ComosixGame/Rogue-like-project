@@ -19,7 +19,7 @@ namespace MyCustomAttribute
 
 
     //custom attr Min max (Tạo MinMaxSlider cho field)
-    //cách sử dụng [MinMax(float min, float max)] field phải có kiểu là Vector2
+    //cách sử dụng [MinMax(float min, float max)] field phải có kiểu là Vector2 và Vector2Int
     public class MinMaxAttribute : PropertyAttribute
     {
         public readonly float min;
