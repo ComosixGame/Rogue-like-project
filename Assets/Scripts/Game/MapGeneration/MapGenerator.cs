@@ -16,6 +16,7 @@ public class MapGenerator : MonoBehaviour
         left
     }
     public GameObject room;
+    [SerializeField] private CharacterSpawn characterSpawn;
     [SerializeField] private Transform roomPlace;
     [SerializeField] private Sprite playerRoom, bossRoom, unknownRoom, exitRoom;
     [SerializeField, Range(0, 4)] private int doorsOpenFisrtRoom;
@@ -36,12 +37,16 @@ public class MapGenerator : MonoBehaviour
     [SerializeField, ReadOnly] private int currentLevel = 1;
     [HideInInspector] public Transform mapHolder;
     [HideInInspector] public Queue<RoomSpawner> roomSpawners;
+    [SerializeField] private PlayerTracking playerTracking;
     public static event Action OnSpawnDone;
+    public static event Action OnRoomClear;
+    private bool playerSpawed;
     private Tile mapCenter;
     private List<Tile> bounder;
     private List<Tile> safeArea;
     private List<Tile> doorArea;
     private List<Tile> tiles;
+    private int enemiesCount;
     private Queue<Tile> shuffletiles;
 
 
@@ -53,12 +58,14 @@ public class MapGenerator : MonoBehaviour
     {
         Room.OnSpawn += AddRoom;
         Room.OnUnSpawn += RemoveRoom;
+        EnemyDamageble.OnEnemiesDestroy += CountEnemies;
     }
 
     private void OnDisable()
     {
         Room.OnSpawn -= AddRoom;
         Room.OnUnSpawn -= RemoveRoom;
+        EnemyDamageble.OnEnemiesDestroy -= CountEnemies;
     }
 
     private void Start()
@@ -66,20 +73,29 @@ public class MapGenerator : MonoBehaviour
         GenerateMap();
     }
 
+    private void Update() {
+        if(playerSpawed && enemiesCount <=0) {
+            OnRoomClear?.Invoke();
+        }
+    }
+
+    private void CountEnemies(Vector3 pos) {
+        enemiesCount --;
+    }
+
 
     private IEnumerator SpawnRoom()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         while (roomSpawners.Count != 0)
         {
             roomSpawners.Dequeue().Spawn();
-            Debug.Log(roomSpawners.Count);
             yield return new WaitForSeconds(0.1f);
         }
 
-            SetRoom();
-            OnSpawnDone?.Invoke();
-            GenerateRoom(currentRoom.seed);
+        SetRoom();
+        OnSpawnDone?.Invoke();
+        GenerateRoom(currentRoom.seed);
     }
 
     private void GenerateMap()
@@ -92,6 +108,7 @@ public class MapGenerator : MonoBehaviour
         mapHolder.SetParent(roomPlace);
 
         Room firstRoom = Instantiate(room, transform.position + Vector3.up * 9999f, Quaternion.identity, mapHolder).GetComponent<Room>();
+        playerTracking.transform.position = firstRoom.transform.position;
         firstRoom.spawned = true;
         firstRoom.OpenDoor(doorsOpenFisrtRoom, doorsOpenFisrtRoom);
         currentRoom = firstRoom;
@@ -114,13 +131,14 @@ public class MapGenerator : MonoBehaviour
                 break;
         }
 
-        if (currentRoom.type == Room.Type.normal)
+        if (currentRoom.type == Room.Type.normal || currentRoom.type == Room.Type.first)
         {
             currentRoom.SetThumbRoom(null);
         }
 
         currentRoom = nextRoom;
         GenerateRoom(nextRoom.seed);
+        playerTracking.MoveTo(currentRoom.transform.position);;
 
         CharacterController controller = player.GetComponent<CharacterController>();
         controller.enabled = false;
@@ -174,6 +192,7 @@ public class MapGenerator : MonoBehaviour
             rooms[i].SetThumbRoom(lastLevel && isLastRoom ? bossRoom : unknownRoom);
         }
         int randomExit = Random.Range(1, rooms.Count);
+        rooms[0].type = Room.Type.first;
         rooms[randomExit].type = Room.Type.exit;
         currentRoom.SetThumbRoom(playerRoom);
     }
@@ -299,6 +318,9 @@ public class MapGenerator : MonoBehaviour
         yield return null;
         switch (currentRoom.type)
         {
+            case Room.Type.first:
+            //phòng đầu thì tạo ra 1 phòng trống
+                break;
             case Room.Type.exit:
             case Room.Type.boss:
                 GameObject exitDoorClone = Instantiate(exitDoor, mapCenter.GetPositon(mapSize, cellSize), Quaternion.identity, holder);
@@ -311,6 +333,12 @@ public class MapGenerator : MonoBehaviour
         }
         PlacementWall(holder);
         GenerateNavMesh();
+        if (!playerSpawed)
+        {
+            Vector3 spawPosition = mapCenter.GetPositon(mapSize, cellSize);
+            characterSpawn.Spawn(spawPosition);
+            playerSpawed = true;
+        }
     }
 
     private void PlacementObstacle(Transform holder)
@@ -351,6 +379,7 @@ public class MapGenerator : MonoBehaviour
         {
             float rate = Random.Range(EnemiesRateMinMax.x, EnemiesRateMinMax.y);
             int count = (int)((mapSize.x - 2) * (mapSize.y - 2) * rate);
+            enemiesCount =  count;
             for (int i = 0; i < count; i++)
             {
                 Tile tile = shuffletiles.Dequeue();
