@@ -27,11 +27,17 @@ public class GameManager : Singleton<GameManager>
     public Transform weapon {get; private set;}
     public Transform cam {get; private set;}
     public event Action OnEnemiesDestroyed;
+    //sử kiện spawn nhân vật vào màn chơi
     public event Action<Transform> OnSelectedPlayer;
+    //pause game
     public event Action OnPause;
+    //resume game
     public event Action OnResume;
+    //cập nhật tiền nhặt đc trong lượt chơi
     public event Action<int> OnUpdateCoin;
+    //cập nhật tiền của player
     public event Action<int> OnUpdateCoinPlayer;
+    //
     public event Action OnupdateInfoCharacter;
     public event Action OnNotEnoughMoney;
     public event Action OnupdateStatus;
