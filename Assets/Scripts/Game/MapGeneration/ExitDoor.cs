@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/**
+ * của exit mở cuối lượt chơi, sẽ trigger việc random lại toàn bộ map
+ */
+
 [RequireComponent(typeof(Collider))]
 public class ExitDoor : MonoBehaviour
 {

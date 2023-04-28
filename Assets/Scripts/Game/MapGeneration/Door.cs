@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/**
+ * Của lên kết giữa các phòng trigger lại việc generate phòng mới
+ */
+
 [RequireComponent(typeof(Collider))]
 public class Door : MonoBehaviour
 {

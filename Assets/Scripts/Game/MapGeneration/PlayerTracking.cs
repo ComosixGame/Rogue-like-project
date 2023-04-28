@@ -36,10 +36,12 @@ public class PlayerTracking : MonoBehaviour
         }
     }
 
+    //handle zoom map
     public void ZoomMap(float value) {
         cam.orthographicSize = zoomOrigin / value;
     }
 
+    //sử dụng khi muốn mở fullmap
     public void OpenFullMap(bool open) {
         FullMap.SetActive(open);
         MiniMap.SetActive(!open);
