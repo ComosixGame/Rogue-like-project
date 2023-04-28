@@ -86,6 +86,7 @@ public class MapGenerator : MonoBehaviour
 
     private IEnumerator SpawnRoom()
     {
+        //các room spawner sẽ được thêm vào hàng đợi để chờ spawn room, tránh các room bị spawn cùng lúc chồng lên nhau
         yield return new WaitForSeconds(0.2f);
         while (roomSpawners.Count != 0)
         {

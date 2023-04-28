@@ -57,6 +57,7 @@ public class RoomSpawner : MonoBehaviour
 
     private void CheckNeighborhood()
     {
+        //kiểm tra của open của các room lân cận
         Collider[] results = new Collider[10];
         int numFound = Physics.OverlapBoxNonAlloc(transform.position, Vector3.one , results);
         for (int i = 0; i < numFound; i++)
